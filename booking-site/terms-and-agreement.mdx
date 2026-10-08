@@ -1,0 +1,78 @@
+---
+title: "Terms and the rental agreement"
+description: "Publish the booking terms guests accept when they book, and the rental agreement they sign on their booking page."
+---
+
+Overviu handles two documents for direct bookings:
+
+- **Booking terms**: your general terms, which guests accept when they book on your booking site.
+- **Rental agreement**: a contract for the stay, filled in with each booking's details, which guests sign on their booking page.
+
+Both are versioned: each time you publish, Overviu keeps the new version, and every booking keeps the version its guest accepted or signed.
+
+<Note>Only owners and admins can publish terms and the rental agreement.</Note>
+
+## Booking terms
+
+<Steps>
+  <Step title="Open the terms">
+    Go to **Settings** → **Booking site** → **Terms**.
+  </Step>
+  <Step title="Write them">
+    Write your terms in the **Terms** editor: house rules for bookings, payment, cancellation, liability, whatever applies to you.
+  </Step>
+  <Step title="Publish">
+    Click **Publish**. The screen shows when they were published and by whom.
+  </Step>
+</Steps>
+
+Once published:
+
+- guests tick "I agree to the booking terms and the cancellation policy" before they can book on your booking site;
+- the terms are on your booking site's terms page, linked from the booking form;
+- direct bookings you add yourself ask the guest to accept them on their booking page, when there's no rental agreement to sign;
+- if you publish new terms, guests who book after that accept the new version. Bookings already made keep the version their guest accepted.
+
+Until you publish terms, guests aren't asked to accept any.
+
+## Rental agreement
+
+<Steps>
+  <Step title="Open the agreement">
+    Go to **Settings** → **Booking site** → **Rental agreement**.
+  </Step>
+  <Step title="Write it">
+    Write the agreement in the **Agreement** editor. Use placeholders for each booking's details; they're filled in for every guest:
+
+    | Placeholder | Becomes |
+    | --- | --- |
+    | `{guest_name}`, `{guest_email}`, `{guest_phone}` | The guest's details |
+    | `{listing}`, `{address}` | The listing and its address |
+    | `{check_in}`, `{check_out}`, `{nights}`, `{guests}` | The stay |
+    | `{total}`, `{security_deposit}` | The price and the deposit |
+    | `{cancellation_policy}` | The listing's cancellation policy |
+    | `{house_rules}` | The listing's **House rules / agreement addendum** (a unit type without its own uses the building's) |
+    | `{booking_reference}`, `{team}` | The confirmation code and your team's name |
+  </Step>
+  <Step title="Choose whether it's required">
+    Leave **Require a signed rental agreement** on to ask every direct-booking guest to sign. It saves as soon as you switch it.
+  </Step>
+  <Step title="Publish">
+    Click **Publish**.
+  </Step>
+</Steps>
+
+## How guests sign
+
+On their [booking page](/guests/guest-page), the guest reads the agreement with their booking's details filled in, ticks that they agree to it and the booking terms, types their full name and clicks **Sign agreement**.
+
+- Signed copies never change, even when you publish a new version.
+- If you [change the booking](/bookings/change-a-booking) after they've signed, they're asked to sign the updated agreement.
+- On the booking in Overviu, the **Guest page** section shows who signed and when. **Download** saves the signed agreement as a PDF.
+- If a guest signs on paper instead, click **Mark as signed (on paper)** with a note.
+
+## Related
+
+- [The guest's booking page](/guests/guest-page)
+- [Your booking site](/booking-site/set-up)
+- [Prices and stay rules](/calendar/prices-and-rules#cancellation-policy)

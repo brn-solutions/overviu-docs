@@ -1,0 +1,51 @@
+---
+title: "Use your own domain"
+description: "Put your booking site on your own domain, like book.your-domain.com, with the DNS records Overviu gives you."
+---
+
+Your booking site always works at `your-team.overviu.app`. You can also put it on your own domain, like `book.your-domain.com` or `www.your-domain.com`, so guests book on an address they know. Overviu sets up the secure (https) certificate for you.
+
+<Note>Only owners and admins can add or change domains.</Note>
+
+## Before you start
+
+- A domain you own, and access to its DNS settings at your domain provider or registrar.
+- Choose a subdomain or `www.`: `book.your-domain.com` or `www.your-domain.com`. A bare domain like `your-domain.com` (an apex domain) isn't supported.
+
+## Steps
+
+<Steps>
+  <Step title="Add the domain">
+    Go to **Settings** → **Domains**. Under **Custom domains**, type the domain, like `bookings.your-domain.com`, and click **Add domain**.
+  </Step>
+  <Step title="Add the DNS records">
+    Overviu shows the records to add (click **View DNS records** to see them again):
+
+    - a **CNAME** record that points your domain at Overviu;
+    - a **TXT (ownership verification)** record that proves the domain is yours.
+
+    Add both at your DNS provider, with the **Name** and **Value** exactly as shown.
+  </Step>
+  <Step title="Wait for verification">
+    Overviu checks every few minutes. The domain moves from **Pending DNS** to **Pending SSL** while the certificate is issued, then to **Connected**. DNS changes can take a few minutes, sometimes longer, to spread; click **Verify now** to check straight away.
+  </Step>
+  <Step title="Make it the primary domain">
+    Once it's **Connected**, click **Set as primary**. Overviu then uses it in every link it sends: guests' booking pages, emails and the getting-started checklist.
+  </Step>
+</Steps>
+
+## What happens next
+
+- Your booking site works on the new domain, and on `your-team.overviu.app` too.
+- A domain that fails shows **Failed** with the reason. Fix the DNS records and click **Verify now**.
+- You can add up to 5 custom domains.
+
+## Remove a domain
+
+Click **Remove** next to it. If it was the primary domain, links go back to your `overviu.app` address. Remove the DNS records at your provider too.
+
+## Related
+
+- [Your booking site](/booking-site/set-up)
+- [Branding](/booking-site/branding)
+- [Send from your own email address](/guests/sender-email)

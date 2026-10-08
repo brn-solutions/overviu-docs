@@ -74,6 +74,15 @@
               "guests/inbox",
               "guests/sender-email"
             ]
+          },
+          {
+            "group": "Your booking site",
+            "pages": [
+              "booking-site/set-up",
+              "booking-site/branding",
+              "booking-site/custom-domain",
+              "booking-site/terms-and-agreement"
+            ]
           }
         ]
       },
