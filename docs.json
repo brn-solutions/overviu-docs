@@ -21,19 +21,39 @@
         "groups": [
           {
             "group": "Get started",
-            "pages": ["index", "get-started/quickstart", "get-started/key-ideas"]
+            "pages": [
+              "index",
+              "get-started/quickstart",
+              "get-started/key-ideas"
+            ]
           }
         ]
       },
       {
         "tab": "API reference",
-        "groups": []
+        "groups": [
+          {
+            "group": "Get started",
+            "pages": [
+              "api-reference/introduction",
+              "api-reference/authentication",
+              "api-reference/conventions"
+            ]
+          },
+          {
+            "group": "Endpoints",
+            "openapi": "api-reference/openapi.json"
+          }
+        ]
       }
     ]
   },
   "navbar": {
     "links": [
-      { "label": "Sign in", "href": "https://overviu.app/login" }
+      {
+        "label": "Sign in",
+        "href": "https://overviu.app/login"
+      }
     ],
     "primary": {
       "type": "button",
@@ -42,15 +62,29 @@
     }
   },
   "contextual": {
-    "options": ["copy", "view", "chatgpt", "claude", "cursor", "vscode", "mcp"]
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "cursor",
+      "vscode",
+      "mcp"
+    ]
   },
   "footer": {
     "links": [
       {
         "header": "Overviu",
         "items": [
-          { "label": "Open Overviu", "href": "https://overviu.app" },
-          { "label": "API reference", "href": "/api-reference/introduction" }
+          {
+            "label": "Open Overviu",
+            "href": "https://overviu.app"
+          },
+          {
+            "label": "API reference",
+            "href": "/api-reference/introduction"
+          }
         ]
       }
     ]

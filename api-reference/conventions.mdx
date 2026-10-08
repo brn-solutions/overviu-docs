@@ -1,0 +1,108 @@
+---
+title: "Conventions"
+description: "Money, dates, IDs, paging, errors and rate limits in the Overviu API."
+---
+
+These rules hold across every endpoint.
+
+## Money
+
+Amounts are whole numbers in the smallest unit of the currency (cents), next to a `currency` field with the three-letter ISO 4217 code. A booking with `"grand_total": 48000` and `"currency": "EUR"` costs €480.00.
+
+```json
+{
+  "currency": "EUR",
+  "accommodation_total": 45000,
+  "fees_total": 6000,
+  "discount_total": 3000,
+  "taxes_total": 0,
+  "grand_total": 48000
+}
+```
+
+A listing's currency is set on the listing (or its building), and its bookings use it.
+
+## Dates and times
+
+- Dates are `YYYY-MM-DD`, like `2026-10-15`. `check_in` is the day the guest arrives and `check_out` the day they leave, so a stay from `2026-10-15` to `2026-10-18` is three nights.
+- Timestamps, like `created_at` or `confirmed_at`, are ISO 8601 with their offset: `2026-10-08T09:30:00+00:00`.
+
+## IDs
+
+Listings, bookings and guests have UUIDs (`"id": "9f3c1a2e-…"`). A booking also has a short `confirmation_code`, the one guests see.
+
+## Paging
+
+Lists come one page at a time, 20 items by default. Change the size with `per_page`.
+
+Listings use numbered pages. Ask for the next one with `page`, and read the totals in `meta`:
+
+```json
+{
+  "data": [ … ],
+  "links": { "first": "…?page=1", "last": "…?page=3", "prev": null, "next": "…?page=2" },
+  "meta": { "current_page": 1, "last_page": 3, "per_page": 20, "total": 47, … }
+}
+```
+
+Bookings and guests use cursors. Follow `links.next` until it's `null`:
+
+```json
+{
+  "data": [ … ],
+  "links": { "first": null, "last": null, "prev": null, "next": "…/v1/bookings?cursor=eyJ…" },
+  "meta": { "path": "…/v1/bookings", "per_page": 20, "next_cursor": "eyJ…", "prev_cursor": null }
+}
+```
+
+## Errors
+
+Errors come with an HTTP status and the same body:
+
+```json
+{
+  "success": false,
+  "message": "Check-in is not allowed on this day.",
+  "errors": { "availability": ["closed_for_arrival"] }
+}
+```
+
+| Status | When |
+| --- | --- |
+| `401` | The token is missing, wrong or revoked. |
+| `404` | The record doesn't exist, or belongs to another team. |
+| `422` | The request can't be done: a field failed validation (`errors` lists each field), the dates aren't available (`errors.availability`), a coupon doesn't apply (`errors.coupon_code`), or the booking can't be changed or cancelled any more (for example, it's already cancelled or completed). |
+| `429` | Too many requests. Wait and try again; the `Retry-After` header says how many seconds. |
+
+### Why dates aren't available
+
+When dates can't be booked, `errors.availability` holds one of these codes, and `message` explains it in words. [Check availability](/api-reference/availability/check-availability-and-price) returns the same code in `reason_code`.
+
+| Code | Meaning |
+| --- | --- |
+| `invalid_dates` | Check-out isn't after check-in. |
+| `past_date` | Check-in is in the past. |
+| `too_soon` | Check-in is closer than the listing's minimum advance booking. |
+| `too_far` | Check-in is further away than the listing's maximum advance booking. |
+| `too_many_guests` | More guests than the listing sleeps. |
+| `not_bookable` | The building can't be booked as a whole. |
+| `missing_days` | The calendar has no data for some of the dates. |
+| `unavailable` | Some nights are already booked or blocked. |
+| `sold_out` | No unit of this type is free for these dates. |
+| `buffer_violation` | The stay would break the listing's preparation time between bookings. |
+| `closed_for_arrival` | Check-in isn't allowed on that day. |
+| `closed_for_departure` | Check-out isn't allowed on that day. |
+| `min_stay` | Shorter than the minimum stay. |
+| `max_stay` | Longer than the maximum stay. |
+
+## Rate limits
+
+- With a token: 60 requests a minute for each team, shared by all of the team's tokens.
+- [Public endpoints](/api-reference/public/list-a-booking-sites-listings): 30 requests a minute from each IP address.
+
+Over the limit, the API answers `429`.
+
+## Related
+
+- [Authentication](/api-reference/authentication)
+- [Create a booking](/api-reference/bookings/create-a-booking)

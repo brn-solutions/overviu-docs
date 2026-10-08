@@ -1,0 +1,48 @@
+---
+title: "Overviu API"
+description: "Read your listings and availability, and create and manage bookings, from your own systems."
+---
+
+The Overviu API lets your own systems work with your team's data: a channel manager, a website of your own, a spreadsheet or an automation tool.
+
+With it you can:
+
+- read your listings, with their photos;
+- check availability and the price of a stay;
+- create, change and cancel bookings;
+- read your guests;
+- read what your booking site shows (listings, calendars and prices) without a token, for example to build your own booking pages.
+
+## Base URL
+
+```text
+https://api.overviu.app/api/v1
+```
+
+Every request and response is JSON. Send `Accept: application/json`, and `Content-Type: application/json` when you send a body.
+
+```bash
+curl https://api.overviu.app/api/v1/me \
+  -H "Authorization: Bearer YOUR_API_TOKEN" \
+  -H "Accept: application/json"
+```
+
+## Versioning
+
+The version is part of the path: `v1`. Within `v1`, Overviu only makes changes that don't break existing clients, such as new endpoints or new fields in a response. A change that would break clients comes as a new version, with its own path.
+
+## Endpoints
+
+| Group | What it covers |
+| --- | --- |
+| [Account](/api-reference/account/get-the-current-team-and-token) | The team and the token you're calling with. |
+| [Listings](/api-reference/listings/list-listings) | Your team's listings, with their photos. |
+| [Availability](/api-reference/availability/check-availability-and-price) | Whether dates can be booked, and the price. |
+| [Bookings](/api-reference/bookings/list-bookings) | Create, read, change and cancel bookings. |
+| [Guests](/api-reference/guests/list-guests) | Your team's guests. |
+| [Public](/api-reference/public/list-a-booking-sites-listings) | What your booking site shows. No token needed. |
+
+## Next
+
+- [Authentication](/api-reference/authentication): create a token and send it.
+- [Conventions](/api-reference/conventions): money, dates, paging and errors.
