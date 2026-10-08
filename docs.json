@@ -83,6 +83,23 @@
               "booking-site/custom-domain",
               "booking-site/terms-and-agreement"
             ]
+          },
+          {
+            "group": "Insights",
+            "pages": [
+              "insights/dashboard",
+              "insights/reports"
+            ]
+          },
+          {
+            "group": "Team & account",
+            "pages": [
+              "account/team-and-roles",
+              "account/notifications",
+              "account/plan-and-billing",
+              "account/profile-and-security",
+              "account/api-tokens"
+            ]
           }
         ]
       },
