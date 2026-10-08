@@ -1,0 +1,44 @@
+---
+title: "API tokens"
+description: "Create the tokens your own systems use to reach your team's data through the Overviu API, and revoke them."
+---
+
+An API token lets another system (a channel manager, your own website, an automation tool) use the [Overviu API](/api-reference/introduction) on behalf of your team. Each token belongs to the team you're in, not to you.
+
+<Note>Every member of the team can create and revoke its tokens.</Note>
+
+<Warning>Anyone with a token can read your team's listings, bookings and guests through the API, and change bookings. Keep tokens on servers you trust, never in a web page or an app guests download.</Warning>
+
+<Note>The **Scope** isn't enforced yet: a **Read-only** token can also create, change and cancel bookings.</Note>
+
+## Create a token
+
+<Steps>
+  <Step title="Switch to the team">
+    Use the team switcher to switch to the team the token is for.
+  </Step>
+  <Step title="Open API tokens">
+    Open the user menu → **Settings** → **API tokens**.
+  </Step>
+  <Step title="Name it">
+    Give it a **Name** that says where it's used, like "Channel manager", pick a **Scope** (**Read-only** or **Read-write**), and click **Create token**.
+  </Step>
+  <Step title="Copy it">
+    The token appears under **Existing tokens**. Click the eye icon to show it and the copy icon to copy it, and paste it into the other system. You can come back and copy it again later.
+  </Step>
+</Steps>
+
+Each token shows its scope, when it was created and when it was **Last used** (or **Never used**).
+
+## Revoke a token
+
+Click **Revoke** next to it. Systems using it stop working straight away. Revoke a token when you stop using a system, or if it may have been seen by someone it shouldn't.
+
+## Next
+
+The [API reference](/api-reference/authentication) shows how to send a token and every endpoint you can call with it.
+
+## Related
+
+- [Authentication](/api-reference/authentication)
+- [Team and roles](/account/team-and-roles)

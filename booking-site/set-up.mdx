@@ -1,0 +1,65 @@
+---
+title: "Your booking site"
+description: "Your own direct booking website: its address, which listings it shows, how guests book and pay, and what to set up."
+---
+
+Every team gets a booking site: a website of its own where guests find your listings, see live prices and availability, and book you directly, with no booking-site commission. Overviu builds it from your listings; you choose its look and the details around it.
+
+<Note>Only owners and admins can change the booking site's settings.</Note>
+
+## Its address
+
+Your booking site lives at `your-team.overviu.app`, where `your-team` comes from your team's name. Find the exact address in **Settings** → **Domains** under **Managed subdomain**. You can also [use your own domain](/booking-site/custom-domain), like `book.your-domain.com`.
+
+<Warning>Renaming your team changes the `overviu.app` address, and links to the old one stop working. A custom domain doesn't change.</Warning>
+
+## What guests see
+
+- The home page lists your listings, with search by place (**Where**), dates (**When**) and guests (**Who**), filters by type and bedrooms, and sorting.
+- Each listing has its own page: photos, description, amenities, the map, your host profile, and a price for the dates the guest picks. See [Photos and the listing page](/listings/photos-and-listing-page).
+- A building has one page with a card for each unit type, and one for the whole building when it can be booked as a whole.
+
+A listing appears only when it's **Active**. For a building, the building must be active too, and a unit type needs at least one unit. See [Create a listing](/listings/create-a-listing).
+
+## How guests book
+
+<Steps>
+  <Step title="Pick dates and guests">
+    On the listing page, the guest picks dates and the number of guests and sees the price, or why the dates can't be booked (too short, already taken and so on).
+  </Step>
+  <Step title="Fill in their details">
+    On the booking page, they fill in **Your details** (**Full name**, **Email**, **Phone**) and any **Special requests**, and can add a coupon under **Have a coupon code?**. Returning guests can **Sign in** to use their saved details.
+  </Step>
+  <Step title="Accept the terms">
+    If you've published [booking terms](/booking-site/terms-and-agreement), they tick that they agree to them and the cancellation policy.
+  </Step>
+  <Step title="Pay or request">
+    - When the listing takes payment online, they click **Continue to payment** and pay on Stripe's checkout page. Their dates are held for 60 minutes while they pay.
+    - When they pay at check-in, they click **Request to book**.
+  </Step>
+  <Step title="Done">
+    They see **Booking received**, and get an email with a link to their [booking page](/guests/guest-page).
+  </Step>
+</Steps>
+
+Paid bookings are **Confirmed** straight away. Requests are **Pending** until you confirm them. See [How guests pay](/payments/how-guests-pay).
+
+## Set it up
+
+In **Settings** → **Booking site** → **General**:
+
+- **Contact details**: the **Contact email** and **Contact phone** guests see on their booking page. The email is also where guests' replies go when your [inbox](/guests/inbox) isn't set up. Leave it empty to use the team owner's email.
+- **Host profile**: your **Host name**, **Hosting since (year)**, **About the host** and a **Host photo**, shown on your listing pages.
+- **Security deposits**: when deposits are refunded; see [Security deposits](/payments/security-deposits).
+
+Click **Save**. Then:
+
+- choose your colours, font and logo in [Branding](/booking-site/branding);
+- publish your [booking terms and rental agreement](/booking-site/terms-and-agreement);
+- [connect Stripe](/payments/connect-stripe) to take payments online.
+
+## Related
+
+- [Branding](/booking-site/branding)
+- [Use your own domain](/booking-site/custom-domain)
+- [Set up in 15 minutes](/get-started/quickstart)

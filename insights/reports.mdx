@@ -1,0 +1,60 @@
+---
+title: "Reports"
+description: "How your listings perform (occupancy, revenue, nightly rate) and every euro that moved, with a CSV for your accountant."
+---
+
+**Reports** has two tabs: **Performance**, how full and how profitable your listings are, and **Money**, every payment, refund and deposit, as on your bank and Stripe statements.
+
+<Note>Only owners and admins can see reports.</Note>
+
+## Choose what to look at
+
+At the top of **Reports**:
+
+- the period: a **Month**, a **Year** (shown month by month) or a **Custom** range with **From** and **To**;
+- **All listings**, or one listing.
+
+Every figure is compared with the same period a year earlier. Amounts in different currencies are never converted: each currency is shown on its own.
+
+## Performance
+
+| Figure | What it is |
+| --- | --- |
+| **Occupancy** | Occupied nights divided by the nights that were open to book. |
+| **Revenue** | Rent and fees, after discounts and without taxes, for the nights stayed in the period. |
+| **ADR** (**Average nightly rate**) | Revenue divided by occupied nights. |
+| **RevPAR** (**Revenue per available night**) | Revenue divided by the nights open to book. |
+| **Stays** and **Average stay** | How many stays had a night in the period, and how long they were. |
+
+Below them, a chart over the period, and tables **By source** and by listing.
+
+### How nights and revenue are counted
+
+- A stay's revenue is spread evenly over its nights. A stay from 29 September to 3 October puts two nights in September and two in October.
+- Confirmed and completed bookings count. Pending, awaiting-payment and cancelled ones don't.
+- Nights you [blocked](/calendar/blocking-dates) aren't open to book, so they don't lower your occupancy.
+- Nights synced from Airbnb, Booking.com or Vrbo count as occupied, under **Booking sites (calendar)**, but have no revenue: the calendar feeds carry no prices.
+- Only listings that are **Active** today add nights open to book. Draft, archived and trashed listings still show their past stays and revenue.
+
+## Money
+
+Money counts on the day it moved: a payment on the day it succeeded, a refund on the day it went back. This matches your bank and Stripe statements.
+
+- **Money in and out**: **Payments received**, **Extras charged**, **Deposits kept**, **Refunds given** and **Net income**, with a chart over the period.
+- **By method**: how guests paid: Stripe, cash, bank transfer, card terminal or other.
+- **Deposits in this period**: security deposits **Taken**, **Returned** and **Kept**. Deposits are held, not earned, so only the kept part counts as income.
+- **Movements**: every payment, refund and deposit step, with the date, booking, guest, listing, type, method and amount.
+- **Outstanding**: bookings that still owe money, by check-in, with **Overdue** ones marked.
+- **Deposits held**: the security deposits on guests' cards right now, and when each is returned.
+
+Amounts are what guests paid or got back. Stripe's fees and payouts aren't in Overviu: see them in your Stripe Dashboard.
+
+## Download the CSV
+
+On the **Money** tab, click **Download CSV**. You get one row per money movement in the period: the date, type, method, amount, currency, booking, guest, listing, Stripe reference and note. It's the same data as the page, ready for a spreadsheet or your accountant.
+
+## Related
+
+- [The dashboard](/insights/dashboard)
+- [Record a payment](/bookings/record-a-payment)
+- [Security deposits](/payments/security-deposits)

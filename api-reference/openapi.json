@@ -1,0 +1,2273 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Overviu API",
+        "version": "1.0",
+        "description": "Read your listings and availability, and create and manage bookings, from your own systems. Authenticate with an API token from **Settings \u2192 API tokens** in Overviu, sent as `Authorization: Bearer <token>`. Endpoints under `/v1/public/{teamSlug}` need no token: they serve what your booking site shows. Guides and conventions: https://docs.overviu.app/api-reference/introduction"
+    },
+    "servers": [
+        {
+            "url": "https://api.overviu.app/api",
+            "description": "Production"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Account",
+            "description": "The team an API token belongs to."
+        },
+        {
+            "name": "Listings",
+            "description": "The team's listings."
+        },
+        {
+            "name": "Availability",
+            "description": "Prices and availability for dates."
+        },
+        {
+            "name": "Bookings",
+            "description": "Create, read, change and cancel the team's bookings."
+        },
+        {
+            "name": "Guests",
+            "description": "The team's guests."
+        },
+        {
+            "name": "Public",
+            "description": "What a booking site shows, with no token."
+        }
+    ],
+    "security": [
+        {
+            "http": []
+        }
+    ],
+    "paths": {
+        "/v1/me": {
+            "get": {
+                "operationId": "v1.me",
+                "description": "Returns the team the API token belongs to and the token's name, abilities and when it was last used. Call it to\ncheck that a token works.",
+                "summary": "Get the current team and token",
+                "tags": [
+                    "Account"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "team": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer"
+                                                        },
+                                                        "slug": {
+                                                            "type": "string"
+                                                        },
+                                                        "name": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "id",
+                                                        "slug",
+                                                        "name"
+                                                    ]
+                                                },
+                                                "token": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "name": {
+                                                            "type": "string"
+                                                        },
+                                                        "abilities": {
+                                                            "type": "string"
+                                                        },
+                                                        "last_used_at": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "name",
+                                                        "abilities",
+                                                        "last_used_at"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "team",
+                                                "token"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "success",
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/v1/listings": {
+            "get": {
+                "operationId": "v1.listings.index",
+                "description": "Returns all of the team's listings (draft, active and archived; standalone listings, buildings and unit types),\nsorted by title, with their photos. Paginated with `page` and `per_page` (default 20).",
+                "summary": "List listings",
+                "tags": [
+                    "Listings"
+                ],
+                "parameters": [
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "default": 20
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Paginated set of `ListingResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/ListingResource"
+                                            }
+                                        },
+                                        "links": {
+                                            "type": "object",
+                                            "properties": {
+                                                "first": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "last": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "prev": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "next": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "first",
+                                                "last",
+                                                "prev",
+                                                "next"
+                                            ]
+                                        },
+                                        "meta": {
+                                            "type": "object",
+                                            "properties": {
+                                                "current_page": {
+                                                    "type": "integer",
+                                                    "minimum": 1
+                                                },
+                                                "from": {
+                                                    "type": [
+                                                        "integer",
+                                                        "null"
+                                                    ],
+                                                    "minimum": 1
+                                                },
+                                                "last_page": {
+                                                    "type": "integer",
+                                                    "minimum": 1
+                                                },
+                                                "links": {
+                                                    "type": "array",
+                                                    "description": "Generated paginator links.",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "url": {
+                                                                "type": [
+                                                                    "string",
+                                                                    "null"
+                                                                ]
+                                                            },
+                                                            "label": {
+                                                                "type": "string"
+                                                            },
+                                                            "active": {
+                                                                "type": "boolean"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "url",
+                                                            "label",
+                                                            "active"
+                                                        ]
+                                                    }
+                                                },
+                                                "path": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ],
+                                                    "description": "Base path for paginator generated URLs."
+                                                },
+                                                "per_page": {
+                                                    "type": "integer",
+                                                    "description": "Number of items shown per page.",
+                                                    "minimum": 0
+                                                },
+                                                "to": {
+                                                    "type": [
+                                                        "integer",
+                                                        "null"
+                                                    ],
+                                                    "description": "Number of the last item in the slice.",
+                                                    "minimum": 1
+                                                },
+                                                "total": {
+                                                    "type": "integer",
+                                                    "description": "Total number of items being paginated.",
+                                                    "minimum": 0
+                                                }
+                                            },
+                                            "required": [
+                                                "current_page",
+                                                "from",
+                                                "last_page",
+                                                "links",
+                                                "path",
+                                                "per_page",
+                                                "to",
+                                                "total"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "data",
+                                        "links",
+                                        "meta"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/v1/listings/{listing}": {
+            "get": {
+                "operationId": "v1.listings.show",
+                "description": "Returns one of the team's listings with its photos. A listing of another team returns 404.",
+                "summary": "Get a listing",
+                "tags": [
+                    "Listings"
+                ],
+                "parameters": [
+                    {
+                        "name": "listing",
+                        "in": "path",
+                        "required": true,
+                        "description": "The listing ID",
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "`ListingResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/ListingResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/v1/availability/{listing}": {
+            "get": {
+                "operationId": "v1.availability",
+                "description": "Checks whether the listing can be booked from `check_in` to `check_out` (`Y-m-d`, check-out after check-in) for\n`guests` people, and returns the price breakdown in cents. Pass `coupon_code` to apply a coupon; a coupon that\ndoesn't apply returns 422 with the reason.",
+                "summary": "Check availability and price",
+                "tags": [
+                    "Availability"
+                ],
+                "parameters": [
+                    {
+                        "name": "listing",
+                        "in": "path",
+                        "required": true,
+                        "description": "The listing ID",
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    },
+                    {
+                        "name": "check_in",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    },
+                    {
+                        "name": "check_out",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    },
+                    {
+                        "name": "guests",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "minimum": 1
+                        }
+                    },
+                    {
+                        "name": "coupon_code",
+                        "in": "query",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "maxLength": 40
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "`AvailabilityResultResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/AvailabilityResultResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/v1/bookings": {
+            "get": {
+                "operationId": "v1.bookings.index",
+                "description": "Returns the team's bookings, latest check-in first, with their listing, guest and unit. Filter by `status`:\n`pending`, `pending_payment`, `confirmed`, `cancelled` or `completed`. Cursor-paginated: follow `links.next`;\n`per_page` defaults to 20.",
+                "summary": "List bookings",
+                "tags": [
+                    "Bookings"
+                ],
+                "parameters": [
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "default": 20
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Paginated set of `BookingResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/BookingResource"
+                                            }
+                                        },
+                                        "links": {
+                                            "type": "object",
+                                            "properties": {
+                                                "first": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "last": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "prev": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "next": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "first",
+                                                "last",
+                                                "prev",
+                                                "next"
+                                            ]
+                                        },
+                                        "meta": {
+                                            "type": "object",
+                                            "properties": {
+                                                "path": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ],
+                                                    "description": "Base path for paginator generated URLs."
+                                                },
+                                                "per_page": {
+                                                    "type": "integer",
+                                                    "description": "Number of items shown per page.",
+                                                    "minimum": 0
+                                                },
+                                                "next_cursor": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ],
+                                                    "description": "The \"cursor\" that points to the next set of items."
+                                                },
+                                                "prev_cursor": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ],
+                                                    "description": "The \"cursor\" that points to the previous set of items."
+                                                }
+                                            },
+                                            "required": [
+                                                "path",
+                                                "per_page",
+                                                "next_cursor",
+                                                "prev_cursor"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "data",
+                                        "links",
+                                        "meta"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            },
+            "post": {
+                "operationId": "v1.bookings.store",
+                "description": "Creates a booking with source `api` and status `pending`, priced like the booking site, and returns it with\nstatus 201. The guest is matched to an existing guest of the team with the same email, or created. Dates that\naren't available return 422 with the reason in `errors.availability`; a coupon that doesn't apply returns 422\nin `errors.coupon_code`.",
+                "summary": "Create a booking",
+                "tags": [
+                    "Bookings"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StoreBookingRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "`BookingResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/BookingResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/v1/bookings/{booking}": {
+            "get": {
+                "operationId": "v1.bookings.show",
+                "description": "Returns one of the team's bookings with its listing, guest and unit. A booking of another team returns 404.",
+                "summary": "Get a booking",
+                "tags": [
+                    "Bookings"
+                ],
+                "parameters": [
+                    {
+                        "name": "booking",
+                        "in": "path",
+                        "required": true,
+                        "description": "The booking ID",
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "`BookingResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/BookingResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            },
+            "put": {
+                "operationId": "v1.bookings.update",
+                "description": "Changes the dates, number of guests, guest details, notes or special requests of one of the team's bookings.\nSend only what changes. New dates are checked and priced again; unavailable dates return 422 in\n`errors.availability`, and a booking that can no longer be changed (e.g. cancelled or completed) returns 422.",
+                "summary": "Change a booking",
+                "tags": [
+                    "Bookings"
+                ],
+                "parameters": [
+                    {
+                        "name": "booking",
+                        "in": "path",
+                        "required": true,
+                        "description": "The booking ID",
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateBookingRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "`BookingResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/BookingResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/v1/bookings/{booking}/cancel": {
+            "post": {
+                "operationId": "v1.bookings.cancel",
+                "description": "Cancels one of the team's bookings, with an optional `reason`. Its dates are freed, payments scheduled for later\nwon't be taken, open invoices are voided and a security deposit held is returned. Payments already made for the\nstay aren't refunded automatically: refund them from the booking in Overviu. A booking that can't be cancelled\nreturns 422.",
+                "summary": "Cancel a booking",
+                "tags": [
+                    "Bookings"
+                ],
+                "parameters": [
+                    {
+                        "name": "booking",
+                        "in": "path",
+                        "required": true,
+                        "description": "The booking ID",
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "reason": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "`BookingResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/BookingResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        },
+                                        "errors": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "success",
+                                        "message",
+                                        "errors"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/v1/guests": {
+            "get": {
+                "operationId": "v1.guests.index",
+                "description": "Returns the team's guests sorted by name. Search by name or email with `search`. Cursor-paginated: follow\n`links.next`; `per_page` defaults to 20.",
+                "summary": "List guests",
+                "tags": [
+                    "Guests"
+                ],
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "default": 20
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Paginated set of `GuestResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/GuestResource"
+                                            }
+                                        },
+                                        "links": {
+                                            "type": "object",
+                                            "properties": {
+                                                "first": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "last": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "prev": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "next": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "first",
+                                                "last",
+                                                "prev",
+                                                "next"
+                                            ]
+                                        },
+                                        "meta": {
+                                            "type": "object",
+                                            "properties": {
+                                                "path": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ],
+                                                    "description": "Base path for paginator generated URLs."
+                                                },
+                                                "per_page": {
+                                                    "type": "integer",
+                                                    "description": "Number of items shown per page.",
+                                                    "minimum": 0
+                                                },
+                                                "next_cursor": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ],
+                                                    "description": "The \"cursor\" that points to the next set of items."
+                                                },
+                                                "prev_cursor": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ],
+                                                    "description": "The \"cursor\" that points to the previous set of items."
+                                                }
+                                            },
+                                            "required": [
+                                                "path",
+                                                "per_page",
+                                                "next_cursor",
+                                                "prev_cursor"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "data",
+                                        "links",
+                                        "meta"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/v1/guests/{guest}": {
+            "get": {
+                "operationId": "v1.guests.show",
+                "description": "Returns one of the team's guests. A guest of another team returns 404.",
+                "summary": "Get a guest",
+                "tags": [
+                    "Guests"
+                ],
+                "parameters": [
+                    {
+                        "name": "guest",
+                        "in": "path",
+                        "required": true,
+                        "description": "The guest ID",
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "`GuestResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/GuestResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/v1/public/{teamSlug}/listings": {
+            "get": {
+                "operationId": "v1.public.listings.index",
+                "description": "Returns the listings a team shows on its booking site (active, listed on the site), with photos and, for\nbuildings, their bookable unit types. No token needed. Paginated with `page` and `per_page` (default 20).",
+                "summary": "List a booking site's listings",
+                "tags": [
+                    "Public"
+                ],
+                "parameters": [
+                    {
+                        "name": "teamSlug",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "default": 20
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Paginated set of `PublicListingResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/PublicListingResource"
+                                            }
+                                        },
+                                        "links": {
+                                            "type": "object",
+                                            "properties": {
+                                                "first": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "last": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "prev": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "next": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "first",
+                                                "last",
+                                                "prev",
+                                                "next"
+                                            ]
+                                        },
+                                        "meta": {
+                                            "type": "object",
+                                            "properties": {
+                                                "current_page": {
+                                                    "type": "integer",
+                                                    "minimum": 1
+                                                },
+                                                "from": {
+                                                    "type": [
+                                                        "integer",
+                                                        "null"
+                                                    ],
+                                                    "minimum": 1
+                                                },
+                                                "last_page": {
+                                                    "type": "integer",
+                                                    "minimum": 1
+                                                },
+                                                "links": {
+                                                    "type": "array",
+                                                    "description": "Generated paginator links.",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "url": {
+                                                                "type": [
+                                                                    "string",
+                                                                    "null"
+                                                                ]
+                                                            },
+                                                            "label": {
+                                                                "type": "string"
+                                                            },
+                                                            "active": {
+                                                                "type": "boolean"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "url",
+                                                            "label",
+                                                            "active"
+                                                        ]
+                                                    }
+                                                },
+                                                "path": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ],
+                                                    "description": "Base path for paginator generated URLs."
+                                                },
+                                                "per_page": {
+                                                    "type": "integer",
+                                                    "description": "Number of items shown per page.",
+                                                    "minimum": 0
+                                                },
+                                                "to": {
+                                                    "type": [
+                                                        "integer",
+                                                        "null"
+                                                    ],
+                                                    "description": "Number of the last item in the slice.",
+                                                    "minimum": 1
+                                                },
+                                                "total": {
+                                                    "type": "integer",
+                                                    "description": "Total number of items being paginated.",
+                                                    "minimum": 0
+                                                }
+                                            },
+                                            "required": [
+                                                "current_page",
+                                                "from",
+                                                "last_page",
+                                                "links",
+                                                "path",
+                                                "per_page",
+                                                "to",
+                                                "total"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "data",
+                                        "links",
+                                        "meta"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": []
+            }
+        },
+        "/v1/public/{teamSlug}/listings/{listingSlug}": {
+            "get": {
+                "operationId": "v1.public.listings.show",
+                "description": "Returns one listing as the booking site shows it, by the team's slug and the listing's slug. No token needed.",
+                "summary": "Get a booking-site listing",
+                "tags": [
+                    "Public"
+                ],
+                "parameters": [
+                    {
+                        "name": "teamSlug",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "listingSlug",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "`PublicListingResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/PublicListingResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": []
+            }
+        },
+        "/v1/public/{teamSlug}/listings/{listingSlug}/calendar": {
+            "get": {
+                "operationId": "v1.public.listings.calendar",
+                "description": "Returns each day from `start_date` to `end_date` (`Y-m-d`) with its price, rules and how many units are left.\nNo token needed.",
+                "summary": "Get a listing's calendar",
+                "tags": [
+                    "Public"
+                ],
+                "parameters": [
+                    {
+                        "name": "teamSlug",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "listingSlug",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "start_date",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    },
+                    {
+                        "name": "end_date",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Array of `ListingDayResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/ListingDayResource"
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                },
+                "security": []
+            }
+        },
+        "/v1/public/{teamSlug}/listings/{listingSlug}/availability": {
+            "get": {
+                "operationId": "v1.public.listings.availability",
+                "description": "Checks whether a booking-site listing can be booked for the dates and guests, and returns the price breakdown in\ncents, as the booking site would. No token needed. Accepts a `coupon_code`.",
+                "summary": "Check availability and price on the booking site",
+                "tags": [
+                    "Public"
+                ],
+                "parameters": [
+                    {
+                        "name": "teamSlug",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "listingSlug",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "check_in",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    },
+                    {
+                        "name": "check_out",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    },
+                    {
+                        "name": "guests",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "minimum": 1
+                        }
+                    },
+                    {
+                        "name": "coupon_code",
+                        "in": "query",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "maxLength": 40
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "`AvailabilityResultResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/AvailabilityResultResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                },
+                "security": []
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "http": {
+                "type": "http",
+                "description": "An API token from **Settings \u2192 API tokens** in Overviu, sent as `Authorization: Bearer <token>`.",
+                "scheme": "bearer"
+            }
+        },
+        "schemas": {
+            "AvailabilityResultResource": {
+                "type": "object",
+                "properties": {
+                    "available": {
+                        "type": "boolean"
+                    },
+                    "reason_code": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "reason_message": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "price": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/PriceBreakdownResource"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "units_left": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "integer",
+                                "enum": [
+                                    0
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "required": [
+                    "available",
+                    "reason_code",
+                    "reason_message",
+                    "price",
+                    "units_left"
+                ],
+                "title": "AvailabilityResultResource"
+            },
+            "BookingResource": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "confirmation_code": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "listing_id": {
+                        "type": "string"
+                    },
+                    "unit": {
+                        "type": [
+                            "object",
+                            "null"
+                        ],
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "id",
+                            "name"
+                        ]
+                    },
+                    "whole_building": {
+                        "type": "boolean"
+                    },
+                    "guest_id": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "source": {
+                        "type": "string"
+                    },
+                    "check_in": {
+                        "type": "string"
+                    },
+                    "check_out": {
+                        "type": "string"
+                    },
+                    "nights": {
+                        "type": "integer"
+                    },
+                    "number_of_guests": {
+                        "type": "integer"
+                    },
+                    "currency": {
+                        "type": "string"
+                    },
+                    "accommodation_total": {
+                        "type": "integer"
+                    },
+                    "discount_total": {
+                        "type": "integer"
+                    },
+                    "fees_total": {
+                        "type": "integer"
+                    },
+                    "taxes_total": {
+                        "type": "integer"
+                    },
+                    "grand_total": {
+                        "type": "integer"
+                    },
+                    "price_breakdown": {
+                        "type": "array",
+                        "items": {}
+                    },
+                    "notes": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "special_requests": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "confirmed_at": {
+                        "type": "string"
+                    },
+                    "cancelled_at": {
+                        "type": "string"
+                    },
+                    "completed_at": {
+                        "type": "string"
+                    },
+                    "created_at": {
+                        "type": "string"
+                    },
+                    "updated_at": {
+                        "type": "string"
+                    },
+                    "listing": {
+                        "$ref": "#/components/schemas/ListingResource"
+                    },
+                    "guest": {
+                        "$ref": "#/components/schemas/GuestResource"
+                    }
+                },
+                "required": [
+                    "id",
+                    "confirmation_code",
+                    "listing_id",
+                    "unit",
+                    "whole_building",
+                    "guest_id",
+                    "status",
+                    "source",
+                    "check_in",
+                    "check_out",
+                    "nights",
+                    "number_of_guests",
+                    "currency",
+                    "accommodation_total",
+                    "discount_total",
+                    "fees_total",
+                    "taxes_total",
+                    "grand_total",
+                    "price_breakdown",
+                    "notes",
+                    "special_requests",
+                    "confirmed_at",
+                    "cancelled_at",
+                    "completed_at",
+                    "created_at",
+                    "updated_at"
+                ],
+                "title": "BookingResource"
+            },
+            "GuestResource": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "email": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "phone": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "notes": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "created_at": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "name",
+                    "email",
+                    "phone",
+                    "notes",
+                    "created_at"
+                ],
+                "title": "GuestResource"
+            },
+            "ListingDayResource": {
+                "type": "object",
+                "properties": {
+                    "date": {
+                        "type": "string"
+                    },
+                    "available": {
+                        "type": "boolean"
+                    },
+                    "status": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "string",
+                                "enum": [
+                                    "available",
+                                    "unavailable"
+                                ]
+                            }
+                        ]
+                    },
+                    "units_left": {
+                        "type": "string"
+                    },
+                    "day_rate": {
+                        "type": "integer"
+                    },
+                    "min_stay": {
+                        "type": "integer"
+                    },
+                    "closed_for_arrival": {
+                        "type": "boolean"
+                    },
+                    "closed_for_departure": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "date",
+                    "available",
+                    "status",
+                    "units_left",
+                    "day_rate",
+                    "min_stay",
+                    "closed_for_arrival",
+                    "closed_for_departure"
+                ],
+                "title": "ListingDayResource"
+            },
+            "ListingPhotoResource": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "is_featured": {
+                        "type": "boolean"
+                    },
+                    "sort_order": {
+                        "type": "integer"
+                    },
+                    "width": {
+                        "type": [
+                            "integer",
+                            "null"
+                        ]
+                    },
+                    "height": {
+                        "type": [
+                            "integer",
+                            "null"
+                        ]
+                    },
+                    "thumbnail_url": {
+                        "type": "string"
+                    },
+                    "medium_url": {
+                        "type": "string"
+                    },
+                    "original_url": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "is_featured",
+                    "sort_order",
+                    "width",
+                    "height",
+                    "thumbnail_url",
+                    "medium_url",
+                    "original_url"
+                ],
+                "title": "ListingPhotoResource"
+            },
+            "ListingResource": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "slug": {
+                        "type": "string"
+                    },
+                    "kind": {
+                        "type": "string"
+                    },
+                    "building_id": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "whole_building_bookable": {
+                        "type": "boolean"
+                    },
+                    "public_title": {
+                        "type": "string"
+                    },
+                    "nickname": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "property_type": {
+                        "type": "string"
+                    },
+                    "max_guests": {
+                        "type": "integer"
+                    },
+                    "bedrooms_count": {
+                        "type": "integer"
+                    },
+                    "beds_count": {
+                        "type": "integer"
+                    },
+                    "bathrooms_count": {
+                        "type": "integer"
+                    },
+                    "bathrooms_half": {
+                        "type": "boolean"
+                    },
+                    "currency": {
+                        "type": "string"
+                    },
+                    "timezone": {
+                        "type": "string"
+                    },
+                    "check_in_time": {
+                        "type": "string"
+                    },
+                    "check_out_time": {
+                        "type": "string"
+                    },
+                    "address": {
+                        "type": "object",
+                        "properties": {
+                            "street": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "city": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "state": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "postcode": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "country": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "latitude": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "longitude": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "street",
+                            "city",
+                            "state",
+                            "postcode",
+                            "country",
+                            "latitude",
+                            "longitude"
+                        ]
+                    },
+                    "headline": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "description": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "photos": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ListingPhotoResource"
+                        }
+                    },
+                    "created_at": {
+                        "type": "string"
+                    },
+                    "updated_at": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "slug",
+                    "kind",
+                    "building_id",
+                    "whole_building_bookable",
+                    "public_title",
+                    "nickname",
+                    "status",
+                    "property_type",
+                    "max_guests",
+                    "bedrooms_count",
+                    "beds_count",
+                    "bathrooms_count",
+                    "bathrooms_half",
+                    "currency",
+                    "timezone",
+                    "check_in_time",
+                    "check_out_time",
+                    "address",
+                    "headline",
+                    "description",
+                    "created_at",
+                    "updated_at"
+                ],
+                "title": "ListingResource"
+            },
+            "PriceBreakdownResource": {
+                "type": "object",
+                "properties": {
+                    "accommodation_total": {
+                        "type": "integer"
+                    },
+                    "discount_amount": {
+                        "type": "integer"
+                    },
+                    "fees_total": {
+                        "type": "integer"
+                    },
+                    "taxes_total": {
+                        "type": "integer"
+                    },
+                    "grand_total": {
+                        "type": "integer"
+                    },
+                    "nightly_rates": {
+                        "type": "array",
+                        "items": {}
+                    },
+                    "discounts": {
+                        "type": "string"
+                    },
+                    "fees": {
+                        "type": "string"
+                    },
+                    "taxes": {
+                        "type": "string"
+                    },
+                    "coupon_code": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    }
+                },
+                "required": [
+                    "accommodation_total",
+                    "discount_amount",
+                    "fees_total",
+                    "taxes_total",
+                    "grand_total",
+                    "nightly_rates",
+                    "discounts",
+                    "fees",
+                    "taxes",
+                    "coupon_code"
+                ],
+                "title": "PriceBreakdownResource"
+            },
+            "PublicListingResource": {
+                "type": "object",
+                "properties": {
+                    "slug": {
+                        "type": "string"
+                    },
+                    "kind": {
+                        "type": "string"
+                    },
+                    "public_title": {
+                        "type": "string"
+                    },
+                    "property_type": {
+                        "type": "string"
+                    },
+                    "max_guests": {
+                        "type": "integer"
+                    },
+                    "bedrooms_count": {
+                        "type": "integer"
+                    },
+                    "beds_count": {
+                        "type": "integer"
+                    },
+                    "bathrooms_count": {
+                        "type": "integer"
+                    },
+                    "bathrooms_half": {
+                        "type": "boolean"
+                    },
+                    "currency": {
+                        "type": "string"
+                    },
+                    "timezone": {
+                        "type": "string"
+                    },
+                    "check_in_time": {
+                        "type": "string"
+                    },
+                    "check_out_time": {
+                        "type": "string"
+                    },
+                    "address": {
+                        "type": "object",
+                        "properties": {
+                            "city": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "state": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "country": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "latitude": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "longitude": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "city",
+                            "state",
+                            "country",
+                            "latitude",
+                            "longitude"
+                        ]
+                    },
+                    "headline": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "description": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "photos": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ListingPhotoResource"
+                        }
+                    },
+                    "unit_types": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PublicListingResource"
+                        }
+                    },
+                    "whole_building": {
+                        "type": [
+                            "object",
+                            "null"
+                        ],
+                        "properties": {
+                            "max_guests": {
+                                "type": "integer"
+                            },
+                            "bedrooms": {
+                                "type": "integer"
+                            }
+                        },
+                        "required": [
+                            "max_guests",
+                            "bedrooms"
+                        ]
+                    }
+                },
+                "required": [
+                    "slug",
+                    "kind",
+                    "public_title",
+                    "property_type",
+                    "max_guests",
+                    "bedrooms_count",
+                    "beds_count",
+                    "bathrooms_count",
+                    "bathrooms_half",
+                    "currency",
+                    "timezone",
+                    "check_in_time",
+                    "check_out_time",
+                    "address",
+                    "headline",
+                    "description"
+                ],
+                "title": "PublicListingResource"
+            },
+            "StoreBookingRequest": {
+                "type": "object",
+                "properties": {
+                    "listing_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "check_in": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "check_out": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "number_of_guests": {
+                        "type": "integer",
+                        "minimum": 1
+                    },
+                    "notes": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "maxLength": 2000
+                    },
+                    "special_requests": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "maxLength": 2000
+                    },
+                    "coupon_code": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "maxLength": 40
+                    },
+                    "guest": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "maxLength": 200
+                            },
+                            "email": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ],
+                                "format": "email",
+                                "maxLength": 200
+                            },
+                            "phone": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ],
+                                "maxLength": 50
+                            }
+                        },
+                        "required": [
+                            "name"
+                        ]
+                    }
+                },
+                "required": [
+                    "listing_id",
+                    "check_in",
+                    "check_out",
+                    "number_of_guests",
+                    "guest"
+                ],
+                "title": "StoreBookingRequest"
+            },
+            "UpdateBookingRequest": {
+                "type": "object",
+                "properties": {
+                    "check_in": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "check_out": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "number_of_guests": {
+                        "type": "integer",
+                        "minimum": 1
+                    },
+                    "notes": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "maxLength": 2000
+                    },
+                    "special_requests": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "maxLength": 2000
+                    },
+                    "guest": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "maxLength": 200
+                            },
+                            "email": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ],
+                                "format": "email",
+                                "maxLength": 200
+                            },
+                            "phone": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ],
+                                "maxLength": 50
+                            }
+                        }
+                    }
+                },
+                "title": "UpdateBookingRequest"
+            }
+        },
+        "responses": {
+            "AuthenticationException": {
+                "description": "Unauthenticated",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string",
+                                    "description": "Error overview."
+                                }
+                            },
+                            "required": [
+                                "message"
+                            ]
+                        }
+                    }
+                }
+            },
+            "ModelNotFoundException": {
+                "description": "Not found",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string",
+                                    "description": "Error overview."
+                                }
+                            },
+                            "required": [
+                                "message"
+                            ]
+                        }
+                    }
+                }
+            },
+            "ValidationException": {
+                "description": "Validation error",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string",
+                                    "description": "Errors overview."
+                                },
+                                "errors": {
+                                    "type": "object",
+                                    "description": "A detailed description of each field that failed validation.",
+                                    "additionalProperties": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            },
+                            "required": [
+                                "message",
+                                "errors"
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

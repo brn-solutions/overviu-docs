@@ -1,0 +1,80 @@
+---
+title: "Automated messages"
+description: "Emails Overviu sends guests for you: arrival details, checkout reminders, thank-yous, at the times you choose."
+---
+
+Write a message once, and Overviu sends it to every guest of the listing at the right moment: arrival details a few days before check-in, a reminder the day before checkout, a thank-you after. Each listing has its own messages, on its **Messages** tab.
+
+## Before you start
+
+- Messages go by email, so the booking needs the guest's email address.
+- They go to bookings whose source is **Direct**, **Manual** or **API**, and that are **Pending**, **Confirmed** or **Completed**. Bookings marked as from Airbnb, Booking.com, Vrbo or Expedia don't get them: those sites message their own guests.
+
+## Steps
+
+<Steps>
+  <Step title="Open the listing's messages">
+    Open the listing → **Messages**. For a building, set them up on the building: they go to guests of every apartment in it.
+  </Step>
+  <Step title="Start from the suggestions">
+    On a listing without messages, click **Add suggested messages**. You get four, switched off: **Arrival details**, **Welcome**, **Checkout reminder** and **Thank you**. Or click **New message** to write your own.
+  </Step>
+  <Step title="Write the message">
+    Click **Edit** on a message and set:
+
+    - **Name**: only you see it, like "Arrival details";
+    - **Send**: when it goes (see below), with the number of **Days** and the time (**At (listing time)**) for timed messages;
+    - **Subject** and **Message**: use **Insert placeholder** to add booking details, like `{guest_first_name}` or `{check_in_time}`.
+
+    **Preview** shows the message filled in for the listing's next booking (or sample details), and **Send me a test** emails it to you. Click **Save message**.
+  </Step>
+  <Step title="Switch it on">
+    Messages start switched off. Click **Switch on**. If some upcoming bookings are already past the message's time, Overviu tells you how many would get it straight away.
+  </Step>
+</Steps>
+
+## When messages are sent
+
+| **Send** | When it goes |
+| --- | --- |
+| **Before check-in** | A number of days before arrival, at the time you set (0 means the arrival day). |
+| **Before checkout** | A number of days before departure, at the time you set. |
+| **After checkout** | A number of days after departure, at the time you set. |
+| **Right after booking confirmed** | As soon as the booking is confirmed. |
+| **Right after online check-in completed** | As soon as the guest finishes [online check-in](/guests/guest-page). |
+| **Right after booking cancelled** | As soon as the booking is cancelled, unless it never got past the online checkout (an unpaid **Awaiting payment** booking). |
+
+Times are in the listing's timezone. A booking made after a "before check-in" time has passed still gets the message straight away, up to arrival; a "before checkout" one up to departure. "After checkout" messages never catch up.
+
+## Placeholders
+
+| Placeholder | Becomes |
+| --- | --- |
+| `{guest_first_name}`, `{guest_name}` | The guest's first name, full name |
+| `{listing}` | The listing's public title |
+| `{check_in_date}`, `{check_in_time}`, `{check_out_date}`, `{check_out_time}` | The stay's dates and times |
+| `{nights}`, `{guests}` | The number of nights and guests |
+| `{booking_reference}`, `{total}` | The confirmation code and the total price |
+| `{guest_page_url}` | The link to the guest's [booking page](/guests/guest-page) |
+| `{team}`, `{host_name}`, `{team_email}`, `{team_phone}` | Your team's name and contact details |
+| `{address}`, `{door_code}`, `{wifi_name}`, `{wifi_password}` | The listing's address and [guest resources](/listings/photos-and-listing-page#guest-resources) |
+
+<Note>The address, door code and Wi-Fi only show once the guest has finished online check-in. Before that, the email says "Finish your online check-in to see this", with a link to their booking page.</Note>
+
+## Copy messages to other listings
+
+Click **Copy to other listings** on a message and pick the listings under **To**. Copies start switched off, so you can check them first.
+
+## Messages on a booking
+
+Each booking's **Messages** section lists its messages: **Upcoming**, **Sent** (with the address it went to), **Skipped** or **Failed**. Click **View** to read what was sent, **Send now** to send an upcoming one early, or **Skip** to not send it to this guest.
+
+A message is skipped, with the reason, when it no longer fits: it was switched off or deleted, the booking was cancelled or is still awaiting payment, and so on. Switching a message back on brings back the sends it skipped for being off. If a message can't be sent, your team gets a **Guest message not sent** email.
+
+Guests' replies arrive in your [inbox](/guests/inbox).
+
+## Related
+
+- [The inbox](/guests/inbox)
+- [Send from your own email address](/guests/sender-email)
+- [The guest's booking page](/guests/guest-page)

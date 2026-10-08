@@ -1,53 +1,138 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mintlify Starter Kit",
+  "name": "Overviu",
+  "description": "Guides for hosts and the API reference for Overviu, the property management platform for holiday rentals.",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#65A30D",
+    "light": "#A3E635",
+    "dark": "#4D7C0F"
   },
   "favicon": "/favicon.svg",
-  "navigation": {
-    "pages": [
-      {
-        "group": "Getting Started",
-        "pages": [
-          "index",
-          "quickstart"
-        ]
-      }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
-  },
   "logo": {
     "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "dark": "/logo/dark.svg",
+    "href": "https://docs.overviu.app"
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Get started",
+            "pages": [
+              "index",
+              "get-started/quickstart",
+              "get-started/key-ideas"
+            ]
+          },
+          {
+            "group": "Listings",
+            "pages": [
+              "listings/create-a-listing",
+              "listings/buildings-and-units",
+              "listings/photos-and-listing-page",
+              "listings/address-and-map",
+              "listings/trash-and-restore"
+            ]
+          },
+          {
+            "group": "Calendar & pricing",
+            "pages": [
+              "calendar/the-calendar",
+              "calendar/prices-and-rules",
+              "calendar/blocking-dates",
+              "calendar/booking-site-calendars"
+            ]
+          },
+          {
+            "group": "Bookings",
+            "pages": [
+              "bookings/bookings-and-statuses",
+              "bookings/create-a-booking",
+              "bookings/change-a-booking",
+              "bookings/cancel-and-refund",
+              "bookings/record-a-payment"
+            ]
+          },
+          {
+            "group": "Payments",
+            "pages": [
+              "payments/connect-stripe",
+              "payments/how-guests-pay",
+              "payments/security-deposits",
+              "payments/refunds",
+              "payments/coupons"
+            ]
+          },
+          {
+            "group": "Guests",
+            "pages": [
+              "guests/guest-page",
+              "guests/automated-messages",
+              "guests/inbox",
+              "guests/sender-email"
+            ]
+          },
+          {
+            "group": "Your booking site",
+            "pages": [
+              "booking-site/set-up",
+              "booking-site/branding",
+              "booking-site/custom-domain",
+              "booking-site/terms-and-agreement"
+            ]
+          },
+          {
+            "group": "Insights",
+            "pages": [
+              "insights/dashboard",
+              "insights/reports"
+            ]
+          },
+          {
+            "group": "Team & account",
+            "pages": [
+              "account/team-and-roles",
+              "account/notifications",
+              "account/plan-and-billing",
+              "account/profile-and-security",
+              "account/api-tokens"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API reference",
+        "groups": [
+          {
+            "group": "Get started",
+            "pages": [
+              "api-reference/introduction",
+              "api-reference/authentication",
+              "api-reference/conventions"
+            ]
+          },
+          {
+            "group": "Endpoints",
+            "openapi": "api-reference/openapi.json"
+          }
+        ]
+      }
+    ]
   },
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:support@mintlify.com"
+        "label": "Sign in",
+        "href": "https://overviu.app/login"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://app.mintlify.com"
+      "label": "Open Overviu",
+      "href": "https://overviu.app"
     }
   },
   "contextual": {
@@ -56,17 +141,26 @@
       "view",
       "chatgpt",
       "claude",
-      "perplexity",
-      "mcp",
       "cursor",
-      "vscode"
+      "vscode",
+      "mcp"
     ]
   },
   "footer": {
-    "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
-    }
+    "links": [
+      {
+        "header": "Overviu",
+        "items": [
+          {
+            "label": "Open Overviu",
+            "href": "https://overviu.app"
+          },
+          {
+            "label": "API reference",
+            "href": "/api-reference/introduction"
+          }
+        ]
+      }
+    ]
   }
 }

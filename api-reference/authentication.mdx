@@ -1,0 +1,75 @@
+---
+title: "Authentication"
+description: "Create an API token in Overviu, send it as a bearer token, and check that it works."
+---
+
+Every endpoint needs an API token, except the [Public](/api-reference/public/list-a-booking-sites-listings) ones. A token belongs to a team, not to a person: it reads and changes that team's data, and keeps working when the person who created it leaves the team.
+
+## Create a token
+
+<Steps>
+  <Step title="Open API tokens">
+    In Overviu, switch to the team the token is for. Open the user menu → **Settings** → **API tokens**.
+  </Step>
+  <Step title="Name the token">
+    Give it a **Name** that says where it's used, like "Channel manager", and pick a **Scope**: **Read-only** or **Read-write**. Click **Create token**.
+  </Step>
+  <Step title="Copy it">
+    The token appears under **Existing tokens**. Click the eye icon to show it and the copy icon to copy it. You can come back to this screen and copy it again later.
+  </Step>
+</Steps>
+
+<Warning>Treat a token like a password. Anyone who has it can read your team's listings, bookings and guests through the API, and change bookings. Keep it on your server, never in a web page or an app that guests download.</Warning>
+
+<Note>The scope isn't enforced yet: a **Read-only** token can also create, change and cancel bookings.</Note>
+
+Every member of the team can create and revoke the team's tokens.
+
+## Send the token
+
+Send it in the `Authorization` header of every request:
+
+```bash
+curl https://api.overviu.app/api/v1/listings \
+  -H "Authorization: Bearer YOUR_API_TOKEN" \
+  -H "Accept: application/json"
+```
+
+## Check a token
+
+[`GET /v1/me`](/api-reference/account/get-the-current-team-and-token) returns the team the token belongs to and the token's name, scope and when it was last used:
+
+```json
+{
+  "success": true,
+  "data": {
+    "team": { "id": 12, "slug": "sea-view-villas", "name": "Sea View Villas" },
+    "token": { "name": "Channel manager", "abilities": ["read-write"], "last_used_at": "2026-10-08T09:30:00+00:00" }
+  }
+}
+```
+
+## Revoke a token
+
+In **Settings** → **API tokens**, click **Revoke** next to the token. Requests with it fail straight away.
+
+## When a token is missing or revoked
+
+The API answers `401`:
+
+```json
+{
+  "success": false,
+  "message": "Unauthenticated.",
+  "errors": {}
+}
+```
+
+## Public endpoints
+
+The endpoints under `/v1/public/{teamSlug}` need no token. They return only what your booking site already shows to anyone: active listings, their calendars and prices. `teamSlug` is the first part of your booking site's address: for `sea-view-villas.overviu.app`, it's `sea-view-villas`.
+
+## Related
+
+- [Conventions](/api-reference/conventions)
+- [API tokens in Overviu](/account/api-tokens)

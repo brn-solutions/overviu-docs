@@ -1,0 +1,68 @@
+---
+title: "Bookings and statuses"
+description: "Find bookings in the list, and understand what each status, source and payment status means."
+---
+
+**Bookings** lists every booking for your team, wherever it came from. Open one to see the stay, the guest, the payments, the messages and everything that has happened to it.
+
+## The list
+
+Go to **Bookings** in the sidebar. Each row shows the **Code** (the booking's confirmation code), **Guest**, **Listing**, **Dates**, **Source**, **Status** and **Total**. Click a row to open the booking.
+
+Narrow the list with:
+
+- **Search guest or code...**: a guest's name or a confirmation code;
+- **All statuses**, **All sources** and **All listings**: one status, source or listing;
+- **Check-in from** and **Check-in to**: bookings arriving between two dates.
+
+**Reset filters** shows everything again.
+
+## Statuses
+
+| Status | Meaning | What moves it on |
+| --- | --- | --- |
+| **Pending** | The booking holds its dates and waits for you. | **Confirm booking** makes it **Confirmed**. Recording a payment doesn't. |
+| **Awaiting payment** | The guest is paying online and the dates are held until a deadline. | The payment makes it **Confirmed**. If it doesn't arrive in time, the booking is cancelled and the dates freed. |
+| **Confirmed** | The stay is on. | After check-out, **Mark as completed**. |
+| **Cancelled** | Cancelled in Overviu or through the API, or not paid in time. Its dates are free. | Nothing: it's final. |
+| **Completed** | The stay is over. | Nothing: it's final. |
+
+To change a status, open the booking and pick the action in **Choose an action...** (**Confirm booking**, **Mark as completed** or **Cancel booking**), then click **Submit**. Only the actions that fit the booking's status are offered.
+
+<Note>Bookings aren't completed on their own: a confirmed booking stays **Confirmed** after check-out until you mark it as completed.</Note>
+
+For a booking **Awaiting payment**, **Extend** gives the guest more time to pay: 24 hours, 48 hours or 7 days.
+
+## Sources
+
+| Source | Where it came from |
+| --- | --- |
+| **Direct** | Your booking site, or a booking you added as direct. |
+| **Manual** | A booking you added to keep the calendar right, without tracking its money. |
+| **API** | Another system, through the [Overviu API](/api-reference/introduction). |
+| **Airbnb**, **Booking.com**, **Vrbo**, **Expedia** | A booking you added for a stay booked on that site. It can't be changed in Overviu, only cancelled. |
+
+Calendar sync with Airbnb, Booking.com and Vrbo doesn't create bookings: the nights booked there show on the calendar as blocked. See [Calendar sync](/calendar/booking-site-calendars).
+
+## Payment status
+
+**Direct** bookings also have a payment status, because Overviu tracks their money:
+
+| Payment status | Meaning |
+| --- | --- |
+| **Awaiting payment** | The guest hasn't paid online yet. |
+| **Part paid** | The guest has paid part. The rest is due later; see [How guests pay](/payments/how-guests-pay). |
+| **Pay at check-in** | The guest pays you in person. [Record the payment](/bookings/record-a-payment) when they do. |
+| **Paid** | Nothing is owed. |
+
+The **Payment** section of the booking shows each payment, refund and what's still owed.
+
+## Inside a booking
+
+A booking's page has its **Stay** (listing, unit, dates, guests), the **Guest**, the **Price breakdown** and **Payment**, the **Security deposit**, the **Guest page** tasks, **Messages**, **Internal notes** and a **Timeline** of everything that happened and who did it.
+
+## Related
+
+- [Create a booking](/bookings/create-a-booking)
+- [Change a booking](/bookings/change-a-booking)
+- [Cancel a booking](/bookings/cancel-and-refund)

@@ -1,0 +1,65 @@
+---
+title: "Set up in 15 minutes"
+description: "From a new account to your first direct booking: listing, prices, booking site and payments."
+---
+
+This page takes you from a new account to a listing guests can book on your own booking site. Each step links to its full guide when you want more detail.
+
+<Note>Only owners and admins can change the booking site, branding and payment settings. When you sign up, you're the owner of your first team.</Note>
+
+## Before you start
+
+- An Overviu account. Signing up creates your first team, named after you, with a 14-day free trial.
+- For online payments: a Stripe account. You can skip this and add it later.
+
+## Steps
+
+<Steps>
+  <Step title="Name your team">
+    Everything in Overviu belongs to a team: listings, bookings, guests and settings. Open the user menu → **Settings** → **Teams**, open your team, change the **Team name** to your business name and click **Save**.
+
+    <Warning>The team name sets your booking site's address (for example `sea-view-villas.overviu.app`). Renaming the team later changes that address, and links you've already shared stop working.</Warning>
+  </Step>
+  <Step title="Add your listing">
+    Go to **Listings** → **Add listing**. Under **What are you listing?** choose **A single property** (a house, villa or apartment let as a whole) or **A building with units** (apartments or rooms let separately). Fill in the **Public title** guests will see, an optional **Nickname** for your team, and the **Property type**, then click **Create listing**.
+
+    The listing opens on its **Details** tab. Under **Basics**, set **Maximum guests**, **Bedrooms**, the **Currency** and the **Timezone**, then click **Save basics**. See [Create a listing](/listings/create-a-listing).
+  </Step>
+  <Step title="Set prices and the minimum stay">
+    Open the listing's **Pricing** tab. Under **Base pricing**, enter the **Nightly rates** for each day of the week and click **Save base rates**.
+
+    Then open the **Availability** tab, set the **Default minimum stay (nights)** and click **Save defaults**. See [Prices and stay rules](/calendar/prices-and-rules).
+  </Step>
+  <Step title="Publish the listing">
+    New listings start as **Draft**, which guests can't see. On the **Details** tab, under **Basics**, change **Status** to **Active** and click **Save basics**. The listing now appears on your booking site.
+  </Step>
+  <Step title="Connect Stripe (optional)">
+    To take card payments online, go to **Settings** → **Payments** and connect your own Stripe account: your **Secret key**, your **Publishable key** and the **Webhook signing secret** of the webhook you create in Stripe. Guests pay you directly; Overviu never holds your money.
+
+    Then choose how guests pay on the listing's **Pricing** tab, under **Payment** → **When does the guest pay?**. See [Connect Stripe](/payments/connect-stripe) and [How guests pay](/payments/how-guests-pay).
+
+    <Note>Without Stripe, leave the listing on **Guest pays at check-in (no online payment)**. If a listing asks for payment online and Stripe isn't connected, guests can't book it: the booking site tells them the host hasn't set up online payments yet.</Note>
+  </Step>
+  <Step title="Make the booking site yours">
+    In **Settings** → **Branding**, choose your **Primary colour**, **Font** and **Logo**, and click **Save**. In **Settings** → **Booking site**, add your **Contact email** and **Contact phone** so guests can reach you. See [Branding](/booking-site/branding) and [Set up your booking site](/booking-site/set-up).
+  </Step>
+  <Step title="Share your booking site">
+    Your booking site's address is shown in **Settings** → **Domains** under **Managed subdomain**: `your-team.overviu.app`. Put it on your website, your social profiles and the messages you send to past guests. You can also [use your own domain](/booking-site/custom-domain).
+  </Step>
+  <Step title="Get your first booking">
+    When a guest books, the booking appears in **Bookings** and on the **Calendar**, and your team gets a **New booking** email ([who gets it](/account/notifications)).
+
+    - If the guest paid online, the booking is **Confirmed** straight away.
+    - If they pay at check-in, the booking is **Pending** until you open it and click **Confirm booking**.
+  </Step>
+</Steps>
+
+## What happens next
+
+For owners and admins, the **Dashboard** shows a getting-started checklist (add a listing, set prices and publish it, connect Stripe, get your first booking) until your team's first booking arrives. After that it shows the day ahead: arrivals, departures and anything that needs your attention.
+
+## Related
+
+- [Key ideas](/get-started/key-ideas)
+- [Calendar sync with Airbnb, Booking.com and Vrbo](/calendar/booking-site-calendars)
+- [Invite your team](/account/team-and-roles)

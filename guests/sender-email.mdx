@@ -1,0 +1,50 @@
+---
+title: "Send from your own email address"
+description: "Send guest emails from an address on your own domain, like bookings@your-domain.com, instead of Overviu's."
+---
+
+Guest emails (booking confirmations, automated messages, your replies from the inbox) come from Overviu's address with your team's name. Add your own domain, and they come from an address like `bookings@your-domain.com` instead. Guests recognise it, and it's less likely to land in spam.
+
+<Note>Only owners and admins can add or remove a sender email.</Note>
+
+## Before you start
+
+- A domain you own, like `your-domain.com`, and access to its DNS settings at your domain provider or registrar.
+
+## Steps
+
+<Steps>
+  <Step title="Add the address">
+    Go to **Settings** → **Domains**. Under **Sender email**, type the part before the @ (like `bookings`) and your domain (like `your-domain.com`), and click **Add sender**.
+  </Step>
+  <Step title="Add the DNS records">
+    Overviu shows the DNS records to add, each with its type, **Name** and **Value**. Copy each one into your domain's DNS settings exactly as shown.
+
+    The record marked **Recommended** (DMARC) isn't needed to verify, but helps your emails reach inboxes.
+  </Step>
+  <Step title="Wait for the check">
+    Overviu checks the records every few minutes. Each record shows **Verified**, **Waiting** or **Not found**. Click **Check now** to check straight away once you've added them; DNS changes can take a while to spread.
+  </Step>
+</Steps>
+
+## What happens next
+
+When every required record checks out, the sender shows **Verified** and the next guest emails come from your address. Replies still land in your [inbox](/guests/inbox).
+
+| Status | Meaning |
+| --- | --- |
+| **Pending DNS** | Waiting for the records. Guest emails still come from Overviu's address with your team's name. |
+| **Verified** | Guest emails come from your address. |
+| **Failed** | The records weren't found within 7 days, or stopped checking out. Guest emails come from Overviu's address again. Fix the records and click **Try again**. |
+
+While the sender is **Pending DNS**, **Change address** changes the part before the @.
+
+## Remove it
+
+Click **Remove** and confirm. Guest emails come from Overviu's address again straight away. You can then remove the DNS records.
+
+## Related
+
+- [The inbox](/guests/inbox)
+- [Automated messages](/guests/automated-messages)
+- [Use your own domain for the booking site](/booking-site/custom-domain)

@@ -1,0 +1,62 @@
+---
+title: "Security deposits"
+description: "Charge a refundable deposit before check-in, keep part of it for damage, and return the rest automatically."
+---
+
+A security deposit covers damage or missing items. Overviu charges it to the guest's card a day before check-in and refunds it automatically a few days after check-out, unless you keep some of it.
+
+<Note>Deposits need Stripe; see [Connect Stripe](/payments/connect-stripe). Anyone in the team can keep, refund or waive a deposit from a booking.</Note>
+
+## Set up a deposit
+
+<Steps>
+  <Step title="Set the amount">
+    Open the listing → **Pricing** → **Charges & fees**, enter the **Security deposit** and click **Save fees**. For a unit type, set it on the unit type; for whole-building bookings, on the building.
+  </Step>
+  <Step title="Choose when it comes back">
+    In **Settings** → **Booking site**, under **Security deposits**, set **Refund security deposits after (days after check-out)**. It's 7 days unless you change it. This setting is for owners and admins.
+  </Step>
+</Steps>
+
+<Note>**Security deposit (offline)**, on the same tab, is only kept with the listing: Overviu doesn't charge it, show it to guests or put it in the rental agreement.</Note>
+
+## How it works
+
+1. The guest adds a card. A guest who paid online already has their card saved. Otherwise, their [booking page](/guests/guest-page) asks them to add one; until they do, the booking shows **No card yet**.
+2. Overviu charges it 24 hours before check-in, at the property's local time. The deposit shows **Charged**, with the date and when it's due back. The rental agreement names the amount as `{security_deposit}`.
+3. Overviu refunds it on the refund date: the whole deposit, less anything you kept.
+
+If the card is declined, the deposit shows **Card declined** and the guest is asked for another card on their booking page. Your team gets a **Security deposit declined** email. Click **Try again** to charge the card again straight away.
+
+## Keep part of it
+
+When something's damaged:
+
+<Steps>
+  <Step title="Open the booking">
+    Go to **Bookings**, open the booking and find the **Security deposit** section.
+  </Step>
+  <Step title="Keep part">
+    Click **Keep part**. Enter the **Amount to keep** and the **Reason**, like "Broken lamp", and click **Keep and refund the rest**.
+  </Step>
+</Steps>
+
+The rest goes back to the guest straight away. What you kept shows as **Kept** on the booking, and counts as money in on the [money report](/insights/reports).
+
+## Other things you can do
+
+- **Hold refund**: pause the automatic refund while you check something, like a damage report. **Release hold** lets it go ahead again.
+- **Refund now**: give the whole deposit back before the refund date.
+- **Waive**: drop a deposit that hasn't been charged yet. The guest won't be charged.
+
+## What happens next
+
+- Cancelling a booking refunds a charged deposit in full, and drops one that hasn't been charged.
+- A deposit refunded in the Stripe Dashboard counts too: Overviu refunds only what's left.
+- **Reports** show the deposits you're holding under the money report.
+
+## Related
+
+- [How guests pay](/payments/how-guests-pay)
+- [Refunds](/payments/refunds)
+- [The guest's booking page](/guests/guest-page)
