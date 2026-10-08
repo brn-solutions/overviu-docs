@@ -55,6 +55,16 @@
               "bookings/cancel-and-refund",
               "bookings/record-a-payment"
             ]
+          },
+          {
+            "group": "Payments",
+            "pages": [
+              "payments/connect-stripe",
+              "payments/how-guests-pay",
+              "payments/security-deposits",
+              "payments/refunds",
+              "payments/coupons"
+            ]
           }
         ]
       },

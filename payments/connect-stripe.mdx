@@ -1,0 +1,71 @@
+---
+title: "Connect Stripe"
+description: "Take card payments on your booking site with your own Stripe account: keys, the webhook and checking it works."
+---
+
+Overviu takes payments through your own Stripe account. Guests pay you directly, and the money lands in your Stripe balance; Overviu never holds it. Connect Stripe to take payments when guests book, charge balances and security deposits, send invoices, refund, and check guests' IDs.
+
+<Note>Only owners and admins can connect or disconnect Stripe.</Note>
+
+## Before you start
+
+- A Stripe account ([stripe.com](https://stripe.com)) for your business, with payouts set up.
+- About 10 minutes in the Stripe Dashboard.
+
+## Steps
+
+<Steps>
+  <Step title="Open the payment settings">
+    In Overviu, go to **Settings** → **Payments**. Keep this page open: you'll copy the **Endpoint URL** from it.
+  </Step>
+  <Step title="Create the webhook in Stripe">
+    Stripe uses a webhook to tell Overviu when a guest has paid. In the Stripe Dashboard, open Developers → Webhooks and add an endpoint:
+
+    - the URL: Overviu's **Endpoint URL**;
+    - the events: everything under **Events to send** (payments, refunds, invoices, saved cards and ID checks).
+
+    Save it, then copy its signing secret (it starts with `whsec_`).
+  </Step>
+  <Step title="Copy your API keys">
+    In Developers → API keys, copy the publishable key (`pk_…`) and a secret key.
+
+    For the secret key, Overviu recommends a restricted key (`rk_…`) with write access to PaymentIntents, Checkout Sessions, Refunds and Customers, and read access to Webhook Endpoints. Your standard secret key (`sk_…`) works too.
+  </Step>
+  <Step title="Connect">
+    Back in Overviu, paste the **Publishable key**, the **Secret key** and the **Webhook signing secret**, and click **Connect Stripe**. Overviu checks the secret key with Stripe; if Stripe refuses it, you'll see "Stripe rejected this secret key. Check it and try again."
+  </Step>
+  <Step title="Check the webhook">
+    Click **Check webhook setup**. "All set: the endpoint is enabled and sends every event we need." means you're done. Otherwise Overviu says what's wrong: no endpoint at that URL, the endpoint is disabled, or **Missing events** to add in Stripe.
+  </Step>
+</Steps>
+
+The page then shows the Stripe account you're connected to, its default currency, and **Last event received**: the last message Stripe sent Overviu.
+
+## Make Stripe's pages look like yours
+
+Guests pay on Stripe's checkout and invoice pages. Under **Make Stripe pages look like yours**, **Open in Stripe** takes you to the settings that live in your Stripe account:
+
+- **Logo and colours** for checkout, invoices and receipts;
+- **Public business name and support details** guests see;
+- the **Statement descriptor prefix** on the card statement (Overviu adds the booking code after it);
+- **Customer emails**: the receipts and invoice emails Stripe sends guests.
+
+## Test first
+
+Connect with your Stripe test-mode keys (`pk_test_…`, `sk_test_…`) and a test-mode webhook to try bookings with Stripe's test cards. When you're ready, **Disconnect** and connect again with your live keys and a live webhook.
+
+## Without Stripe
+
+Overviu works without Stripe: guests book with **Guest pays at check-in (no online payment)**, and you [record](/bookings/record-a-payment) the cash, bank transfers or card-terminal payments you take. You can't take online payments, security deposits or refunds through Overviu, and ID checks happen when guests arrive.
+
+<Warning>A listing set to take payment online can't be booked until Stripe is connected: the booking site tells guests the host hasn't set up online payments yet.</Warning>
+
+## Disconnect
+
+Click **Disconnect** and confirm. Guests can no longer pay online. If guests are paying right now, Overviu warns you first: their payments won't confirm their bookings after you disconnect.
+
+## Related
+
+- [How guests pay](/payments/how-guests-pay)
+- [Security deposits](/payments/security-deposits)
+- [Refunds](/payments/refunds)

@@ -1,0 +1,52 @@
+---
+title: "Refunds"
+description: "Give money back to a guest through Stripe: part of the stay, an extra, or by the cancellation policy."
+---
+
+Refund a guest from their booking: a goodwill gesture, a shorter stay, or an extra you shouldn't have charged. The money goes back to the card the guest paid with, through your Stripe account.
+
+<Note>Refunds need Stripe; see [Connect Stripe](/payments/connect-stripe). Anyone in the team can issue a refund from a booking.</Note>
+
+## Refund a guest
+
+<Steps>
+  <Step title="Open the booking">
+    Go to **Bookings**, open the booking and, in its **Payment** section, click **Issue refund**. The button shows when there's something left to refund.
+  </Step>
+  <Step title="Choose what to refund">
+    If the guest also paid for extras, pick under **Refund from**: **The stay**, or one of the extra charges.
+  </Step>
+  <Step title="Enter the amount">
+    Enter the **Amount**: Overviu shows how much can be refunded. Add a **Reason (optional)**; it's kept in the booking's **Timeline**.
+  </Step>
+  <Step title="Refund">
+    Click **Refund**. If Stripe refuses, Overviu shows Stripe's reason and nothing is refunded.
+  </Step>
+</Steps>
+
+A stay refund comes off the newest payments first, and never touches extras. Stripe usually takes 5 to 10 days to put the money back on the guest's card.
+
+## Refunds Overviu makes for you
+
+- Cancelling a booking offers a refund that follows the listing's [cancellation policy](/calendar/prices-and-rules#cancellation-policy); you can change the amount. See [Cancel a booking](/bookings/cancel-and-refund).
+- Shortening a stay refunds the nights given up, by the same policy. See [Change a booking](/bookings/change-a-booking).
+- **Security deposits** are refunded automatically after check-out. See [Security deposits](/payments/security-deposits).
+
+## Refunds made in Stripe
+
+You can also refund a payment in your Stripe Dashboard. Stripe tells Overviu, and the booking's **Payment** section, payment status and reports follow, as if you'd refunded it in Overviu.
+
+## What can't be refunded through Stripe
+
+- Money you [recorded](/bookings/record-a-payment) as cash, bank transfer or card terminal: it never went through Stripe. Pay it back the way you received it.
+- More than the guest paid.
+
+## A payment that arrived too late
+
+If a guest pays after their booking stopped waiting for the payment (for example, it was cancelled for not paying in time), the booking shows **Refund needed**. Refund the payment with **Issue refund**, or talk to the guest about booking again.
+
+## Related
+
+- [Cancel a booking](/bookings/cancel-and-refund)
+- [How guests pay](/payments/how-guests-pay)
+- [Reports](/insights/reports)

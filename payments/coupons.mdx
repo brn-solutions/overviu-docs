@@ -1,0 +1,52 @@
+---
+title: "Coupons"
+description: "Create discount codes for your booking site: a percentage or an amount off, for chosen dates, listings and guests."
+---
+
+A coupon is a code guests type when they book on your booking site, like `SUMMER10`, for a percentage or an amount off. Use them for returning guests, newsletters or quiet weeks.
+
+<Note>Only owners and admins can create and change coupons.</Note>
+
+## Create a coupon
+
+<Steps>
+  <Step title="Open coupons">
+    Go to **Settings** → **Coupons** and click **New coupon**.
+  </Step>
+  <Step title="Set the code and discount">
+    - **Code**: what guests type, 3 to 30 letters, digits, `-` or `_`. Guests can type it in any case.
+    - **Discount**: **Percent off** or **Amount off**. An amount off needs a **Currency**, and only works on listings priced in that currency.
+    - **Note (only you see it)**: a reminder of what the coupon is for.
+  </Step>
+  <Step title="Limit it (optional)">
+    - **Can be used from** and **Can be used until**: when guests can book with it.
+    - **For stays from** and **For stays until**: which stays it's for.
+    - **Minimum nights**: the shortest stay it applies to.
+    - **Properties**: **All properties**, or **Choose properties…** for some listings only.
+    - **Uses in total** and **Uses per guest**: how many bookings can use it, overall and per guest email address.
+  </Step>
+  <Step title="Save">
+    Click **Save coupon**. The coupon is **Active** straight away.
+  </Step>
+</Steps>
+
+## How guests use it
+
+On your booking site, under **Have a coupon code?**, the guest types the code. If it applies, the price drops straight away. If not, they see why, for example "This code has expired", "This code needs at least 3 nights", "This code isn't valid for this property" or "This code has been used up".
+
+The discount comes off the rent, after the listing's own discounts (weekly, monthly, early booking, last-minute). Fees and taxes that are a percentage are then worked out on the lower rent. The booking's **Price breakdown** shows the coupon.
+
+You can also apply a coupon to a booking you add yourself, with **Coupon code** on the **New booking** form, and API clients can send `coupon_code` when they [create a booking](/api-reference/bookings/create-a-booking).
+
+## Change or stop a coupon
+
+On **Settings** → **Coupons**, the list shows each coupon's **Discount**, when it's **Valid**, its **Uses** and **Status**.
+
+- **Edit** changes it. Bookings already made keep the discount they got.
+- **Deactivate** stops guests from using it. **Activate** turns it back on.
+
+## Related
+
+- [Prices and stay rules](/calendar/prices-and-rules#discounts)
+- [Create a booking](/bookings/create-a-booking)
+- [How guests pay](/payments/how-guests-pay)

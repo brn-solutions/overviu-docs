@@ -1,0 +1,63 @@
+---
+title: "How guests pay"
+description: "Choose whether guests pay in full, pay part now and the rest later, or pay at check-in, and charge them for extras."
+---
+
+Each listing decides when its guests pay. With Stripe connected, guests pay online on Stripe's checkout page, and Overviu takes care of the rest: balances, invoices and confirming the booking.
+
+<Note>Choosing how a listing is paid is part of its **Pricing** tab; anyone in the team can change it. Connecting Stripe is for owners and admins; see [Connect Stripe](/payments/connect-stripe).</Note>
+
+## Choose how a listing is paid
+
+Open the listing → **Pricing** → **Payment**. Under **When does the guest pay?**, pick one and click **Save payment settings**.
+
+<Tabs>
+  <Tab title="In full when booking">
+    **Guest pays in full when booking**. On your booking site, the guest clicks **Continue to payment** and pays the whole stay on Stripe's checkout page. The booking is **Awaiting payment** while they pay, and becomes **Confirmed** with the payment status **Paid** as soon as Stripe tells Overviu.
+  </Tab>
+  <Tab title="Part now, the rest later">
+    **Guest pays part when booking, the rest before check-in**. Set **Paid when booking (% of the total)** and **Balance due (days before check-in)**.
+
+    The guest pays the first part at checkout, and Stripe saves their card. The booking becomes **Confirmed** and **Part paid**. On the due date, in the morning, Overviu charges the rest to the saved card; if that fails, or there's no saved card, the guest is emailed a Stripe invoice for it instead.
+
+    If the guest books after the due date would have passed, the balance is charged the next morning.
+  </Tab>
+  <Tab title="At check-in">
+    **Guest pays at check-in (no online payment)**: the default. On your booking site, the guest clicks **Request to book**, no card needed. The booking is **Pending** until you confirm it, with the payment status **Pay at check-in**. When they pay you, [record the payment](/bookings/record-a-payment).
+  </Tab>
+</Tabs>
+
+The first two need Stripe. Without it, guests can't book a listing set to either one.
+
+## The hold while a guest pays
+
+While a guest pays on your booking site, the booking is **Awaiting payment** and holds its dates for 60 minutes. If the guest doesn't finish in time, the booking is cancelled and the dates are free again, and your team gets a **Payment not completed** email.
+
+For a **Direct** booking you add yourself with **Ask the guest to pay online**, you choose the time (24 hours to 7 days), and the guest pays from their [booking page](/guests/guest-page). On the booking, **Extend** gives them more time.
+
+## Invoices
+
+Some payments are sent as Stripe invoices: the guest gets an email from Stripe and pays it online.
+
+- A balance that couldn't be charged to the saved card.
+- A higher price after you [change a booking](/bookings/change-a-booking).
+- Extras you charge, below.
+
+When the guest pays an invoice, the booking's payment status follows. Invoices still open are voided if the booking is cancelled or paid in full another way.
+
+## Charge for extras
+
+To charge a guest for something extra (a late checkout, airport pickup, breakage), open the booking and click **Charge guest**. Enter the **Amount** and **What for**, and click **Send invoice**. Stripe emails the guest an invoice they can pay online within 7 days.
+
+Extras are kept apart from the stay: they don't change the stay's price, and a cancellation refund doesn't include them. See [Refunds](/payments/refunds).
+
+## Where to follow payments
+
+- The booking's **Payment** section shows every payment, refund and invoice, and what's still owed. **Open in Stripe** opens a payment in your Stripe Dashboard.
+- The **Dashboard** shows upcoming payments and cash flow, and **Reports** has the [money report](/insights/reports).
+
+## Related
+
+- [Connect Stripe](/payments/connect-stripe)
+- [Security deposits](/payments/security-deposits)
+- [Record a payment](/bookings/record-a-payment)
