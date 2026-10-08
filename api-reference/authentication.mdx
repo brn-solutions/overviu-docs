@@ -21,6 +21,8 @@ Every endpoint needs an API token, except the [Public](/api-reference/public/lis
 
 <Warning>Treat a token like a password. Anyone who has it can read your team's listings, bookings and guests through the API, and change bookings. Keep it on your server, never in a web page or an app that guests download.</Warning>
 
+<Note>The scope isn't enforced yet: a **Read-only** token can also create, change and cancel bookings.</Note>
+
 Every member of the team can create and revoke the team's tokens.
 
 ## Send the token
