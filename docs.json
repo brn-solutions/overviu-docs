@@ -26,6 +26,16 @@
               "get-started/quickstart",
               "get-started/key-ideas"
             ]
+          },
+          {
+            "group": "Listings",
+            "pages": [
+              "listings/create-a-listing",
+              "listings/buildings-and-units",
+              "listings/photos-and-listing-page",
+              "listings/address-and-map",
+              "listings/trash-and-restore"
+            ]
           }
         ]
       },
