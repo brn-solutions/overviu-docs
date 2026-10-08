@@ -45,6 +45,16 @@
               "calendar/blocking-dates",
               "calendar/booking-site-calendars"
             ]
+          },
+          {
+            "group": "Bookings",
+            "pages": [
+              "bookings/bookings-and-statuses",
+              "bookings/create-a-booking",
+              "bookings/change-a-booking",
+              "bookings/cancel-and-refund",
+              "bookings/record-a-payment"
+            ]
           }
         ]
       },

@@ -1,0 +1,56 @@
+---
+title: "Cancel a booking"
+description: "Cancel a booking, refund what the cancellation policy says, and free its dates."
+---
+
+Cancel a booking when the guest isn't coming, whoever cancels. Overviu frees the dates, stops any payments still to come, and suggests a refund from the listing's cancellation policy.
+
+## Before you start
+
+- You can cancel a booking that's **Pending**, **Awaiting payment** or **Confirmed**. **Completed** and **Cancelled** bookings can't be cancelled.
+- Anyone in the team can cancel a booking.
+
+## Steps
+
+<Steps>
+  <Step title="Open the booking">
+    Go to **Bookings** and open the booking. In **Choose an action...** at the top, pick **Cancel booking** and click **Submit**.
+
+    On the **Calendar**, you can also right-click the booking and choose **Cancel booking**. That cancels it straight away, without a refund.
+  </Step>
+  <Step title="Give a reason">
+    Optionally fill in **Reason (optional)**. It's kept in the booking's **Timeline**.
+  </Step>
+  <Step title="Choose the refund">
+    If the guest paid through Stripe, Overviu shows what the listing's policy gives back today, for example "Moderate policy: 50% refund now", and fills in the **Refund** with that amount. Change it if you've agreed something else with the guest: any amount up to what they paid, or 0 to cancel without a refund.
+  </Step>
+  <Step title="Cancel">
+    Click **Cancel booking**. To leave the booking as it is, click **Keep booking**.
+  </Step>
+</Steps>
+
+If Stripe refuses the refund, the booking isn't cancelled and Overviu shows Stripe's reason. Fix it, or set the refund to 0 and refund the guest another way.
+
+## What gets refunded
+
+- Overviu refunds only money the guest paid through Stripe. It goes back to the card they paid with, newest payment first.
+- Money you [recorded](/bookings/record-a-payment) as cash, bank transfer or card terminal can't be refunded through Stripe. Pay it back the way you received it.
+- If Stripe isn't connected, Overviu says "Online payments are not set up, so any refund must be made outside Overviu."
+- A security deposit held on the guest's card is returned in full. Payments for extras aren't part of the refund; refund them separately from the booking. See [Refunds](/payments/refunds).
+
+The policies are set per listing; see [Cancellation policy](/calendar/prices-and-rules#cancellation-policy).
+
+## What happens next
+
+- The booking becomes **Cancelled** and its nights are free again, on your calendar, your booking site and the sites you sync with.
+- Payments scheduled for later, like a balance due before check-in, won't be taken, and open invoices are voided.
+- Your team gets a **Booking cancelled** email, depending on [notification settings](/account/notifications).
+- If the listing has an automated message sent **Right after booking cancelled**, the guest gets it. See [Automated messages](/guests/automated-messages).
+
+Bookings that wait for an online payment are also cancelled on their own when the guest doesn't pay in time; your team gets a **Payment not completed** email.
+
+## Related
+
+- [Refunds](/payments/refunds)
+- [Change a booking](/bookings/change-a-booking)
+- [Bookings and statuses](/bookings/bookings-and-statuses)

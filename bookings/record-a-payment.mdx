@@ -1,0 +1,52 @@
+---
+title: "Record a payment"
+description: "Note money a guest paid outside Overviu, in cash, by bank transfer or on a card terminal, so the booking shows what's still owed."
+---
+
+When a guest pays you outside Overviu (cash at check-in, a bank transfer, your own card terminal), record it on the booking. Overviu then knows what's still owed: the payment status, the balance and your reports all follow.
+
+## Before you start
+
+- The booking is a **Direct** booking: Overviu tracks money only for those. See [Bookings and statuses](/bookings/bookings-and-statuses#payment-status).
+- The booking isn't cancelled, and the guest still owes something. **Record a payment** only appears when they do.
+
+## Steps
+
+<Steps>
+  <Step title="Open the booking">
+    Go to **Bookings** and open the booking. In its **Payment** section, click **Record a payment**.
+  </Step>
+  <Step title="Fill in the payment">
+    - **Amount**: filled in with what the guest still owes. Change it for a part payment. It can't be more than what's owed.
+    - **Date received**: today by default. It can't be in the future, or before the booking was made.
+    - **Method**: **Cash**, **Bank transfer**, **Card terminal** or **Other**.
+    - **Note** (optional): a transfer reference or who took the money.
+  </Step>
+  <Step title="Save">
+    Click **Record payment**.
+  </Step>
+</Steps>
+
+## What happens next
+
+- The payment appears in the booking's **Payment** section and **Timeline**, with who recorded it.
+- The payment status becomes **Part paid**, or **Paid** when nothing is owed any more.
+- A balance waiting to be charged to the guest's saved card is reduced to what's still owed. When the booking is paid in full, Overviu voids any invoice still open for the stay, so the guest can't pay twice.
+- A booking **Awaiting payment** becomes **Confirmed**, and no longer expires at its payment deadline.
+- The money counts in the [money report](/insights/reports), under the method you chose.
+
+<Warning>Money you record can't be refunded through Stripe, because it never went through Stripe. If you refund it, do it the same way the guest paid you.</Warning>
+
+## Remove a payment recorded by mistake
+
+<Note>Only owners and admins can remove a recorded payment.</Note>
+
+In the booking's **Payment** section, click **Remove recorded payment** (the bin icon) next to it, and confirm. The booking shows the amount as owed again, and its **Timeline** keeps a note of what was removed and by whom.
+
+Payments made through Stripe can't be removed: refund them instead. See [Refunds](/payments/refunds).
+
+## Related
+
+- [How guests pay](/payments/how-guests-pay)
+- [Cancel and refund](/bookings/cancel-and-refund)
+- [Reports](/insights/reports)

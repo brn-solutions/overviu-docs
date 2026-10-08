@@ -1,0 +1,57 @@
+---
+title: "Create a booking"
+description: "Add a booking yourself, for a guest who phoned, emailed or booked elsewhere, and confirm bookings that wait for you."
+---
+
+Most bookings arrive by themselves, from your booking site or the API. Add one yourself when a guest books by phone or email, or to record a stay booked somewhere else.
+
+## Steps
+
+<Steps>
+  <Step title="Pick the night on the calendar">
+    New bookings start from the calendar. Open **Calendar** (the **New booking** button on **Bookings** takes you there) and click the guest's first night on the listing's row, or on a unit's row in a building. The **New booking** form opens for that listing and date.
+  </Step>
+  <Step title="Choose the dates and guests">
+    Pick the stay in **Check-in and check-out dates** and set the **Number of guests**. For a unit type, leave **Unit** on **Assign automatically**, or pick a unit.
+
+    The **Price breakdown** shows the price from the listing's prices and rules, or why the dates aren't available. Add a **Coupon code** and click **Apply** if the guest has one.
+  </Step>
+  <Step title="Choose the source">
+    **Source** says where the booking came from:
+
+    - **Direct**: the guest booked with you. Overviu tracks the booking's payments and emails the guest a link to their booking page, so an email address is required.
+    - **Manual**: a booking you just want on the calendar. Overviu doesn't track its payments or email the guest.
+    - **Airbnb**, **Booking.com**, **Vrbo** or **Expedia**: a booking made on that site. You can't change it in Overviu later, only cancel it.
+  </Step>
+  <Step title="Fill in the guest">
+    Under **Guest details**, fill in the **Full name**, **Email** and **Phone**. As you type the email, **Existing guests** suggests guests you've had before; pick one to fill in their details.
+
+    Add **Internal notes** for your team, and the guest's **Special requests**.
+  </Step>
+  <Step title="Choose how it's paid and confirmed">
+    For a **Direct** booking, when you've connected Stripe, switch on **Ask the guest to pay online**: the dates are held until the guest pays on their booking page, within the time you choose in **Guest pays within** (24 hours to 7 days). The booking is **Awaiting payment** until they do, and is cancelled if they don't.
+
+    Otherwise, switch on **Confirm immediately** to make the booking **Confirmed** straight away, or leave it off to keep it **Pending**.
+  </Step>
+  <Step title="Create it">
+    Click **Create booking**.
+  </Step>
+</Steps>
+
+## Confirm a pending booking
+
+Bookings from your booking site that the guest pays at check-in, bookings from the API, and bookings you didn't confirm straight away are **Pending**: they hold their dates and wait for you. The **Dashboard** lists them under **Needs attention**.
+
+Open the booking, choose **Confirm booking** in **Choose an action...** and click **Submit**. The booking becomes **Confirmed**, and the guest gets your **Right after booking confirmed** message if the listing has one.
+
+## What happens next
+
+- The booking appears in **Bookings** and on the **Calendar**, and its nights are closed on your booking site and the sites you [sync with](/calendar/booking-site-calendars).
+- For a **Direct** booking, the guest gets an email with a link to their [booking page](/guests/guest-page). If they're paying online, that's where they pay.
+- To take a payment in person or by bank transfer, [record it](/bookings/record-a-payment).
+
+## Related
+
+- [Bookings and statuses](/bookings/bookings-and-statuses)
+- [Change a booking](/bookings/change-a-booking)
+- [How guests pay](/payments/how-guests-pay)
