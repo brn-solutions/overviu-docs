@@ -1,33 +1,15 @@
-> **First-time setup**: Customize this file for your project. Prompt the user to customize this file for their project.
-> For Mintlify product knowledge (components, configuration, writing standards),
-> install the Mintlify skill: `npx skills add https://mintlify.com/docs`
+# Writing the Overviu docs
 
-# Documentation project instructions
+These docs are for hosts (the Guides tab) and developers using the Overviu API (the API reference tab). Nothing about
+Overviu's internal code belongs here.
 
-## About this project
-
-- This is a documentation site built on [Mintlify](https://mintlify.com)
-- Pages are MDX files with YAML frontmatter
-- Configuration lives in `docs.json`
-- Use the Mintlify MCP server, `https://mcp.mintlify.com`, to edit content and settings via MCP
-- Use the Mintlify docs MCP server, `https://www.mintlify.com/docs/mcp`, to query information about using Mintlify via MCP
-
-## Terminology
-
-{/* Add product-specific terms and preferred usage */}
-{/* Example: Use "workspace" not "project", "member" not "user" */}
-
-## Style preferences
-
-{/* Add any project-specific style rules below */}
-
-- Use active voice and second person ("you")
-- Keep sentences concise — one idea per sentence
-- Use sentence case for headings
-- Bold for UI elements: Click **Settings**
-- Code formatting for file names, commands, paths, and code references
-
-## Content boundaries
-
-{/* Define what should and shouldn't be documented */}
-{/* Example: Don't document internal admin features */}
+- One task per guide, in plain English: what it's for and when; "Before you start" only when needed; the steps in
+  `<Steps>`; "What happens next"; "Related" links.
+- **Bold is only for labels on Overviu's screens**, copied exactly from the app. `python3 scripts/check-labels.py
+  ~/Sites/overviu <files>` must report 0.
+- Check every fact against the app's code. When the app behaves surprisingly, say so plainly in a `<Note>` or
+  `<Warning>`.
+- Owner/admin-only screens open with `<Note>Only owners and admins can …</Note>`.
+- Money is written with its currency (€120.00); dates as "15 October 2026".
+- Don't edit `api-reference/openapi.json` by hand: the app's CI replaces it on every push to its `main`.
+- Before committing: `npx mint validate` and `npx mint broken-links`.

@@ -1,0 +1,77 @@
+---
+title: "Key ideas"
+description: "Teams and roles, listings and buildings, booking statuses and sources, the booking site and calendar sync."
+---
+
+A few ideas run through all of Overviu. Knowing them makes the rest of the guides quicker to follow.
+
+## Teams
+
+Everything in Overviu belongs to a team: listings, bookings, guests, messages and settings. Signing up creates your first team, and you can belong to several, for example your own rentals and a client's. Switch between them with the team switcher at the top of the sidebar; every page shows the team you've switched to.
+
+Each team has its own plan, its own Stripe account and its own booking site.
+
+### Roles
+
+Everyone in a team has one of three roles.
+
+| Role | What they can do |
+| --- | --- |
+| **Owner** | Everything, including the plan and billing, changing members' roles, removing members and deleting the team. Each team has one owner. |
+| **Admin** | Everything an owner can do with the team's work and settings, and invite people. They can't manage billing, change roles, remove members or delete the team. |
+| **Member** | Day-to-day work: listings, the calendar, bookings and the inbox. |
+
+Members don't see:
+
+- **Reports**;
+- the money on the **Dashboard**: revenue, cash flow, upcoming payments and the getting-started checklist;
+- the team's **Domains**, **Branding**, **Booking site**, **Coupons** and **Payments** settings.
+
+They also can't move listings to the trash or restore them. See [Team and roles](/account/team-and-roles).
+
+## Listings
+
+A listing is something guests can book. There are three kinds.
+
+- **Single property**: a house, villa or apartment let as a whole.
+- **Building**: a building whose apartments or rooms are let separately. It holds unit types, and can also be booked as a whole (**Rent the whole building**).
+- **Unit type**: a kind of unit inside a building, like "2-bedroom apartment", with the units of that type (2A, 2B…). Guests book a unit type, and Overviu assigns a free unit automatically.
+
+Each unit counts toward your plan's limit: a single property is one unit, and a building counts only its units.
+
+A listing's status decides whether guests can see it:
+
+- **Draft**: new listings start here. Only your team sees them.
+- **Active**: on your booking site and bookable.
+- **Archived**: kept for your records, off the booking site.
+
+A listing you no longer need can be moved to the trash, which takes it off the booking site; you can restore it from **Listings**. See [Create a listing](/listings/create-a-listing), [Buildings and units](/listings/buildings-and-units) and [Trash and restore](/listings/trash-and-restore).
+
+## Bookings
+
+Every booking has a status:
+
+| Status | What it means |
+| --- | --- |
+| **Pending** | The booking holds the dates and waits for you to confirm it. |
+| **Awaiting payment** | A guest is paying online. If the payment doesn't arrive by its deadline, the booking is cancelled and the dates are released. |
+| **Confirmed** | The stay is on. Online payments confirm a booking automatically. |
+| **Cancelled** | The booking no longer holds its dates. |
+| **Completed** | The stay is over: you marked it as completed after check-out. |
+
+And a source, where it came from: **Manual** (you added it), **Direct** (your booking site), **API**, **Airbnb**, **Booking.com**, **Vrbo** or **Expedia**. Bookings from Airbnb, Booking.com and Vrbo arrive through calendar sync, and you change them on that site, not in Overviu.
+
+Bookings from your booking site, and those you add in Overviu, also have a payment status: **Paid**, **Part paid**, **Awaiting payment** or **Pay at check-in**. See [Bookings and statuses](/bookings/bookings-and-statuses).
+
+## The booking site
+
+Every team gets a direct booking site at `your-team.overviu.app`, and can use its own domain instead. It shows your active listings, takes bookings with your terms and rental agreement, and takes payments through your Stripe account. See [Set up your booking site](/booking-site/set-up).
+
+## Channels
+
+Airbnb, Booking.com and Vrbo are channels: other sites your listings are on. Overviu keeps calendars in step with them both ways by calendar (iCal) links, so a booking on one site blocks the dates everywhere. See [Calendar sync](/calendar/booking-site-calendars).
+
+## Related
+
+- [Set up in 15 minutes](/get-started/quickstart)
+- [Team and roles](/account/team-and-roles)
