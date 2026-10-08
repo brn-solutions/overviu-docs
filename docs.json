@@ -65,6 +65,15 @@
               "payments/refunds",
               "payments/coupons"
             ]
+          },
+          {
+            "group": "Guests",
+            "pages": [
+              "guests/guest-page",
+              "guests/automated-messages",
+              "guests/inbox",
+              "guests/sender-email"
+            ]
           }
         ]
       },

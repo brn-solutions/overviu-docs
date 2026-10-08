@@ -1,0 +1,51 @@
+---
+title: "The guest's booking page"
+description: "The page each direct-booking guest gets: payment, online check-in (ID, rental agreement, terms, deposit) and the arrival pack."
+---
+
+Every **Direct** booking has its own page on your booking site. The guest gets the link by email when they book, and uses the page to pay, check in online and, once that's done, see how to get in. You don't have to chase paperwork: the page asks for each thing in turn.
+
+## What the guest sees
+
+- **Your booking**: the listing, dates, guests and **Price details**, with what's paid and **Still to pay**.
+- **Online check-in**: the steps below, each marked **Done**, **In progress**, **Needs attention** or still to do. **Next step** takes them to the first open one.
+- **Your arrival pack**: the address, door code and Wi-Fi, marked **Unlocks when online check-in is complete** until every step is done. See [Guest resources](/listings/photos-and-listing-page#guest-resources).
+- **Questions about your stay?**: your contact email and phone, from [your booking site settings](/booking-site/set-up).
+
+## The online check-in steps
+
+Only the steps that apply to the booking are shown, in this order:
+
+| Step | When it applies | What the guest does |
+| --- | --- | --- |
+| **Payment** | The booking is **Awaiting payment**, or a balance couldn't be charged. | Pays online. If the saved card was declined for the balance, they **Pay the rest** here. |
+| **Contact details** | Always. | Checks their name, email and phone and clicks **Confirm contact details**. |
+| **Verify your identity** | Your team has connected Stripe. | Clicks **Verify with Stripe**, photographs their **Passport or ID card** and takes **A quick selfie** (about 2 minutes). Stripe checks it; their document is never shared with you. |
+| **Rental agreement** | You require a signed rental agreement and have published one. | Reads it, ticks that they agree to it and the booking terms, types their full name and clicks **Sign agreement**. |
+| **Booking terms** | You've published booking terms and there's no rental agreement to sign (signing the agreement accepts the terms too). | Ticks the box to accept them. |
+| **Security deposit** | The listing has a security deposit. | Adds a card, or keeps the card they paid with. |
+
+Some details worth knowing:
+
+- An ID check counts for 12 months: a guest who verified with your team in the last year isn't asked again. Without Stripe, the step isn't shown and the page says you'll check their ID when they arrive.
+- If you change the booking after the guest signed, the page asks them to sign the updated agreement. Signed copies never change.
+- Stripe charges your Stripe account for each ID check.
+
+## Following check-in from the booking
+
+On the booking in Overviu, the **Guest page** section shows each step's state, so you can see who still has to do what.
+
+- **Copy guest link** copies the page's address to send yourself, and **Resend email** sends the guest the link again.
+- **Reset guest link** makes a new link and stops the old one, for example when it was forwarded to the wrong person. Send the new one to the guest.
+- **Mark as verified** records that you checked the guest's ID yourself, with a note. **View in Stripe** opens a Stripe check.
+- **Mark as signed (on paper)** records a paper agreement. **Download** saves a signed agreement as a PDF.
+
+## Guest sign-in
+
+Guests can also sign in on your booking site to see all their bookings with you. They click **Sign in**, enter their email, and get a 6-digit code by email: no password needed. **My bookings** lists their **Upcoming** and **Past and cancelled** stays, each linking to its booking page.
+
+## Related
+
+- [Automated messages](/guests/automated-messages)
+- [Security deposits](/payments/security-deposits)
+- [Terms and the rental agreement](/booking-site/terms-and-agreement)
