@@ -59,7 +59,9 @@ Every booking has a status:
 | **Cancelled** | The booking no longer holds its dates. |
 | **Completed** | The stay is over: you marked it as completed after check-out. |
 
-And a source, where it came from: **Manual** (you added it), **Direct** (your booking site), **API**, **Airbnb**, **Booking.com**, **Vrbo** or **Expedia**. Bookings from Airbnb, Booking.com and Vrbo arrive through calendar sync, and you change them on that site, not in Overviu.
+And a source, where it came from: **Manual**, **Direct** (your booking site), **API**, **Airbnb**, **Booking.com**, **Vrbo** or **Expedia**. When you add a booking yourself, you pick its source, so a stay booked on Airbnb can be recorded as one. Bookings marked as from Airbnb, Booking.com, Vrbo or Expedia can't be changed in Overviu, only cancelled: those sites own them.
+
+Calendar sync doesn't create bookings. It blocks the nights that are booked on the other sites, without guest details; see [Channels](#channels).
 
 Bookings from your booking site, and those you add in Overviu, also have a payment status: **Paid**, **Part paid**, **Awaiting payment** or **Pay at check-in**. See [Bookings and statuses](/bookings/bookings-and-statuses).
 

@@ -36,6 +36,15 @@
               "listings/address-and-map",
               "listings/trash-and-restore"
             ]
+          },
+          {
+            "group": "Calendar & pricing",
+            "pages": [
+              "calendar/the-calendar",
+              "calendar/prices-and-rules",
+              "calendar/blocking-dates",
+              "calendar/booking-site-calendars"
+            ]
           }
         ]
       },

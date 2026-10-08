@@ -1,0 +1,114 @@
+---
+title: "Prices and stay rules"
+description: "Nightly prices, seasons, fees, taxes and discounts, stay rules, and when guests pay and get refunds."
+---
+
+Each listing has its own prices and rules, on its **Pricing** and **Availability** tabs. Overviu uses them for every quote on your booking site, every booking you add, and the API. For a building, set them on each unit type, and for whole-building bookings on the building's **Whole building** tab.
+
+Amounts are in the listing's currency, set on **Details** → **Basics**.
+
+## Nightly prices
+
+Open the listing → **Pricing** → **Base pricing**. Under **Nightly rates**, set a price for each day of the week: a higher price on Friday and Saturday gives you weekend prices. Click **Save base rates**.
+
+The same tab has **Extra guest charges**: switch on **Charge extra per guest**, then set the **Price per guest** per night and the number of guests the price includes (**After guest #**). A price for 2 guests with €15.00 per extra guest charges a party of 4 €30.00 a night more.
+
+## Seasons
+
+Seasons change prices and rules for a stretch of dates, like summer or Christmas.
+
+<Steps>
+  <Step title="Add a season">
+    On the **Availability** tab, under **Seasonal rules**, click **Add season**.
+  </Step>
+  <Step title="Set its dates and prices">
+    Give it a **Season name** and **Season dates**. Under **Rate overrides**, enter a price for each day of the week you want to change; leave a day blank to keep the base rate.
+  </Step>
+  <Step title="Set its rules">
+    Optionally set its own **Minimum stay** and **Maximum stay**, and **Close for arrival** or **Close for departure** to stop guests arriving or leaving during the season.
+  </Step>
+  <Step title="Save">
+    Leave **Active** on and click **Save season**.
+  </Step>
+</Steps>
+
+When seasons overlap, the one with the higher **Priority** wins. To change a single day instead, use the [calendar](/calendar/the-calendar).
+
+## Fees
+
+On **Pricing** → **Charges & fees**:
+
+- **Cleaning fee**, **Linen fee** and **Pet fee**: a fixed amount added to each booking;
+- **Management fee**, **Resort fee** and **Community fee**: each with a **Type**, either a **Flat amount** per booking or a **Percentage** of the rent (after discounts).
+
+<Warning>The **Pet fee** is added to every booking, whether or not the guest brings a pet. Leave it at 0 unless every stay should pay it.</Warning>
+
+The **Security deposit** fields are on this tab too; see [Security deposits](/payments/security-deposits).
+
+## Taxes
+
+On **Pricing** → **Taxes**:
+
+- **Property rent tax (%)**: a percentage of the rent and fees;
+- **Fixed tax per booking**: one amount per booking;
+- **Guest tax per person per night**: a tourist tax for each guest and night;
+- **Fixed nightly tax**: one amount per night.
+
+## Discounts
+
+On **Pricing** → **Discounts**, each discount is a percentage of the rent:
+
+- **Weekly discount (%)**: stays of 7 nights or more;
+- **Monthly discount (%)**: stays of 28 nights or more. It replaces the weekly discount;
+- **Early booking discount (%)**: bookings made at least **Minimum days in advance** before check-in;
+- **Last-minute discount (%)**: bookings made at most **Maximum days before check-in**.
+
+Early-booking and last-minute discounts add to the weekly or monthly one. A [coupon](/payments/coupons) comes off what's left after them.
+
+<Note>The **Non-refundable discount (%)** is saved but doesn't change prices yet: guests don't get a non-refundable rate.</Note>
+
+## Stay rules
+
+On the **Availability** tab, under **Default availability settings**:
+
+| Setting | What it does |
+| --- | --- |
+| **Default minimum stay (nights)** | The shortest stay guests can book. |
+| **Default maximum stay (nights)** | The longest stay. Leave it empty for no limit. |
+| **Minimum advance booking (days)** | How many days ahead guests must book. 1 stops same-day bookings. |
+| **Maximum advance booking (days)** | How far ahead guests can book. |
+| **Preparation time** | Nights kept free between bookings for cleaning: **None**, **1 night before and after** or **2 nights before and after**. |
+| **Allowed check-in days** and **Allowed check-out days** | The days guests may arrive and leave, like Saturday to Saturday. Leave all unchecked to allow any day. |
+
+Click **Save defaults**. Seasons and days you change in the calendar take precedence over these defaults.
+
+## When guests pay
+
+On **Pricing** → **Payment**, under **When does the guest pay?**:
+
+- **Guest pays in full when booking**;
+- **Guest pays part when booking, the rest before check-in**: set **Paid when booking (% of the total)** and **Balance due (days before check-in)**;
+- **Guest pays at check-in (no online payment)**: the default.
+
+The first two need Stripe. See [How guests pay](/payments/how-guests-pay).
+
+## Cancellation policy
+
+Also on **Payment**, the **Cancellation policy** sets how much of what a guest paid comes back if the booking is cancelled. When you cancel a booking, Overviu suggests a refund that follows it:
+
+| Policy | Refund |
+| --- | --- |
+| **Flexible** | Full refund if cancelled more than 24 hours before check-in. |
+| **Moderate** | Full refund more than 5 days before check-in, 50% from 1 to 5 days, nothing within 24 hours. |
+| **Strict** | 50% refund more than 7 days before check-in, nothing after that. |
+| **Firm** | Full refund more than 30 days before check-in, 50% from 7 to 30 days, nothing within 7 days. |
+
+Guests see the policy on the listing page of your booking site. See [Cancel and refund](/bookings/cancel-and-refund).
+
+Click **Save payment settings**.
+
+## Related
+
+- [The calendar](/calendar/the-calendar)
+- [Block dates](/calendar/blocking-dates)
+- [How guests pay](/payments/how-guests-pay)
