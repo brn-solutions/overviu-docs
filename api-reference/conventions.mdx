@@ -70,6 +70,7 @@ Errors come with an HTTP status and the same body:
 | Status | When |
 | --- | --- |
 | `401` | The token is missing, wrong or revoked. |
+| `402` | The team's Overviu plan has ended and the team is paused. It works again once the owner chooses a plan. |
 | `403` | The token is read-only and the request creates, changes or cancels a booking. |
 | `404` | The record doesn't exist, or belongs to another team. |
 | `422` | The request can't be done: a field failed validation (`errors` lists each field), the dates aren't available (`errors.availability`), a coupon doesn't apply (`errors.coupon_code`), or the booking can't be changed or cancelled any more (for example, it's already cancelled or completed). |
@@ -96,6 +97,7 @@ When dates can't be booked, `errors.availability` holds one of these codes, and 
 | `min_stay` | Shorter than the minimum stay. |
 | `max_stay` | Longer than the maximum stay. |
 | `pets_not_allowed` | The request has `pets: true`, but the listing doesn't allow pets. |
+| `bookings_paused` | The team's Overviu plan has ended, so it takes no new bookings for now. |
 
 ## Rate limits
 
