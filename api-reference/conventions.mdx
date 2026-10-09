@@ -70,6 +70,7 @@ Errors come with an HTTP status and the same body:
 | Status | When |
 | --- | --- |
 | `401` | The token is missing, wrong or revoked. |
+| `403` | The token is read-only and the request creates, changes or cancels a booking. |
 | `404` | The record doesn't exist, or belongs to another team. |
 | `422` | The request can't be done: a field failed validation (`errors` lists each field), the dates aren't available (`errors.availability`), a coupon doesn't apply (`errors.coupon_code`), or the booking can't be changed or cancelled any more (for example, it's already cancelled or completed). |
 | `429` | Too many requests. Wait and try again; the `Retry-After` header says how many seconds. |

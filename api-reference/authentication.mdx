@@ -19,9 +19,19 @@ Every endpoint needs an API token, except the [Public](/api-reference/public/lis
   </Step>
 </Steps>
 
-<Warning>Treat a token like a password. Anyone who has it can read your team's listings, bookings and guests through the API, and change bookings. Keep it on your server, never in a web page or an app that guests download.</Warning>
+<Warning>Treat a token like a password. Anyone who has it can read your team's listings, bookings and guests through the API, and with a read-write token also change bookings. Keep it on your server, never in a web page or an app that guests download.</Warning>
 
-<Note>The scope isn't enforced yet: a **Read-only** token can also create, change and cancel bookings.</Note>
+## Scopes
+
+Pick the narrowest scope the system needs:
+
+| Scope | What the token can do |
+| --- | --- |
+| **Read-only** | Read listings, availability, bookings and guests. |
+| **Read-write** | Everything a read-only token can, and create, change and cancel bookings. |
+
+A read-only token that tries to create, change or cancel a booking gets `403`: "This API token is read-only. Use a read-write token to create, change or cancel bookings."
+
 
 Every member of the team can create and revoke the team's tokens.
 
