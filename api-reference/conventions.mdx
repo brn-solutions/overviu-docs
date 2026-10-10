@@ -86,7 +86,8 @@ When dates can't be booked, `errors.availability` holds one of these codes, and 
 | `past_date` | Check-in is in the past. |
 | `too_soon` | Check-in is closer than the listing's minimum advance booking. |
 | `too_far` | Check-in is further away than the listing's maximum advance booking. |
-| `too_many_guests` | More guests than the listing sleeps. |
+| `too_many_guests` | More adults and children than the listing sleeps (infants don't count). |
+| `children_not_allowed` | The request has children or infants, but the listing doesn't allow children. |
 | `not_bookable` | The building can't be booked as a whole. |
 | `missing_days` | The calendar has no data for some of the dates. |
 | `unavailable` | Some nights are already booked or blocked. |
