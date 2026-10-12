@@ -1,0 +1,45 @@
+---
+title: "Ask about your data"
+description: "Ask questions about your bookings, guests and numbers on the Dashboard, with your own Claude or OpenAI key."
+---
+
+With your own Claude (Anthropic) or OpenAI API key, the **Dashboard** gets a chat where you can ask about your own data: "Who arrives tomorrow and hasn't finished online check-in?", "How many nights did we book last month?", "Which listing earns the most per night?". Answers link to the bookings, listings and reports they come from.
+
+The chat only looks things up. It can't change bookings, calendars or messages.
+
+## Add your key
+
+Owners and admins add the key once for the team.
+
+<Steps>
+  <Step title="Get a key">
+    Create an API key with [Anthropic](https://console.anthropic.com/settings/keys) or [OpenAI](https://platform.openai.com/api-keys). Usage is billed to that account, not by Overviu.
+  </Step>
+  <Step title="Open Settings → AI">
+    Open the user menu → **Settings** → **AI**.
+  </Step>
+  <Step title="Save it">
+    Pick the **Provider**, paste the **API key**, choose a **Model** (**Standard**, or **Faster and cheaper**) and click **Save**. Overviu checks the key with the provider before saving it, and tells you if it doesn't work (for example when the account has no credit left).
+  </Step>
+</Steps>
+
+The key is stored encrypted and only its start and last four characters are shown again. Click **Remove key** to turn the chat off.
+
+## What is sent
+
+Your questions, and the data needed to answer them, go to the provider with your key: guest names, stays, listings, prices and statuses. Guest emails, phone numbers and messages are never sent.
+
+## Ask
+
+On the **Dashboard**, type your question under **Ask about your data** and press Enter, or pick a suggested question. While the answer is written, the chat shows what it's looking up.
+
+- Your chats are saved for you in this team. Other members can't see them. Open one from **Recent chats**, or delete it there.
+- Click **New chat** to start over.
+- Members can use the chat too, but it gives them no money figures, as on the screens.
+- To stop a runaway, each person can ask 60 questions an hour.
+
+<Note>Answers can be wrong. Check the pages they link to before acting on a number.</Note>
+
+## What it costs
+
+**Settings → AI** shows this month's questions and an estimate of what they cost, worked out from the tokens each answer used. Your provider's bill is the real figure.
