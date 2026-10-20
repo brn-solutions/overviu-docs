@@ -94,7 +94,10 @@
                                                             "type": "string"
                                                         },
                                                         "last_used_at": {
-                                                            "type": "string"
+                                                            "type": [
+                                                                "string",
+                                                                "null"
+                                                            ]
                                                         }
                                                     },
                                                     "required": [
@@ -153,7 +156,17 @@
                                         "data": {
                                             "type": "array",
                                             "items": {
-                                                "$ref": "#/components/schemas/ListingResource"
+                                                "allOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/ListingResource"
+                                                    },
+                                                    {
+                                                        "type": "object",
+                                                        "required": [
+                                                            "photos"
+                                                        ]
+                                                    }
+                                                ]
                                             }
                                         },
                                         "links": {
@@ -317,7 +330,17 @@
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#/components/schemas/ListingResource"
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#/components/schemas/ListingResource"
+                                                },
+                                                {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "photos"
+                                                    ]
+                                                }
+                                            ]
                                         }
                                     },
                                     "required": [
@@ -339,7 +362,7 @@
         "/v1/availability/{listing}": {
             "get": {
                 "operationId": "v1.availability",
-                "description": "Checks whether the listing can be booked from `check_in` to `check_out` (`Y-m-d`, check-out after check-in) for\n`guests` people, and returns the price breakdown in cents. Pass `coupon_code` to apply a coupon; a coupon that\ndoesn't apply returns 422 with the reason.",
+                "description": "Checks whether the listing can be booked from `check_in` to `check_out` (`Y-m-d`, check-out after check-in) for\n`adults`, `children` and `infants` (or `guests`, adults and children together), and returns the price breakdown\nin cents. Pass `coupon_code` to apply a coupon; a coupon that\ndoesn't apply returns 422 with the reason. Pass `pets=1` when the guest brings pets, to include the pet fee.",
                 "summary": "Check availability and price",
                 "tags": [
                     "Availability"
@@ -374,9 +397,37 @@
                         }
                     },
                     {
+                        "name": "adults",
+                        "in": "query",
+                        "description": "Adults (13 and over). At least one.",
+                        "schema": {
+                            "type": "integer",
+                            "minimum": 1
+                        }
+                    },
+                    {
+                        "name": "children",
+                        "in": "query",
+                        "description": "Children (2 to 12).",
+                        "schema": {
+                            "type": "integer",
+                            "minimum": 0
+                        }
+                    },
+                    {
+                        "name": "infants",
+                        "in": "query",
+                        "description": "Infants (under 2).",
+                        "schema": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 5
+                        }
+                    },
+                    {
                         "name": "guests",
                         "in": "query",
-                        "required": true,
+                        "description": "Adults and children together, instead of `adults`: everyone who isn't a child is an adult.",
                         "schema": {
                             "type": "integer",
                             "minimum": 1
@@ -391,6 +442,13 @@
                                 "null"
                             ],
                             "maxLength": 40
+                        }
+                    },
+                    {
+                        "name": "pets",
+                        "in": "query",
+                        "schema": {
+                            "type": "boolean"
                         }
                     }
                 ],
@@ -461,7 +519,18 @@
                                         "data": {
                                             "type": "array",
                                             "items": {
-                                                "$ref": "#/components/schemas/BookingResource"
+                                                "allOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/BookingResource"
+                                                    },
+                                                    {
+                                                        "type": "object",
+                                                        "required": [
+                                                            "listing",
+                                                            "guest"
+                                                        ]
+                                                    }
+                                                ]
                                             }
                                         },
                                         "links": {
@@ -553,7 +622,7 @@
             },
             "post": {
                 "operationId": "v1.bookings.store",
-                "description": "Creates a booking with source `api` and status `pending`, priced like the booking site, and returns it with\nstatus 201. The guest is matched to an existing guest of the team with the same email, or created. Dates that\naren't available return 422 with the reason in `errors.availability`; a coupon that doesn't apply returns 422\nin `errors.coupon_code`.",
+                "description": "Creates a booking with source `api` and status `pending`, priced like the booking site, and returns it with\nstatus 201. Say who stays with `adults`, `children` (2 to 12) and `infants` (under 2); `number_of_guests` alone\nstill works and counts everyone as an adult. Infants don't count toward the listing's maximum guests, and a\nlisting that doesn't allow children returns 422 with `children_not_allowed` for children or infants. Send\n`pets: true` when the guest brings pets: the listing's pet fee is added, and a listing that\ndoesn't allow pets returns 422 with `pets_not_allowed`. The guest is matched to an existing guest of the team with the same email, or created. Dates that\naren't available return 422 with the reason in `errors.availability`; a coupon that doesn't apply returns 422\nin `errors.coupon_code`. Needs a read-write token: a read-only token gets 403.",
                 "summary": "Create a booking",
                 "tags": [
                     "Bookings"
@@ -625,7 +694,18 @@
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#/components/schemas/BookingResource"
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#/components/schemas/BookingResource"
+                                                },
+                                                {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "listing",
+                                                        "guest"
+                                                    ]
+                                                }
+                                            ]
                                         }
                                     },
                                     "required": [
@@ -645,7 +725,7 @@
             },
             "put": {
                 "operationId": "v1.bookings.update",
-                "description": "Changes the dates, number of guests, guest details, notes or special requests of one of the team's bookings.\nSend only what changes. New dates are checked and priced again; unavailable dates return 422 in\n`errors.availability`, and a booking that can no longer be changed (e.g. cancelled or completed) returns 422.",
+                "description": "Changes the dates, who stays (`adults`, `children`, `infants`), pets, guest details, notes or special requests of\none of the team's bookings. Send only what changes; `number_of_guests` alone is a new total of adults and\nchildren that keeps the children. New dates are checked and priced again; unavailable dates return 422 in\n`errors.availability`, and a booking that can no longer be changed (e.g. cancelled or completed) returns 422.\nNeeds a read-write token: a read-only token gets 403.",
                 "summary": "Change a booking",
                 "tags": [
                     "Bookings"
@@ -705,7 +785,7 @@
         "/v1/bookings/{booking}/cancel": {
             "post": {
                 "operationId": "v1.bookings.cancel",
-                "description": "Cancels one of the team's bookings, with an optional `reason`. Its dates are freed, payments scheduled for later\nwon't be taken, open invoices are voided and a security deposit held is returned. Payments already made for the\nstay aren't refunded automatically: refund them from the booking in Overviu. A booking that can't be cancelled\nreturns 422.",
+                "description": "Cancels one of the team's bookings, with an optional `reason`. Its dates are freed, payments scheduled for later\nwon't be taken, open invoices are voided and a security deposit held is returned. Payments already made for the\nstay aren't refunded automatically: refund them from the booking in Overviu. A booking that can't be cancelled\nreturns 422. Needs a read-write token: a read-only token gets 403.",
                 "summary": "Cancel a booking",
                 "tags": [
                     "Bookings"
@@ -1002,7 +1082,18 @@
                                         "data": {
                                             "type": "array",
                                             "items": {
-                                                "$ref": "#/components/schemas/PublicListingResource"
+                                                "allOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/PublicListingResource"
+                                                    },
+                                                    {
+                                                        "type": "object",
+                                                        "required": [
+                                                            "photos",
+                                                            "unit_types"
+                                                        ]
+                                                    }
+                                                ]
                                             }
                                         },
                                         "links": {
@@ -1170,7 +1261,18 @@
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#/components/schemas/PublicListingResource"
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#/components/schemas/PublicListingResource"
+                                                },
+                                                {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "photos",
+                                                        "unit_types"
+                                                    ]
+                                                }
+                                            ]
                                         }
                                     },
                                     "required": [
@@ -1260,7 +1362,7 @@
         "/v1/public/{teamSlug}/listings/{listingSlug}/availability": {
             "get": {
                 "operationId": "v1.public.listings.availability",
-                "description": "Checks whether a booking-site listing can be booked for the dates and guests, and returns the price breakdown in\ncents, as the booking site would. No token needed. Accepts a `coupon_code`.",
+                "description": "Checks whether a booking-site listing can be booked for the dates and guests (`adults`, `children`, `infants`,\nor `guests` for adults and children together), and returns the price breakdown in cents, as the booking site would. No token needed. Accepts a `coupon_code`, and `pets=1` to include the pet fee.",
                 "summary": "Check availability and price on the booking site",
                 "tags": [
                     "Public"
@@ -1301,9 +1403,37 @@
                         }
                     },
                     {
+                        "name": "adults",
+                        "in": "query",
+                        "description": "Adults (13 and over). At least one.",
+                        "schema": {
+                            "type": "integer",
+                            "minimum": 1
+                        }
+                    },
+                    {
+                        "name": "children",
+                        "in": "query",
+                        "description": "Children (2 to 12).",
+                        "schema": {
+                            "type": "integer",
+                            "minimum": 0
+                        }
+                    },
+                    {
+                        "name": "infants",
+                        "in": "query",
+                        "description": "Infants (under 2).",
+                        "schema": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 5
+                        }
+                    },
+                    {
                         "name": "guests",
                         "in": "query",
-                        "required": true,
+                        "description": "Adults and children together, instead of `adults`: everyone who isn't a child is an adult.",
                         "schema": {
                             "type": "integer",
                             "minimum": 1
@@ -1318,6 +1448,13 @@
                                 "null"
                             ],
                             "maxLength": 40
+                        }
+                    },
+                    {
+                        "name": "pets",
+                        "in": "query",
+                        "schema": {
+                            "type": "boolean"
                         }
                     }
                 ],
@@ -1386,17 +1523,7 @@
                         ]
                     },
                     "units_left": {
-                        "anyOf": [
-                            {
-                                "type": "integer"
-                            },
-                            {
-                                "type": "integer",
-                                "enum": [
-                                    0
-                                ]
-                            }
-                        ]
+                        "type": "integer"
                     }
                 },
                 "required": [
@@ -1466,7 +1593,20 @@
                         "type": "integer"
                     },
                     "number_of_guests": {
+                        "type": "integer",
+                        "description": "Adults and children; infants don't count toward it."
+                    },
+                    "adults": {
                         "type": "integer"
+                    },
+                    "children": {
+                        "type": "integer"
+                    },
+                    "infants": {
+                        "type": "integer"
+                    },
+                    "pets": {
+                        "type": "boolean"
                     },
                     "currency": {
                         "type": "string"
@@ -1503,25 +1643,47 @@
                         ]
                     },
                     "confirmed_at": {
-                        "type": "string"
+                        "type": [
+                            "string",
+                            "null"
+                        ]
                     },
                     "cancelled_at": {
-                        "type": "string"
+                        "type": [
+                            "string",
+                            "null"
+                        ]
                     },
                     "completed_at": {
-                        "type": "string"
+                        "type": [
+                            "string",
+                            "null"
+                        ]
                     },
                     "created_at": {
-                        "type": "string"
+                        "type": [
+                            "string",
+                            "null"
+                        ]
                     },
                     "updated_at": {
-                        "type": "string"
+                        "type": [
+                            "string",
+                            "null"
+                        ]
                     },
                     "listing": {
                         "$ref": "#/components/schemas/ListingResource"
                     },
                     "guest": {
-                        "$ref": "#/components/schemas/GuestResource"
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/GuestResource"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     }
                 },
                 "required": [
@@ -1537,6 +1699,10 @@
                     "check_out",
                     "nights",
                     "number_of_guests",
+                    "adults",
+                    "children",
+                    "infants",
+                    "pets",
                     "currency",
                     "accommodation_total",
                     "discount_total",
@@ -1585,7 +1751,10 @@
                         ]
                     },
                     "created_at": {
-                        "type": "string"
+                        "type": [
+                            "string",
+                            "null"
+                        ]
                     }
                 },
                 "required": [
@@ -1833,10 +2002,16 @@
                         }
                     },
                     "created_at": {
-                        "type": "string"
+                        "type": [
+                            "string",
+                            "null"
+                        ]
                     },
                     "updated_at": {
-                        "type": "string"
+                        "type": [
+                            "string",
+                            "null"
+                        ]
                     }
                 },
                 "required": [
@@ -1885,8 +2060,10 @@
                         "type": "integer"
                     },
                     "nightly_rates": {
-                        "type": "array",
-                        "items": {}
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "integer"
+                        }
                     },
                     "discounts": {
                         "type": "string"
@@ -2080,30 +2257,29 @@
                         "type": "string",
                         "format": "date"
                     },
-                    "number_of_guests": {
+                    "adults": {
                         "type": "integer",
+                        "description": "Adults (13 and over). At least one.",
                         "minimum": 1
                     },
-                    "notes": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "maxLength": 2000
+                    "children": {
+                        "type": "integer",
+                        "description": "Children (2 to 12). Refused where the listing doesn't allow children.",
+                        "minimum": 0
                     },
-                    "special_requests": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "maxLength": 2000
+                    "infants": {
+                        "type": "integer",
+                        "description": "Infants (under 2). They don't count toward the listing's maximum guests, but are refused where it doesn't allow children.",
+                        "minimum": 0,
+                        "maximum": 5
                     },
-                    "coupon_code": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "maxLength": 40
+                    "number_of_guests": {
+                        "type": "integer",
+                        "description": "Adults and children together. Send it instead of `adults` and everyone who isn't a child is an adult.",
+                        "minimum": 1
+                    },
+                    "pets": {
+                        "type": "boolean"
                     },
                     "guest": {
                         "type": "object",
@@ -2131,13 +2307,33 @@
                         "required": [
                             "name"
                         ]
+                    },
+                    "notes": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "maxLength": 2000
+                    },
+                    "special_requests": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "maxLength": 2000
+                    },
+                    "coupon_code": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "maxLength": 40
                     }
                 },
                 "required": [
                     "listing_id",
                     "check_in",
                     "check_out",
-                    "number_of_guests",
                     "guest"
                 ],
                 "title": "StoreBookingRequest"
@@ -2153,23 +2349,29 @@
                         "type": "string",
                         "format": "date"
                     },
-                    "number_of_guests": {
+                    "adults": {
                         "type": "integer",
+                        "description": "Adults (13 and over). At least one.",
                         "minimum": 1
                     },
-                    "notes": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "maxLength": 2000
+                    "children": {
+                        "type": "integer",
+                        "description": "Children (2 to 12).",
+                        "minimum": 0
                     },
-                    "special_requests": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "maxLength": 2000
+                    "infants": {
+                        "type": "integer",
+                        "description": "Infants (under 2).",
+                        "minimum": 0,
+                        "maximum": 5
+                    },
+                    "number_of_guests": {
+                        "type": "integer",
+                        "description": "A new total of adults and children, without `adults`: the children stay as they are and the rest are adults.",
+                        "minimum": 1
+                    },
+                    "pets": {
+                        "type": "boolean"
                     },
                     "guest": {
                         "type": "object",
@@ -2194,6 +2396,20 @@
                                 "maxLength": 50
                             }
                         }
+                    },
+                    "notes": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "maxLength": 2000
+                    },
+                    "special_requests": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "maxLength": 2000
                     }
                 },
                 "title": "UpdateBookingRequest"
