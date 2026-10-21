@@ -24,7 +24,8 @@
             "pages": [
               "index",
               "get-started/quickstart",
-              "get-started/key-ideas"
+              "get-started/key-ideas",
+              "get-started/ask-overviu"
             ]
           },
           {
@@ -98,7 +99,8 @@
               "account/notifications",
               "account/plan-and-billing",
               "account/profile-and-security",
-              "account/api-tokens"
+              "account/api-tokens",
+              "account/ai-chat"
             ]
           }
         ]

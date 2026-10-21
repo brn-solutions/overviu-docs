@@ -1,18 +1,18 @@
 ---
 title: "Plan and billing"
-description: "Overviu's plans and how many units each includes, the free trial, and managing your subscription and invoices."
+description: "Overviu's plans, the free trial, what happens without a plan, and managing your subscription and invoices."
 ---
 
-Each team has its own plan, paid by the team's owner. Plans differ mainly in how many units you can list.
+Each team has its own plan, paid by the team's owner. Every plan has every feature (the booking site, payments, reports, calendar sync and the API); plans differ in how many units you can list and how many people can be in the team.
 
 <Note>Only the team's owner can choose a plan or manage billing.</Note>
 
 ## Plans
 
-| Plan | For | Units |
-| --- | --- | --- |
-| **Solo** | Small holiday-rental owners getting started | Up to 5 |
-| **Pro** | Growing property managers | Up to 25 |
+| Plan | For | Units | Team members |
+| --- | --- | --- | --- |
+| **Solo** | Small holiday-rental owners getting started | Up to 5 | 1 (just you) |
+| **Pro** | Growing property managers | Up to 25 | Up to 10 |
 
 Plans are billed monthly or yearly. The billing page shows the current prices.
 
@@ -24,9 +24,13 @@ Plans are billed monthly or yearly. The billing page shows the current prices.
 
 When the plan is full, Overviu stops you adding a listing or a unit, and restoring a listing from the trash, with a message to upgrade. See [Create a listing](/listings/create-a-listing#your-plans-limit).
 
+### Team members
+
+Team members count everyone in the team, the owner included, plus invitations still waiting. When the plan is full, **Invite member** says so; an invitation sent earlier can't be accepted either until there's room. See [Team and roles](/account/team-and-roles).
+
 ## The free trial
 
-Every new team gets a 14-day free trial, with no unit limit and no card needed. Your team's page in **Settings** → **Teams** shows **Free trial** under **Subscription**, and the **Dashboard** reminds you a week before it ends.
+Every new team gets a 14-day free trial, with no unit or member limit and no card needed. Your team's page in **Settings** → **Teams** shows **Free trial** under **Subscription**, and the **Dashboard** reminds you a week before it ends.
 
 ## Choose a plan
 
@@ -48,7 +52,15 @@ Under **Subscription**, click **Manage billing** to:
 - download your invoices;
 - cancel the subscription.
 
-If a payment for your plan fails, the **Dashboard** tells you under **Needs attention**: update your card to keep using Overviu.
+## Without a plan
+
+When a team's trial ends without a plan, or its plan payment fails or the plan is cancelled, it gets a week to sort it out:
+
+1. A week of grace. The team works as usual. The owner gets an email saying when the week ends, and another the day before. **Needs attention** on the **Dashboard** shows the date too.
+2. Paused. After the week, the team's pages send everyone to a page saying the team is paused: the owner can choose a plan there, others are asked to contact the owner. The booking site stays online but takes no new bookings, and the API answers `402`.
+3. Back on a plan. As soon as the owner subscribes or updates the card, the team works again, exactly as it was left.
+
+Guests who have already booked are looked after as usual while the team is paused: their booking pages, scheduled payments, deposit refunds, automated messages and calendar sync carry on.
 
 <Note>Your plan pays Overviu. It's separate from the guest payments you take through [your own Stripe account](/payments/connect-stripe).</Note>
 

@@ -70,6 +70,8 @@ Errors come with an HTTP status and the same body:
 | Status | When |
 | --- | --- |
 | `401` | The token is missing, wrong or revoked. |
+| `402` | The team's Overviu plan has ended and the team is paused. It works again once the owner chooses a plan. |
+| `403` | The token is read-only and the request creates, changes or cancels a booking. |
 | `404` | The record doesn't exist, or belongs to another team. |
 | `422` | The request can't be done: a field failed validation (`errors` lists each field), the dates aren't available (`errors.availability`), a coupon doesn't apply (`errors.coupon_code`), or the booking can't be changed or cancelled any more (for example, it's already cancelled or completed). |
 | `429` | Too many requests. Wait and try again; the `Retry-After` header says how many seconds. |
@@ -84,7 +86,8 @@ When dates can't be booked, `errors.availability` holds one of these codes, and 
 | `past_date` | Check-in is in the past. |
 | `too_soon` | Check-in is closer than the listing's minimum advance booking. |
 | `too_far` | Check-in is further away than the listing's maximum advance booking. |
-| `too_many_guests` | More guests than the listing sleeps. |
+| `too_many_guests` | More adults and children than the listing sleeps (infants don't count). |
+| `children_not_allowed` | The request has children or infants, but the listing doesn't allow children. |
 | `not_bookable` | The building can't be booked as a whole. |
 | `missing_days` | The calendar has no data for some of the dates. |
 | `unavailable` | Some nights are already booked or blocked. |
@@ -94,6 +97,8 @@ When dates can't be booked, `errors.availability` holds one of these codes, and 
 | `closed_for_departure` | Check-out isn't allowed on that day. |
 | `min_stay` | Shorter than the minimum stay. |
 | `max_stay` | Longer than the maximum stay. |
+| `pets_not_allowed` | The request has `pets: true`, but the listing doesn't allow pets. |
+| `bookings_paused` | The team's Overviu plan has ended, so it takes no new bookings for now. |
 
 ## Rate limits
 
@@ -101,6 +106,10 @@ When dates can't be booked, `errors.availability` holds one of these codes, and 
 - [Public endpoints](/api-reference/public/list-a-booking-sites-listings): 30 requests a minute from each IP address.
 
 Over the limit, the API answers `429`.
+
+## Caching
+
+The public listing, listing details and calendar endpoints may be cached for 60 seconds (`Cache-Control: public, max-age=60`) and carry an `ETag`: send it back in `If-None-Match` to get `304 Not Modified` when nothing changed. Availability is never cached: it's always checked live.
 
 ## Related
 

@@ -5,7 +5,7 @@ description: "Give money back to a guest through Stripe: part of the stay, an ex
 
 Refund a guest from their booking: a goodwill gesture, a shorter stay, or an extra you shouldn't have charged. The money goes back to the card the guest paid with, through your Stripe account.
 
-<Note>Refunds need Stripe; see [Connect Stripe](/payments/connect-stripe). Anyone in the team can issue a refund from a booking.</Note>
+<Note>Only owners and admins can issue refunds. Refunds need Stripe; see [Connect Stripe](/payments/connect-stripe).</Note>
 
 ## Refund a guest
 
@@ -25,6 +25,8 @@ Refund a guest from their booking: a goodwill gesture, a shorter stay, or an ext
 </Steps>
 
 A stay refund comes off the newest payments first, and never touches extras. Stripe usually takes 5 to 10 days to put the money back on the guest's card.
+
+Money you refund counts as owed again: a balance still waiting to be charged grows by it, and if the guest pays it another way you can [record that payment](/bookings/record-a-payment).
 
 ## Refunds Overviu makes for you
 

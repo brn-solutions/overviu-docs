@@ -5,11 +5,9 @@ description: "Create the tokens your own systems use to reach your team's data t
 
 An API token lets another system (a channel manager, your own website, an automation tool) use the [Overviu API](/api-reference/introduction) on behalf of your team. Each token belongs to the team you're in, not to you.
 
-<Note>Every member of the team can create and revoke its tokens.</Note>
+<Note>Only owners and admins can create and revoke API tokens.</Note>
 
-<Warning>Anyone with a token can read your team's listings, bookings and guests through the API, and change bookings. Keep tokens on servers you trust, never in a web page or an app guests download.</Warning>
-
-<Note>The **Scope** isn't enforced yet: a **Read-only** token can also create, change and cancel bookings.</Note>
+<Warning>Anyone with a token can read your team's listings, bookings and guests through the API, and with a **Read-write** token also create, change and cancel bookings. Keep tokens on servers you trust, never in a web page or an app guests download.</Warning>
 
 ## Create a token
 
@@ -21,10 +19,10 @@ An API token lets another system (a channel manager, your own website, an automa
     Open the user menu → **Settings** → **API tokens**.
   </Step>
   <Step title="Name it">
-    Give it a **Name** that says where it's used, like "Channel manager", pick a **Scope** (**Read-only** or **Read-write**), and click **Create token**.
+    Give it a **Name** that says where it's used, like "Channel manager", and pick a **Scope**: **Read-only** if the system only reads (reports, a website showing your listings), or **Read-write** if it also creates, changes or cancels bookings. Click **Create token**.
   </Step>
   <Step title="Copy it">
-    The token appears under **Existing tokens**. Click the eye icon to show it and the copy icon to copy it, and paste it into the other system. You can come back and copy it again later.
+    The token is shown once, right after you create it. Click the eye icon to show it and the copy icon to copy it, paste it into the other system, then click **Done**. It can't be shown again: if you lose it, revoke it and create a new one.
   </Step>
 </Steps>
 
