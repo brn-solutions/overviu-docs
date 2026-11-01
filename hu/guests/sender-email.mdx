@@ -1,50 +1,50 @@
 ---
-title: "Send from your own email address"
-description: "Send guest emails from an address on your own domain, like bookings@your-domain.com, instead of Overviu's."
+title: "Küldés a saját e-mail-címéről"
+description: "Küldje a vendégeknek szóló e-maileket a saját domainjén lévő címről, például a bookings@your-domain.com címről, az Overviu címe helyett."
 ---
 
-Guest emails (booking confirmations, automated messages, your replies from the inbox) come from Overviu's address with your team's name. Add your own domain, and they come from an address like `bookings@your-domain.com` instead. Guests recognise it, and it's less likely to land in spam.
+A vendégeknek szóló e-mailek (foglalási visszaigazolások, automatikus üzenetek, az Ön válaszai a beérkezett üzenetek közül) az Overviu címéről, a csapata nevével mennek ki. Ha hozzáadja a saját domainjét, ehelyett egy olyan címről mennek ki, mint a `bookings@your-domain.com`. A vendégek felismerik, és kisebb eséllyel kerül a levélszemétbe.
 
-<Note>Only owners and admins can add or remove a sender email.</Note>
+<Note>Feladó e-mail-címet csak tulajdonosok és adminisztrátorok adhatnak hozzá vagy távolíthatnak el.</Note>
 
-## Before you start
+## Mielőtt elkezdi
 
-- A domain you own, like `your-domain.com`, and access to its DNS settings at your domain provider or registrar.
+- Egy saját domain, például `your-domain.com`, és hozzáférés a DNS-beállításaihoz a domainszolgáltatójánál vagy a regisztrátoránál.
 
-## Steps
+## Lépések
 
 <Steps>
-  <Step title="Add the address">
-    Go to **Settings** → **Domains**. Under **Sender email**, type the part before the @ (like `bookings`) and your domain (like `your-domain.com`), and click **Add sender**.
+  <Step title="Adja hozzá a címet">
+    Nyissa meg a **Beállítások** → **Domainek** menüpontot. A **Feladó e-mail-címe** résznél írja be a @ előtti részt (például `bookings`) és a domainjét (például `your-domain.com`), majd kattintson a **Feladó hozzáadása** gombra.
   </Step>
-  <Step title="Add the DNS records">
-    Overviu shows the DNS records to add, each with its type, **Name** and **Value**. Copy each one into your domain's DNS settings exactly as shown.
+  <Step title="Adja hozzá a DNS-rekordokat">
+    Az Overviu megmutatja a hozzáadandó DNS-rekordokat, mindegyiket a típusával, a **Név** és az **Érték** mezővel. Másolja be mindegyiket pontosan így a domainje DNS-beállításaiba.
 
-    The record marked **Recommended** (DMARC) isn't needed to verify, but helps your emails reach inboxes.
+    Az **Ajánlott** jelölésű rekord (DMARC) az ellenőrzéshez nem szükséges, de segít, hogy az e-mailjei a postafiókokba érkezzenek.
   </Step>
-  <Step title="Wait for the check">
-    Overviu checks the records every few minutes. Each record shows **Verified**, **Waiting** or **Not found**. Click **Check now** to check straight away once you've added them; DNS changes can take a while to spread.
+  <Step title="Várja meg az ellenőrzést">
+    Az Overviu néhány percenként ellenőrzi a rekordokat. Minden rekordnál ez látható: **Ellenőrizve**, **Várakozás** vagy **Nem található**. Ha hozzáadta őket, az **Ellenőrzés most** gombbal azonnal ellenőrizheti; a DNS-módosítások terjedése eltarthat egy ideig.
   </Step>
 </Steps>
 
-## What happens next
+## Mi történik ezután?
 
-When every required record checks out, the sender shows **Verified** and the next guest emails come from your address. Replies still land in your [inbox](/hu/guests/inbox).
+Ha minden szükséges rekord rendben van, a feladónál ez látható: **Ellenőrizve**, és a következő vendégeknek szóló e-mailek már az Ön címéről mennek ki. A válaszok továbbra is a [beérkezett üzenetek](/hu/guests/inbox) közé érkeznek.
 
-| Status | Meaning |
+| Állapot | Jelentés |
 | --- | --- |
-| **Pending DNS** | Waiting for the records. Guest emails still come from Overviu's address with your team's name. |
-| **Verified** | Guest emails come from your address. |
-| **Failed** | The records weren't found within 7 days, or stopped checking out. Guest emails come from Overviu's address again. Fix the records and click **Try again**. |
+| **DNS-ellenőrzésre vár** | A rekordokra vár. A vendégeknek szóló e-mailek továbbra is az Overviu címéről, a csapata nevével mennek ki. |
+| **Ellenőrizve** | A vendégeknek szóló e-mailek az Ön címéről mennek ki. |
+| **Sikertelen** | A rekordok 7 napon belül nem kerültek elő, vagy már nem megfelelőek. A vendégeknek szóló e-mailek újra az Overviu címéről mennek ki. Javítsa a rekordokat, és kattintson a **Próbálja újra** gombra. |
 
-While the sender is **Pending DNS**, **Change address** changes the part before the @.
+Amíg a feladó **DNS-ellenőrzésre vár** állapotban van, a **Cím módosítása** gombbal módosíthatja a @ előtti részt.
 
-## Remove it
+## Eltávolítás
 
-Click **Remove** and confirm. Guest emails come from Overviu's address again straight away. You can then remove the DNS records.
+Kattintson az **Eltávolítás** gombra, és erősítse meg. A vendégeknek szóló e-mailek azonnal újra az Overviu címéről mennek ki. Ezután eltávolíthatja a DNS-rekordokat.
 
-## Related
+## Kapcsolódó útmutatók
 
-- [The inbox](/hu/guests/inbox)
-- [Automated messages](/hu/guests/automated-messages)
-- [Use your own domain for the booking site](/hu/booking-site/custom-domain)
+- [Beérkezett üzenetek](/hu/guests/inbox)
+- [Automatikus üzenetek](/hu/guests/automated-messages)
+- [Saját domain használata a foglalási weboldalhoz](/hu/booking-site/custom-domain)

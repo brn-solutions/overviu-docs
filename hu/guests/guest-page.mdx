@@ -1,51 +1,51 @@
 ---
-title: "The guest's booking page"
-description: "The page each direct-booking guest gets: payment, online check-in (ID, rental agreement, terms, deposit) and the arrival pack."
+title: "A vendég foglalási oldala"
+description: "Az oldal, amelyet minden közvetlenül foglaló vendég megkap: fizetés, online bejelentkezés (személyazonosság, bérleti szerződés, feltételek, kaució) és az érkezési információs csomag."
 ---
 
-Every **Direct** booking has its own page on your booking site. The guest gets the link by email when they book, and uses the page to pay, check in online and, once that's done, see how to get in. You don't have to chase paperwork: the page asks for each thing in turn.
+Minden **Közvetlen** foglalásnak saját oldala van a foglalási weboldalán. A vendég foglaláskor e-mailben kapja meg a hivatkozást, és az oldalon fizet, végzi el az online bejelentkezést, majd ha ezzel végzett, ott látja, hogyan juthat be a szállásra. Önnek nem kell a papírmunkát hajszolnia: az oldal sorban mindent bekér.
 
-## What the guest sees
+## Mit lát a vendég?
 
-- **Your booking**: the listing, dates, guests and **Price details**, with what's paid and **Still to pay**.
-- **Online check-in**: the steps below, each marked **Done**, **In progress**, **Needs attention** or still to do. **Next step** takes them to the first open one.
-- **Your arrival pack**: the address, door code and Wi-Fi, marked **Unlocks when online check-in is complete** until every step is done. See [Guest resources](/hu/listings/photos-and-listing-page#guest-resources).
-- **Questions about your stay?**: your contact email and phone, from [your booking site settings](/hu/booking-site/set-up).
+- **Az Ön foglalása**: a szálláshirdetés, a dátumok, a vendégek és az **Ár részletei**, azzal együtt, hogy mennyit fizetett már, és mennyi a **Még fizetendő** összeg.
+- **Online bejelentkezés**: az alábbi lépések, mindegyik **Kész**, **Folyamatban**, **Beavatkozást igényel** vagy még elvégzendő jelöléssel. A **Következő lépés** az első nyitott lépéshez viszi.
+- **Érkezési információs csomagja**: a cím, az ajtókód és a Wi-Fi, amíg minden lépés el nem készül, ezzel a jelöléssel: **Az online bejelentkezés befejezése után érhető el**. Lásd: [Vendégeknek szóló információk](/hu/listings/photos-and-listing-page#guest-resources).
+- **Kérdése van a tartózkodásával kapcsolatban?**: az Ön kapcsolattartási e-mail-címe és telefonszáma, a [foglalási weboldal beállításaiból](/hu/booking-site/set-up).
 
-## The online check-in steps
+## Az online bejelentkezés lépései
 
-Only the steps that apply to the booking are shown, in this order:
+Csak a foglalásra vonatkozó lépések jelennek meg, ebben a sorrendben:
 
-| Step | When it applies | What the guest does |
+| Lépés | Mikor jelenik meg? | Mit tesz a vendég? |
 | --- | --- | --- |
-| **Payment** | The booking is **Awaiting payment**, or a balance couldn't be charged. | Pays online. If the saved card was declined for the balance, they **Pay the rest** here. |
-| **Contact details** | Always. | Checks their name, email and phone and clicks **Confirm contact details**. |
-| **Verify your identity** | Your team has connected Stripe. | Clicks **Verify with Stripe**, photographs their **Passport or ID card** and takes **A quick selfie** (about 2 minutes). Stripe checks it; their document is never shared with you. |
-| **Rental agreement** | You require a signed rental agreement and have published one. | Reads it, ticks that they agree to it and the booking terms, types their full name and clicks **Sign agreement**. |
-| **Booking terms** | You've published booking terms and there's no rental agreement to sign (signing the agreement accepts the terms too). | Ticks the box to accept them. |
-| **Security deposit** | The listing has a security deposit. | Adds a card, or keeps the card they paid with. |
+| **Fizetés** | A foglalás **Fizetésre vár** állapotban van, vagy a hátralékot nem sikerült terhelni. | Online fizet. Ha a mentett kártyáját a hátraléknál elutasították, itt választja a **Fennmaradó összeg kifizetése** lehetőséget. |
+| **Kapcsolattartási adatok** | Mindig. | Ellenőrzi a nevét, az e-mail-címét és a telefonszámát, majd a **Kapcsolattartási adatok megerősítése** gombra kattint. |
+| **Személyazonosságának ellenőrzése** | A csapata csatlakoztatta a Stripe-ot. | Az **Ellenőrzés Stripe-pal** gombra kattint, lefényképezi az **Útlevél vagy személyi igazolvány** dokumentumát, és készít egy **Gyors szelfi** képet (körülbelül 2 perc). A Stripe ellenőrzi; a dokumentumát soha nem osztja meg Önnel. |
+| **Bérleti szerződés** | Aláírt bérleti szerződést kér, és közzétett egyet. | Elolvassa, bejelöli, hogy elfogadja a szerződést és a foglalási feltételeket, beírja a teljes nevét, majd a **Szerződés aláírása** gombra kattint. |
+| **Foglalási feltételek** | Közzétett foglalási feltételeket, és nincs aláírandó bérleti szerződés (a szerződés aláírásával a feltételeket is elfogadja). | Bejelöli a négyzetet, hogy elfogadja őket. |
+| **Kaució** | A szálláshirdetéshez kaució tartozik. | Megad egy kártyát, vagy megtartja azt, amellyel fizetett. |
 
-Some details worth knowing:
+Néhány tudnivaló:
 
-- An ID check counts for 12 months: a guest who verified with your team in the last year isn't asked again. Without Stripe, the step isn't shown and the page says you'll check their ID when they arrive.
-- If you change the booking after the guest signed, the page asks them to sign the updated agreement. Signed copies never change.
-- Stripe charges your Stripe account for each ID check.
+- A személyazonosság-ellenőrzés 12 hónapig érvényes: az a vendég, aki az elmúlt évben már igazolta magát az Ön csapatánál, nem kap újabb kérést. Stripe nélkül ez a lépés nem jelenik meg, és az oldal jelzi, hogy a személyazonosságát érkezéskor ellenőrzi.
+- Ha a foglalást azután módosítja, hogy a vendég aláírta a szerződést, az oldal kéri, hogy írja alá a frissített szerződést. Az aláírt példányok soha nem változnak.
+- A Stripe minden személyazonosság-ellenőrzésért díjat számít fel az Ön Stripe-fiókjának.
 
-## Following check-in from the booking
+## A bejelentkezés követése a foglalásból
 
-On the booking in Overviu, the **Guest page** section shows each step's state, so you can see who still has to do what.
+Az Overviuban, a foglalás **Vendégoldal** része mutatja az egyes lépések állapotát, így látja, kinek mi van még hátra.
 
-- **Copy guest link** copies the page's address to send yourself, and **Resend email** sends the guest the link again.
-- **Reset guest link** makes a new link and stops the old one, for example when it was forwarded to the wrong person. Send the new one to the guest.
-- **Mark as verified** records that you checked the guest's ID yourself, with a note. **View in Stripe** opens a Stripe check.
-- **Mark as signed (on paper)** records a paper agreement. **Download** saves a signed agreement as a PDF.
+- A **Vendéghivatkozás másolása** kimásolja az oldal címét, hogy Ön küldhesse el, az **E-mail újraküldése** pedig újra elküldi a hivatkozást a vendégnek.
+- A **Vendéghivatkozás visszaállítása** új hivatkozást hoz létre, és a régi megszűnik, például ha rossz személyhez került. Küldje el az újat a vendégnek.
+- A **Megjelölés ellenőrzöttként** megjegyzéssel együtt rögzíti, hogy Ön maga ellenőrizte a vendég személyazonosságát. A **Megtekintés a Stripe-ban** megnyit egy Stripe-ellenőrzést.
+- A **Megjelölés aláírtként (papíron)** papíralapú szerződést rögzít. A **Letöltés** PDF-ként menti az aláírt szerződést.
 
-## Guest sign-in
+## Vendégbejelentkezés
 
-Guests can also sign in on your booking site to see all their bookings with you. They click **Sign in**, enter their email, and get a 6-digit code by email: no password needed. **My bookings** lists their **Upcoming** and **Past and cancelled** stays, each linking to its booking page.
+A vendégek a foglalási weboldalán be is jelentkezhetnek, hogy lássák az Önnél lévő összes foglalásukat. A **Bejelentkezés** gombra kattintanak, megadják az e-mail-címüket, és e-mailben 6 jegyű kódot kapnak: jelszóra nincs szükség. A **Saját foglalásaim** oldal felsorolja a **Közelgő**, valamint a **Korábbi és lemondott** tartózkodásaikat, mindegyiket a saját foglalási oldalára mutató hivatkozással.
 
-## Related
+## Kapcsolódó útmutatók
 
-- [Automated messages](/hu/guests/automated-messages)
-- [Security deposits](/hu/payments/security-deposits)
-- [Terms and the rental agreement](/hu/booking-site/terms-and-agreement)
+- [Automatikus üzenetek](/hu/guests/automated-messages)
+- [Kauciók](/hu/payments/security-deposits)
+- [Feltételek és a bérleti szerződés](/hu/booking-site/terms-and-agreement)

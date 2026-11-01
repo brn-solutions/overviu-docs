@@ -1,80 +1,80 @@
 ---
-title: "Automated messages"
-description: "Emails Overviu sends guests for you: arrival details, checkout reminders, thank-yous, at the times you choose."
+title: "Automatikus üzenetek"
+description: "E-mailek, amelyeket az Overviu küld a vendégeknek Ön helyett: érkezési információk, távozási emlékeztetők és köszönőüzenetek, az Ön által választott időpontokban."
 ---
 
-Write a message once, and Overviu sends it to every guest of the listing at the right moment: arrival details a few days before check-in, a reminder the day before checkout, a thank-you after. Each listing has its own messages, on its **Messages** tab.
+Írja meg egyszer az üzenetet, és az Overviu a megfelelő pillanatban elküldi a szálláshirdetés minden vendégének: az érkezési információkat néhány nappal érkezés előtt, egy emlékeztetőt a távozás előtti napon, és egy köszönőüzenetet utána. Minden szálláshirdetésnek saját üzenetei vannak, az **Üzenetek** fülön.
 
-## Before you start
+## Mielőtt elkezdi
 
-- Messages go by email, so the booking needs the guest's email address.
-- They go to bookings whose source is **Direct**, **Manual** or **API**, and that are **Pending**, **Confirmed** or **Completed**. Bookings marked as from Airbnb, Booking.com, Vrbo or Expedia don't get them: those sites message their own guests.
+- Az üzenetek e-mailben mennek ki, ezért a foglaláshoz meg kell adni a vendég e-mail-címét.
+- Azok a foglalások kapják meg őket, amelyek forrása **Közvetlen**, **Kézi** vagy **API**, és amelyek **Függőben**, **Visszaigazolva** vagy **Befejezve** állapotúak. Az Airbnb-ről, a Booking.com-ról, a Vrbo-ról vagy az Expediáról származóként megjelölt foglalások nem kapják meg: ezek a portálok maguk üzennek a vendégeiknek.
 
-## Steps
+## Lépések
 
 <Steps>
-  <Step title="Open the listing's messages">
-    Open the listing → **Messages**. For a building, set them up on the building: they go to guests of every apartment in it.
+  <Step title="Nyissa meg a szálláshirdetés üzeneteit">
+    Nyissa meg a szálláshirdetést → **Üzenetek**. Épületnél az épületen állítsa be őket: így az összes apartmanja vendégeinek kimennek.
   </Step>
-  <Step title="Start from the suggestions">
-    On a listing without messages, click **Add suggested messages**. You get four, switched off: **Arrival details**, **Welcome**, **Checkout reminder** and **Thank you**. Or click **New message** to write your own.
+  <Step title="Induljon ki a javaslatokból">
+    Ha a szálláshirdetésnek még nincsenek üzenetei, kattintson a **Javasolt üzenetek hozzáadása** gombra. Négy kikapcsolt üzenetet kap: **Érkezési információk**, **Üdvözöljük**, **Távozási emlékeztető** és **Köszönjük**, azon a nyelven, amelyen éppen az Overviut használja. Saját üzenet írásához kattintson az **Új üzenet** gombra.
   </Step>
-  <Step title="Write the message">
-    Click **Edit** on a message and set:
+  <Step title="Írja meg az üzenetet">
+    Kattintson egy üzenetnél a **Szerkesztés** gombra, és adja meg a következőket:
 
-    - **Name**: only you see it, like "Arrival details";
-    - **Send**: when it goes (see below), with the number of **Days** and the time (**At (listing time)**) for timed messages;
-    - **Subject** and **Message**: use **Insert placeholder** to add booking details, like `{guest_first_name}` or `{check_in_time}`.
+    - **Név**: csak Ön látja, például „Érkezési információk”;
+    - **Küld**: mikor menjen ki (lásd alább), időzített üzenetnél a **Napok** számával és az időponttal (**Ekkor (a szálláshirdetés időzónája szerint)**);
+    - **Tárgy** és **Üzenet**: a **Helyőrző beszúrása** gombbal adhat hozzá foglalási adatokat, például `{guest_first_name}` vagy `{check_in_time}`.
 
-    **Preview** shows the message filled in for the listing's next booking (or sample details), and **Send me a test** emails it to you. Click **Save message**.
+    Az **Előnézet** a szálláshirdetés következő foglalásának (vagy mintaadatoknak) megfelelően kitöltve mutatja az üzenetet, a **Teszt küldése nekem** pedig elküldi Önnek e-mailben. Kattintson az **Üzenet mentése** gombra.
   </Step>
-  <Step title="Switch it on">
-    Messages start switched off. Click **Switch on**. If some upcoming bookings are already past the message's time, Overviu tells you how many would get it straight away.
+  <Step title="Kapcsolja be">
+    Az üzenetek kikapcsolva indulnak. Kattintson a **Bekapcsolás** gombra. Ha néhány közelgő foglalásnál az üzenet időpontja már elmúlt, az Overviu jelzi, hány foglalás kapná meg azonnal.
   </Step>
 </Steps>
 
-## When messages are sent
+## Mikor mennek ki az üzenetek?
 
-| **Send** | When it goes |
+| **Küld** | Mikor megy ki? |
 | --- | --- |
-| **Before check-in** | A number of days before arrival, at the time you set (0 means the arrival day). |
-| **Before checkout** | A number of days before departure, at the time you set. |
-| **After checkout** | A number of days after departure, at the time you set. |
-| **Right after booking confirmed** | As soon as the booking is confirmed. |
-| **Right after online check-in completed** | As soon as the guest finishes [online check-in](/hu/guests/guest-page). |
-| **Right after booking cancelled** | As soon as the booking is cancelled, unless it never got past the online checkout (an unpaid **Awaiting payment** booking). |
+| **Érkezés előtt** | Az érkezés előtt ennyi nappal, a megadott időpontban (a 0 az érkezés napját jelenti). |
+| **Távozás előtt** | A távozás előtt ennyi nappal, a megadott időpontban. |
+| **Távozás után** | A távozás után ennyi nappal, a megadott időpontban. |
+| **Közvetlenül a foglalás visszaigazolása után** | Amint a foglalás visszaigazolásra kerül. |
+| **Közvetlenül az online bejelentkezés befejezése után** | Amint a vendég befejezi az [online bejelentkezést](/hu/guests/guest-page). |
+| **Közvetlenül a foglalás lemondása után** | Amint a foglalást lemondják, kivéve, ha sosem jutott túl az online fizetésen (egy ki nem fizetett, **Fizetésre vár** állapotú foglalás). |
 
-Times are in the listing's timezone. A booking made after a "before check-in" time has passed still gets the message straight away, up to arrival; a "before checkout" one up to departure. "After checkout" messages never catch up.
+Az időpontok a szálláshirdetés időzónájában értendők. Ha egy foglalás azután jön létre, hogy egy „érkezés előtti” időpont már elmúlt, az üzenet akkor is azonnal kimegy, egészen az érkezésig; a „távozás előtti” üzenet a távozásig. A „távozás utáni” üzenetek nem pótlódnak.
 
-## Placeholders
+## Helyőrzők
 
-| Placeholder | Becomes |
+| Helyőrző | Mivé alakul? |
 | --- | --- |
-| `{guest_first_name}`, `{guest_name}` | The guest's first name, full name |
-| `{listing}` | The listing's public title |
-| `{check_in_date}`, `{check_in_time}`, `{check_out_date}`, `{check_out_time}` | The stay's dates and times |
-| `{nights}`, `{guests}` | The number of nights, and who's staying, e.g. "2 adults · 1 child · 1 infant" |
-| `{booking_reference}`, `{total}` | The confirmation code and the total price |
-| `{guest_page_url}` | The link to the guest's [booking page](/hu/guests/guest-page) |
-| `{team}`, `{host_name}`, `{team_email}`, `{team_phone}` | Your team's name and contact details |
-| `{address}`, `{door_code}`, `{wifi_name}`, `{wifi_password}` | The listing's address and [guest resources](/hu/listings/photos-and-listing-page#guest-resources) |
+| `{guest_first_name}`, `{guest_name}` | A vendég utóneve, teljes neve |
+| `{listing}` | A szálláshirdetés nyilvános címe |
+| `{check_in_date}`, `{check_in_time}`, `{check_out_date}`, `{check_out_time}` | A tartózkodás dátumai és időpontjai |
+| `{nights}`, `{guests}` | Az éjszakák száma, és hogy kik szállnak meg, például „2 felnőtt · 1 gyermek · 1 csecsemő” |
+| `{booking_reference}`, `{total}` | A visszaigazolási kód és a végösszeg |
+| `{guest_page_url}` | A vendég [foglalási oldalára](/hu/guests/guest-page) mutató hivatkozás |
+| `{team}`, `{host_name}`, `{team_email}`, `{team_phone}` | A csapata neve és elérhetőségei |
+| `{address}`, `{door_code}`, `{wifi_name}`, `{wifi_password}` | A szálláshirdetés címe és a [vendégeknek szóló információk](/hu/listings/photos-and-listing-page#guest-resources) |
 
-<Note>The address, door code and Wi-Fi only show once the guest has finished online check-in. Before that, the email says "Finish your online check-in to see this", with a link to their booking page.</Note>
+<Note>A cím, az ajtókód és a Wi-Fi-adatok csak az online bejelentkezés befejezése után láthatók. Addig az e-mailben ez áll: „Ennek megtekintéséhez fejezze be az online bejelentkezést”, a foglalási oldalra mutató hivatkozással.</Note>
 
-## Copy messages to other listings
+## Üzenetek másolása más szálláshirdetésekhez
 
-Click **Copy to other listings** on a message and pick the listings under **To**. Copies start switched off, so you can check them first.
+Kattintson egy üzenetnél a **Másolás más szálláshirdetésekhez** gombra, és a **Másolás ide** résznél válassza ki a szálláshirdetéseket. A másolatok kikapcsolva indulnak, így előbb ellenőrizheti őket.
 
-## Messages on a booking
+## Üzenetek a foglaláson
 
-Each booking's **Messages** section lists its messages: **Upcoming**, **Sent** (with the address it went to), **Skipped** or **Failed**. Click **View** to read what was sent, **Send now** to send an upcoming one early, or **Skip** to not send it to this guest.
+Minden foglalás **Üzenetek** része felsorolja az üzeneteit: **Közelgő**, **Elküldve** (azzal a címmel, ahová ment), **Kihagyva** vagy **Sikertelen**. A **Nézet** gombbal elolvashatja, mi ment ki, a **Küldés most** gombbal korábban elküldhet egy közelgő üzenetet, a **Kihagyás** gombbal pedig ennek a vendégnek nem küldi el.
 
-A message is skipped, with the reason, when it no longer fits: it was switched off or deleted, the booking was cancelled or is still awaiting payment, and so on. Switching a message back on brings back the sends it skipped for being off. If a message can't be sent, your team gets a **Guest message not sent** email.
+Az üzenet indoklással kimarad, ha már nem illik a foglaláshoz: kikapcsolták vagy törölték, a foglalást lemondták, vagy még fizetésre vár, és így tovább. Ha egy üzenetet újra bekapcsol, visszakerülnek azok a küldések, amelyek a kikapcsolás miatt maradtak ki. Ha egy üzenetet nem sikerül elküldeni, a csapata **A vendégüzenetet nem sikerült elküldeni** tárgyú e-mailt kap.
 
-Guests' replies arrive in your [inbox](/hu/guests/inbox).
+A vendégek válaszai a [beérkezett üzenetek](/hu/guests/inbox) közé érkeznek.
 
-## Related
+## Kapcsolódó útmutatók
 
-- [The inbox](/hu/guests/inbox)
-- [Send from your own email address](/hu/guests/sender-email)
-- [The guest's booking page](/hu/guests/guest-page)
+- [Beérkezett üzenetek](/hu/guests/inbox)
+- [Küldés a saját e-mail-címéről](/hu/guests/sender-email)
+- [A vendég foglalási oldala](/hu/guests/guest-page)
