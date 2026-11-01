@@ -82,7 +82,8 @@ Return the whole translated file in a single ```mdx code block and nothing else{
    accordions, headings, link text and the body.
 4. Terms: use the glossary below and nothing else for its concepts, even where another word seems more natural: a
    listing is a "szálláshirdetés" (not "szálláshely"), the host a "szállásadó" (not "házigazda"), the dashboard
-   "Műszerfal" (not "irányítópult"), reports "Jelentések" (not "kimutatások"), the inbox "Beérkezett üzenetek", blocked dates "blokkolt" (not "letiltott"). Keep brand and technical names (Airbnb,
+   "Műszerfal" (not "irányítópult"), reports "Jelentések" (not "kimutatások"), the inbox "Beérkezett üzenetek", blocked dates "blokkolt" (not "letiltott"), Airbnb, Booking.com and Vrbo "foglalási portálok"
+   (the host's own site is the "foglalási weboldal"). Keep brand and technical names (Airbnb,
    Booking.com, Stripe, Wi-Fi, API, CNAME, Webhook) as they are.
 5. Formats: dates as "2026. október 15.", short dates as "okt. 15.", money with a space between thousands, a decimal
    comma and the currency after the amount ("1 200,50 EUR", "12 000 Ft"). Convert the English examples

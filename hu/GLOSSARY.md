@@ -58,6 +58,7 @@ no decimals.
 | guest page | vendégoldal | |
 | booking page | foglalási oldal | The guest's private page for one booking. |
 | booking site | foglalási weboldal | The host's own site guests book on. |
+| booking sites (Airbnb, Booking.com, Vrbo) | foglalási portálok | The listing's **Foglalási portálok** tab; never "foglalási weboldal", which is the host's own. |
 | arrival pack | érkezési információs csomag | |
 | rental agreement | bérleti szerződés | |
 | booking terms | foglalási feltételek | |
