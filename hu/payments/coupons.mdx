@@ -1,0 +1,52 @@
+---
+title: "Kuponok"
+description: "Hozzon létre kedvezménykódokat a foglalási weboldalához: százalékos vagy fix összegű kedvezményt, kiválasztott dátumokra, szálláshirdetésekre és vendégeknek."
+---
+
+A kupon egy kód, például `SUMMER10`, amelyet a vendégek a foglalási weboldalán foglaláskor beírnak, hogy százalékos vagy fix összegű kedvezményt kapjanak. Használja visszatérő vendégeknek, hírlevelekben vagy csendesebb hetekre.
+
+<Note>Kuponokat csak tulajdonosok és adminisztrátorok hozhatnak létre és módosíthatnak.</Note>
+
+## Kupon létrehozása
+
+<Steps>
+  <Step title="Nyissa meg a kuponokat">
+    Nyissa meg a **Beállítások** → **Kuponok** menüpontot, és kattintson az **Új kupon** gombra.
+  </Step>
+  <Step title="Adja meg a kódot és a kedvezményt">
+    - **Kód**: amit a vendégek beírnak, 3–30 karakter: betűk, számjegyek, `-` vagy `_`. A vendégek kis- és nagybetűvel is beírhatják.
+    - **Kedvezmény**: **Százalékos kedvezmény** vagy **Kedvezmény összege**. A fix összegű kedvezményhez **Pénznem** is kell, és csak az ebben a pénznemben árazott szálláshirdetéseken működik.
+    - **Megjegyzés (csak Ön látja)**: emlékeztető arról, mire szolgál a kupon.
+  </Step>
+  <Step title="Korlátozza (nem kötelező)">
+    - **Felhasználható ettől** és **Felhasználható eddig**: mikor foglalhatnak vele a vendégek.
+    - **Tartózkodások kezdete ettől** és **Tartózkodások kezdete eddig**: mely tartózkodásokra érvényes.
+    - **Éjszakák minimális száma**: a legrövidebb tartózkodás, amelyre érvényes.
+    - **Ingatlanok**: **Összes ingatlan**, vagy **Ingatlanok kiválasztása…**, ha csak egyes szálláshirdetésekre szól.
+    - **Összes felhasználás** és **Felhasználások vendégenként**: hány foglalás használhatja összesen, illetve vendég e-mail-címenként.
+  </Step>
+  <Step title="Mentse">
+    Kattintson a **Kupon mentése** gombra. A kupon azonnal **Aktív**.
+  </Step>
+</Steps>
+
+## Hogyan használják a vendégek?
+
+A foglalási weboldalán a **Van kuponkódja?** résznél a vendég beírja a kódot. Ha érvényes, az ár azonnal csökken. Ha nem, a vendég látja, miért, például: „Ez a kód lejárt”, „Ehhez a kódhoz legalább 3 éjszaka szükséges”, „Ez a kód nem érvényes erre az ingatlanra” vagy „Ezt a kódot már teljesen felhasználták”.
+
+A kedvezmény a bérleti díjból vonódik le, a szálláshirdetés saját kedvezményei (heti, havi, korai foglalási, last minute) után. A százalékos díjakat és adókat ezután már a csökkentett bérleti díj alapján számítja ki a rendszer. A foglalás **Ár részletezése** mutatja a kupont.
+
+Az Ön által felvett foglalásokra is alkalmazhat kupont az **Új foglalás** űrlap **Kuponkód** mezőjével, az API-kliensek pedig a `coupon_code` mezőt küldhetik el, amikor [foglalást hoznak létre](/api-reference/bookings/create-a-booking).
+
+## Kupon módosítása vagy leállítása
+
+A **Beállítások** → **Kuponok** listája minden kuponnál mutatja a **Kedvezmény**, az **Érvényes**, a **Felhasználások** és az **Állapot** értékét.
+
+- A **Szerkesztés** módosítja a kupont. A már létrejött foglalások megtartják a kapott kedvezményt.
+- A **Deaktiválás** után a vendégek nem használhatják. Az **Aktiválás** újra bekapcsolja.
+
+## Kapcsolódó útmutatók
+
+- [Árak és tartózkodási szabályok](/hu/calendar/prices-and-rules#discounts)
+- [Foglalás létrehozása](/hu/bookings/create-a-booking)
+- [Hogyan fizetnek a vendégek?](/hu/payments/how-guests-pay)

@@ -1,0 +1,60 @@
+---
+title: "Jelentések"
+description: "Hogyan teljesítenek a szálláshirdetései (kihasználtság, bevétel, éjszakánkénti ár), és minden euró, amely mozgott, CSV-fájllal a könyvelőjének."
+---
+
+A **Jelentések** oldalnak két füle van: a **Teljesítmény** azt mutatja, mennyire telítettek és mennyire jövedelmezők a szálláshirdetései, a **Pénz** pedig minden fizetést, visszatérítést és kauciót, ahogyan a bankszámla- és Stripe-kivonatain szerepelnek.
+
+<Note>Jelentéseket csak tulajdonosok és adminisztrátorok láthatnak.</Note>
+
+## Mit szeretne megnézni?
+
+A **Jelentések** oldal tetején:
+
+- az időszak: egy **Hónap**, egy **Év** (havi bontásban) vagy egy **Egyéni** időszak az **Ettől:** és az **Eddig:** dátummal;
+- **Összes szálláshirdetés**, vagy egyetlen szálláshirdetés.
+
+Minden számot az egy évvel korábbi azonos időszakkal vet össze. A különböző pénznemű összegeket soha nem váltja át: minden pénznem külön jelenik meg.
+
+## Teljesítmény
+
+| Mutató | Mit jelent? |
+| --- | --- |
+| **Kihasználtság** | A foglalt éjszakák és a foglalható éjszakák hányadosa. |
+| **Bevétel** | Az időszakban eltöltött éjszakák bérleti díja és díjai, kedvezmények után és adók nélkül. |
+| **ADR (átlagos napi szobaár)** (**Átlagos éjszakánkénti ár**) | A bevétel és a foglalt éjszakák hányadosa. |
+| **RevPAR (bevétel elérhető szobánként)** (**Bevétel elérhető éjszakánként**) | A bevétel és a foglalható éjszakák hányadosa. |
+| **Tartózkodások** és **Átlagos tartózkodási idő** | Hány tartózkodásnak volt éjszakája az időszakban, és milyen hosszúak voltak. |
+
+Alattuk egy diagram az időszakról, valamint **Forrás szerint** és szálláshirdetés szerinti táblázatok.
+
+### Hogyan számolódnak az éjszakák és a bevétel?
+
+- A tartózkodás bevétele egyenletesen oszlik el az éjszakái között. Egy szeptember 29-től október 3-ig tartó tartózkodás két éjszakát szeptemberbe, kettőt októberbe tesz.
+- A visszaigazolt és a befejezett foglalások számítanak. A függőben lévők, a fizetésre várók és a lemondottak nem.
+- Az Ön által [blokkolt](/hu/calendar/blocking-dates) éjszakák nem foglalhatók, így nem csökkentik a kihasználtságát.
+- Az Airbnb-ről, a Booking.com-ról vagy a Vrbo-ról szinkronizált éjszakák foglaltnak számítanak, a **Foglalási portálok (naptár)** forrás alatt, de bevétel nem tartozik hozzájuk: a naptárak nem tartalmaznak árakat.
+- Csak a ma **Aktív** szálláshirdetések adnak hozzá foglalható éjszakákat. A piszkozat, az archivált és a kukába helyezett szálláshirdetések korábbi tartózkodásai és bevételei továbbra is látszanak.
+
+## Pénz
+
+A pénz azon a napon számít, amikor mozgott: a fizetés azon a napon, amikor sikeres volt, a visszatérítés azon a napon, amikor visszament. Ez megegyezik a bankszámla- és Stripe-kivonataival.
+
+- **Bevételek és kiadások**: **Beérkezett fizetések**, **Felszámított extrák**, **Visszatartott kauciók**, **Kifizetett visszatérítések** és **Nettó bevétel**, diagrammal az időszakról.
+- **Fizetési mód szerint**: hogyan fizettek a vendégek: Stripe, készpénz, banki átutalás, kártyaterminál vagy egyéb.
+- **Az időszak kauciói**: a kauciók közül **Terhelve**, **Visszatérítve** és **Visszatartva**. A kauciókat Ön csak tartja, nem keresi meg, ezért csak a visszatartott rész számít bevételnek.
+- **Pénzmozgások**: minden fizetés, visszatérítés és kauciós lépés, a dátummal, a foglalással, a vendéggel, a szálláshirdetéssel, a típussal, a fizetési móddal és az összeggel.
+- **Fennálló tartozás**: azok a foglalások, amelyeknél még tartozás van, érkezés szerint, a **Lejárt határidejű** tételek megjelölésével.
+- **Zárolt kauciók**: a vendégek kártyáján jelenleg zárolt kauciók, és hogy mikor kerülnek visszatérítésre.
+
+Az összegek azt mutatják, amit a vendégek fizettek vagy visszakaptak. A Stripe díjai és kifizetései nem szerepelnek az Overviuban: ezeket a Stripe irányítópultján láthatja.
+
+## A CSV letöltése
+
+A **Pénz** fülön kattintson a **CSV letöltése** gombra. Az időszak minden pénzmozgása egy sor: a dátum, a típus, a fizetési mód, az összeg, a pénznem, a foglalás, a vendég, a szálláshirdetés, a Stripe-hivatkozás és a megjegyzés. Ugyanazok az adatok, mint az oldalon, táblázatkezelőhöz vagy a könyvelőjének.
+
+## Kapcsolódó útmutatók
+
+- [A műszerfal](/hu/insights/dashboard)
+- [Fizetés rögzítése](/hu/bookings/record-a-payment)
+- [Kauciók](/hu/payments/security-deposits)

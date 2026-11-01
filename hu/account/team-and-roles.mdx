@@ -1,0 +1,69 @@
+---
+title: "Csapat és szerepkörök"
+description: "Hívja meg a szállásadótársait és a takarítóit, döntse el, mit láthat és tehet mindegyikük, és dolgozzon több csapatban."
+---
+
+Az Overviuban minden egy csapathoz tartozik. Hívja meg azokat, akikkel együtt dolgozik, adjon mindegyiküknek szerepkört, és ugyanazokat a szálláshirdetéseket, naptárat, foglalásokat és beérkezett üzeneteket látják majd, mint Ön.
+
+## Szerepkörök
+
+| | Tulajdonos | Adminisztrátor | Tag |
+| --- | --- | --- | --- |
+| Szálláshirdetések, naptár, foglalások, beérkezett üzenetek, üzenetek | ✓ | ✓ | ✓ |
+| Személyesen kapott fizetés rögzítése | ✓ | ✓ | ✓ |
+| Vendégek terhelése és visszatérítés, kauciók | ✓ | ✓ | |
+| API-tokenek | ✓ | ✓ | |
+| Jelentések és a pénzügyek a műszerfalon | ✓ | ✓ | |
+| Szálláshirdetések kukába helyezése és visszaállítása | ✓ | ✓ | |
+| Beállítások: **Domainek**, **Arculat**, **Foglalási weboldal**, **Kuponok**, **Fizetések** | ✓ | ✓ | |
+| A csapat átnevezése, meghívások küldése és visszavonása | ✓ | ✓ | |
+| Szerepkörök módosítása, tagok eltávolítása, a tulajdonjog átadása | ✓ | | |
+| Előfizetés és számlázás | ✓ | | |
+| A csapat törlése | ✓ | | |
+
+Minden csapatnak egy tulajdonosa van: kezdetben az, aki létrehozta, amíg [át nem adja a tulajdonjogot](#transfer-ownership).
+
+## Valaki meghívása
+
+<Note>Csak tulajdonosok és adminisztrátorok hívhatnak meg másokat.</Note>
+
+<Steps>
+  <Step title="Nyissa meg a csapatát">
+    Nyissa meg a felhasználói menüt → **Beállítások** → **Csapatok**, és nyissa meg a csapatot.
+  </Step>
+  <Step title="Hívja meg">
+    Kattintson a **Tag meghívása** gombra. Adja meg az **E-mail-cím** értékét, válasszon **Szerepkör** értéket (**Adminisztrátor** vagy **Tag**), és kattintson a **Meghívás küldése** gombra. Az előfizetése határozza meg, hány fő lehet a csapatban; lásd: [Előfizetés és számlázás](/hu/account/plan-and-billing#team-members).
+  </Step>
+  <Step title="Elfogadja a meghívást">
+    A meghívott e-mailt kap egy hivatkozással. Ugyanazzal az e-mail-címmel bejelentkezik vagy fiókot hoz létre, és csatlakozik a csapathoz. A meghívás 3 nap után lejár.
+  </Step>
+</Steps>
+
+A még el nem fogadott meghívások a **Függőben lévő meghívók** résznél láthatók. A **Meghívás visszavonása** visszavon egyet.
+
+## Szerepkör módosítása vagy valaki eltávolítása
+
+<Note>Szerepköröket módosítani és tagokat eltávolítani csak a tulajdonos tud.</Note>
+
+A **Csapattagok** résznél módosíthatja valakinek a szerepkörét, vagy választhatja a **Tag eltávolítása** lehetőséget. Az eltávolított tag azonnal elveszíti a hozzáférését a csapathoz; a korábbi munkája, például a megjegyzései és a rögzített fizetései, megmarad.
+
+## Munka több csapatban
+
+Több csapatnak is tagja lehet, például a saját kiadó ingatlanjainak és egy ügyfeléinek. Az oldalsáv tetején található csapatválasztóval válthat: ezután minden, amit lát, ahhoz a csapathoz tartozik.
+
+Új csapat indításához nyissa meg a csapatválasztót vagy a **Beállítások** → **Csapatok** menüpontot, kattintson az **Új csapat** gombra, adja meg a **Csapat neve** értékét, és kattintson a **Csapat létrehozása** gombra. Ön lesz a tulajdonosa, és saját előfizetése, szálláshirdetései, Stripe-fiókja és foglalási weboldala lesz.
+
+## Csapat átnevezése vagy törlése
+
+- **Átnevezés**: módosítsa a **Csapat neve** értékét, és kattintson a **Mentés** gombra. Az átnevezés megváltoztatja a foglalási weboldala `overviu.app` címét; lásd: [Az Ön foglalási weboldala](/hu/booking-site/set-up#its-address).
+- **Törlés**: a **Csapat törlése** csak a tulajdonos számára érhető el, miután megerősítésként beírta a csapat nevét. A foglalási weboldala megszűnik, az előfizetése lemondásra kerül. A vendégeit semmivel nem terheljük tovább, a már terhelt kauciók pedig időben visszajárnak. Ez nem vonható vissza. A regisztrációkor kapott csapat itt nem törölhető; az a [fiókja törlésével](/hu/account/profile-and-security#delete-your-account) szűnik meg.
+
+## A tulajdonjog átadása {#transfer-ownership}
+
+Ha a csapatot valaki másnak adná át, például amikor eladja a vállalkozást, a tulajdonos megnyitja a csapatot a **Beállítások** → **Csapatok** menüpontban, a **Csapattagok** résznél megnyitja egy tag szerepkörmenüjét, és a **Tulajdonjog átadása** lehetőséget választja. Az illető lesz a tulajdonos, az előfizetéssel és a számlázással együtt, Ön pedig adminisztrátorként marad a csapatban.
+
+## Kapcsolódó útmutatók
+
+- [Alapfogalmak](/hu/get-started/key-ideas)
+- [Értesítések](/hu/account/notifications)
+- [Előfizetés és számlázás](/hu/account/plan-and-billing)

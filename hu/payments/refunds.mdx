@@ -1,0 +1,54 @@
+---
+title: "Visszatérítések"
+description: "Adjon vissza pénzt egy vendégnek a Stripe-on keresztül: a tartózkodás egy részét, egy kiegészítő szolgáltatás díját, vagy a lemondási szabályzat szerinti összeget."
+---
+
+Térítsen vissza a vendégnek a foglalásából: gesztusként, rövidebb tartózkodás miatt, vagy egy tévesen felszámított kiegészítő szolgáltatás díját. A pénz a Stripe-fiókján keresztül arra a kártyára jár vissza, amellyel a vendég fizetett.
+
+<Note>Visszatérítést csak tulajdonosok és adminisztrátorok indíthatnak. A visszatérítéshez Stripe szükséges; lásd: [Stripe csatlakoztatása](/hu/payments/connect-stripe).</Note>
+
+## Visszatérítés a vendégnek
+
+<Steps>
+  <Step title="Nyissa meg a foglalást">
+    Nyissa meg a **Foglalások** oldalt, majd a foglalást, és a **Fizetés** részen kattintson a **Visszatérítés indítása** gombra. A gomb akkor jelenik meg, ha van még visszatéríthető összeg.
+  </Step>
+  <Step title="Válassza ki, mit térít vissza">
+    Ha a vendég kiegészítő szolgáltatásokért is fizetett, a **Visszatérítés forrása** listában válasszon: **A tartózkodás**, vagy valamelyik kiegészítő terhelés.
+  </Step>
+  <Step title="Adja meg az összeget">
+    Adja meg az **Összeg** értékét: az Overviu mutatja, mennyi téríthető vissza. Adjon meg egy **Indok (nem kötelező)** értéket; ez a foglalás **Idővonal** részében marad meg.
+  </Step>
+  <Step title="Térítse vissza">
+    Kattintson a **Visszatérítés** gombra. Ha a Stripe elutasítja, az Overviu megmutatja a Stripe indoklását, és semmi sem kerül visszatérítésre.
+  </Step>
+</Steps>
+
+A tartózkodás visszatérítése a legutóbbi fizetésekből indul, és soha nem érinti a kiegészítő szolgáltatásokat. A Stripe-nak általában 5–10 napra van szüksége, hogy a pénz visszakerüljön a vendég kártyájára.
+
+A visszatérített összeg újra tartozásnak számít: egy még terhelésre váró hátralék ennyivel nő, és ha a vendég más módon fizeti ki, [rögzítheti a fizetést](/hu/bookings/record-a-payment).
+
+## Visszatérítések, amelyeket az Overviu végez Ön helyett
+
+- A foglalás lemondásakor az Overviu a szálláshirdetés [lemondási szabályzatát](/hu/calendar/prices-and-rules#cancellation-policy) követő visszatérítést javasol; az összeget módosíthatja. Lásd: [Foglalás lemondása](/hu/bookings/cancel-and-refund).
+- A tartózkodás rövidítésekor az Overviu ugyanezen szabályzat szerint visszatéríti az elmaradó éjszakákat. Lásd: [Foglalás módosítása](/hu/bookings/change-a-booking).
+- A kauciókat az Overviu a távozás után automatikusan visszatéríti. Lásd: [Kauciók](/hu/payments/security-deposits).
+
+## A Stripe-ban végzett visszatérítések
+
+Egy fizetést a Stripe irányítópultján is visszatéríthet. A Stripe értesíti az Overviut, és a foglalás **Fizetés** része, fizetési állapota és a jelentések ezt követik, mintha az Overviuban térítette volna vissza.
+
+## Amit nem lehet a Stripe-on keresztül visszatéríteni
+
+- A készpénzes, banki átutalásos vagy kártyaterminálos fizetésként [rögzített](/hu/bookings/record-a-payment) pénzt: ez soha nem ment át a Stripe-on. Fizesse vissza ugyanúgy, ahogyan kapta.
+- A vendég által fizetettnél nagyobb összeget.
+
+## Túl későn érkezett fizetés
+
+Ha egy vendég azután fizet, hogy a foglalása már nem vár a fizetésre (például mert időben nem fizetett, és lemondásra került), a foglaláson ez látható: **Visszatérítés szükséges**. Térítse vissza a fizetést a **Visszatérítés indítása** gombbal, vagy beszéljen a vendéggel az újrafoglalásról.
+
+## Kapcsolódó útmutatók
+
+- [Foglalás lemondása](/hu/bookings/cancel-and-refund)
+- [Hogyan fizetnek a vendégek?](/hu/payments/how-guests-pay)
+- [Jelentések](/hu/insights/reports)

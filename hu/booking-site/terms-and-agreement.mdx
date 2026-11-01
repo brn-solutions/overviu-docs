@@ -1,0 +1,78 @@
+---
+title: "Feltételek és a bérleti szerződés"
+description: "Tegye közzé a foglalási feltételeket, amelyeket a vendégek foglaláskor elfogadnak, és a bérleti szerződést, amelyet a foglalási oldalukon aláírnak."
+---
+
+Az Overviu két dokumentumot kezel a közvetlen foglalásokhoz:
+
+- **Foglalási feltételek**: az Ön általános feltételei, amelyeket a vendégek a foglalási weboldalán foglaláskor elfogadnak.
+- **Bérleti szerződés**: a tartózkodásra szóló szerződés, amely minden foglalás adataival kitöltve jelenik meg, és amelyet a vendégek a foglalási oldalukon írnak alá.
+
+Mindkettőnek vannak verziói: minden közzétételkor az Overviu megőrzi az új verziót, és minden foglalás azt a verziót tartja meg, amelyet a vendége elfogadott vagy aláírt.
+
+<Note>Feltételeket és bérleti szerződést csak tulajdonosok és adminisztrátorok tehetnek közzé.</Note>
+
+## Foglalási feltételek
+
+<Steps>
+  <Step title="Nyissa meg a feltételeket">
+    Nyissa meg a **Beállítások** → **Foglalási weboldal** → **Feltételek** menüpontot.
+  </Step>
+  <Step title="Írja meg őket">
+    Írja meg a feltételeit a **Feltételek** szerkesztőben: a foglalásokra vonatkozó házirendet, a fizetést, a lemondást, a felelősséget, és mindazt, ami Önre vonatkozik.
+  </Step>
+  <Step title="Tegye közzé">
+    Kattintson a **Közzététel** gombra. A képernyő mutatja, mikor és ki tette közzé őket.
+  </Step>
+</Steps>
+
+A közzététel után:
+
+- a vendégeknek a foglalási weboldalán a foglalás előtt be kell jelölniük, hogy elfogadják a foglalási feltételeket és a lemondási szabályzatot;
+- a feltételek a foglalási weboldala feltételoldalán olvashatók, a foglalási űrlapról hivatkozással;
+- az Ön által felvett közvetlen foglalásoknál a vendég a foglalási oldalán fogadja el őket, ha nincs aláírandó bérleti szerződés;
+- ha új feltételeket tesz közzé, az ezután foglaló vendégek az új verziót fogadják el. A már létrejött foglalások megtartják azt a verziót, amelyet a vendégük elfogadott.
+
+Amíg nem tesz közzé feltételeket, a vendégeknek nem kell semmit elfogadniuk.
+
+## Bérleti szerződés
+
+<Steps>
+  <Step title="Nyissa meg a szerződést">
+    Nyissa meg a **Beállítások** → **Foglalási weboldal** → **Bérleti szerződés** menüpontot.
+  </Step>
+  <Step title="Írja meg">
+    Írja meg a szerződést a **Szerződés** szerkesztőben. A foglalások adataihoz használjon helyőrzőket; ezek minden vendégnél kitöltődnek:
+
+    | Helyőrző | Mivé alakul? |
+    | --- | --- |
+    | `{guest_name}`, `{guest_email}`, `{guest_phone}` | A vendég adatai |
+    | `{listing}`, `{address}` | A szálláshirdetés és a címe |
+    | `{check_in}`, `{check_out}`, `{nights}`, `{guests}` | A tartózkodás; a `{guests}` például így jelenik meg: „2 felnőtt · 1 gyermek · 1 csecsemő” |
+    | `{total}`, `{security_deposit}` | Az ár és a kaució |
+    | `{cancellation_policy}` | A szálláshirdetés lemondási szabályzata |
+    | `{house_rules}` | A szálláshirdetés **Házirend / a bérleti szerződés kiegészítése** szövege (a saját szöveg nélküli egységtípus az épületét használja) |
+    | `{booking_reference}`, `{team}` | A visszaigazolási kód és a csapata neve |
+  </Step>
+  <Step title="Döntse el, kötelező-e">
+    Hagyja bekapcsolva az **Aláírt bérleti szerződés megkövetelése** kapcsolót, ha minden közvetlenül foglaló vendégtől aláírást kér. A beállítás az átkapcsoláskor azonnal mentődik.
+  </Step>
+  <Step title="Tegye közzé">
+    Kattintson a **Közzététel** gombra.
+  </Step>
+</Steps>
+
+## Hogyan írják alá a vendégek?
+
+A [foglalási oldalukon](/hu/guests/guest-page) a vendég elolvassa a foglalása adataival kitöltött szerződést, bejelöli, hogy elfogadja azt és a foglalási feltételeket, beírja a teljes nevét, majd a **Szerződés aláírása** gombra kattint.
+
+- Az aláírt példányok soha nem változnak, akkor sem, ha új verziót tesz közzé.
+- Ha az aláírás után [módosítja a foglalást](/hu/bookings/change-a-booking), a vendéget a frissített szerződés aláírására kérik.
+- Az Overviuban, a foglalás **Vendégoldal** része mutatja, ki és mikor írta alá. A **Letöltés** PDF-ként menti az aláírt szerződést.
+- Ha a vendég inkább papíron írja alá, kattintson a **Megjelölés aláírtként (papíron)** gombra, és adjon hozzá egy megjegyzést.
+
+## Kapcsolódó útmutatók
+
+- [A vendég foglalási oldala](/hu/guests/guest-page)
+- [Az Ön foglalási weboldala](/hu/booking-site/set-up)
+- [Árak és tartózkodási szabályok](/hu/calendar/prices-and-rules#cancellation-policy)

@@ -1,0 +1,90 @@
+---
+title: "Előfizetés és számlázás"
+description: "Az Overviu egységalapú árazása, az ingyenes próbaidőszak, mi történik előfizetés nélkül, és hogyan kezelheti az előfizetését és a számláit."
+---
+
+Minden csapatnak saját előfizetése van, amelyet a csapat tulajdonosa fizet. **Csapata egységenként fizet**: az előfizetés a meghirdetett egységek számát követi, és minden csomag minden funkciót tartalmaz (foglalási weboldal, fizetések, jelentések, naptárszinkronizálás és API). A csomagok csak az egységenkénti árban és abban különböznek, hogy hány fő lehet a csapatban.
+
+<Note>Előfizetést választani és a számlázást kezelni csak a csapat tulajdonosa tudja, a felhasználói menü → **Beállítások** → **Előfizetés és számlázás** menüpontban.</Note>
+
+## Csomagok
+
+Minden egység annak a sávnak az árán kerül felszámításra, amelybe esik, így a számlája csak a hozzáadott vagy eltávolított egységekkel változik. Az árak font sterlingben értendők.
+
+| Csomag | Kinek? | Egységek | Csapattagok | Egységenként, havonta | Egységenként, évente |
+| --- | --- | --- | --- | --- | --- |
+| **Solo** | Az első ingatlanához | 1 | 1 (csak Ön) | 15 GBP | 12 GBP |
+| **Host** | Néhány ingatlanhoz | 2–10 | Legfeljebb 3 | 10 GBP az első után | 8 GBP az első után |
+| **Pro** | Bővülő portfóliókhoz | 11–50 | Legfeljebb 10 | 8 GBP a tizedik után | 6,50 GBP a tizedik után |
+| **Vállalati** | 51 egységtől | — | — | Kapcsolatfelvétel | Kapcsolatfelvétel |
+
+Az éves díj körülbelül 20%-kal kevesebb a havinál. Néhány példa arra, mennyit fizet egy csapat havonta:
+
+| Egységek | Havi | Éves (havonta) |
+| --- | --- | --- |
+| 1 | 15 GBP | 12 GBP |
+| 5 | 55 GBP | 44 GBP |
+| 10 | 105 GBP | 84 GBP |
+| 20 | 185 GBP | 149 GBP |
+
+Az **Előfizetés és számlázás** oldal ezeket a csapata saját egységeire számolva mutatja, sávonként.
+
+### Mi számít egységnek?
+
+- Egy önálló ingatlan egy egység.
+- Egy épületnél az egységei (az apartmanok vagy szobák) számítanak, maga az épület nem.
+- A kukában lévő szálláshirdetések nem számítanak.
+
+Az Overviu önállóan választható előfizetései legfeljebb 50 egységig terjednek. Ezen felül az Overviu nem engedi szálláshirdetés vagy egység hozzáadását, sem szálláshirdetés visszaállítását a kukából, és arra kéri, hogy egy Vállalati előfizetés miatt vegye fel velünk a kapcsolatot. Lásd: [Szálláshirdetés létrehozása](/hu/listings/create-a-listing#your-plans-limit).
+
+### Csapattagok {#team-members}
+
+A csapattagok számába mindenki beletartozik, a tulajdonos is, valamint a még függőben lévő meghívások. Ha az előfizetés megtelt, a **Tag meghívása** ezt jelzi; a korábban elküldött meghívást sem lehet elfogadni, amíg nem szabadul fel hely. Lásd: [Csapat és szerepkörök](/hu/account/team-and-roles).
+
+## Az ingyenes próbaidőszak
+
+Minden új csapat 14 napos ingyenes próbaidőszakot kap, minden funkcióval, taglétszám-korlát és bankkártya nélkül. Az **Előfizetés és számlázás** oldal mutatja, mikor ér véget a próbaidőszak, és a **Műszerfal** egy héttel előtte emlékezteti. Ha a próbaidőszak alatt indít előfizetést, az nem rövidíti meg: a próbaidőszak vége előtt nem terheljük.
+
+## Előfizetés indítása
+
+<Steps>
+  <Step title="Nyissa meg az Előfizetés és számlázás oldalt">
+    Nyissa meg a felhasználói menüt → **Beállítások** → **Előfizetés és számlázás**. Az oldal mutatja az egységeit, azt, hogy mennyibe kerülnek havonta és évente, és hogyan oszlik ez meg sávonként.
+  </Step>
+  <Step title="Válasszon havi vagy éves díjat">
+    Kattintson a **Havi előfizetés indítása** vagy az **Éves előfizetés indítása** gombra. Kártyával fizet a Stripe biztonságos fizetési oldalán, majd ha végzett, visszatér az Overviuba.
+  </Step>
+</Steps>
+
+Bármikor lemondhatja; az előfizetés ezután a kifizetett időszak végéig érvényes.
+
+## Ha változik az egységek száma
+
+Egy egység hozzáadása vagy eltávolítása még aznap módosítja az előfizetését. A Stripe a számlázási időszak hátralévő részére igazítja a következő számlát, így csak a meglévő egységeiért fizet, annyi ideig, amíg megvannak. A számlázási oldalon nincs teendője.
+
+## A számlázás kezelése
+
+Az **Előfizetés** résznél kattintson a **Számlázás kezelése** gombra a Stripe számlázási portáljának megnyitásához, ahol:
+
+- frissítheti a kártyáját;
+- letöltheti a számláit;
+- válthat a havi és az éves díj között;
+- lemondhatja az előfizetést.
+
+## Előfizetés nélkül
+
+Ha egy csapat próbaidőszaka előfizetés nélkül ér véget, vagy az előfizetési díj fizetése sikertelen, vagy az előfizetést lemondják, egy hetet kap a rendezésére:
+
+1. Egyhetes türelmi idő. A csapat a szokásos módon működik. A tulajdonos e-mailt kap arról, mikor ér véget a hét, és egy másikat az utolsó előtti napon. A **Műszerfal** **Beavatkozást igényel** része is mutatja a dátumot.
+2. Szüneteltetve. A hét után a csapat oldalai mindenkit egy olyan oldalra irányítanak, amely szerint a csapat szüneteltetve van: a tulajdonos ott előfizetést indíthat, a többieket arra kéri, hogy forduljanak a tulajdonoshoz. A foglalási weboldal online marad, de nem fogad új foglalásokat, az API pedig `402` választ ad.
+3. Újra előfizetéssel. Amint a tulajdonos előfizetést indít vagy frissíti a kártyáját, a csapat újra működik, pontosan úgy, ahogy abbahagyta.
+
+A már foglalt vendégekről a szüneteltetés alatt is a szokásos módon gondoskodunk: a foglalási oldalaik, az ütemezett fizetések, a kauciók visszatérítése, az automatikus üzenetek és a naptárszinkronizálás tovább működnek.
+
+<Note>Az előfizetésével az Overviut fizeti. Ez független azoktól a vendégfizetésektől, amelyeket a [saját Stripe-fiókján](/hu/payments/connect-stripe) keresztül fogad.</Note>
+
+## Kapcsolódó útmutatók
+
+- [Csapat és szerepkörök](/hu/account/team-and-roles)
+- [Szálláshirdetés létrehozása](/hu/listings/create-a-listing)
+- [A műszerfal](/hu/insights/dashboard)

@@ -1,0 +1,71 @@
+---
+title: "Stripe csatlakoztatása"
+description: "Fogadjon kártyás fizetéseket a foglalási weboldalán a saját Stripe-fiókjával: kulcsok, webhook, és annak ellenőrzése, hogy minden működik."
+---
+
+Az Overviu a saját Stripe-fiókján keresztül fogadja a fizetéseket. A vendégek közvetlenül Önnek fizetnek, a pénz a Stripe-egyenlegére érkezik; az Overviu soha nem tartja magánál. Csatlakoztassa a Stripe-ot, ha foglaláskor szeretne fizetést fogadni, hátralékot és kauciót terhelni, számlát küldeni, visszatérítést adni és ellenőrizni a vendégek személyazonosságát.
+
+<Note>Csak tulajdonosok és adminisztrátorok csatlakoztathatják vagy bonthatják a Stripe-kapcsolatot.</Note>
+
+## Mielőtt elkezdi
+
+- Egy Stripe-fiók ([stripe.com](https://stripe.com)) a vállalkozása számára, beállított kifizetésekkel.
+- Körülbelül 10 perc a Stripe irányítópultján.
+
+## Lépések
+
+<Steps>
+  <Step title="Nyissa meg a fizetési beállításokat">
+    Az Overviuban nyissa meg a **Beállítások** → **Fizetések** menüpontot. Hagyja nyitva ezt az oldalt: innen fogja kimásolni a **Végpont URL-je** értékét.
+  </Step>
+  <Step title="Hozza létre a webhookot a Stripe-ban">
+    A Stripe egy webhookon keresztül értesíti az Overviut, ha egy vendég fizetett. A Stripe irányítópultján nyissa meg a Developers → Webhooks menüpontot, és adjon hozzá egy végpontot:
+
+    - URL: az Overviu **Végpont URL-je** értéke;
+    - események: minden, ami a **Küldendő események** listában szerepel (fizetések, visszatérítések, számlák, mentett kártyák és személyazonosság-ellenőrzések).
+
+    Mentse, majd másolja ki az aláírási titkát (`whsec_` kezdetű).
+  </Step>
+  <Step title="Másolja ki az API-kulcsait">
+    A Developers → API keys menüpontban másolja ki a közzétehető kulcsot (`pk_…`) és egy titkos kulcsot.
+
+    Titkos kulcsként az Overviu egy korlátozott kulcsot (`rk_…`) javasol, amely írási hozzáféréssel rendelkezik a PaymentIntents, a Checkout Sessions, a Refunds és a Customers erőforrásokhoz, és olvasási hozzáféréssel a Webhook Endpoints erőforráshoz. A szokásos titkos kulcs (`sk_…`) is működik.
+  </Step>
+  <Step title="Csatlakoztassa">
+    Az Overviuban illessze be a **Közzétehető kulcs**, a **Titkos kulcs** és a **Webhook aláírási titka** értékét, majd kattintson a **Stripe csatlakoztatása** gombra. Az Overviu ellenőrzi a titkos kulcsot a Stripe-nál; ha a Stripe elutasítja, ezt látja: „A Stripe elutasította ezt a titkos kulcsot. Ellenőrizze, majd próbálja újra.”
+  </Step>
+  <Step title="Ellenőrizze a webhookot">
+    Kattintson a **Webhook beállításainak ellenőrzése** gombra. Ha ezt látja: „Minden kész: a végpont engedélyezve van, és minden szükséges eseményt elküld.”, akkor végzett. Ellenkező esetben az Overviu jelzi, mi a hiba: nincs végpont ezen az URL-en, a végpont le van tiltva, vagy **Hiányzó események** vannak, amelyeket hozzá kell adni a Stripe-ban.
+  </Step>
+</Steps>
+
+Ezután az oldal mutatja, melyik Stripe-fiókhoz csatlakozott, annak alapértelmezett pénznemét, valamint az **Utolsó beérkezett esemény** értékét: a Stripe által az Overviunak küldött utolsó üzenetet.
+
+## A Stripe oldalainak testreszabása {#make-stripes-pages-look-like-yours}
+
+A vendégek a Stripe fizetési és számlaoldalain fizetnek. **A Stripe fizetési oldalainak arculati testreszabása** résznél a **Megnyitás a Stripe-ban** a Stripe-fiókjában található beállításokhoz visz:
+
+- **Logó és színek** a fizetési oldalhoz, a számlákhoz és a nyugtákhoz;
+- **Nyilvános cégnév és ügyfélszolgálati adatok**, amelyeket a vendégek látnak;
+- **Kártyakivonaton megjelenő megnevezés előtagja** (az Overviu ezután illeszti a foglalási kódot);
+- **Ügyfeleknek küldött e-mailek**: a nyugták és a számlák, amelyeket a Stripe e-mailben küld a vendégeknek.
+
+## Először teszteljen
+
+Csatlakozzon a Stripe teszt módú kulcsaival (`pk_test_…`, `sk_test_…`) és egy teszt módú webhookkal, hogy a Stripe tesztkártyáival kipróbálhassa a foglalásokat. Ha készen áll, válassza a **Kapcsolat bontása** lehetőséget, és csatlakozzon újra az éles kulcsaival és egy éles webhookkal.
+
+## Stripe nélkül
+
+Az Overviu Stripe nélkül is működik: a vendégek **A vendég érkezéskor fizet (nincs online fizetés)** beállítással foglalnak, Ön pedig [rögzíti](/hu/bookings/record-a-payment) a kapott készpénzes, banki átutalásos vagy kártyaterminálos fizetéseket. Online fizetést, kauciót és visszatérítést nem kezelhet az Overviun keresztül, a személyazonosság-ellenőrzés pedig a vendégek érkezésekor történik.
+
+<Warning>Az online fizetésre beállított szálláshirdetés addig nem foglalható, amíg a Stripe nincs csatlakoztatva: a foglalási weboldal jelzi a vendégeknek, hogy a szállásadó még nem állította be az online fizetést.</Warning>
+
+## Kapcsolat bontása
+
+Kattintson a **Kapcsolat bontása** gombra, és erősítse meg. A vendégek ezután nem fizethetnek online. Ha éppen fizetnek vendégek, az Overviu előbb figyelmezteti: a kapcsolat bontása után a fizetésük nem igazolja vissza a foglalásukat.
+
+## Kapcsolódó útmutatók
+
+- [Hogyan fizetnek a vendégek?](/hu/payments/how-guests-pay)
+- [Kauciók](/hu/payments/security-deposits)
+- [Visszatérítések](/hu/payments/refunds)

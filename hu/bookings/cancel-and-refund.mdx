@@ -1,0 +1,56 @@
+---
+title: "Foglalás lemondása"
+description: "Mondjon le egy foglalást, térítse vissza azt, amit a lemondási szabályzat előír, és szabadítsa fel a dátumait."
+---
+
+Mondja le a foglalást, ha a vendég nem érkezik, bárki is mondja le. Az Overviu felszabadítja a dátumokat, leállítja a még hátralévő fizetéseket, és a szálláshirdetés lemondási szabályzata alapján visszatérítést javasol.
+
+## Mielőtt elkezdi
+
+- **Függőben**, **Fizetésre vár** vagy **Visszaigazolva** állapotú foglalást mondhat le. A **Befejezve** és a **Lemondva** állapotú foglalások nem mondhatók le.
+- A csapatban bárki lemondhat olyan foglalást, amelynél nincs mit visszatéríteni. Azt a foglalást, amelyet a vendég a Stripe-on keresztül fizetett ki, csak tulajdonos vagy adminisztrátor mondhatja le, mert a lemondáskor a visszatérítésről is dönteni kell.
+
+## Lépések
+
+<Steps>
+  <Step title="Nyissa meg a foglalást">
+    Nyissa meg a **Foglalások** oldalt, majd a foglalást. A felül található **Válasszon műveletet...** listában válassza a **Foglalás lemondása** lehetőséget, és kattintson a **Beküldés** gombra.
+
+    A **Naptár** nézetben jobb gombbal a foglalásra kattintva is választhatja a **Foglalás lemondása** lehetőséget. Ha a vendég a Stripe-on keresztül fizetett, az Overviu ehelyett megnyitja a foglalást, hogy kiválaszthassa a visszatérítést; egyébként a foglalás azonnal lemondásra kerül.
+  </Step>
+  <Step title="Adja meg az okát">
+    Igény szerint töltse ki az **Indok (nem kötelező)** mezőt. Ez a foglalás **Idővonal** részében marad meg.
+  </Step>
+  <Step title="Válassza ki a visszatérítést">
+    Ha a vendég a Stripe-on keresztül fizetett, az Overviu megmutatja, mennyi jár vissza ma a szálláshirdetés szabályzata szerint, például: „Mérsékelt szabályzat: most 50% visszatérítés jár”, és ezzel az összeggel tölti ki a **Visszatérítés** mezőt. Ha mással állapodott meg a vendéggel, módosítsa: bármilyen összeget megadhat a vendég által fizetett összegig, vagy 0-t, ha visszatérítés nélkül mondja le.
+  </Step>
+  <Step title="Mondja le">
+    Kattintson a **Foglalás lemondása** gombra. Ha változatlanul szeretné hagyni a foglalást, kattintson a **Foglalás megtartása** gombra.
+  </Step>
+</Steps>
+
+Ha a Stripe elutasítja a visszatérítést, a foglalás nem kerül lemondásra, és az Overviu megmutatja a Stripe indoklását. Javítsa a hibát, vagy állítsa a visszatérítést 0-ra, és térítse vissza a vendégnek más módon.
+
+## Mi kerül visszatérítésre?
+
+- Az Overviu csak azt a pénzt téríti vissza, amelyet a vendég a Stripe-on keresztül fizetett. A visszatérítés arra a kártyára érkezik, amellyel fizetett, a legutóbbi fizetéstől kezdve.
+- Azt a pénzt, amelyet készpénzes, banki átutalásos vagy kártyaterminálos fizetésként [rögzített](/hu/bookings/record-a-payment), nem lehet a Stripe-on keresztül visszatéríteni. Fizesse vissza ugyanúgy, ahogyan kapta.
+- Ha a Stripe nincs csatlakoztatva, az Overviu ezt jelzi: „Az online fizetés nincs beállítva, ezért minden visszatérítést az Overviun kívül kell teljesíteni.”
+- A vendég kártyáján zárolt kauciót az Overviu teljes egészében feloldja. A kiegészítő szolgáltatások fizetései nem részei a visszatérítésnek; ezeket a foglalástól külön térítse vissza. Lásd: [Visszatérítések](/hu/payments/refunds).
+
+A szabályzatokat szálláshirdetésenként állíthatja be; lásd: [Lemondási szabályzat](/hu/calendar/prices-and-rules#cancellation-policy).
+
+## Mi történik ezután?
+
+- A foglalás **Lemondva** lesz, az éjszakái pedig újra szabadok a naptárában, a foglalási weboldalán és azokon a portálokon, amelyekkel szinkronizál.
+- A későbbre ütemezett fizetések, például az érkezés előtt esedékes hátralék, nem kerülnek terhelésre, a nyitott számlák pedig érvénytelenítődnek.
+- Az [értesítési beállításoktól](/hu/account/notifications) függően a csapata **Foglalás lemondva** tárgyú e-mailt kap.
+- Ha a szálláshirdetésnek van **Közvetlenül a foglalás lemondása után** küldött automatikus üzenete, a vendég megkapja. Lásd: [Automatikus üzenetek](/hu/guests/automated-messages).
+
+Az online fizetésre váró foglalásokat az Overviu akkor is magától lemondja, ha a vendég nem fizet időben; ilyenkor a csapata **A fizetés nem fejeződött be** tárgyú e-mailt kap.
+
+## Kapcsolódó útmutatók
+
+- [Visszatérítések](/hu/payments/refunds)
+- [Foglalás módosítása](/hu/bookings/change-a-booking)
+- [Foglalások és állapotok](/hu/bookings/bookings-and-statuses)

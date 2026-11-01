@@ -1,0 +1,66 @@
+---
+title: "A műszerfal"
+description: "A napja egy pillantással: ki érkezik és ki távozik, mi igényli a figyelmét, hogyan alakul a hónap, és milyen bevételek érkeznek."
+---
+
+A **Műszerfal** az első oldal, amelyet bejelentkezés után lát. Három kérdésre válaszol: mi történik ma, mi igényli a figyelmét, és hogyan megy az üzlet.
+
+<Note>A tagok látják a napot és a foglalásokat, de a pénzügyeket nem: a bevétel, az éjszakánkénti ár, a pénzforgalom, a közelgő fizetések és a kezdő teendőlista a tulajdonosoknak és az adminisztrátoroknak szól.</Note>
+
+## Ma
+
+Az oldal tetején egy üdvözlés és egy mondatos összefoglaló látható a napról: ki hová érkezik, ki tartózkodik ott, és ki távozik, vagy „Csendes nap”, ha nem történik semmi. A visszaigazolt, a függőben lévő és a befejezett foglalásokat számolja, valamint az Airbnb-ről, a Booking.com-ról és a Vrbo-ról szinkronizált tartózkodásokat.
+
+## Beavatkozást igényel
+
+A **Beavatkozást igényel** rész felsorolja, mivel kell most foglalkoznia, mindegyiket hivatkozással:
+
+| Tétel | Ki látja? |
+| --- | --- |
+| Az Ön megerősítésére váró foglalások | Mindenki |
+| Egy foglalási portál naptára, amelynek szinkronizálása sikertelen volt | Mindenki |
+| Lejárt határidejű fizetések | Tulajdonosok és adminisztrátorok |
+| Az e heti sikertelen kártyás fizetések | Tulajdonosok és adminisztrátorok |
+| Előfizetési problémák: sikertelen előfizetési díj, nincs aktív előfizetés (azzal a dátummal, amikor a csapat szüneteltetésre kerül), vagy hamarosan lejáró próbaidőszak | Tulajdonosok és adminisztrátorok |
+
+Ha nincs teendő, a doboz nem jelenik meg.
+
+## Első lépések
+
+A csapat első foglalásáig a tulajdonosok és az adminisztrátorok egy **Kezdés** teendőlistát látnak: szálláshirdetés hozzáadása, az árak beállítása és a szálláshirdetés közzététele, a Stripe csatlakoztatása (nem kötelező), az első foglalás megszerzése. Lásd: [Beállítás 15 perc alatt](/hu/get-started/quickstart).
+
+## A hónap
+
+Válasszon hónapot az **Előző hónap**, az **Ez a hónap** és a **Következő hónap** gombbal. A kártyák a következőket mutatják:
+
+- **Kihasználtság**: a kiadható éjszakák közül a lefoglaltak aránya;
+- **Bevétel**: a hónapban eltöltött éjszakák bérleti díja és díjai (tulajdonosok és adminisztrátorok);
+- **Tartózkodások**: hány tartózkodásnak volt éjszakája a hónapban;
+- **Éjszakánkénti ár**: a lefoglalt éjszakák átlagára (tulajdonosok és adminisztrátorok);
+- **Következő 30 nap**: a következő 30 nap kiadható éjszakái közül hány foglalt.
+
+A **Következő 30 nap** kivételével minden kártya összeveti a hónapot az egy évvel korábbi azonos dátumokkal. A tulajdonosok és az adminisztrátorok egy kártyára kattintva megnyithatják a hozzá tartozó [jelentést](/hu/insights/reports).
+
+## Diagramok
+
+- **Bevétel** (tulajdonosok és adminisztrátorok): a kiválasztott hónap napi bevétele. Válthat a **Sávok** és a **Vonal** nézet között.
+- **Lefoglalt éjszakák**: a kiválasztott hónapig tartó 12 hónap mindegyikében lefoglalt éjszakák, összehasonlításként halvány vonallal az **Egy évvel korábban** értékekkel.
+
+## Ez a hét
+
+Az **Ez a hét** rész a mai és a következő hat nap érkezéseit és távozásait mutatja, napról napra: **Érkezik** és **Távozik** az időponttal és a szálláshirdetéssel, valamint **Vendégváltás**, ha ugyanazon a napon egy vendég távozik, és egy másik érkezik. A **Naptár megnyitása** a [naptárhoz](/hu/calendar/the-calendar) visz.
+
+## Beérkezett üzenetek
+
+A három legutóbbi vendégbeszélgetés; az olvasatlanokat egy pötty jelzi. A **Beérkezett üzenetek megnyitása** megnyitja a [beérkezett üzeneteket](/hu/guests/inbox).
+
+## Pénzügyek (tulajdonosok és adminisztrátorok)
+
+- **Pénzforgalom**: a kiválasztott hónap **Bevételek** (fizetések, kiegészítő szolgáltatások és visszatartott kauciók) és **Kiadások** (visszatérítések) értéke, hat hónap nettó bevételével sávokként. Az aktuális hónapnál azt is mutatja, hogyan alakul a bevétel a tavalyi év azonos időszakához képest, és mennyi az **Előrejelzés** a hónap végéig a már esedékes fizetések alapján.
+- **Közelgő fizetések**: a következő 30 napban esedékes hátralékok, számlák és kauciók, dátum szerint.
+
+## Kapcsolódó útmutatók
+
+- [Jelentések](/hu/insights/reports)
+- [Értesítések](/hu/account/notifications)
+- [Csapat és szerepkörök](/hu/account/team-and-roles)

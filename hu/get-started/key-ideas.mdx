@@ -1,0 +1,79 @@
+---
+title: "Alapfogalmak"
+description: "Csapatok és szerepkörök, szálláshirdetések és épületek, foglalási állapotok és források, a foglalási weboldal és a naptárszinkronizálás."
+---
+
+Néhány alapfogalom az Overviu egészében visszatér. Ha megismeri őket, könnyebben követheti a többi útmutatót.
+
+## Csapatok
+
+Az Overviuban minden egy csapathoz tartozik: a szálláshirdetések, a foglalások, a vendégek, az üzenetek és a beállítások. A regisztráció létrehozza az első csapatát, de több csapatnak is tagja lehet, például külön kezelheti a saját és egy ügyfele kiadó ingatlanjait. Az oldalsáv tetején található csapatválasztóval válthat közöttük; minden oldal az éppen kiválasztott csapat adatait mutatja.
+
+Minden csapatnak saját előfizetése, saját Stripe-fiókja és saját foglalási weboldala van.
+
+### Szerepkörök
+
+A csapatban mindenki a három szerepkör egyikét tölti be.
+
+| Szerepkör | Mire jogosult? |
+| --- | --- |
+| **Tulajdonos** | Mindenre, beleértve az előfizetés és a számlázás kezelését, a tagok szerepkörének módosítását, a tagok eltávolítását és a csapat törlését. Minden csapatnak egy tulajdonosa van. |
+| **Adminisztrátor** | A csapat munkájával és beállításaival kapcsolatban mindarra, amire a tulajdonos, továbbá másokat is meghívhat. Nem kezelheti a számlázást, nem módosíthat szerepköröket, nem távolíthat el tagokat, és nem törölheti a csapatot. |
+| **Tag** | A napi feladatokra: a szálláshirdetések, a naptár, a foglalások és a Beérkezett üzenetek kezelésére. |
+
+A tagok nem látják a következőket:
+
+- a **Jelentések** oldalt;
+- a **Műszerfal** pénzügyi adatait: a bevételt, a pénzforgalmat, a közelgő fizetéseket és a kezdő teendőlistát;
+- a csapat **Domainek**, **Arculat**, **Foglalási weboldal**, **Kuponok** és **Fizetések** beállításait.
+
+Emellett nem terhelhetik meg a vendégek fizetési eszközét, nem indíthatnak visszatérítést, nem kezelhetik a kauciókat, nem hozhatnak létre API-tokeneket, és nem helyezhetnek szálláshirdetéseket a kukába, illetve nem állíthatják vissza őket. A vendég személyesen teljesített fizetését viszont rögzíthetik. Lásd: [Csapat és szerepkörök](/hu/account/team-and-roles).
+
+## Szálláshirdetések
+
+A szálláshirdetés olyasmit hirdet, amit a vendégek lefoglalhatnak. Három fajtája van.
+
+- **Önálló ingatlan**: egyben kiadott ház, villa vagy apartman.
+- **Épület**: olyan épület, amelynek apartmanjai vagy szobái külön kiadók. Egységtípusokat tartalmaz, és egészben is lefoglalható (**Teljes épület bérlése**).
+- **Egységtípus**: egy épületen belüli egységek típusa, például „2 hálószobás apartman”, a hozzá tartozó egységekkel (2A, 2B…). A vendégek egy egységtípust foglalnak le, az Overviu pedig automatikusan hozzárendel egy szabad egységet.
+
+Az előfizetés díja egységenként számítandó: egy önálló ingatlan egy egységnek számít, épület esetén pedig csak a benne lévő egységek számítanak.
+
+A szálláshirdetés állapota határozza meg, hogy a vendégek láthatják-e:
+
+- **Piszkozat**: az új szálláshirdetések ebben az állapotban jönnek létre. Csak az Ön csapata látja őket.
+- **Aktív**: megjelenik az Ön foglalási weboldalán, és foglalható.
+- **Archiválva**: megmarad a nyilvántartásban, de nem jelenik meg a foglalási weboldalon.
+
+A már nem szükséges szálláshirdetést a kukába helyezheti, amivel eltávolítja a foglalási weboldalról; a **Szálláshirdetések** oldalon visszaállíthatja. Lásd: [Szálláshirdetés létrehozása](/hu/listings/create-a-listing), [Épületek és egységek](/hu/listings/buildings-and-units) és [Kukába helyezés és visszaállítás](/hu/listings/trash-and-restore).
+
+## Foglalások
+
+Minden foglalásnak van állapota:
+
+| Állapot | Mit jelent? |
+| --- | --- |
+| **Függőben** | A foglalás lefoglalja a dátumokat, és az Ön megerősítésére vár. |
+| **Fizetésre vár** | Egy vendég éppen online fizet. Ha a fizetés nem érkezik meg a határidőig, a foglalás törlődik, és a dátumok felszabadulnak. |
+| **Visszaigazolva** | A tartózkodás vissza van igazolva. Az online fizetés automatikusan megerősíti a foglalást. |
+| **Lemondva** | A foglalás már nem foglalja le a dátumokat. |
+| **Befejezve** | A tartózkodás véget ért: Ön a kijelentkezés után befejezettként jelölte meg. |
+
+Emellett minden foglalásnak van forrása, amely jelzi, honnan érkezett: **Kézi**, **Közvetlen** (az Ön foglalási weboldala), **API**, **Airbnb**, **Booking.com**, **Vrbo** vagy **Expedia**. Ha Ön ad hozzá egy foglalást, kiválaszthatja a forrását, így az Airbnb-n lefoglalt tartózkodást ennek megfelelően rögzítheti. Az Airbnb, a Booking.com, a Vrbo vagy az Expedia oldaláról származóként megjelölt foglalások az Overviuban nem módosíthatók, csak lemondhatók: ezeket az adott oldalak kezelik.
+
+A naptárszinkronizálás nem hoz létre foglalásokat. A más oldalakon lefoglalt éjszakákat blokkolja, vendégadatok nélkül; lásd: [Csatornák](#channels).
+
+A **Közvetlen** forrású foglalásoknak (amelyek az Ön foglalási weboldaláról érkeztek, vagy amelyeket Ön **Közvetlen** forrással adott hozzá) fizetési állapotuk is van, mert az Overviu nyilvántartja a hozzájuk kapcsolódó pénzmozgásokat: **Fizetve**, **Részösszeg fizetve**, **Fizetésre vár** vagy **Fizetés érkezéskor**. Lásd: [Foglalások és állapotok](/hu/bookings/bookings-and-statuses).
+
+## A foglalási weboldal
+
+Minden csapat kap egy közvetlen foglalási weboldalt a `your-team.overviu.app` címen, de helyette saját domaint is használhat. A weboldal megjeleníti az Ön aktív szálláshirdetéseit, az Ön feltételeivel és bérleti szerződésével fogad foglalásokat, a fizetéseket pedig az Ön Stripe-fiókján keresztül fogadja. Lásd: [A foglalási weboldal beállítása](/hu/booking-site/set-up).
+
+## Csatornák {#channels}
+
+Az Airbnb, a Booking.com és a Vrbo csatornák: olyan más weboldalak, amelyeken az Ön szálláshirdetései megjelennek. Az Overviu naptárhivatkozásokkal (iCal) mindkét irányban összehangolja velük a naptárakat, így az egyik oldalon létrejövő foglalás mindenhol blokkolja az adott dátumokat. Lásd: [Naptárszinkronizálás](/hu/calendar/booking-site-calendars).
+
+## Kapcsolódó útmutatók
+
+- [Beállítás 15 perc alatt](/hu/get-started/quickstart)
+- [Csapat és szerepkörök](/hu/account/team-and-roles)
