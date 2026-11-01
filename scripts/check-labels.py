@@ -27,6 +27,8 @@ if lang == "en":
     corpus = "\n".join(path.read_text(errors="ignore") for path in sources).replace("\\'", "'")
 else:
     corpus = "\n".join(json.loads((app / f"lang/{lang}.json").read_text()).values())
+    # Plan names (Solo, Host, Pro) are shown as they are in every language.
+    corpus += "\n" + "\n".join(re.findall(r"'name' => '([^']+)'", (app / "config/billing.php").read_text()))
 
 missing = []
 for name in args[1:]:

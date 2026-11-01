@@ -1,45 +1,45 @@
 ---
-title: "Ask about your data"
-description: "Ask questions about your bookings, guests and numbers on the Dashboard, with your own Claude or OpenAI key."
+title: "Kérdezzen az adatairól"
+description: "Tegyen fel kérdéseket a foglalásairól, a vendégeiről és a számairól a Műszerfalon, a saját Claude- vagy OpenAI-kulcsával."
 ---
 
-With your own Claude (Anthropic) or OpenAI API key, the **Dashboard** gets a chat where you can ask about your own data: "Who arrives tomorrow and hasn't finished online check-in?", "How many nights did we book last month?", "Which listing earns the most per night?". Answers link to the bookings, listings and reports they come from.
+A saját Claude (Anthropic) vagy OpenAI API-kulcsával a **Műszerfal** egy csevegőt kap, ahol a saját adatairól kérdezhet: „Ki érkezik holnap úgy, hogy még nem fejezte be az online bejelentkezést?”, „Hány éjszakát foglaltak nálunk a múlt hónapban?”, „Melyik szálláshirdetés hozza a legtöbbet éjszakánként?”. A válaszok hivatkoznak azokra a foglalásokra, szálláshirdetésekre és jelentésekre, amelyekből származnak.
 
-The chat only looks things up. It can't change bookings, calendars or messages.
+A csevegő csak lekérdez. Foglalásokat, naptárakat vagy üzeneteket nem tud módosítani.
 
-## Add your key
+## A kulcs hozzáadása
 
-Owners and admins add the key once for the team.
+A tulajdonosok és az adminisztrátorok egyszer adják hozzá a kulcsot a csapat számára.
 
 <Steps>
-  <Step title="Get a key">
-    Create an API key with [Anthropic](https://console.anthropic.com/settings/keys) or [OpenAI](https://platform.openai.com/api-keys). Usage is billed to that account, not by Overviu.
+  <Step title="Szerezzen kulcsot">
+    Hozzon létre egy API-kulcsot az [Anthropicnál](https://console.anthropic.com/settings/keys) vagy az [OpenAI-nál](https://platform.openai.com/api-keys). A használatot az a fiók fizeti, nem az Overviu számlázza.
   </Step>
-  <Step title="Open Settings → AI">
-    Open the user menu → **Settings** → **AI**.
+  <Step title="Nyissa meg a Beállítások → AI menüpontot">
+    Nyissa meg a felhasználói menüt → **Beállítások** → **AI**.
   </Step>
-  <Step title="Save it">
-    Pick the **Provider**, paste the **API key**, choose a **Model** (**Standard**, or **Faster and cheaper**) and click **Save**. Overviu checks the key with the provider before saving it, and tells you if it doesn't work (for example when the account has no credit left).
+  <Step title="Mentse">
+    Válassza ki a **Szolgáltató** értékét, illessze be az **API-kulcs** értékét, válasszon **Modell** értéket (**Normál** vagy **Gyorsabb és olcsóbb**), és kattintson a **Mentés** gombra. Az Overviu mentés előtt ellenőrzi a kulcsot a szolgáltatónál, és jelzi, ha nem működik (például ha a fiókon nincs már kredit).
   </Step>
 </Steps>
 
-The key is stored encrypted and only its start and last four characters are shown again. Click **Remove key** to turn the chat off.
+A kulcsot titkosítva tároljuk, és később csak az elejét és az utolsó négy karakterét mutatjuk. A csevegő kikapcsolásához kattintson a **Kulcs eltávolítása** gombra.
 
-## What is sent
+## Mi kerül elküldésre?
 
-Your questions, and the data needed to answer them, go to the provider with your key: guest names, stays, listings, prices and statuses. Guest emails, phone numbers and messages are never sent.
+A kérdései és a megválaszolásukhoz szükséges adatok az Ön kulcsával jutnak el a szolgáltatóhoz: vendégnevek, tartózkodások, szálláshirdetések, árak és állapotok. A vendégek e-mail-címe, telefonszáma és üzenetei soha nem kerülnek elküldésre.
 
-## Ask
+## Kérdezzen
 
-On the **Dashboard**, type your question under **Ask about your data** and press Enter, or pick a suggested question. While the answer is written, the chat shows what it's looking up.
+A **Műszerfal** oldalon írja be a kérdését a **Kérdezzen az adatairól** résznél, és nyomja meg az Enter billentyűt, vagy válasszon egy javasolt kérdést. Amíg a válasz készül, a csevegő mutatja, mit keres éppen.
 
-- Your chats are saved for you in this team. Other members can't see them. Open one from **Recent chats**, or delete it there.
-- Click **New chat** to start over.
-- Members can use the chat too, but it gives them no money figures, as on the screens.
-- To stop a runaway, each person can ask 60 questions an hour.
+- A beszélgetései ebben a csapatban az Ön számára mentődnek. A többi tag nem látja őket. Megnyithatja vagy törölheti őket a **Legutóbbi beszélgetések** résznél.
+- Az újrakezdéshez kattintson az **Új beszélgetés** gombra.
+- A tagok is használhatják a csevegőt, de pénzügyi adatokat nem kapnak tőle, ahogy a képernyőkön sem.
+- A túlzott használat megelőzésére mindenki óránként 60 kérdést tehet fel.
 
-<Note>Answers can be wrong. Check the pages they link to before acting on a number.</Note>
+<Note>A válaszok tévesek is lehetnek. Mielőtt egy szám alapján cselekedne, ellenőrizze azokat az oldalakat, amelyekre a válasz hivatkozik.</Note>
 
-## What it costs
+## Mennyibe kerül?
 
-**Settings → AI** shows this month's questions and an estimate of what they cost, worked out from the tokens each answer used. Your provider's bill is the real figure.
+A **Beállítások → AI** oldal mutatja a hónap kérdéseit és azok becsült költségét, az egyes válaszok által felhasznált tokenek alapján. A valós összeg a szolgáltatója számláján szerepel.

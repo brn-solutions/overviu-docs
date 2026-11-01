@@ -1,42 +1,42 @@
 ---
-title: "API tokens"
-description: "Create the tokens your own systems use to reach your team's data through the Overviu API, and revoke them."
+title: "API-tokenek"
+description: "Hozza létre azokat a tokeneket, amelyekkel a saját rendszerei az Overviu API-n keresztül elérik a csapata adatait, és vonja vissza őket."
 ---
 
-An API token lets another system (a channel manager, your own website, an automation tool) use the [Overviu API](/api-reference/introduction) on behalf of your team. Each token belongs to the team you're in, not to you.
+Egy API-tokennel egy másik rendszer (egy csatornakezelő, a saját weboldala, egy automatizálási eszköz) a csapata nevében használhatja az [Overviu API-t](/api-reference/introduction). Minden token ahhoz a csapathoz tartozik, amelyben éppen van, nem Önhöz.
 
-<Note>Only owners and admins can create and revoke API tokens.</Note>
+<Note>API-tokeneket csak tulajdonosok és adminisztrátorok hozhatnak létre és vonhatnak vissza.</Note>
 
-<Warning>Anyone with a token can read your team's listings, bookings and guests through the API, and with a **Read-write** token also create, change and cancel bookings. Keep tokens on servers you trust, never in a web page or an app guests download.</Warning>
+<Warning>Aki rendelkezik egy tokennel, az API-n keresztül olvashatja a csapata szálláshirdetéseit, foglalásait és vendégeit, egy **Olvasási és írási hozzáférés** tokennel pedig foglalásokat is létrehozhat, módosíthat és lemondhat. A tokeneket csak megbízható szervereken tárolja, soha ne egy weboldalon vagy egy olyan alkalmazásban, amelyet a vendégek letöltenek.</Warning>
 
-## Create a token
+## Token létrehozása
 
 <Steps>
-  <Step title="Switch to the team">
-    Use the team switcher to switch to the team the token is for.
+  <Step title="Váltson a csapatra">
+    A csapatválasztóval váltson arra a csapatra, amelyhez a token tartozik.
   </Step>
-  <Step title="Open API tokens">
-    Open the user menu → **Settings** → **API tokens**.
+  <Step title="Nyissa meg az API-tokeneket">
+    Nyissa meg a felhasználói menüt → **Beállítások** → **API-tokenek**.
   </Step>
-  <Step title="Name it">
-    Give it a **Name** that says where it's used, like "Channel manager", and pick a **Scope**: **Read-only** if the system only reads (reports, a website showing your listings), or **Read-write** if it also creates, changes or cancels bookings. Click **Create token**.
+  <Step title="Nevezze el">
+    Adjon meg egy **Név** értéket, amely elárulja, hol használja, például „Csatornakezelő”, és válasszon **Hatókör** értéket: **Csak olvasható**, ha a rendszer csak olvas (jelentések, egy weboldal, amely a szálláshirdetéseit mutatja), vagy **Olvasási és írási hozzáférés**, ha foglalásokat is létrehoz, módosít vagy lemond. Kattintson a **Token létrehozása** gombra.
   </Step>
-  <Step title="Copy it">
-    The token is shown once, right after you create it. Click the eye icon to show it and the copy icon to copy it, paste it into the other system, then click **Done**. It can't be shown again: if you lose it, revoke it and create a new one.
+  <Step title="Másolja ki">
+    A token csak egyszer, közvetlenül a létrehozása után jelenik meg. A szem ikonra kattintva megjelenítheti, a másolás ikonnal kimásolhatja; illessze be a másik rendszerbe, majd kattintson a **Kész** gombra. Később nem jeleníthető meg újra: ha elveszíti, vonja vissza, és hozzon létre újat.
   </Step>
 </Steps>
 
-Each token shows its scope, when it was created and when it was **Last used** (or **Never used**).
+Minden tokennél látható a hatóköre, a létrehozás ideje, és hogy mikor használták utoljára (**Utolsó használat**), vagy hogy **Soha nem használt**.
 
-## Revoke a token
+## Token visszavonása
 
-Click **Revoke** next to it. Systems using it stop working straight away. Revoke a token when you stop using a system, or if it may have been seen by someone it shouldn't.
+Kattintson a token melletti **Visszavonás** gombra. Az azt használó rendszerek azonnal leállnak. Vonja vissza a tokent, ha már nem használ egy rendszert, vagy ha olyan személy láthatta, akinek nem kellett volna.
 
-## Next
+## Következő lépés
 
-The [API reference](/api-reference/authentication) shows how to send a token and every endpoint you can call with it.
+Az [API-dokumentáció](/api-reference/authentication) bemutatja, hogyan küldje el a tokent, és milyen végpontokat hívhat meg vele.
 
-## Related
+## Kapcsolódó útmutatók
 
-- [Authentication](/api-reference/authentication)
-- [Team and roles](/hu/account/team-and-roles)
+- [Hitelesítés](/api-reference/authentication)
+- [Csapat és szerepkörök](/hu/account/team-and-roles)
