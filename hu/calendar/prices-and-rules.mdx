@@ -1,113 +1,113 @@
 ---
-title: "Prices and stay rules"
-description: "Nightly prices, seasons, fees, taxes and discounts, stay rules, and when guests pay and get refunds."
+title: "Árak és tartózkodási szabályok"
+description: "Éjszakánkénti árak, szezonok, díjak, adók és kedvezmények, tartózkodási szabályok, valamint az, hogy a vendégek mikor fizetnek, és mikor kapnak visszatérítést."
 ---
 
-Each listing has its own prices and rules, on its **Pricing** and **Availability** tabs. Overviu uses them for every quote on your booking site, every booking you add, and the API. For a building, set them on each unit type, and for whole-building bookings on the building's **Whole building** tab.
+Minden szálláshirdetésnek saját árai és szabályai vannak, az **Árazás** és az **Elérhetőség** fülön. Az Overviu ezeket használja a foglalási weboldal minden árajánlatához, minden Ön által felvett foglaláshoz és az API-hoz. Épületnél ezeket az egyes egységtípusoknál állítsa be, a teljes épületre szóló foglalásokhoz pedig az épület **Teljes épület** fülén.
 
-Amounts are in the listing's currency, set on **Details** → **Basics**.
+Az összegek a szálláshirdetés pénznemében értendők, amelyet a **Részletek** → **Alapadatok** részen állíthat be.
 
-## Nightly prices
+## Éjszakánkénti árak
 
-Open the listing → **Pricing** → **Base pricing**. Under **Nightly rates**, set a price for each day of the week: a higher price on Friday and Saturday gives you weekend prices. Click **Save base rates**.
+Nyissa meg a szálláshirdetést → **Árazás** → **Alapárak**. Az **Éjszakánkénti árak** résznél adjon meg árat a hét minden napjára: ha péntekre és szombatra magasabb árat ad meg, azzal hétvégi árat állít be. Kattintson az **Alapárak mentése** gombra.
 
-The same tab has **Extra guest charges**: switch on **Charge extra per guest**, then set the **Price per guest** per night and the number of guests the price includes (**After guest #**). A price for 2 guests with €15.00 per extra guest charges a party of 4 €30.00 a night more. Adults and children count as guests; infants under 2 don't.
+Ugyanezen a fülön található a **További vendégek díjai** rész: kapcsolja be a **Felár felszámítása vendégenként** kapcsolót, majd adja meg az éjszakánkénti **Ár vendégenként** értékét és azt, hogy az ár hány vendégre vonatkozik (**A(z) # számú vendég után**). Ha az ár 2 vendégre szól, és további vendégenként 15,00 EUR a felár, egy 4 fős társaságnak éjszakánként 30,00 EUR-val többet számít fel. A felnőttek és a gyermekek vendégnek számítanak, a 2 év alatti csecsemők nem.
 
-## Seasons
+## Szezonok
 
-Seasons change prices and rules for a stretch of dates, like summer or Christmas.
+A szezonok egy időszakra, például nyárra vagy karácsonyra módosítják az árakat és a szabályokat.
 
 <Steps>
-  <Step title="Add a season">
-    On the **Availability** tab, under **Seasonal rules**, click **Add season**.
+  <Step title="Adjon hozzá egy szezont">
+    Az **Elérhetőség** fülön, a **Szezonális szabályok** résznél kattintson a **Szezon hozzáadása** gombra.
   </Step>
-  <Step title="Set its dates and prices">
-    Give it a **Season name** and **Season dates**. Under **Rate overrides**, enter a price for each day of the week you want to change; leave a day blank to keep the base rate.
+  <Step title="Adja meg a dátumait és az árait">
+    Töltse ki a **Szezon neve** és a **Szezon dátumai** mezőt. Az **Egyedi árbeállítások** résznél adjon meg árat a hét azon napjaira, amelyeket módosítani szeretne; ha egy napot üresen hagy, az alapár marad érvényben.
   </Step>
-  <Step title="Set its rules">
-    Optionally set its own **Minimum stay** and **Maximum stay**, and **Close for arrival** or **Close for departure** to stop guests arriving or leaving during the season.
+  <Step title="Adja meg a szabályait">
+    Igény szerint adjon meg saját **Minimális tartózkodás** és **Maximális tartózkodás** értéket, az **Érkezés lezárása** vagy a **Távozás lezárása** beállítással pedig megakadályozhatja, hogy a vendégek a szezon alatt érkezzenek vagy távozzanak.
   </Step>
-  <Step title="Save">
-    Leave **Active** on and click **Save season**.
+  <Step title="Mentse">
+    Hagyja bekapcsolva az **Aktív** kapcsolót, és kattintson a **Szezon mentése** gombra.
   </Step>
 </Steps>
 
-When seasons overlap, the one with the higher **Priority** wins. To change a single day instead, use the [calendar](/hu/calendar/the-calendar).
+Ha a szezonok átfedik egymást, a magasabb **Prioritás** értékű érvényes. Ha csak egy napot módosítana, használja a [naptárat](/hu/calendar/the-calendar).
 
-## Fees
+## Díjak
 
-On **Pricing** → **Charges & fees**:
+Az **Árazás** → **Díjak és költségek** részen:
 
-- **Cleaning fee** and **Linen fee**: a fixed amount added to each booking;
-- **Pet fee**: a fixed amount added when the guest brings pets. On listings with **Pets allowed** on (**Details** → **Basics**), the booking site and the **New booking** form ask **Bringing pets?**;
-- **Management fee**, **Resort fee** and **Community fee**: each with a **Type**, either a **Flat amount** per booking or a **Percentage** of the rent (after discounts).
+- **Takarítási díj** és **Ágyneműdíj**: minden foglaláshoz hozzáadott fix összeg;
+- **Háziállatdíj**: fix összeg, amely akkor adódik hozzá, ha a vendég háziállatot hoz. Azoknál a szálláshirdetéseknél, ahol a **Háziállatok engedélyezettek** be van kapcsolva (**Részletek** → **Alapadatok**), a foglalási weboldal és az **Új foglalás** űrlap ezt kérdezi: **Hoz magával háziállatot?**;
+- **Kezelési díj**, **Üdülőhelyi díj** és **Közösségi díj**: mindegyiknek van egy **Típus** beállítása, amely foglalásonkénti **Átalányösszeg** vagy a bérleti díj (kedvezmények utáni) százaléka, azaz **Százalék** lehet.
 
-The **Security deposit** fields are on this tab too; see [Security deposits](/hu/payments/security-deposits).
+Ezen a fülön találhatók a **Kaució** mezői is; lásd: [Kauciók](/hu/payments/security-deposits).
 
-## Taxes
+## Adók
 
-On **Pricing** → **Taxes**:
+Az **Árazás** → **Adók** részen:
 
-- **Property rent tax (%)**: a percentage of the rent and fees;
-- **Fixed tax per booking**: one amount per booking;
-- **Guest tax per person per night**: a tourist tax for each adult and night;
-- **Fixed nightly tax**: one amount per night.
+- **Ingatlan-bérbeadási adó (%)**: a bérleti díj és a díjak százaléka;
+- **Foglalásonkénti fix adó**: foglalásonként egy összeg;
+- **Idegenforgalmi adó személyenként és éjszakánként**: idegenforgalmi adó minden felnőtt után, éjszakánként;
+- **Fix éjszakánkénti adó**: éjszakánként egy összeg.
 
-Adults (13 and over) always pay the guest tax per person. Switch on **Children pay the guest tax** if children (2 to 12) pay it too where your place is. Infants under 2 never do. Click **Save taxes**.
+A felnőttek (13 éves kortól) után mindig jár a személyenkénti idegenforgalmi adó. Kapcsolja be **A gyermekek után is fizetendő idegenforgalmi adó** kapcsolót, ha az Ön szállásának helyén a gyermekek (2–12 évesek) után is fizetni kell. A 2 év alatti csecsemők után soha. Kattintson az **Adók mentése** gombra.
 
-## Discounts
+## Kedvezmények {#discounts}
 
-On **Pricing** → **Discounts**, each discount is a percentage of the rent:
+Az **Árazás** → **Kedvezmények** részen minden kedvezmény a bérleti díj százaléka:
 
-- **Weekly discount (%)**: stays of 7 nights or more;
-- **Monthly discount (%)**: stays of 28 nights or more. It replaces the weekly discount;
-- **Early booking discount (%)**: bookings made at least **Minimum days in advance** before check-in;
-- **Last-minute discount (%)**: bookings made at most **Maximum days before check-in**.
+- **Heti kedvezmény (%)**: legalább 7 éjszakás tartózkodásokra;
+- **Havi kedvezmény (%)**: legalább 28 éjszakás tartózkodásokra. Ez a heti kedvezmény helyett érvényes;
+- **Korai foglalási kedvezmény (%)**: azokra a foglalásokra, amelyek legalább ennyi nappal az érkezés előtt készülnek: **Minimum ennyi nappal előre**;
+- **Last minute kedvezmény (%)**: azokra a foglalásokra, amelyek legfeljebb ennyi nappal az érkezés előtt készülnek: **Legfeljebb ennyi nappal érkezés előtt**.
 
-Early-booking and last-minute discounts add to the weekly or monthly one. A [coupon](/hu/payments/coupons) comes off what's left after them.
+A korai foglalási és a last minute kedvezmény a heti vagy a havi kedvezményen felül jár. A [kupon](/hu/payments/coupons) az ezek után fennmaradó összegből vonódik le.
 
-## Stay rules
+## Tartózkodási szabályok
 
-On the **Availability** tab, under **Default availability settings**:
+Az **Elérhetőség** fülön, az **Alapértelmezett elérhetőségi beállítások** résznél:
 
-| Setting | What it does |
+| Beállítás | Mire szolgál? |
 | --- | --- |
-| **Default minimum stay (nights)** | The shortest stay guests can book. |
-| **Default maximum stay (nights)** | The longest stay. Leave it empty for no limit. |
-| **Minimum advance booking (days)** | How many days ahead guests must book. 1 stops same-day bookings. |
-| **Maximum advance booking (days)** | How far ahead guests can book. |
-| **Preparation time** | Nights kept free between bookings for cleaning: **None**, **1 night before and after** or **2 nights before and after**. |
-| **Allowed check-in days** and **Allowed check-out days** | The days guests may arrive and leave, like Saturday to Saturday. Leave all unchecked to allow any day. |
+| **Alapértelmezett minimális tartózkodás (éjszaka)** | A legrövidebb foglalható tartózkodás. |
+| **Alapértelmezett maximális tartózkodás (éjszaka)** | A leghosszabb tartózkodás. Ha üresen hagyja, nincs korlát. |
+| **Foglalás legkorábbi időpontja (nappal előre)** | Hány nappal előre kell a vendégeknek foglalniuk. Az 1 megakadályozza az aznapi foglalásokat. |
+| **Legkorábbi foglalhatóság felső határa (nap)** | Legfeljebb mennyivel előre foglalhatnak a vendégek. |
+| **Felkészülési idő** | A foglalások között takarítás miatt szabadon hagyott éjszakák: **Nincs**, **1 éjszakával előtte és utána** vagy **2 éjszakával előtte és utána**. |
+| **Engedélyezett érkezési napok** és **Engedélyezett távozási napok** | Azok a napok, amelyeken a vendégek érkezhetnek és távozhatnak, például szombattól szombatig. Ha egyiket sem jelöli be, bármelyik nap megengedett. |
 
-Click **Save defaults**. Seasons and days you change in the calendar take precedence over these defaults.
+Kattintson az **Alapértékek mentése** gombra. A szezonok és a naptárban módosított napok elsőbbséget élveznek ezekkel az alapértékekkel szemben.
 
-## When guests pay
+## Mikor fizetnek a vendégek?
 
-On **Pricing** → **Payment**, under **When does the guest pay?**:
+Az **Árazás** → **Fizetés** részen, a **Mikor fizet a vendég?** kérdésnél:
 
-- **Guest pays in full when booking**;
-- **Guest pays part when booking, the rest before check-in**: set **Paid when booking (% of the total)** and **Balance due (days before check-in)**;
-- **Guest pays at check-in (no online payment)**: the default.
+- **A vendég foglaláskor a teljes összeget fizeti**;
+- **A vendég foglaláskor részösszeget fizet, a többit érkezés előtt**: adja meg a **Foglaláskor fizetendő (a teljes összeg %-a)** és a **Hátralék esedékessége (nappal az érkezés előtt)** értékét;
+- **A vendég érkezéskor fizet (nincs online fizetés)**: ez az alapértelmezett.
 
-The first two need Stripe. See [How guests pay](/hu/payments/how-guests-pay).
+Az első kettőhöz Stripe szükséges. Lásd: [Hogyan fizetnek a vendégek?](/hu/payments/how-guests-pay)
 
-## Cancellation policy
+## Lemondási szabályzat {#cancellation-policy}
 
-Also on **Payment**, the **Cancellation policy** sets how much of what a guest paid comes back if the booking is cancelled. When you cancel a booking, Overviu suggests a refund that follows it:
+Szintén a **Fizetés** részen található **Lemondási szabályzat** határozza meg, hogy a vendég által fizetett összegből mennyi jár vissza, ha a foglalást lemondják. Ha Ön lemond egy foglalást, az Overviu az ennek megfelelő visszatérítést javasolja:
 
-| Policy | Refund |
+| Szabályzat | Visszatérítés |
 | --- | --- |
-| **Flexible** | Full refund if cancelled more than 24 hours before check-in. |
-| **Moderate** | Full refund more than 5 days before check-in, 50% from 1 to 5 days, nothing within 24 hours. |
-| **Strict** | 50% refund more than 7 days before check-in, nothing after that. |
-| **Firm** | Full refund more than 30 days before check-in, 50% from 7 to 30 days, nothing within 7 days. |
+| **Rugalmas** | Teljes visszatérítés, ha a lemondás több mint 24 órával az érkezés előtt történik. |
+| **Mérsékelt** | Teljes visszatérítés több mint 5 nappal az érkezés előtt, 50% 1–5 nappal előtte, 24 órán belül semmi. |
+| **Szigorú** | 50% visszatérítés több mint 7 nappal az érkezés előtt, utána semmi. |
+| **Szigorú** | Teljes visszatérítés több mint 30 nappal az érkezés előtt, 50% 7–30 nappal előtte, 7 napon belül semmi. |
 
-Guests see the policy on the listing page of your booking site. See [Cancel and refund](/hu/bookings/cancel-and-refund).
+A vendégek a foglalási weboldalán, a szálláshirdetés oldalán látják a szabályzatot. Lásd: [Lemondás és visszatérítés](/hu/bookings/cancel-and-refund).
 
-Click **Save payment settings**.
+Kattintson a **Fizetési beállítások mentése** gombra.
 
-## Related
+## Kapcsolódó útmutatók
 
-- [The calendar](/hu/calendar/the-calendar)
-- [Block dates](/hu/calendar/blocking-dates)
-- [How guests pay](/hu/payments/how-guests-pay)
+- [A naptár](/hu/calendar/the-calendar)
+- [Dátumok blokkolása](/hu/calendar/blocking-dates)
+- [Hogyan fizetnek a vendégek?](/hu/payments/how-guests-pay)
