@@ -1,0 +1,66 @@
+---
+title: "Naptárszinkronizálás"
+description: "Hangolja össze a naptárait az Airbnb-vel, a Booking.com-mal, a Vrbo-val és más oldalakkal, hogy az egyiken lefoglalt éjszaka mindegyiken blokkolva legyen."
+---
+
+Ha a szálláshirdetése az Airbnb-n, a Booking.com-on, a Vrbo-n vagy egy másik oldalon is megtalálható, kapcsolja össze a naptáraikat. Az Overviu és a másik oldal ekkor kicseréli egymással a naptárhivatkozásaikat (iCal): az egyik oldalon lefoglalt éjszakák 15 percenként blokkolódnak a másikon, így elkerülheti a dupla foglalást.
+
+A naptárszinkronizálás csak dátumokat továbbít, vendégeket és árakat soha: az Airbnb-n lefoglalt éjszaka az Overviuban „Airbnb” jelölésű blokkolt éjszakaként jelenik meg, nem foglalásként.
+
+## Mielőtt elkezdi
+
+- A szálláshirdetés megtalálható a másik oldalon, és be tud jelentkezni az adott oldal szállásadói felületére (extranet).
+
+## Lépések
+
+<Steps>
+  <Step title="Nyissa meg a szálláshirdetés Foglalási portálok fülét">
+    Nyissa meg a szálláshirdetést → **Foglalási portálok**.
+
+    Egységtípusnál minden egységnek saját része van, mert a másik oldalakon minden apartman külön szerepel.
+  </Step>
+  <Step title="Adja hozzá az oldalt">
+    A **Foglalási portál hozzáadása** résznél a **Válasszon oldalt** listából válassza az Airbnb, a Booking.com, a Vrbo vagy a **Másik oldal** lehetőséget. Ha már megvan az oldal naptárhivatkozása, illessze be **A naptárhivatkozása (nem kötelező)** mezőbe. Kattintson a **Hozzáadás** gombra.
+  </Step>
+  <Step title="Adja meg a másik oldalnak az Overviu-naptárhivatkozását">
+    Másolja ki **Az Ön Overviu-naptárhivatkozása** értékét, és illessze be a másik oldalon, hogy az blokkolja az Overviuban lefoglalt éjszakákat. Az Overviu minden oldalnál megmutatja, hová kell beilleszteni, például:
+
+    - Az Airbnb-n: Szálláshirdetések → az Ön hirdetése → Elérhetőség → Naptárak összekapcsolása → Csatlakozás másik weboldalhoz.
+    - A Booking.com-on: Árak és elérhetőség → Naptárak szinkronizálása → Naptárkapcsolat hozzáadása, majd válassza ki a szobát.
+    - A Vrbo-n: Naptár → Importálás és exportálás → Naptár importálása.
+  </Step>
+  <Step title="Illessze be az oldal naptárhivatkozását az Overviuba">
+    Ha a 2. lépésben nem adta meg, másolja ki a másik oldal saját naptárhivatkozását, illessze be a **naptárhivatkozás** mezőjébe, majd kattintson a **Mentés** gombra. Az Overviu azt is megmutatja, hol találja:
+
+    - Az Airbnb-n: Elérhetőség → Naptárak összekapcsolása → Csatlakozás másik weboldalhoz → másolja ki az „Airbnb calendar link” hivatkozást.
+    - A Booking.com-on: Árak és elérhetőség → Naptárak szinkronizálása → Naptár exportálása, és másolja ki az adott szoba hivatkozását.
+    - A Vrbo-n: Naptár → Importálás és exportálás → Naptár exportálása.
+
+    Az Overviu azonnal beolvassa.
+  </Step>
+</Steps>
+
+## Mi történik ezután?
+
+- Az Overviu 15 percenként beolvassa az egyes oldalak naptárát, és legfeljebb két évre előre blokkolja az ott lefoglalt éjszakákat. Ha azonnal be szeretné olvasni, kattintson a **Szinkronizálás most** gombra.
+- Az egyes oldalak a saját ütemezésük szerint olvassák be az Ön Overviu-naptárhivatkozását (oldaltól függően gyakran néhány óránként). A hivatkozás tartalmazza az Overviuban lefoglalt vagy blokkolt éjszakákat, valamint az összekapcsolt többi oldalon lefoglalt éjszakákat. Az Overviuban végzett módosítás 5 percen belül megjelenik a hivatkozásban.
+- Minden kapcsolatnál látható, mikor szinkronizált utoljára, vagy a **Sikertelen szinkronizálás** jelzés az okkal együtt. A sikertelen szinkronizálás a **Műszerfal** **Beavatkozást igényel** részén is megjelenik.
+
+## Lehetséges dupla foglalás
+
+Ha egy másik oldal foglaltként mutat egy éjszakát, amelyre az Overviuban már van foglalás, a kapcsolatnál ez jelenik meg: **Lehetséges dupla foglalás**, az éjszakákkal és a foglalási kóddal együtt. Az Overviu nem módosítja a foglalását: ellenőrizze mindkét oldalt, és mondja le vagy helyezze át az egyik tartózkodást.
+
+## Épületek
+
+Épületnél az egyes egységtípusok egységeit az egységtípus **Foglalási portálok** fülén kapcsolhatja össze. Ha a teljes épület is szerepel egy másik oldalon, előbb kapcsolja be a teljes épület foglalását ([Épületek és egységek](/hu/listings/buildings-and-units#renting-the-whole-building)); ezután az épület **Foglalási portálok** fülén megjelenik a **Teljes épület** rész.
+
+## Kapcsolat módosítása vagy eltávolítása
+
+- A **Hivatkozás újragenerálása** új Overviu-naptárhivatkozást hoz létre, és a régi megszűnik. Illessze be az újat a másik oldalon.
+- Az **Eltávolítás** megszünteti a kapcsolatot az oldallal, és felszabadítja az onnan importált éjszakákat. A másik oldalon is távolítsa el az Overviu-hivatkozását.
+
+## Kapcsolódó útmutatók
+
+- [Dátumok blokkolása](/hu/calendar/blocking-dates)
+- [A naptár](/hu/calendar/the-calendar)
+- [Kukába helyezés és visszaállítás](/hu/listings/trash-and-restore)

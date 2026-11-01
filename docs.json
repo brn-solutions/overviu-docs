@@ -15,112 +15,246 @@
     "href": "https://docs.overviu.app"
   },
   "navigation": {
-    "tabs": [
+    "languages": [
       {
-        "tab": "Guides",
-        "groups": [
+        "language": "en",
+        "default": true,
+        "tabs": [
           {
-            "group": "Get started",
-            "pages": [
-              "index",
-              "get-started/quickstart",
-              "get-started/key-ideas",
-              "get-started/ask-overviu"
+            "tab": "Guides",
+            "groups": [
+              {
+                "group": "Get started",
+                "pages": [
+                  "index",
+                  "get-started/quickstart",
+                  "get-started/key-ideas",
+                  "get-started/ask-overviu"
+                ]
+              },
+              {
+                "group": "Listings",
+                "pages": [
+                  "listings/create-a-listing",
+                  "listings/buildings-and-units",
+                  "listings/photos-and-listing-page",
+                  "listings/address-and-map",
+                  "listings/trash-and-restore"
+                ]
+              },
+              {
+                "group": "Calendar & pricing",
+                "pages": [
+                  "calendar/the-calendar",
+                  "calendar/prices-and-rules",
+                  "calendar/blocking-dates",
+                  "calendar/booking-site-calendars"
+                ]
+              },
+              {
+                "group": "Bookings",
+                "pages": [
+                  "bookings/bookings-and-statuses",
+                  "bookings/create-a-booking",
+                  "bookings/change-a-booking",
+                  "bookings/cancel-and-refund",
+                  "bookings/record-a-payment"
+                ]
+              },
+              {
+                "group": "Payments",
+                "pages": [
+                  "payments/connect-stripe",
+                  "payments/how-guests-pay",
+                  "payments/security-deposits",
+                  "payments/refunds",
+                  "payments/coupons"
+                ]
+              },
+              {
+                "group": "Guests",
+                "pages": [
+                  "guests/guest-page",
+                  "guests/automated-messages",
+                  "guests/inbox",
+                  "guests/sender-email"
+                ]
+              },
+              {
+                "group": "Your booking site",
+                "pages": [
+                  "booking-site/set-up",
+                  "booking-site/branding",
+                  "booking-site/custom-domain",
+                  "booking-site/terms-and-agreement"
+                ]
+              },
+              {
+                "group": "Insights",
+                "pages": [
+                  "insights/dashboard",
+                  "insights/reports"
+                ]
+              },
+              {
+                "group": "Team & account",
+                "pages": [
+                  "account/team-and-roles",
+                  "account/notifications",
+                  "account/plan-and-billing",
+                  "account/profile-and-security",
+                  "account/api-tokens",
+                  "account/ai-chat"
+                ]
+              }
             ]
           },
           {
-            "group": "Listings",
-            "pages": [
-              "listings/create-a-listing",
-              "listings/buildings-and-units",
-              "listings/photos-and-listing-page",
-              "listings/address-and-map",
-              "listings/trash-and-restore"
-            ]
-          },
-          {
-            "group": "Calendar & pricing",
-            "pages": [
-              "calendar/the-calendar",
-              "calendar/prices-and-rules",
-              "calendar/blocking-dates",
-              "calendar/booking-site-calendars"
-            ]
-          },
-          {
-            "group": "Bookings",
-            "pages": [
-              "bookings/bookings-and-statuses",
-              "bookings/create-a-booking",
-              "bookings/change-a-booking",
-              "bookings/cancel-and-refund",
-              "bookings/record-a-payment"
-            ]
-          },
-          {
-            "group": "Payments",
-            "pages": [
-              "payments/connect-stripe",
-              "payments/how-guests-pay",
-              "payments/security-deposits",
-              "payments/refunds",
-              "payments/coupons"
-            ]
-          },
-          {
-            "group": "Guests",
-            "pages": [
-              "guests/guest-page",
-              "guests/automated-messages",
-              "guests/inbox",
-              "guests/sender-email"
-            ]
-          },
-          {
-            "group": "Your booking site",
-            "pages": [
-              "booking-site/set-up",
-              "booking-site/branding",
-              "booking-site/custom-domain",
-              "booking-site/terms-and-agreement"
-            ]
-          },
-          {
-            "group": "Insights",
-            "pages": [
-              "insights/dashboard",
-              "insights/reports"
-            ]
-          },
-          {
-            "group": "Team & account",
-            "pages": [
-              "account/team-and-roles",
-              "account/notifications",
-              "account/plan-and-billing",
-              "account/profile-and-security",
-              "account/api-tokens",
-              "account/ai-chat"
+            "tab": "API reference",
+            "groups": [
+              {
+                "group": "Get started",
+                "pages": [
+                  "api-reference/introduction",
+                  "api-reference/authentication",
+                  "api-reference/conventions"
+                ]
+              },
+              {
+                "group": "Endpoints",
+                "openapi": "api-reference/openapi.json"
+              }
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
-        "groups": [
+        "language": "hu",
+        "tabs": [
           {
-            "group": "Get started",
-            "pages": [
-              "api-reference/introduction",
-              "api-reference/authentication",
-              "api-reference/conventions"
+            "tab": "Útmutatók",
+            "groups": [
+              {
+                "group": "Kezdés",
+                "pages": [
+                  "hu/index",
+                  "hu/get-started/quickstart",
+                  "hu/get-started/key-ideas",
+                  "hu/get-started/ask-overviu"
+                ]
+              },
+              {
+                "group": "Szálláshirdetések",
+                "pages": [
+                  "hu/listings/create-a-listing",
+                  "hu/listings/buildings-and-units",
+                  "hu/listings/photos-and-listing-page",
+                  "hu/listings/address-and-map",
+                  "hu/listings/trash-and-restore"
+                ]
+              },
+              {
+                "group": "Naptár és árazás",
+                "pages": [
+                  "hu/calendar/the-calendar",
+                  "hu/calendar/prices-and-rules",
+                  "hu/calendar/blocking-dates",
+                  "hu/calendar/booking-site-calendars"
+                ]
+              },
+              {
+                "group": "Foglalások",
+                "pages": [
+                  "hu/bookings/bookings-and-statuses",
+                  "hu/bookings/create-a-booking",
+                  "hu/bookings/change-a-booking",
+                  "hu/bookings/cancel-and-refund",
+                  "hu/bookings/record-a-payment"
+                ]
+              },
+              {
+                "group": "Fizetések",
+                "pages": [
+                  "hu/payments/connect-stripe",
+                  "hu/payments/how-guests-pay",
+                  "hu/payments/security-deposits",
+                  "hu/payments/refunds",
+                  "hu/payments/coupons"
+                ]
+              },
+              {
+                "group": "Vendégek",
+                "pages": [
+                  "hu/guests/guest-page",
+                  "hu/guests/automated-messages",
+                  "hu/guests/inbox",
+                  "hu/guests/sender-email"
+                ]
+              },
+              {
+                "group": "Foglalási weboldal",
+                "pages": [
+                  "hu/booking-site/set-up",
+                  "hu/booking-site/branding",
+                  "hu/booking-site/custom-domain",
+                  "hu/booking-site/terms-and-agreement"
+                ]
+              },
+              {
+                "group": "Műszerfal és jelentések",
+                "pages": [
+                  "hu/insights/dashboard",
+                  "hu/insights/reports"
+                ]
+              },
+              {
+                "group": "Csapat és fiók",
+                "pages": [
+                  "hu/account/team-and-roles",
+                  "hu/account/notifications",
+                  "hu/account/plan-and-billing",
+                  "hu/account/profile-and-security",
+                  "hu/account/api-tokens",
+                  "hu/account/ai-chat"
+                ]
+              }
             ]
-          },
-          {
-            "group": "Endpoints",
-            "openapi": "api-reference/openapi.json"
           }
-        ]
+        ],
+        "navbar": {
+          "links": [
+            {
+              "label": "API-dokumentáció",
+              "href": "/api-reference/introduction"
+            },
+            {
+              "label": "Bejelentkezés",
+              "href": "https://overviu.app/login"
+            }
+          ],
+          "primary": {
+            "type": "button",
+            "label": "Overviu megnyitása",
+            "href": "https://overviu.app"
+          }
+        },
+        "footer": {
+          "links": [
+            {
+              "header": "Overviu",
+              "items": [
+                {
+                  "label": "Overviu megnyitása",
+                  "href": "https://overviu.app"
+                },
+                {
+                  "label": "API-dokumentáció",
+                  "href": "/api-reference/introduction"
+                }
+              ]
+            }
+          ]
+        }
       }
     ]
   },

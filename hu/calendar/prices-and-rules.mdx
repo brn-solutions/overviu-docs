@@ -1,0 +1,113 @@
+---
+title: "Árak és tartózkodási szabályok"
+description: "Éjszakánkénti árak, szezonok, díjak, adók és kedvezmények, tartózkodási szabályok, valamint az, hogy a vendégek mikor fizetnek, és mikor kapnak visszatérítést."
+---
+
+Minden szálláshirdetésnek saját árai és szabályai vannak, az **Árazás** és az **Elérhetőség** fülön. Az Overviu ezeket használja a foglalási weboldal minden árajánlatához, minden Ön által felvett foglaláshoz és az API-hoz. Épületnél ezeket az egyes egységtípusoknál állítsa be, a teljes épületre szóló foglalásokhoz pedig az épület **Teljes épület** fülén.
+
+Az összegek a szálláshirdetés pénznemében értendők, amelyet a **Részletek** → **Alapadatok** részen állíthat be.
+
+## Éjszakánkénti árak
+
+Nyissa meg a szálláshirdetést → **Árazás** → **Alapárak**. Az **Éjszakánkénti árak** résznél adjon meg árat a hét minden napjára: ha péntekre és szombatra magasabb árat ad meg, azzal hétvégi árat állít be. Kattintson az **Alapárak mentése** gombra.
+
+Ugyanezen a fülön található a **További vendégek díjai** rész: kapcsolja be a **Felár felszámítása vendégenként** kapcsolót, majd adja meg az éjszakánkénti **Ár vendégenként** értékét és azt, hogy az ár hány vendégre vonatkozik (**A(z) # számú vendég után**). Ha az ár 2 vendégre szól, és további vendégenként 15,00 EUR a felár, egy 4 fős társaságnak éjszakánként 30,00 EUR-val többet számít fel. A felnőttek és a gyermekek vendégnek számítanak, a 2 év alatti csecsemők nem.
+
+## Szezonok
+
+A szezonok egy időszakra, például nyárra vagy karácsonyra módosítják az árakat és a szabályokat.
+
+<Steps>
+  <Step title="Adjon hozzá egy szezont">
+    Az **Elérhetőség** fülön, a **Szezonális szabályok** résznél kattintson a **Szezon hozzáadása** gombra.
+  </Step>
+  <Step title="Adja meg a dátumait és az árait">
+    Töltse ki a **Szezon neve** és a **Szezon dátumai** mezőt. Az **Egyedi árbeállítások** résznél adjon meg árat a hét azon napjaira, amelyeket módosítani szeretne; ha egy napot üresen hagy, az alapár marad érvényben.
+  </Step>
+  <Step title="Adja meg a szabályait">
+    Igény szerint adjon meg saját **Minimális tartózkodás** és **Maximális tartózkodás** értéket, az **Érkezés lezárása** vagy a **Távozás lezárása** beállítással pedig megakadályozhatja, hogy a vendégek a szezon alatt érkezzenek vagy távozzanak.
+  </Step>
+  <Step title="Mentse">
+    Hagyja bekapcsolva az **Aktív** kapcsolót, és kattintson a **Szezon mentése** gombra.
+  </Step>
+</Steps>
+
+Ha a szezonok átfedik egymást, a magasabb **Prioritás** értékű érvényes. Ha csak egy napot módosítana, használja a [naptárat](/hu/calendar/the-calendar).
+
+## Díjak
+
+Az **Árazás** → **Díjak és költségek** részen:
+
+- **Takarítási díj** és **Ágyneműdíj**: minden foglaláshoz hozzáadott fix összeg;
+- **Háziállatdíj**: fix összeg, amely akkor adódik hozzá, ha a vendég háziállatot hoz. Azoknál a szálláshirdetéseknél, ahol a **Háziállatok engedélyezettek** be van kapcsolva (**Részletek** → **Alapadatok**), a foglalási weboldal és az **Új foglalás** űrlap ezt kérdezi: **Hoz magával háziállatot?**;
+- **Kezelési díj**, **Üdülőhelyi díj** és **Közösségi díj**: mindegyiknek van egy **Típus** beállítása, amely foglalásonkénti **Átalányösszeg** vagy a bérleti díj (kedvezmények utáni) százaléka, azaz **Százalék** lehet.
+
+Ezen a fülön találhatók a **Kaució** mezői is; lásd: [Kauciók](/hu/payments/security-deposits).
+
+## Adók
+
+Az **Árazás** → **Adók** részen:
+
+- **Ingatlan-bérbeadási adó (%)**: a bérleti díj és a díjak százaléka;
+- **Foglalásonkénti fix adó**: foglalásonként egy összeg;
+- **Idegenforgalmi adó személyenként és éjszakánként**: idegenforgalmi adó minden felnőtt után, éjszakánként;
+- **Fix éjszakánkénti adó**: éjszakánként egy összeg.
+
+A felnőttek (13 éves kortól) után mindig jár a személyenkénti idegenforgalmi adó. Kapcsolja be **A gyermekek után is fizetendő idegenforgalmi adó** kapcsolót, ha az Ön szállásának helyén a gyermekek (2–12 évesek) után is fizetni kell. A 2 év alatti csecsemők után soha. Kattintson az **Adók mentése** gombra.
+
+## Kedvezmények {#discounts}
+
+Az **Árazás** → **Kedvezmények** részen minden kedvezmény a bérleti díj százaléka:
+
+- **Heti kedvezmény (%)**: legalább 7 éjszakás tartózkodásokra;
+- **Havi kedvezmény (%)**: legalább 28 éjszakás tartózkodásokra. Ez a heti kedvezmény helyett érvényes;
+- **Korai foglalási kedvezmény (%)**: azokra a foglalásokra, amelyek legalább ennyi nappal az érkezés előtt készülnek: **Minimum ennyi nappal előre**;
+- **Last minute kedvezmény (%)**: azokra a foglalásokra, amelyek legfeljebb ennyi nappal az érkezés előtt készülnek: **Legfeljebb ennyi nappal érkezés előtt**.
+
+A korai foglalási és a last minute kedvezmény a heti vagy a havi kedvezményen felül jár. A [kupon](/hu/payments/coupons) az ezek után fennmaradó összegből vonódik le.
+
+## Tartózkodási szabályok
+
+Az **Elérhetőség** fülön, az **Alapértelmezett elérhetőségi beállítások** résznél:
+
+| Beállítás | Mire szolgál? |
+| --- | --- |
+| **Alapértelmezett minimális tartózkodás (éjszaka)** | A legrövidebb foglalható tartózkodás. |
+| **Alapértelmezett maximális tartózkodás (éjszaka)** | A leghosszabb tartózkodás. Ha üresen hagyja, nincs korlát. |
+| **Minimális előfoglalási idő (nap)** | Hány nappal előre kell a vendégeknek foglalniuk. Az 1 megakadályozza az aznapi foglalásokat. |
+| **Maximális előfoglalási idő (nap)** | Legfeljebb mennyivel előre foglalhatnak a vendégek. |
+| **Felkészülési idő** | A foglalások között takarítás miatt szabadon hagyott éjszakák: **Nincs**, **1 éjszakával előtte és utána** vagy **2 éjszakával előtte és utána**. |
+| **Engedélyezett érkezési napok** és **Engedélyezett távozási napok** | Azok a napok, amelyeken a vendégek érkezhetnek és távozhatnak, például szombattól szombatig. Ha egyiket sem jelöli be, bármelyik nap megengedett. |
+
+Kattintson az **Alapértékek mentése** gombra. A szezonok és a naptárban módosított napok elsőbbséget élveznek ezekkel az alapértékekkel szemben.
+
+## Mikor fizetnek a vendégek?
+
+Az **Árazás** → **Fizetés** részen, a **Mikor fizet a vendég?** kérdésnél:
+
+- **A vendég foglaláskor a teljes összeget fizeti**;
+- **A vendég foglaláskor részösszeget fizet, a többit érkezés előtt**: adja meg a **Foglaláskor fizetendő (a teljes összeg %-a)** és a **Hátralék esedékessége (nappal az érkezés előtt)** értékét;
+- **A vendég érkezéskor fizet (nincs online fizetés)**: ez az alapértelmezett.
+
+Az első kettőhöz Stripe szükséges. Lásd: [Hogyan fizetnek a vendégek?](/hu/payments/how-guests-pay)
+
+## Lemondási szabályzat {#cancellation-policy}
+
+Szintén a **Fizetés** részen található **Lemondási szabályzat** határozza meg, hogy a vendég által fizetett összegből mennyi jár vissza, ha a foglalást lemondják. Ha Ön lemond egy foglalást, az Overviu az ennek megfelelő visszatérítést javasolja:
+
+| Szabályzat | Visszatérítés |
+| --- | --- |
+| **Rugalmas** | Teljes visszatérítés, ha a lemondás több mint 24 órával az érkezés előtt történik. |
+| **Mérsékelt** | Teljes visszatérítés több mint 5 nappal az érkezés előtt, 50% 1–5 nappal előtte, 24 órán belül semmi. |
+| **Szigorú** | 50% visszatérítés több mint 7 nappal az érkezés előtt, utána semmi. |
+| **Határozott** | Teljes visszatérítés több mint 30 nappal az érkezés előtt, 50% 7–30 nappal előtte, 7 napon belül semmi. |
+
+A vendégek a foglalási weboldalán, a szálláshirdetés oldalán látják a szabályzatot. Lásd: [Lemondás és visszatérítés](/hu/bookings/cancel-and-refund).
+
+Kattintson a **Fizetési beállítások mentése** gombra.
+
+## Kapcsolódó útmutatók
+
+- [A naptár](/hu/calendar/the-calendar)
+- [Dátumok blokkolása](/hu/calendar/blocking-dates)
+- [Hogyan fizetnek a vendégek?](/hu/payments/how-guests-pay)

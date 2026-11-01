@@ -1,0 +1,57 @@
+---
+title: "Foglalás létrehozása"
+description: "Vegyen fel saját maga egy foglalást olyan vendégnek, aki telefonált, e-mailt írt vagy máshol foglalt, és erősítse meg az Önre váró foglalásokat."
+---
+
+A legtöbb foglalás magától érkezik, a foglalási weboldaláról vagy az API-n keresztül. Akkor vegyen fel egyet saját maga, ha egy vendég telefonon vagy e-mailben foglal, vagy ha egy máshol lefoglalt tartózkodást szeretne rögzíteni.
+
+## Lépések
+
+<Steps>
+  <Step title="Válassza ki az éjszakát a naptárban">
+    Az új foglalások a naptárból indulnak. Nyissa meg a **Naptár** oldalt (a **Foglalások** oldal **Új foglalás** gombja is ide visz), és kattintson a vendég első éjszakájára a szálláshirdetés sorában, épületnél pedig az egység sorában. Megnyílik az **Új foglalás** űrlap az adott szálláshirdetéshez és dátumhoz.
+  </Step>
+  <Step title="Válassza ki a dátumokat és a vendégeket">
+    Válassza ki a tartózkodást az **Érkezési és távozási dátumok** mezőben, és adja meg, kik szállnak meg: **Felnőttek** (13 éves kortól), **Gyermekek** (2–12 évesek) és **Csecsemők** (2 év alatt). A csecsemők nem számítanak bele a szálláshirdetés maximális vendégszámába; egy foglalásban legfeljebb 5 lehet. Gyermekeket akkor is felvehet, ha a szálláshirdetésnél a **Gyermekek engedélyezettek** ki van kapcsolva; az Overviu emlékezteti, hogy a foglalási weboldal nem fogadná őket. Háziállatot engedélyező szálláshirdetésnél jelölje be a **Hoz magával háziállatot?** lehetőséget, ha a vendég hoz: ekkor a **Háziállatdíj** is hozzáadódik. Egységtípusnál hagyja az **Egység** mezőt **Automatikus hozzárendelés** értéken, vagy válasszon egységet.
+
+    Az **Ár részletezése** mutatja a szálláshirdetés árai és szabályai alapján számított árat, vagy azt, hogy miért nem elérhetők a dátumok. Ha a vendégnek van kuponja, írja be a **Kuponkód** mezőbe, és kattintson az **Alkalmazás** gombra.
+  </Step>
+  <Step title="Válassza ki a forrást">
+    A **Forrás** azt jelzi, honnan érkezett a foglalás:
+
+    - **Közvetlen**: a vendég közvetlenül Önnél foglalt. Az Overviu követi a foglalás fizetéseit, és e-mailben elküldi a vendégnek a foglalási oldalára mutató hivatkozást, ezért az e-mail-cím kötelező.
+    - **Kézi**: olyan foglalás, amelyet csak a naptárban szeretne látni. Az Overviu nem követi a fizetéseit, és nem küld e-mailt a vendégnek.
+    - **Airbnb**, **Booking.com**, **Vrbo** vagy **Expedia**: az adott portálon létrejött foglalás. Később nem módosíthatja az Overviuban, csak lemondhatja.
+  </Step>
+  <Step title="Adja meg a vendég adatait">
+    A **Vendégadatok** résznél töltse ki a **Teljes név**, az **E-mail** és a **Telefon** mezőt. Az e-mail-cím beírása közben a **Meglévő vendégek** lista a korábbi vendégeit javasolja; válasszon ki egyet, és az adatai kitöltődnek.
+
+    A csapatának szóló megjegyzéseket a **Belső megjegyzések**, a vendég kéréseit a **Különleges kérések** mezőbe írja.
+  </Step>
+  <Step title="Válassza ki, hogyan fizet a vendég, és hogyan erősíti meg a foglalást">
+    **Közvetlen** foglalásnál, ha csatlakoztatta a Stripe-ot, kapcsolja be az **Online fizetés kérése a vendégtől** kapcsolót: a dátumok addig foglaltak maradnak, amíg a vendég ki nem fizeti a foglalást a foglalási oldalán, azon az időn belül, amelyet **A vendég fizetési határideje** mezőben választ ki (24 órától 7 napig). Addig a foglalás **Fizetésre vár** állapotban van, és ha a vendég nem fizet, az Overviu lemondja.
+
+    Ellenkező esetben kapcsolja be az **Azonnali megerősítés** kapcsolót, hogy a foglalás azonnal **Visszaigazolva** legyen, vagy hagyja kikapcsolva, és a foglalás **Függőben** marad.
+  </Step>
+  <Step title="Hozza létre">
+    Kattintson a **Foglalás létrehozása** gombra.
+  </Step>
+</Steps>
+
+## Függőben lévő foglalás megerősítése
+
+**Függőben** vannak a foglalási weboldalról érkező, érkezéskor fizetendő foglalások, az API-n keresztül érkező foglalások és azok, amelyeket nem erősített meg azonnal: lefoglalják a dátumaikat, és Önre várnak. A **Műszerfal** a **Beavatkozást igényel** részen sorolja fel őket.
+
+Nyissa meg a foglalást, válassza a **Foglalás megerősítése** műveletet a **Válasszon műveletet...** listában, és kattintson a **Beküldés** gombra. A foglalás **Visszaigazolva** lesz, és ha a szálláshirdetésnek van ilyen üzenete, a vendég megkapja az Ön **Közvetlenül a foglalás visszaigazolása után** időzítésű üzenetét.
+
+## Mi történik ezután?
+
+- A foglalás megjelenik a **Foglalások** oldalon és a **Naptár** nézetben, az éjszakái pedig lezárulnak a foglalási weboldalán és azokon a portálokon, amelyekkel [szinkronizál](/hu/calendar/booking-site-calendars).
+- **Közvetlen** foglalásnál a vendég e-mailt kap a [foglalási oldalára](/hu/guests/guest-page) mutató hivatkozással. Ha online fizet, ott fizet.
+- Ha személyesen vagy banki átutalással kap fizetést, [rögzítse](/hu/bookings/record-a-payment).
+
+## Kapcsolódó útmutatók
+
+- [Foglalások és állapotok](/hu/bookings/bookings-and-statuses)
+- [Foglalás módosítása](/hu/bookings/change-a-booking)
+- [Hogyan fizetnek a vendégek?](/hu/payments/how-guests-pay)

@@ -9,6 +9,9 @@ The terms come from the app's translation; when a term changes, change it in `hu
 Formal "Ön" everywhere: the host app, the booking site, every email and the docs. Never "te" (no "fiókod",
 "Válaszd", "Kattints").
 
+"Overviu" takes its suffixes without a hyphen, as the app writes it: Overviuban, Overviut, Overviura ("Kérdezze az
+Overviut").
+
 ## Formats
 
 | What | English | Hungarian |
@@ -43,6 +46,7 @@ no decimals.
 | English | Hungarian | Note |
 |---|---|---|
 | booking | foglalás | |
+| block (dates) | blokkol, blokkolt dátumok | As the app's **Blokkolva**; not "letilt". |
 | booking code | foglalási kód | |
 | guest | vendég | |
 | host | szállásadó | |
@@ -54,6 +58,7 @@ no decimals.
 | guest page | vendégoldal | |
 | booking page | foglalási oldal | The guest's private page for one booking. |
 | booking site | foglalási weboldal | The host's own site guests book on. |
+| booking sites (Airbnb, Booking.com, Vrbo) | foglalási portálok | The listing's **Foglalási portálok** tab; never "foglalási weboldal", which is the host's own. |
 | arrival pack | érkezési információs csomag | |
 | rental agreement | bérleti szerződés | |
 | booking terms | foglalási feltételek | |
@@ -89,6 +94,7 @@ no decimals.
 | refundable deposit | visszatéríthető kaució | |
 | refund | visszatérítés | |
 | extra charge | pótdíj | |
+| charge (a card), charged | terhel, **Terhelve** | Never "megterhel" or "Megterhelve": "Vendég terhelése", "a kártyát terheljük". |
 | tourist tax | idegenforgalmi adó | |
 | nightly rate | éjszakánkénti ár | |
 | seasonal rules | szezonális szabályok | |

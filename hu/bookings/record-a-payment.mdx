@@ -1,0 +1,52 @@
+---
+title: "Fizetés rögzítése"
+description: "Rögzítse, ha egy vendég az Overviun kívül fizetett (készpénzben, banki átutalással vagy kártyaterminálon), hogy a foglaláson látszódjon, mennyi a még fennálló tartozás."
+---
+
+Ha egy vendég az Overviun kívül fizet Önnek (készpénzben érkezéskor, banki átutalással vagy a saját kártyaterminálján), rögzítse a fizetést a foglaláson. Az Overviu így tudja, mennyi a még fennálló tartozás: ezt követi a fizetési állapot, a hátralék és a jelentései is.
+
+## Mielőtt elkezdi
+
+- A foglalás **Közvetlen** foglalás: az Overviu csak ezeknél követi a pénzmozgásokat. Lásd: [Foglalások és állapotok](/hu/bookings/bookings-and-statuses#payment-status).
+- A foglalás nincs lemondva, és a vendégnek még van tartozása. A **Fizetés rögzítése** csak ilyenkor jelenik meg.
+
+## Lépések
+
+<Steps>
+  <Step title="Nyissa meg a foglalást">
+    Nyissa meg a **Foglalások** oldalt, majd a foglalást. A **Fizetés** részen kattintson a **Fizetés rögzítése** gombra.
+  </Step>
+  <Step title="Adja meg a fizetés adatait">
+    - **Összeg**: a vendég még fennálló tartozása van benne. Részfizetésnél módosítsa. Nem lehet több a tartozásnál.
+    - **Beérkezés dátuma**: alapértelmezés szerint a mai nap. Nem lehet jövőbeli, és nem lehet korábbi a foglalás létrehozásánál.
+    - **Fizetési mód**: **Készpénz**, **Banki átutalás**, **Kártyaterminál** vagy **Egyéb**.
+    - **Megjegyzés** (nem kötelező): az átutalás közleménye, vagy hogy ki vette át a pénzt.
+  </Step>
+  <Step title="Mentse">
+    Kattintson a **Fizetés rögzítése** gombra.
+  </Step>
+</Steps>
+
+## Mi történik ezután?
+
+- A fizetés megjelenik a foglalás **Fizetés** részében és az **Idővonal** részben, azzal együtt, hogy ki rögzítette.
+- A fizetési állapot **Részösszeg fizetve** lesz, vagy **Fizetve**, ha már nincs tartozás.
+- A vendég mentett kártyájára terhelendő hátralék a még fennálló tartozásra csökken. Ha a foglalás teljesen ki van fizetve, az Overviu érvényteleníti a tartózkodáshoz még nyitott számlákat, így a vendég nem fizethet kétszer.
+- A **Fizetésre vár** állapotú foglalás **Visszaigazolva** lesz, és a fizetési határidőnél már nem jár le. Ha a fizetés a teljes tartózkodást fedezi, a vendég online fizetése is lezárul, így azt sem lehet kétszer kifizetni.
+- Az összeg a [pénzügyi jelentésben](/hu/insights/reports) a választott fizetési módnál jelenik meg.
+
+<Warning>A rögzített pénzt nem lehet a Stripe-on keresztül visszatéríteni, mert soha nem ment át a Stripe-on. Ha visszatéríti, ugyanúgy tegye, ahogyan a vendég fizetett Önnek.</Warning>
+
+## Tévesen rögzített fizetés eltávolítása
+
+<Note>Rögzített fizetést csak tulajdonosok és adminisztrátorok távolíthatnak el.</Note>
+
+A foglalás **Fizetés** részében kattintson a fizetés melletti **Rögzített fizetés eltávolítása** gombra (a kuka ikonra), és erősítse meg. A foglalás az összeget újra tartozásként mutatja, az **Idővonal** pedig megőrzi, mit és ki távolított el.
+
+A Stripe-on keresztül történt fizetéseket nem lehet eltávolítani: ezeket térítse vissza. Lásd: [Visszatérítések](/hu/payments/refunds).
+
+## Kapcsolódó útmutatók
+
+- [Hogyan fizetnek a vendégek?](/hu/payments/how-guests-pay)
+- [Foglalás lemondása](/hu/bookings/cancel-and-refund)
+- [Jelentések](/hu/insights/reports)

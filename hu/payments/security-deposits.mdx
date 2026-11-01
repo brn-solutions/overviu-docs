@@ -1,0 +1,62 @@
+---
+title: "Kauciók"
+description: "Terheljen visszatéríthető kauciót érkezés előtt, tartson vissza belőle a károkra, a többit pedig adja vissza automatikusan."
+---
+
+A kaució a károkat vagy a hiányzó tárgyakat fedezi. Az Overviu az érkezés előtti napon terheli a vendég kártyájára, és a távozás után néhány nappal automatikusan visszatéríti, hacsak Ön nem tart vissza belőle.
+
+<Note>Kauciót csak tulajdonosok és adminisztrátorok tarthatnak vissza, téríthetnek vissza, függeszthetnek fel vagy engedhetnek el. A kaucióhoz Stripe szükséges; lásd: [Stripe csatlakoztatása](/hu/payments/connect-stripe).</Note>
+
+## Kaució beállítása
+
+<Steps>
+  <Step title="Adja meg az összeget">
+    Nyissa meg a szálláshirdetést → **Árazás** → **Díjak és költségek**, adja meg a **Kaució** összegét, és kattintson a **Díjak mentése** gombra. Egységtípusnál az egységtípuson, a teljes épületre szóló foglalásokhoz az épületen állítsa be.
+  </Step>
+  <Step title="Válassza ki, mikor jár vissza">
+    A **Beállítások** → **Foglalási weboldal** menüpontban, a **Kauciók** résznél adja meg a **Kaució visszatérítése (a távozás után ennyi nappal)** értékét. Ha nem módosítja, 7 nap. Ezt a beállítást tulajdonosok és adminisztrátorok kezelik.
+  </Step>
+</Steps>
+
+<Note>Az ugyanezen a fülön található **Kaució (offline)** csak a szálláshirdetésnél tárolt adat: az Overviu nem terheli, nem mutatja a vendégeknek, és nem kerül bele a bérleti szerződésbe.</Note>
+
+## Hogyan működik?
+
+1. A vendég megad egy kártyát. Az online fizető vendég kártyája már el van mentve. Egyébként a [foglalási oldala](/hu/guests/guest-page) kéri, hogy adjon meg egyet; amíg ezt nem teszi meg, a foglaláson ez látható: **Még nincs bankkártya**.
+2. Az Overviu 24 órával az érkezés előtt terheli, a szállás helyi ideje szerint. A kaucióknál ekkor ez látható: **Terhelve**, a dátummal és azzal, hogy mikor jár vissza. A bérleti szerződés `{security_deposit}` helyőrzőként tartalmazza az összeget.
+3. Az Overviu a visszatérítés napján visszatéríti: a teljes kauciót, levonva belőle azt, amit Ön visszatartott.
+
+Ha a kártyát elutasítják, a kauciónál ez látható: **Bankkártya elutasítva**, a vendéget pedig a foglalási oldalán egy másik kártya megadására kérik. A csapata **Kaució elutasítva** tárgyú e-mailt kap. A **Próbálja újra** gombbal azonnal újra terhelheti a kártyát.
+
+## Részösszeg visszatartása
+
+Ha valami megrongálódott:
+
+<Steps>
+  <Step title="Nyissa meg a foglalást">
+    Nyissa meg a **Foglalások** oldalt, majd a foglalást, és keresse meg a **Kaució** részt.
+  </Step>
+  <Step title="Tartson vissza egy részt">
+    Kattintson a **Részösszeg megtartása** gombra. Adja meg a **Visszatartandó összeg** és az **Indok** értékét (például „Eltört lámpa”), majd kattintson a **Részösszeg visszatartása, a többi visszatérítése** gombra.
+  </Step>
+</Steps>
+
+A többi azonnal visszajár a vendégnek. A visszatartott összeg a foglaláson **Visszatartva** jelzéssel látható, és a [pénzügyi jelentésben](/hu/insights/reports) bevételként számít.
+
+## További lehetőségek
+
+- **Visszatérítés felfüggesztése**: szünetelteti az automatikus visszatérítést, amíg ellenőriz valamit, például egy kárbejelentést. A **Felfüggesztés feloldása** után a visszatérítés folytatódhat.
+- **Visszatérítés most**: a teljes kauciót a visszatérítés napja előtt visszaadja.
+- **Elengedés**: elengedi a még nem terhelt kauciót. A vendéget nem terhelik meg.
+
+## Mi történik ezután?
+
+- A foglalás lemondása teljes egészében visszatéríti a már terhelt kauciót, a még nem terheltet pedig elengedi.
+- A Stripe irányítópultján visszatérített kaució is számít: az Overviu csak a fennmaradó részt téríti vissza.
+- A **Jelentések** a pénzügyi jelentésben mutatják az Ön által tartott kauciókat.
+
+## Kapcsolódó útmutatók
+
+- [Hogyan fizetnek a vendégek?](/hu/payments/how-guests-pay)
+- [Visszatérítések](/hu/payments/refunds)
+- [A vendég foglalási oldala](/hu/guests/guest-page)

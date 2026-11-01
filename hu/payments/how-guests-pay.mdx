@@ -1,0 +1,63 @@
+---
+title: "Hogyan fizetnek a vendégek?"
+description: "Döntse el, hogy a vendégek a teljes összeget fizetik, most egy részt és később a többit, vagy érkezéskor fizetnek, és terhelje meg őket a kiegészítő szolgáltatásokért."
+---
+
+Minden szálláshirdetés maga dönti el, mikor fizetnek a vendégei. Ha a Stripe csatlakoztatva van, a vendégek online, a Stripe fizetési oldalán fizetnek, a többiről pedig az Overviu gondoskodik: a hátralékokról, a számlákról és a foglalás visszaigazolásáról.
+
+<Note>A szálláshirdetés fizetési módjának kiválasztása az **Árazás** fülhöz tartozik; a csapatban bárki módosíthatja. A Stripe csatlakoztatása a tulajdonosok és adminisztrátorok feladata; lásd: [Stripe csatlakoztatása](/hu/payments/connect-stripe).</Note>
+
+## A szálláshirdetés fizetési módjának kiválasztása
+
+Nyissa meg a szálláshirdetést → **Árazás** → **Fizetés**. A **Mikor fizet a vendég?** kérdésnél válasszon egy lehetőséget, és kattintson a **Fizetési beállítások mentése** gombra.
+
+<Tabs>
+  <Tab title="Foglaláskor a teljes összeg">
+    **A vendég foglaláskor a teljes összeget fizeti**. A foglalási weboldalán a vendég a **Tovább a fizetéshez** gombra kattint, és a Stripe fizetési oldalán kifizeti a teljes tartózkodást. A foglalás a fizetés alatt **Fizetésre vár** állapotban van, és amint a Stripe értesíti az Overviut, **Visszaigazolva** lesz, **Fizetve** fizetési állapottal.
+  </Tab>
+  <Tab title="Most egy rész, később a többi">
+    **A vendég foglaláskor részösszeget fizet, a többit érkezés előtt**. Adja meg a **Foglaláskor fizetendő (a teljes összeg %-a)** és a **Hátralék esedékessége (nappal az érkezés előtt)** értékét.
+
+    A vendég az első részt a fizetési oldalon fizeti ki, a Stripe pedig elmenti a kártyáját. A foglalás **Visszaigazolva** és **Részösszeg fizetve** állapotú lesz. Az esedékesség napján reggel az Overviu a mentett kártyára terheli a többit; ha ez nem sikerül, vagy nincs mentett kártya, a vendég ehelyett e-mailben Stripe-számlát kap róla.
+
+    Ha a vendég olyankor foglal, amikor az esedékesség napja már elmúlt volna, a hátralékot másnap reggel terheli az Overviu.
+  </Tab>
+  <Tab title="Érkezéskor">
+    **A vendég érkezéskor fizet (nincs online fizetés)**: ez az alapértelmezett. A foglalási weboldalán a vendég a **Foglalási kérés** gombra kattint, kártya nélkül. A foglalás **Függőben** marad, amíg Ön meg nem erősíti, **Fizetés érkezéskor** fizetési állapottal. Amikor a vendég fizet Önnek, [rögzítse a fizetést](/hu/bookings/record-a-payment).
+  </Tab>
+</Tabs>
+
+Az első kettőhöz Stripe szükséges. Stripe nélkül a vendégek nem foglalhatnak olyan szálláshirdetést, amely ezek egyikére van beállítva.
+
+## Foglalt dátumok fizetés közben
+
+Amíg a vendég a foglalási weboldalán fizet, a foglalás **Fizetésre vár** állapotban van, és 60 percig foglalja a dátumait. Ha a vendég nem végez időben, az Overviu lemondja a foglalást, a dátumok újra szabadok lesznek, a csapata pedig **A fizetés nem fejeződött be** tárgyú e-mailt kap.
+
+Az Ön által **Online fizetés kérése a vendégtől** beállítással felvett **Közvetlen** foglalásnál Ön választja ki az időt (24 órától 7 napig), a vendég pedig a [foglalási oldaláról](/hu/guests/guest-page) fizet. A foglaláson a **Meghosszabbítás** több időt ad neki.
+
+## Számlák
+
+Egyes fizetések Stripe-számlaként mennek ki: a vendég e-mailt kap a Stripe-tól, és online fizeti ki.
+
+- A hátralék, amelyet nem sikerült a mentett kártyára terhelni.
+- A magasabb ár, miután [módosít egy foglalást](/hu/bookings/change-a-booking).
+- A kiegészítő szolgáltatások díja, lásd alább.
+
+Amikor a vendég kifizet egy számlát, a foglalás fizetési állapota ezt követi. A még nyitott számlák érvénytelenítődnek, ha a foglalást lemondják, vagy más módon teljesen kifizetik.
+
+## Kiegészítő szolgáltatások díja
+
+Ha valamiért külön díjat számítana fel a vendégnek (késői távozás, reptéri transzfer, kár), egy tulajdonos vagy adminisztrátor megnyitja a foglalást, és a **Vendég terhelése** gombra kattint. Adja meg az **Összeg** és a **Milyen célból?** értékét, majd kattintson a **Számla küldése** gombra. A Stripe e-mailben számlát küld a vendégnek, amelyet 7 napon belül online fizethet ki.
+
+A kiegészítő szolgáltatások a tartózkodástól külön kezelendők: nem változtatják meg a tartózkodás árát, és a lemondáskori visszatérítés sem tartalmazza őket. Lásd: [Visszatérítések](/hu/payments/refunds).
+
+## Hol követheti a fizetéseket?
+
+- A foglalás **Fizetés** része minden fizetést, visszatérítést és számlát mutat, valamint a még fennálló tartozást. A **Megnyitás a Stripe-ban** a Stripe irányítópultján nyitja meg a fizetést.
+- A **Műszerfal** a közelgő fizetéseket és a pénzforgalmat mutatja, a **Jelentések** között pedig megtalálja a [pénzügyi jelentést](/hu/insights/reports).
+
+## Kapcsolódó útmutatók
+
+- [Stripe csatlakoztatása](/hu/payments/connect-stripe)
+- [Kauciók](/hu/payments/security-deposits)
+- [Fizetés rögzítése](/hu/bookings/record-a-payment)

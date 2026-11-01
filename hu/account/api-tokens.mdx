@@ -1,0 +1,42 @@
+---
+title: "API-tokenek"
+description: "Hozza létre azokat a tokeneket, amelyekkel a saját rendszerei az Overviu API-n keresztül elérik a csapata adatait, és vonja vissza őket."
+---
+
+Egy API-tokennel egy másik rendszer (egy csatornakezelő, a saját weboldala, egy automatizálási eszköz) a csapata nevében használhatja az [Overviu API-t](/api-reference/introduction). Minden token ahhoz a csapathoz tartozik, amelyben éppen van, nem Önhöz.
+
+<Note>API-tokeneket csak tulajdonosok és adminisztrátorok hozhatnak létre és vonhatnak vissza.</Note>
+
+<Warning>Aki rendelkezik egy tokennel, az API-n keresztül olvashatja a csapata szálláshirdetéseit, foglalásait és vendégeit, egy **Olvasás és írás** hatókörű tokennel pedig foglalásokat is létrehozhat, módosíthat és lemondhat. A tokeneket csak megbízható szervereken tárolja, soha ne egy weboldalon vagy egy olyan alkalmazásban, amelyet a vendégek letöltenek.</Warning>
+
+## Token létrehozása
+
+<Steps>
+  <Step title="Váltson a csapatra">
+    A csapatválasztóval váltson arra a csapatra, amelyhez a token tartozik.
+  </Step>
+  <Step title="Nyissa meg az API-tokeneket">
+    Nyissa meg a felhasználói menüt → **Beállítások** → **API-tokenek**.
+  </Step>
+  <Step title="Nevezze el">
+    Adjon meg egy **Név** értéket, amely elárulja, hol használja, például „Csatornakezelő”, és válasszon **Hatókör** értéket: **Csak olvasás**, ha a rendszer csak olvas (jelentések, egy weboldal, amely a szálláshirdetéseit mutatja), vagy **Olvasás és írás**, ha foglalásokat is létrehoz, módosít vagy lemond. Kattintson a **Token létrehozása** gombra.
+  </Step>
+  <Step title="Másolja ki">
+    A token csak egyszer, közvetlenül a létrehozása után jelenik meg. A szem ikonra kattintva megjelenítheti, a másolás ikonnal kimásolhatja; illessze be a másik rendszerbe, majd kattintson a **Kész** gombra. Később nem jeleníthető meg újra: ha elveszíti, vonja vissza, és hozzon létre újat.
+  </Step>
+</Steps>
+
+Minden tokennél látható a hatóköre, a létrehozás ideje, és hogy mikor használták utoljára (**Utolsó használat**), vagy hogy **Soha nem használt**.
+
+## Token visszavonása
+
+Kattintson a token melletti **Visszavonás** gombra. Az azt használó rendszerek azonnal leállnak. Vonja vissza a tokent, ha már nem használ egy rendszert, vagy ha olyan személy láthatta, akinek nem kellett volna.
+
+## Következő lépés
+
+Az [API-dokumentáció](/api-reference/authentication) bemutatja, hogyan küldje el a tokent, és milyen végpontokat hívhat meg vele.
+
+## Kapcsolódó útmutatók
+
+- [Hitelesítés](/api-reference/authentication)
+- [Csapat és szerepkörök](/hu/account/team-and-roles)

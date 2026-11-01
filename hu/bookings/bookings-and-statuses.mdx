@@ -1,0 +1,68 @@
+---
+title: "Foglalások és állapotok"
+description: "Keresse meg a foglalásokat a listában, és ismerje meg, mit jelentenek az egyes állapotok, források és fizetési állapotok."
+---
+
+A **Foglalások** oldal a csapata összes foglalását felsorolja, bárhonnan érkeztek is. Egy foglalást megnyitva látja a tartózkodást, a vendéget, a fizetéseket, az üzeneteket és mindent, ami a foglalással történt.
+
+## A lista
+
+Nyissa meg az oldalsávban a **Foglalások** menüpontot. Minden sorban látható a **Kód** (a foglalás visszaigazolási kódja), a **Vendég**, a **Szálláshirdetés**, a **Dátumok**, a **Forrás**, az **Állapot** és az **Összesen** értéke. Egy sorra kattintva megnyílik a foglalás.
+
+A listát a következőkkel szűkítheti:
+
+- **Vendég vagy kód keresése...**: egy vendég neve vagy e-mail-címe, illetve egy visszaigazolási kód eleje;
+- **Összes állapot**, **Összes forrás** és **Összes szálláshirdetés**: egy adott állapot, forrás vagy szálláshirdetés;
+- **Érkezés ettől** és **Érkezés eddig**: a két dátum között érkező foglalások.
+
+A **Szűrők visszaállítása** után újra minden foglalás látható.
+
+## Állapotok
+
+| Állapot | Jelentés | Mi viszi tovább? |
+| --- | --- | --- |
+| **Függőben** | A foglalás lefoglalja a dátumait, és Önre vár. | A **Foglalás megerősítése** után **Visszaigazolva** lesz. A fizetés rögzítése ezt nem teszi meg. |
+| **Fizetésre vár** | A vendég éppen online fizet, a dátumok egy határidőig foglaltak. | A fizetés után **Visszaigazolva** lesz. Ha nem érkezik meg időben, az Overviu lemondja a foglalást, és a dátumok felszabadulnak. |
+| **Visszaigazolva** | A tartózkodás érvényes. | A távozás után: **Megjelölés befejezettként**. |
+| **Lemondva** | Az Overviuban vagy az API-n keresztül lemondták, vagy nem fizették ki időben. A dátumai szabadok. | Semmi: ez végleges. |
+| **Befejezve** | A tartózkodás véget ért. | Semmi: ez végleges. |
+
+Az állapot módosításához nyissa meg a foglalást, válassza ki a műveletet a **Válasszon műveletet...** listában (**Foglalás megerősítése**, **Megjelölés befejezettként** vagy **Foglalás lemondása**), majd kattintson a **Beküldés** gombra. Csak a foglalás állapotához illő műveletek jelennek meg.
+
+<Note>A foglalások nem fejeződnek be maguktól: a visszaigazolt foglalás a távozás után is **Visszaigazolva** marad, amíg befejezettként meg nem jelöli.</Note>
+
+**Fizetésre vár** állapotú foglalásnál a **Meghosszabbítás** több időt ad a vendégnek a fizetésre: 24 órát, 48 órát vagy 7 napot.
+
+## Források
+
+| Forrás | Honnan érkezett? |
+| --- | --- |
+| **Közvetlen** | Az Ön foglalási weboldaláról, vagy Ön vette fel közvetlen foglalásként. |
+| **Kézi** | Ön vette fel, hogy a naptár pontos legyen, a pénzmozgások követése nélkül. |
+| **API** | Egy másik rendszerből, az [Overviu API-n](/api-reference/introduction) keresztül. |
+| **Airbnb**, **Booking.com**, **Vrbo**, **Expedia** | Ön vette fel egy, az adott portálon lefoglalt tartózkodáshoz. Az Overviuban nem módosítható, csak lemondható. |
+
+Az Airbnb-vel, a Booking.com-mal és a Vrbo-val való naptárszinkronizálás nem hoz létre foglalásokat: az ott lefoglalt éjszakák blokkolva jelennek meg a naptárban. Lásd: [Naptárszinkronizálás](/hu/calendar/booking-site-calendars).
+
+## Fizetési állapot {#payment-status}
+
+A **Közvetlen** foglalásoknak fizetési állapotuk is van, mert az Overviu követi a hozzájuk tartozó pénzmozgásokat:
+
+| Fizetési állapot | Jelentés |
+| --- | --- |
+| **Fizetésre vár** | A vendég még nem fizetett online. |
+| **Részösszeg fizetve** | A vendég kifizetett egy részt. A többi később esedékes; lásd: [Hogyan fizetnek a vendégek?](/hu/payments/how-guests-pay) |
+| **Fizetés érkezéskor** | A vendég személyesen fizet Önnek. Amikor fizet, [rögzítse a fizetést](/hu/bookings/record-a-payment). |
+| **Fizetve** | Nincs tartozás. |
+
+A foglalás **Fizetés** része mutatja az egyes fizetéseket, visszatérítéseket és a még fennálló tartozást.
+
+## A foglalás oldala
+
+A foglalás oldalán található a **Tartózkodás** (szálláshirdetés, egység, dátumok, vendégek), a **Vendég**, az **Ár részletezése** és a **Fizetés**, a **Kaució**, a **Vendégoldal** feladatai, az **Üzenetek**, a **Belső megjegyzések**, valamint egy **Idővonal** mindarról, ami a foglalással történt, és arról, hogy ki tette.
+
+## Kapcsolódó útmutatók
+
+- [Foglalás létrehozása](/hu/bookings/create-a-booking)
+- [Foglalás módosítása](/hu/bookings/change-a-booking)
+- [Foglalás lemondása](/hu/bookings/cancel-and-refund)

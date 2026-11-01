@@ -1,0 +1,51 @@
+---
+title: "Saját domain használata"
+description: "Tegye a foglalási weboldalát a saját domainjére, például a book.your-domain.com címre, az Overviu által megadott DNS-rekordokkal."
+---
+
+A foglalási weboldala mindig elérhető a `your-team.overviu.app` címen. A saját domainjére is áthelyezheti, például a `book.your-domain.com` vagy a `www.your-domain.com` címre, így a vendégek egy ismerős címen foglalnak. A biztonságos (https) tanúsítványt az Overviu állítja be Ön helyett.
+
+<Note>Domaint csak tulajdonosok és adminisztrátorok adhatnak hozzá vagy módosíthatnak.</Note>
+
+## Mielőtt elkezdi
+
+- Egy saját domain, és hozzáférés a DNS-beállításaihoz a domainszolgáltatójánál vagy a regisztrátoránál.
+- Válasszon egy aldomaint vagy a `www.` előtagot: `book.your-domain.com` vagy `www.your-domain.com`. Az olyan csupasz domain, mint a `your-domain.com` (apex domain), nem támogatott.
+
+## Lépések
+
+<Steps>
+  <Step title="Adja hozzá a domaint">
+    Nyissa meg a **Beállítások** → **Domainek** menüpontot. Az **Egyéni domainek** résznél írja be a domaint, például `bookings.your-domain.com`, és kattintson a **Domain hozzáadása** gombra.
+  </Step>
+  <Step title="Adja hozzá a DNS-rekordokat">
+    Az Overviu megmutatja a hozzáadandó rekordokat (a **DNS-rekordok megtekintése** gombbal később is megnézheti őket):
+
+    - egy **CNAME** rekordot, amely a domainjét az Overviura irányítja;
+    - egy **TXT (tulajdonjog ellenőrzése)** rekordot, amely igazolja, hogy a domain az Öné.
+
+    Adja hozzá mindkettőt a DNS-szolgáltatójánál, a **Név** és az **Érték** mezőt pontosan a megjelenített módon kitöltve.
+  </Step>
+  <Step title="Várja meg az ellenőrzést">
+    Az Overviu néhány percenként ellenőriz. A domain állapota **DNS-ellenőrzésre vár** helyett **SSL-tanúsítványra vár** lesz, amíg a tanúsítvány elkészül, majd **Csatlakoztatva**. A DNS-módosítások terjedése néhány percig, néha tovább is tarthat; az **Ellenőrzés most** gombbal azonnal ellenőrizhet.
+  </Step>
+  <Step title="Tegye elsődleges domainné">
+    Ha az állapota **Csatlakoztatva**, kattintson a **Beállítás elsődlegesként** gombra. Az Overviu ezután minden általa küldött hivatkozásban ezt használja: a vendégek foglalási oldalain, az e-mailekben és a kezdő teendőlistában.
+  </Step>
+</Steps>
+
+## Mi történik ezután?
+
+- A foglalási weboldala az új domainen is működik, és a `your-team.overviu.app` címen is.
+- A hibás domainnél ez látható: **Sikertelen**, az okkal együtt. Javítsa a DNS-rekordokat, és kattintson az **Ellenőrzés most** gombra.
+- Legfeljebb 5 egyéni domaint adhat hozzá.
+
+## Domain eltávolítása
+
+Kattintson a domain melletti **Eltávolítás** gombra. Ha ez volt az elsődleges domain, a hivatkozások visszaállnak az `overviu.app` címére. A DNS-rekordokat is távolítsa el a szolgáltatójánál.
+
+## Kapcsolódó útmutatók
+
+- [Az Ön foglalási weboldala](/hu/booking-site/set-up)
+- [Arculat](/hu/booking-site/branding)
+- [Küldés a saját e-mail-címéről](/hu/guests/sender-email)
