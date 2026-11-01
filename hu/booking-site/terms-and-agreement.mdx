@@ -1,78 +1,78 @@
 ---
-title: "Terms and the rental agreement"
-description: "Publish the booking terms guests accept when they book, and the rental agreement they sign on their booking page."
+title: "Feltételek és a bérleti szerződés"
+description: "Tegye közzé a foglalási feltételeket, amelyeket a vendégek foglaláskor elfogadnak, és a bérleti szerződést, amelyet a foglalási oldalukon aláírnak."
 ---
 
-Overviu handles two documents for direct bookings:
+Az Overviu két dokumentumot kezel a közvetlen foglalásokhoz:
 
-- **Booking terms**: your general terms, which guests accept when they book on your booking site.
-- **Rental agreement**: a contract for the stay, filled in with each booking's details, which guests sign on their booking page.
+- **Foglalási feltételek**: az Ön általános feltételei, amelyeket a vendégek a foglalási weboldalán foglaláskor elfogadnak.
+- **Bérleti szerződés**: a tartózkodásra szóló szerződés, amely minden foglalás adataival kitöltve jelenik meg, és amelyet a vendégek a foglalási oldalukon írnak alá.
 
-Both are versioned: each time you publish, Overviu keeps the new version, and every booking keeps the version its guest accepted or signed.
+Mindkettőnek vannak verziói: minden közzétételkor az Overviu megőrzi az új verziót, és minden foglalás azt a verziót tartja meg, amelyet a vendége elfogadott vagy aláírt.
 
-<Note>Only owners and admins can publish terms and the rental agreement.</Note>
+<Note>Feltételeket és bérleti szerződést csak tulajdonosok és adminisztrátorok tehetnek közzé.</Note>
 
-## Booking terms
+## Foglalási feltételek
 
 <Steps>
-  <Step title="Open the terms">
-    Go to **Settings** → **Booking site** → **Terms**.
+  <Step title="Nyissa meg a feltételeket">
+    Nyissa meg a **Beállítások** → **Foglalási weboldal** → **Feltételek** menüpontot.
   </Step>
-  <Step title="Write them">
-    Write your terms in the **Terms** editor: house rules for bookings, payment, cancellation, liability, whatever applies to you.
+  <Step title="Írja meg őket">
+    Írja meg a feltételeit a **Feltételek** szerkesztőben: a foglalásokra vonatkozó házirendet, a fizetést, a lemondást, a felelősséget, és mindazt, ami Önre vonatkozik.
   </Step>
-  <Step title="Publish">
-    Click **Publish**. The screen shows when they were published and by whom.
+  <Step title="Tegye közzé">
+    Kattintson a **Közzététel** gombra. A képernyő mutatja, mikor és ki tette közzé őket.
   </Step>
 </Steps>
 
-Once published:
+A közzététel után:
 
-- guests tick "I agree to the booking terms and the cancellation policy" before they can book on your booking site;
-- the terms are on your booking site's terms page, linked from the booking form;
-- direct bookings you add yourself ask the guest to accept them on their booking page, when there's no rental agreement to sign;
-- if you publish new terms, guests who book after that accept the new version. Bookings already made keep the version their guest accepted.
+- a vendégeknek a foglalási weboldalán a foglalás előtt be kell jelölniük, hogy elfogadják a foglalási feltételeket és a lemondási szabályzatot;
+- a feltételek a foglalási weboldala feltételoldalán olvashatók, a foglalási űrlapról hivatkozással;
+- az Ön által felvett közvetlen foglalásoknál a vendég a foglalási oldalán fogadja el őket, ha nincs aláírandó bérleti szerződés;
+- ha új feltételeket tesz közzé, az ezután foglaló vendégek az új verziót fogadják el. A már létrejött foglalások megtartják azt a verziót, amelyet a vendégük elfogadott.
 
-Until you publish terms, guests aren't asked to accept any.
+Amíg nem tesz közzé feltételeket, a vendégeknek nem kell semmit elfogadniuk.
 
-## Rental agreement
+## Bérleti szerződés
 
 <Steps>
-  <Step title="Open the agreement">
-    Go to **Settings** → **Booking site** → **Rental agreement**.
+  <Step title="Nyissa meg a szerződést">
+    Nyissa meg a **Beállítások** → **Foglalási weboldal** → **Bérleti szerződés** menüpontot.
   </Step>
-  <Step title="Write it">
-    Write the agreement in the **Agreement** editor. Use placeholders for each booking's details; they're filled in for every guest:
+  <Step title="Írja meg">
+    Írja meg a szerződést a **Megállapodás** szerkesztőben. A foglalások adataihoz használjon helyőrzőket; ezek minden vendégnél kitöltődnek:
 
-    | Placeholder | Becomes |
+    | Helyőrző | Mivé alakul? |
     | --- | --- |
-    | `{guest_name}`, `{guest_email}`, `{guest_phone}` | The guest's details |
-    | `{listing}`, `{address}` | The listing and its address |
-    | `{check_in}`, `{check_out}`, `{nights}`, `{guests}` | The stay; `{guests}` reads like "2 adults · 1 child · 1 infant" |
-    | `{total}`, `{security_deposit}` | The price and the deposit |
-    | `{cancellation_policy}` | The listing's cancellation policy |
-    | `{house_rules}` | The listing's **House rules / agreement addendum** (a unit type without its own uses the building's) |
-    | `{booking_reference}`, `{team}` | The confirmation code and your team's name |
+    | `{guest_name}`, `{guest_email}`, `{guest_phone}` | A vendég adatai |
+    | `{listing}`, `{address}` | A szálláshirdetés és a címe |
+    | `{check_in}`, `{check_out}`, `{nights}`, `{guests}` | A tartózkodás; a `{guests}` például így jelenik meg: „2 felnőtt · 1 gyermek · 1 csecsemő” |
+    | `{total}`, `{security_deposit}` | Az ár és a kaució |
+    | `{cancellation_policy}` | A szálláshirdetés lemondási szabályzata |
+    | `{house_rules}` | A szálláshirdetés **Házirend / a bérleti szerződés kiegészítése** szövege (a saját szöveg nélküli egységtípus az épületét használja) |
+    | `{booking_reference}`, `{team}` | A visszaigazolási kód és a csapata neve |
   </Step>
-  <Step title="Choose whether it's required">
-    Leave **Require a signed rental agreement** on to ask every direct-booking guest to sign. It saves as soon as you switch it.
+  <Step title="Döntse el, kötelező-e">
+    Hagyja bekapcsolva az **Aláírt bérleti szerződés megkövetelése** kapcsolót, ha minden közvetlenül foglaló vendégtől aláírást kér. A beállítás az átkapcsoláskor azonnal mentődik.
   </Step>
-  <Step title="Publish">
-    Click **Publish**.
+  <Step title="Tegye közzé">
+    Kattintson a **Közzététel** gombra.
   </Step>
 </Steps>
 
-## How guests sign
+## Hogyan írják alá a vendégek?
 
-On their [booking page](/hu/guests/guest-page), the guest reads the agreement with their booking's details filled in, ticks that they agree to it and the booking terms, types their full name and clicks **Sign agreement**.
+A [foglalási oldalukon](/hu/guests/guest-page) a vendég elolvassa a foglalása adataival kitöltött szerződést, bejelöli, hogy elfogadja azt és a foglalási feltételeket, beírja a teljes nevét, majd a **Szerződés aláírása** gombra kattint.
 
-- Signed copies never change, even when you publish a new version.
-- If you [change the booking](/hu/bookings/change-a-booking) after they've signed, they're asked to sign the updated agreement.
-- On the booking in Overviu, the **Guest page** section shows who signed and when. **Download** saves the signed agreement as a PDF.
-- If a guest signs on paper instead, click **Mark as signed (on paper)** with a note.
+- Az aláírt példányok soha nem változnak, akkor sem, ha új verziót tesz közzé.
+- Ha az aláírás után [módosítja a foglalást](/hu/bookings/change-a-booking), a vendéget a frissített szerződés aláírására kérik.
+- Az Overviuban, a foglalás **Vendégoldal** része mutatja, ki és mikor írta alá. A **Letöltés** PDF-ként menti az aláírt szerződést.
+- Ha a vendég inkább papíron írja alá, kattintson a **Megjelölés aláírtként (papíron)** gombra, és adjon hozzá egy megjegyzést.
 
-## Related
+## Kapcsolódó útmutatók
 
-- [The guest's booking page](/hu/guests/guest-page)
-- [Your booking site](/hu/booking-site/set-up)
-- [Prices and stay rules](/hu/calendar/prices-and-rules#cancellation-policy)
+- [A vendég foglalási oldala](/hu/guests/guest-page)
+- [Az Ön foglalási weboldala](/hu/booking-site/set-up)
+- [Árak és tartózkodási szabályok](/hu/calendar/prices-and-rules#cancellation-policy)

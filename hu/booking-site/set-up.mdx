@@ -1,70 +1,70 @@
 ---
-title: "Your booking site"
-description: "Your own direct booking website: its address, which listings it shows, how guests book and pay, and what to set up."
+title: "Az Ön foglalási weboldala"
+description: "Saját, közvetlen foglalási weboldala: a címe, a megjelenő szálláshirdetések, hogyan foglalnak és fizetnek a vendégek, és mit kell beállítania."
 ---
 
-Every team gets a booking site: a website of its own where guests find your listings, see live prices and availability, and book you directly, with no booking-site commission. Overviu builds it from your listings; you choose its look and the details around it.
+Minden csapat kap egy foglalási weboldalt: saját weboldalt, ahol a vendégek megtalálják a szálláshirdetéseit, élő árakat és elérhetőséget látnak, és közvetlenül Önnél foglalnak, portáljutalék nélkül. Az Overviu a szálláshirdetéseiből építi fel; a megjelenését és a körülötte lévő részleteket Ön választja ki.
 
-<Note>Only owners and admins can change the booking site's settings.</Note>
+<Note>A foglalási weboldal beállításait csak tulajdonosok és adminisztrátorok módosíthatják.</Note>
 
-## Its address
+## A címe {#its-address}
 
-Your booking site lives at `your-team.overviu.app`, where `your-team` comes from your team's name. Find the exact address in **Settings** → **Domains** under **Managed subdomain**. You can also [use your own domain](/hu/booking-site/custom-domain), like `book.your-domain.com`.
+A foglalási weboldala a `your-team.overviu.app` címen érhető el, ahol a `your-team` a csapata nevéből származik. A pontos címet a **Beállítások** → **Domainek** menüpontban, a **Kezelt aldomain** résznél találja. [Saját domaint is használhat](/hu/booking-site/custom-domain), például `book.your-domain.com`.
 
-<Warning>Renaming your team changes the `overviu.app` address, and links to the old one stop working. A custom domain doesn't change.</Warning>
+<Warning>Ha átnevezi a csapatát, az `overviu.app` cím megváltozik, és a régire mutató hivatkozások nem működnek tovább. A saját domain nem változik.</Warning>
 
-## What guests see
+## Mit látnak a vendégek?
 
-- The home page lists your listings, with a search by town (**Where**), dates (**When**) and guests (**Who**), filters by type and bedrooms, and sorting. With dates chosen, only the places free for them show, each with the stay's total (and the price before a discount struck through); a building's card lists its free apartment types, with "1 left" when few remain. The guests price the stay and travel with the guest to the listing page; they never hide a place, since a host can often fit one more. On phones the search is a **Where to?** button that opens a full-screen sheet.
-- A site with a single listing opens straight on that listing; `/listings` still shows the grid.
-- Each listing has its own page: photos, description, amenities, the map, your host profile, and a price for the dates the guest picks. See [Photos and the listing page](/hu/listings/photos-and-listing-page).
-- A building has one page with a card for each unit type, and one for the whole building when it can be booked as a whole.
+- A kezdőlap felsorolja a szálláshirdetéseit, településre (**Hol**), dátumokra (**Mikor**) és vendégekre (**Ki**) szűrő kereséssel, típus és hálószobák szerinti szűrőkkel és rendezéssel. Ha a vendég dátumokat választ, csak az ezekre szabad szállások jelennek meg, mindegyik a tartózkodás végösszegével (kedvezménynél az eredeti ár áthúzva); egy épület kártyája felsorolja a szabad apartmantípusait, és ha már csak kevés van, ezt is jelzi: „1 maradt”. A vendégszám alapján számolódik a tartózkodás ára, és ez a vendéggel együtt átkerül a szálláshirdetés oldalára; szállást soha nem rejt el, mert a szállásadó gyakran még egy főt el tud helyezni. Telefonon a keresés egy **Hová utazik?** gomb, amely teljes képernyős panelt nyit meg.
+- Az egyetlen szálláshirdetést tartalmazó weboldal közvetlenül azon a szálláshirdetésen nyílik meg; a `/listings` továbbra is a rácsnézetet mutatja.
+- Minden szálláshirdetésnek saját oldala van: fényképek, leírás, felszereltség, térkép, az Ön szállásadói profilja, és ár a vendég által választott dátumokra. Lásd: [Fényképek és a szálláshirdetés oldala](/hu/listings/photos-and-listing-page).
+- Egy épületnek egy oldala van, minden egységtípushoz egy kártyával, és egy további kártyával a teljes épülethez, ha egészben is foglalható.
 
-A listing appears only when it's **Active**. For a building, the building must be active too, and a unit type needs at least one unit. See [Create a listing](/hu/listings/create-a-listing).
+Egy szálláshirdetés csak akkor jelenik meg, ha **Aktív**. Épületnél az épületnek is aktívnak kell lennie, az egységtípusnak pedig legalább egy egységgel kell rendelkeznie. Lásd: [Szálláshirdetés létrehozása](/hu/listings/create-a-listing).
 
-## How guests book
+## Hogyan foglalnak a vendégek?
 
 <Steps>
-  <Step title="Pick dates and guests">
-    On the listing page, the guest picks dates and who's coming under **Guests**: adults (13 and over), children (2 to 12) and infants (under 2). On a phone, they tap **Change** next to **Guests**. They see the price, or why the dates can't be booked (too short, already taken and so on). Infants don't count toward the listing's maximum guests; up to 5 can come. A listing with **Children allowed** off asks only for adults, and refuses children and infants. Listings that allow pets also ask **Bringing pets?** there, and the price adds the pet fee if they are.
+  <Step title="Kiválasztják a dátumokat és a vendégeket">
+    A szálláshirdetés oldalán a vendég kiválasztja a dátumokat, és a **Vendégek** résznél megadja, kik érkeznek: felnőttek (13 éves kortól), gyermekek (2–12 évesek) és csecsemők (2 év alatt). Telefonon a **Vendégek** melletti **Módosítás** gombra koppint. Látja az árat, vagy azt, hogy miért nem foglalhatók a dátumok (túl rövid, már foglalt stb.). A csecsemők nem számítanak bele a szálláshirdetés maximális vendégszámába; legfeljebb 5 érkezhet. Ha a szálláshirdetésnél a **Gyermekek engedélyezettek** ki van kapcsolva, csak a felnőttek számát kérdezi, és nem fogad gyermekeket és csecsemőket. A háziállatot engedélyező szálláshirdetések itt azt is megkérdezik: **Hoz magával háziállatot?**, és ha igen, az ár tartalmazza a háziállatdíjat.
   </Step>
-  <Step title="Check the stay">
-    The booking page opens with the stay: **Dates**, **Guests**, **Total price** and how long it can be cancelled for free. The guest can **Change** the dates or the guests there.
+  <Step title="Ellenőrzik a tartózkodást">
+    A foglalási oldal a tartózkodással nyílik meg: **Dátumok**, **Vendégek**, **Teljes ár**, és hogy meddig mondható le ingyenesen. A vendég itt a **Módosítás** gombbal megváltoztathatja a dátumokat vagy a vendégeket.
   </Step>
-  <Step title="Fill in their details">
-    They fill in **Your details** (**Full name**, **Email**, **Phone**) and any **Special requests**, and can add a coupon under **Have a coupon code?**. Returning guests can **Sign in** to use their saved details.
+  <Step title="Megadják az adataikat">
+    Kitöltik **Az Ön adatai** részt (**Teljes név**, **E-mail**, **Telefon**) és az esetleges **Különleges kérések** mezőt, a **Van kuponkódja?** résznél pedig kupont adhatnak meg. A visszatérő vendégek a **Bejelentkezés** gombbal a mentett adataikat használhatják.
   </Step>
-  <Step title="Accept the terms">
-    If you've published [booking terms](/hu/booking-site/terms-and-agreement), they tick that they agree to them and the cancellation policy.
+  <Step title="Elfogadják a feltételeket">
+    Ha közzétett [foglalási feltételeket](/hu/booking-site/terms-and-agreement), bejelölik, hogy elfogadják azokat és a lemondási szabályzatot.
   </Step>
-  <Step title="Pay or request">
-    - When the listing takes payment online, they click **Continue to payment** and pay on Stripe's checkout page. Their dates are held for 60 minutes while they pay.
-    - When they pay at check-in, they click **Request to book**.
+  <Step title="Fizetnek vagy foglalási kérést küldenek">
+    - Ha a szálláshirdetés online fizetést kér, a **Tovább a fizetéshez** gombra kattintanak, és a Stripe fizetési oldalán fizetnek. A dátumaik a fizetés alatt 60 percig foglaltak maradnak.
+    - Ha érkezéskor fizetnek, a **Foglalási kérés** gombra kattintanak.
   </Step>
-  <Step title="Done">
-    They see **Booking received**, and get an email with a link to their [booking page](/hu/guests/guest-page).
+  <Step title="Kész">
+    Ezt látják: **Foglalás beérkezett**, és e-mailt kapnak a [foglalási oldalukra](/hu/guests/guest-page) mutató hivatkozással.
   </Step>
 </Steps>
 
-Paid bookings are **Confirmed** straight away. Requests are **Pending** until you confirm them. See [How guests pay](/hu/payments/how-guests-pay).
+A kifizetett foglalások azonnal **Visszaigazolva** állapotúak. A foglalási kérések **Függőben** maradnak, amíg Ön meg nem erősíti őket. Lásd: [Hogyan fizetnek a vendégek?](/hu/payments/how-guests-pay)
 
-## Set it up
+## Beállítás
 
-In **Settings** → **Booking site** → **General**:
+A **Beállítások** → **Foglalási weboldal** → **Általános** részen:
 
-- **Contact details**: the **Contact email** and **Contact phone** guests see on their booking page. The email is also where guests' replies go when your [inbox](/hu/guests/inbox) isn't set up. Leave it empty to use the team owner's email.
-- **Host profile**: your **Host name**, **Hosting since (year)**, **About the host** and a **Host photo**, shown on your listing pages.
-- **Security deposits**: when deposits are refunded; see [Security deposits](/hu/payments/security-deposits).
-- **Default language of your booking site**: the language visitors see first, English or magyar (Hungarian). Visitors can switch with the language button at the top of every page, and a signed-in guest who chose a language in their profile keeps theirs. Emails to your guests follow the same choice. A new team starts in the language you signed up in.
+- **Kapcsolattartási adatok**: a **Kapcsolattartási e-mail** és a **Kapcsolattartási telefonszám**, amelyet a vendégek a foglalási oldalukon látnak. Ha a [beérkezett üzenetek](/hu/guests/inbox) nincsenek beállítva, a vendégek válaszai is erre az e-mail-címre érkeznek. Ha üresen hagyja, a csapat tulajdonosának e-mail-címe lesz érvényes.
+- **Szállásadói profil**: a **Szállásadó neve**, a **Szállásadás kezdete (év)**, **A szállásadóról** és a **Szállásadó fényképe**, amelyek a szálláshirdetései oldalán jelennek meg.
+- **Kauciók**: mikor kerülnek visszatérítésre a kauciók; lásd: [Kauciók](/hu/payments/security-deposits).
+- **A foglalási weboldal alapértelmezett nyelve**: az a nyelv, amelyet a látogatók először látnak, English vagy Magyar. A látogatók minden oldal tetején a nyelvválasztó gombbal válthatnak, és az a bejelentkezett vendég, aki a profiljában nyelvet választott, a sajátját látja. A vendégeinek küldött e-mailek ugyanezt a nyelvet követik. Egy új csapat azon a nyelven indul, amelyen regisztrált.
 
-Click **Save**. Then:
+Kattintson a **Mentés** gombra. Ezután:
 
-- choose your colours, font and logo in [Branding](/hu/booking-site/branding);
-- publish your [booking terms and rental agreement](/hu/booking-site/terms-and-agreement);
-- [connect Stripe](/hu/payments/connect-stripe) to take payments online.
+- válassza ki a színeit, a betűtípusát és a logóját az [Arculat](/hu/booking-site/branding) részen;
+- tegye közzé a [foglalási feltételeit és a bérleti szerződését](/hu/booking-site/terms-and-agreement);
+- [csatlakoztassa a Stripe-ot](/hu/payments/connect-stripe), hogy online fizetést fogadhasson.
 
-## Related
+## Kapcsolódó útmutatók
 
-- [Branding](/hu/booking-site/branding)
-- [Use your own domain](/hu/booking-site/custom-domain)
-- [Set up in 15 minutes](/hu/get-started/quickstart)
+- [Arculat](/hu/booking-site/branding)
+- [Saját domain használata](/hu/booking-site/custom-domain)
+- [Beállítás 15 perc alatt](/hu/get-started/quickstart)
