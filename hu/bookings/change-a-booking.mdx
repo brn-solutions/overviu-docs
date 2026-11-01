@@ -1,64 +1,64 @@
 ---
-title: "Change a booking"
-description: "Change a booking's dates, who's staying, guest details or notes, or move it to another unit."
+title: "Foglalás módosítása"
+description: "Módosítsa egy foglalás dátumait, a vendégek számát, a vendég adatait vagy a megjegyzéseket, vagy helyezze át egy másik egységbe."
 ---
 
-Plans change: a guest wants an extra night, brings a friend, or has a new phone number. Change the booking in Overviu, and it re-checks the dates, re-prices the stay and settles the difference.
+A tervek változnak: egy vendég még egy éjszakát szeretne, hoz egy barátot, vagy új telefonszáma van. Módosítsa a foglalást az Overviuban: újra ellenőrzi a dátumokat, újraszámolja a tartózkodás árát, és rendezi a különbözetet.
 
-## What you can change, and when
+## Mit és mikor módosíthat?
 
-| Booking | What you can change |
+| Foglalás | Mit módosíthat? |
 | --- | --- |
-| **Pending** | Everything: dates, guests, guest details, notes. |
-| **Confirmed**, before check-in | Everything. |
-| **Confirmed**, guest staying now | Extend the check-out only; the check-in and shorter stays are locked. Guests, details and notes as usual. |
-| **Awaiting payment** | Guests, details and notes; not the dates. |
-| **Completed** or **Cancelled** | Nothing. |
+| **Függőben** | Mindent: a dátumokat, a vendégeket, a vendégadatokat és a megjegyzéseket. |
+| **Visszaigazolva**, érkezés előtt | Mindent. |
+| **Visszaigazolva**, a vendég éppen ott tartózkodik | A távozást csak kitolni lehet; az érkezés zárolva van, és a tartózkodás nem rövidíthető. A vendégeket, az adatokat és a megjegyzéseket a szokásos módon. |
+| **Fizetésre vár** | A vendégeket, az adatokat és a megjegyzéseket; a dátumokat nem. |
+| **Befejezve** vagy **Lemondva** | Semmit. |
 
-Bookings whose source is **Airbnb**, **Booking.com**, **Vrbo** or **Expedia** can't be changed in Overviu, only cancelled: change them on that site.
+Az **Airbnb**, **Booking.com**, **Vrbo** vagy **Expedia** forrású foglalások az Overviuban nem módosíthatók, csak lemondhatók: ezeket az adott portálon módosítsa.
 
-## Change the stay or the guest
+## A tartózkodás vagy a vendég módosítása
 
 <Steps>
-  <Step title="Open the booking">
-    Go to **Bookings**, open the booking and click **Edit**.
+  <Step title="Nyissa meg a foglalást">
+    Nyissa meg a **Foglalások** oldalt, majd a foglalást, és kattintson a **Szerkesztés** gombra.
   </Step>
-  <Step title="Make the changes">
-    - Pick new dates in **Check-in → Check-out**. For a guest staying now, use **Extend check-out to...** instead.
-    - Change who's staying in **Adults**, **Children** and **Infants**, or tick or untick **Bringing pets?** (the **Pet fee** follows).
-    - Under **Guest**, change the **Name**, **Email** or **Phone**.
-    - Change the **Special requests**, the **Notes** (a summary kept on the booking for your team) or the **Source** (**Manual** or **Direct**).
+  <Step title="Végezze el a módosításokat">
+    - Válasszon új dátumokat az **Érkezés → Távozás** mezőben. Éppen ott tartózkodó vendégnél ehelyett a **Kijelentkezés meghosszabbítása eddig...** mezőt használja.
+    - A **Felnőttek**, a **Gyermekek** és a **Csecsemők** mezőben módosíthatja, kik szállnak meg, illetve bejelölheti vagy törölheti a **Hoz magával háziállatot?** jelölést (a **Háziállatdíj** ezt követi).
+    - A **Vendég** résznél módosíthatja a **Név**, az **E-mail** vagy a **Telefon** mezőt.
+    - Módosíthatja a **Különleges kérések**, a **Megjegyzések** (a foglaláson a csapata számára tárolt összefoglaló) vagy a **Forrás** (**Kézi** vagy **Közvetlen**) mezőt.
 
-    While you edit, **New price preview** shows the new total, and whether the new dates are free.
+    Szerkesztés közben az **Új ár előnézete** mutatja az új végösszeget, és azt, hogy az új dátumok szabadok-e.
   </Step>
-  <Step title="Save">
-    Click **Save**. If the new dates aren't available (booked, too short for the minimum stay and so on), Overviu says why and changes nothing.
+  <Step title="Mentse">
+    Kattintson a **Mentés** gombra. Ha az új dátumok nem elérhetők (foglaltak, rövidebbek a minimális tartózkodásnál stb.), az Overviu jelzi, miért, és semmit sem módosít.
   </Step>
 </Steps>
 
-## The price difference
+## Az árkülönbözet
 
-New dates or different guests re-price the booking with the listing's current prices. When the guest paid online, Overviu settles the difference through Stripe:
+Új dátumok vagy más vendégszám esetén az Overviu a szálláshirdetés aktuális áraival újraszámolja a foglalást. Ha a vendég online fizetett, az Overviu a Stripe-on keresztül rendezi a különbözetet:
 
-- The stay costs more: if a balance is still waiting for its date, it simply grows. Otherwise the guest gets an invoice by email for the difference.
-- The stay costs less: Overviu refunds the guest by the listing's [cancellation policy](/hu/calendar/prices-and-rules#cancellation-policy), as if the nights given up had been cancelled on that day. Unpaid invoices are replaced by one for what's still owed.
+- Drágább lett a tartózkodás: ha egy hátralék még az esedékességére vár, egyszerűen megnő. Ellenkező esetben a vendég e-mailben számlát kap a különbözetről.
+- Olcsóbb lett a tartózkodás: az Overviu a szálláshirdetés [lemondási szabályzata](/hu/calendar/prices-and-rules#cancellation-policy) szerint visszatérítést ad a vendégnek, mintha az elmaradó éjszakákat aznap mondták volna le. A kifizetetlen számlák helyett egy új számla készül a még fennálló összegről.
 
-When the guest paid you outside Overviu (cash, bank transfer), Overviu doesn't refund or invoice: the booking's **Timeline** notes what's due back, and you settle it with the guest yourself.
+Ha a vendég az Overviun kívül fizetett Önnek (készpénzben, banki átutalással), az Overviu nem ad visszatérítést és nem állít ki számlát: a foglalás **Idővonal** része rögzíti, mennyi jár vissza, és ezt Ön rendezi a vendéggel.
 
-When the guest hasn't paid yet (**Awaiting payment**), there's nothing to settle: what they pay on their booking page follows the new price, and a payment page they already had open is closed.
+Ha a vendég még nem fizetett (**Fizetésre vár**), nincs mit rendezni: a foglalási oldalán fizetendő összeg követi az új árat, a már megnyitott fizetési oldal pedig bezárul.
 
-If Stripe has a problem, the date change still stands and the **Timeline** says what went wrong.
+Ha a Stripe-nál probléma adódik, a dátummódosítás akkor is érvényben marad, és az **Idővonal** jelzi, mi történt.
 
-## Move a booking to another unit
+## Foglalás áthelyezése másik egységbe
 
-For a unit in a building, click **Move to another unit** on the booking and pick a unit. Only units of the same type that are free for the whole stay are listed. The guest, dates and price stay the same.
+Épületen belüli egységnél kattintson a foglaláson az **Áthelyezés másik egységbe** gombra, és válasszon egységet. Csak az azonos típusú, a teljes tartózkodás idejére szabad egységek jelennek meg. A vendég, a dátumok és az ár változatlan marad.
 
-## Notes
+## Megjegyzések
 
-The **Internal notes** section of a booking is for your team only: guests never see it. Add a note whenever something's worth remembering; each is kept in the **Timeline** with who wrote it and when.
+A foglalás **Belső megjegyzések** része csak a csapatának szól: a vendégek soha nem látják. Adjon hozzá megjegyzést, valahányszor valamit érdemes megjegyezni; mindegyik bekerül az **Idővonal** részbe, azzal együtt, hogy ki és mikor írta.
 
-## Related
+## Kapcsolódó útmutatók
 
-- [Cancel a booking](/hu/bookings/cancel-and-refund)
-- [Record a payment](/hu/bookings/record-a-payment)
-- [Buildings and units](/hu/listings/buildings-and-units)
+- [Foglalás lemondása](/hu/bookings/cancel-and-refund)
+- [Fizetés rögzítése](/hu/bookings/record-a-payment)
+- [Épületek és egységek](/hu/listings/buildings-and-units)

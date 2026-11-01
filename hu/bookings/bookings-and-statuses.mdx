@@ -1,68 +1,68 @@
 ---
-title: "Bookings and statuses"
-description: "Find bookings in the list, and understand what each status, source and payment status means."
+title: "Foglalások és állapotok"
+description: "Keresse meg a foglalásokat a listában, és ismerje meg, mit jelentenek az egyes állapotok, források és fizetési állapotok."
 ---
 
-**Bookings** lists every booking for your team, wherever it came from. Open one to see the stay, the guest, the payments, the messages and everything that has happened to it.
+A **Foglalások** oldal a csapata összes foglalását felsorolja, bárhonnan érkeztek is. Egy foglalást megnyitva látja a tartózkodást, a vendéget, a fizetéseket, az üzeneteket és mindent, ami a foglalással történt.
 
-## The list
+## A lista
 
-Go to **Bookings** in the sidebar. Each row shows the **Code** (the booking's confirmation code), **Guest**, **Listing**, **Dates**, **Source**, **Status** and **Total**. Click a row to open the booking.
+Nyissa meg az oldalsávban a **Foglalások** menüpontot. Minden sorban látható a **Kód** (a foglalás visszaigazolási kódja), a **Vendég**, a **Szálláshirdetés**, a **Dátumok**, a **Forrás**, az **Állapot** és az **Összesen** értéke. Egy sorra kattintva megnyílik a foglalás.
 
-Narrow the list with:
+A listát a következőkkel szűkítheti:
 
-- **Search guest or code...**: a guest's name or email, or the start of a confirmation code;
-- **All statuses**, **All sources** and **All listings**: one status, source or listing;
-- **Check-in from** and **Check-in to**: bookings arriving between two dates.
+- **Vendég vagy kód keresése...**: egy vendég neve vagy e-mail-címe, illetve egy visszaigazolási kód eleje;
+- **Összes állapot**, **Összes forrás** és **Összes szálláshirdetés**: egy adott állapot, forrás vagy szálláshirdetés;
+- **Bejelentkezés kezdete** és **Bejelentkezés vége**: a két dátum között érkező foglalások.
 
-**Reset filters** shows everything again.
+A **Szűrők visszaállítása** után újra minden foglalás látható.
 
-## Statuses
+## Állapotok
 
-| Status | Meaning | What moves it on |
+| Állapot | Jelentés | Mi viszi tovább? |
 | --- | --- | --- |
-| **Pending** | The booking holds its dates and waits for you. | **Confirm booking** makes it **Confirmed**. Recording a payment doesn't. |
-| **Awaiting payment** | The guest is paying online and the dates are held until a deadline. | The payment makes it **Confirmed**. If it doesn't arrive in time, the booking is cancelled and the dates freed. |
-| **Confirmed** | The stay is on. | After check-out, **Mark as completed**. |
-| **Cancelled** | Cancelled in Overviu or through the API, or not paid in time. Its dates are free. | Nothing: it's final. |
-| **Completed** | The stay is over. | Nothing: it's final. |
+| **Függőben** | A foglalás lefoglalja a dátumait, és Önre vár. | A **Foglalás megerősítése** után **Visszaigazolva** lesz. A fizetés rögzítése ezt nem teszi meg. |
+| **Fizetésre vár** | A vendég éppen online fizet, a dátumok egy határidőig foglaltak. | A fizetés után **Visszaigazolva** lesz. Ha nem érkezik meg időben, az Overviu lemondja a foglalást, és a dátumok felszabadulnak. |
+| **Visszaigazolva** | A tartózkodás érvényes. | A távozás után: **Megjelölés befejezettként**. |
+| **Lemondva** | Az Overviuban vagy az API-n keresztül lemondták, vagy nem fizették ki időben. A dátumai szabadok. | Semmi: ez végleges. |
+| **Befejezve** | A tartózkodás véget ért. | Semmi: ez végleges. |
 
-To change a status, open the booking and pick the action in **Choose an action...** (**Confirm booking**, **Mark as completed** or **Cancel booking**), then click **Submit**. Only the actions that fit the booking's status are offered.
+Az állapot módosításához nyissa meg a foglalást, válassza ki a műveletet a **Válasszon műveletet...** listában (**Foglalás megerősítése**, **Megjelölés befejezettként** vagy **Foglalás lemondása**), majd kattintson a **Beküldés** gombra. Csak a foglalás állapotához illő műveletek jelennek meg.
 
-<Note>Bookings aren't completed on their own: a confirmed booking stays **Confirmed** after check-out until you mark it as completed.</Note>
+<Note>A foglalások nem fejeződnek be maguktól: a visszaigazolt foglalás a távozás után is **Visszaigazolva** marad, amíg befejezettként meg nem jelöli.</Note>
 
-For a booking **Awaiting payment**, **Extend** gives the guest more time to pay: 24 hours, 48 hours or 7 days.
+**Fizetésre vár** állapotú foglalásnál a **Meghosszabbítás** több időt ad a vendégnek a fizetésre: 24 órát, 48 órát vagy 7 napot.
 
-## Sources
+## Források
 
-| Source | Where it came from |
+| Forrás | Honnan érkezett? |
 | --- | --- |
-| **Direct** | Your booking site, or a booking you added as direct. |
-| **Manual** | A booking you added to keep the calendar right, without tracking its money. |
-| **API** | Another system, through the [Overviu API](/api-reference/introduction). |
-| **Airbnb**, **Booking.com**, **Vrbo**, **Expedia** | A booking you added for a stay booked on that site. It can't be changed in Overviu, only cancelled. |
+| **Közvetlen** | Az Ön foglalási weboldaláról, vagy Ön vette fel közvetlen foglalásként. |
+| **Kézi** | Ön vette fel, hogy a naptár pontos legyen, a pénzmozgások követése nélkül. |
+| **API** | Egy másik rendszerből, az [Overviu API-n](/api-reference/introduction) keresztül. |
+| **Airbnb**, **Booking.com**, **Vrbo**, **Expedia** | Ön vette fel egy, az adott portálon lefoglalt tartózkodáshoz. Az Overviuban nem módosítható, csak lemondható. |
 
-Calendar sync with Airbnb, Booking.com and Vrbo doesn't create bookings: the nights booked there show on the calendar as blocked. See [Calendar sync](/hu/calendar/booking-site-calendars).
+Az Airbnb-vel, a Booking.com-mal és a Vrbo-val való naptárszinkronizálás nem hoz létre foglalásokat: az ott lefoglalt éjszakák blokkolva jelennek meg a naptárban. Lásd: [Naptárszinkronizálás](/hu/calendar/booking-site-calendars).
 
-## Payment status
+## Fizetési állapot {#payment-status}
 
-**Direct** bookings also have a payment status, because Overviu tracks their money:
+A **Közvetlen** foglalásoknak fizetési állapotuk is van, mert az Overviu követi a hozzájuk tartozó pénzmozgásokat:
 
-| Payment status | Meaning |
+| Fizetési állapot | Jelentés |
 | --- | --- |
-| **Awaiting payment** | The guest hasn't paid online yet. |
-| **Part paid** | The guest has paid part. The rest is due later; see [How guests pay](/hu/payments/how-guests-pay). |
-| **Pay at check-in** | The guest pays you in person. [Record the payment](/hu/bookings/record-a-payment) when they do. |
-| **Paid** | Nothing is owed. |
+| **Fizetésre vár** | A vendég még nem fizetett online. |
+| **Részösszeg fizetve** | A vendég kifizetett egy részt. A többi később esedékes; lásd: [Hogyan fizetnek a vendégek?](/hu/payments/how-guests-pay) |
+| **Fizetés érkezéskor** | A vendég személyesen fizet Önnek. Amikor fizet, [rögzítse a fizetést](/hu/bookings/record-a-payment). |
+| **Fizetve** | Nincs tartozás. |
 
-The **Payment** section of the booking shows each payment, refund and what's still owed.
+A foglalás **Fizetés** része mutatja az egyes fizetéseket, visszatérítéseket és a még fennálló tartozást.
 
-## Inside a booking
+## A foglalás oldala
 
-A booking's page has its **Stay** (listing, unit, dates, guests), the **Guest**, the **Price breakdown** and **Payment**, the **Security deposit**, the **Guest page** tasks, **Messages**, **Internal notes** and a **Timeline** of everything that happened and who did it.
+A foglalás oldalán található a **Tartózkodás** (szálláshirdetés, egység, dátumok, vendégek), a **Vendég**, az **Ár részletezése** és a **Fizetés**, a **Kaució**, a **Vendégoldal** feladatai, az **Üzenetek**, a **Belső megjegyzések**, valamint egy **Idővonal** mindarról, ami a foglalással történt, és arról, hogy ki tette.
 
-## Related
+## Kapcsolódó útmutatók
 
-- [Create a booking](/hu/bookings/create-a-booking)
-- [Change a booking](/hu/bookings/change-a-booking)
-- [Cancel a booking](/hu/bookings/cancel-and-refund)
+- [Foglalás létrehozása](/hu/bookings/create-a-booking)
+- [Foglalás módosítása](/hu/bookings/change-a-booking)
+- [Foglalás lemondása](/hu/bookings/cancel-and-refund)
