@@ -7,7 +7,7 @@ Egy API-tokennel egy másik rendszer (egy csatornakezelő, a saját weboldala, e
 
 <Note>API-tokeneket csak tulajdonosok és adminisztrátorok hozhatnak létre és vonhatnak vissza.</Note>
 
-<Warning>Aki rendelkezik egy tokennel, az API-n keresztül olvashatja a csapata szálláshirdetéseit, foglalásait és vendégeit, egy **Olvasási és írási hozzáférés** tokennel pedig foglalásokat is létrehozhat, módosíthat és lemondhat. A tokeneket csak megbízható szervereken tárolja, soha ne egy weboldalon vagy egy olyan alkalmazásban, amelyet a vendégek letöltenek.</Warning>
+<Warning>Aki rendelkezik egy tokennel, az API-n keresztül olvashatja a csapata szálláshirdetéseit, foglalásait és vendégeit, egy **Olvasás és írás** hatókörű tokennel pedig foglalásokat is létrehozhat, módosíthat és lemondhat. A tokeneket csak megbízható szervereken tárolja, soha ne egy weboldalon vagy egy olyan alkalmazásban, amelyet a vendégek letöltenek.</Warning>
 
 ## Token létrehozása
 
@@ -19,7 +19,7 @@ Egy API-tokennel egy másik rendszer (egy csatornakezelő, a saját weboldala, e
     Nyissa meg a felhasználói menüt → **Beállítások** → **API-tokenek**.
   </Step>
   <Step title="Nevezze el">
-    Adjon meg egy **Név** értéket, amely elárulja, hol használja, például „Csatornakezelő”, és válasszon **Hatókör** értéket: **Csak olvasható**, ha a rendszer csak olvas (jelentések, egy weboldal, amely a szálláshirdetéseit mutatja), vagy **Olvasási és írási hozzáférés**, ha foglalásokat is létrehoz, módosít vagy lemond. Kattintson a **Token létrehozása** gombra.
+    Adjon meg egy **Név** értéket, amely elárulja, hol használja, például „Csatornakezelő”, és válasszon **Hatókör** értéket: **Csak olvasás**, ha a rendszer csak olvas (jelentések, egy weboldal, amely a szálláshirdetéseit mutatja), vagy **Olvasás és írás**, ha foglalásokat is létrehoz, módosít vagy lemond. Kattintson a **Token létrehozása** gombra.
   </Step>
   <Step title="Másolja ki">
     A token csak egyszer, közvetlenül a létrehozása után jelenik meg. A szem ikonra kattintva megjelenítheti, a másolás ikonnal kimásolhatja; illessze be a másik rendszerbe, majd kattintson a **Kész** gombra. Később nem jeleníthető meg újra: ha elveszíti, vonja vissza, és hozzon létre újat.
