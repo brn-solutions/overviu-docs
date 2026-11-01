@@ -9,6 +9,9 @@ The terms come from the app's translation; when a term changes, change it in `hu
 Formal "Ön" everywhere: the host app, the booking site, every email and the docs. Never "te" (no "fiókod",
 "Válaszd", "Kattints").
 
+"Overviu" takes its suffixes without a hyphen, as the app writes it: Overviuban, Overviut, Overviura ("Kérdezze az
+Overviut").
+
 ## Formats
 
 | What | English | Hungarian |

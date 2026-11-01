@@ -58,7 +58,9 @@ Return the whole translated file in a single ```mdx code block and nothing else{
    /hu/...), code blocks, `inline code`, placeholders such as {{guest_first_name}} or {{listing}}, and the line and
    paragraph structure. Translate the frontmatter title and description, the title="..." of steps, cards and
    accordions, headings, link text and the body.
-4. Terms: use the glossary below and nothing else for its concepts. Keep brand and technical names (Airbnb,
+4. Terms: use the glossary below and nothing else for its concepts, even where another word seems more natural: a
+   listing is a "szálláshirdetés" (not "szálláshely"), the host a "szállásadó" (not "házigazda"), the dashboard
+   "Műszerfal" (not "irányítópult"), reports "Jelentések" (not "kimutatások"), the inbox "Beérkezett üzenetek". Keep brand and technical names (Airbnb,
    Booking.com, Stripe, Wi-Fi, API, CNAME, Webhook) as they are.
 5. Formats: dates as "2026. október 15.", short dates as "okt. 15.", money with a space between thousands, a decimal
    comma and the currency after the amount ("1 200,50 EUR", "12 000 Ft"). Convert the English examples
