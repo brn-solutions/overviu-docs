@@ -1,63 +1,63 @@
 ---
-title: "How guests pay"
-description: "Choose whether guests pay in full, pay part now and the rest later, or pay at check-in, and charge them for extras."
+title: "Hogyan fizetnek a vendégek?"
+description: "Döntse el, hogy a vendégek a teljes összeget fizetik, most egy részt és később a többit, vagy érkezéskor fizetnek, és terhelje meg őket a kiegészítő szolgáltatásokért."
 ---
 
-Each listing decides when its guests pay. With Stripe connected, guests pay online on Stripe's checkout page, and Overviu takes care of the rest: balances, invoices and confirming the booking.
+Minden szálláshirdetés maga dönti el, mikor fizetnek a vendégei. Ha a Stripe csatlakoztatva van, a vendégek online, a Stripe fizetési oldalán fizetnek, a többiről pedig az Overviu gondoskodik: a hátralékokról, a számlákról és a foglalás visszaigazolásáról.
 
-<Note>Choosing how a listing is paid is part of its **Pricing** tab; anyone in the team can change it. Connecting Stripe is for owners and admins; see [Connect Stripe](/hu/payments/connect-stripe).</Note>
+<Note>A szálláshirdetés fizetési módjának kiválasztása az **Árazás** fülhöz tartozik; a csapatban bárki módosíthatja. A Stripe csatlakoztatása a tulajdonosok és adminisztrátorok feladata; lásd: [Stripe csatlakoztatása](/hu/payments/connect-stripe).</Note>
 
-## Choose how a listing is paid
+## A szálláshirdetés fizetési módjának kiválasztása
 
-Open the listing → **Pricing** → **Payment**. Under **When does the guest pay?**, pick one and click **Save payment settings**.
+Nyissa meg a szálláshirdetést → **Árazás** → **Fizetés**. A **Mikor fizet a vendég?** kérdésnél válasszon egy lehetőséget, és kattintson a **Fizetési beállítások mentése** gombra.
 
 <Tabs>
-  <Tab title="In full when booking">
-    **Guest pays in full when booking**. On your booking site, the guest clicks **Continue to payment** and pays the whole stay on Stripe's checkout page. The booking is **Awaiting payment** while they pay, and becomes **Confirmed** with the payment status **Paid** as soon as Stripe tells Overviu.
+  <Tab title="Foglaláskor a teljes összeg">
+    **A vendég foglaláskor a teljes összeget fizeti**. A foglalási weboldalán a vendég a **Tovább a fizetéshez** gombra kattint, és a Stripe fizetési oldalán kifizeti a teljes tartózkodást. A foglalás a fizetés alatt **Fizetésre vár** állapotban van, és amint a Stripe értesíti az Overviut, **Visszaigazolva** lesz, **Fizetve** fizetési állapottal.
   </Tab>
-  <Tab title="Part now, the rest later">
-    **Guest pays part when booking, the rest before check-in**. Set **Paid when booking (% of the total)** and **Balance due (days before check-in)**.
+  <Tab title="Most egy rész, később a többi">
+    **A vendég foglaláskor részösszeget fizet, a többit érkezés előtt**. Adja meg a **Foglaláskor fizetendő (a teljes összeg %-a)** és a **Hátralék esedékessége (nappal az érkezés előtt)** értékét.
 
-    The guest pays the first part at checkout, and Stripe saves their card. The booking becomes **Confirmed** and **Part paid**. On the due date, in the morning, Overviu charges the rest to the saved card; if that fails, or there's no saved card, the guest is emailed a Stripe invoice for it instead.
+    A vendég az első részt a fizetési oldalon fizeti ki, a Stripe pedig elmenti a kártyáját. A foglalás **Visszaigazolva** és **Részösszeg fizetve** állapotú lesz. Az esedékesség napján reggel az Overviu a mentett kártyára terheli a többit; ha ez nem sikerül, vagy nincs mentett kártya, a vendég ehelyett e-mailben Stripe-számlát kap róla.
 
-    If the guest books after the due date would have passed, the balance is charged the next morning.
+    Ha a vendég olyankor foglal, amikor az esedékesség napja már elmúlt volna, a hátralékot másnap reggel terheli az Overviu.
   </Tab>
-  <Tab title="At check-in">
-    **Guest pays at check-in (no online payment)**: the default. On your booking site, the guest clicks **Request to book**, no card needed. The booking is **Pending** until you confirm it, with the payment status **Pay at check-in**. When they pay you, [record the payment](/hu/bookings/record-a-payment).
+  <Tab title="Érkezéskor">
+    **A vendég érkezéskor fizet (nincs online fizetés)**: ez az alapértelmezett. A foglalási weboldalán a vendég a **Foglalási kérés** gombra kattint, kártya nélkül. A foglalás **Függőben** marad, amíg Ön meg nem erősíti, **Fizetés érkezéskor** fizetési állapottal. Amikor a vendég fizet Önnek, [rögzítse a fizetést](/hu/bookings/record-a-payment).
   </Tab>
 </Tabs>
 
-The first two need Stripe. Without it, guests can't book a listing set to either one.
+Az első kettőhöz Stripe szükséges. Stripe nélkül a vendégek nem foglalhatnak olyan szálláshirdetést, amely ezek egyikére van beállítva.
 
-## The hold while a guest pays
+## Foglalt dátumok fizetés közben
 
-While a guest pays on your booking site, the booking is **Awaiting payment** and holds its dates for 60 minutes. If the guest doesn't finish in time, the booking is cancelled and the dates are free again, and your team gets a **Payment not completed** email.
+Amíg a vendég a foglalási weboldalán fizet, a foglalás **Fizetésre vár** állapotban van, és 60 percig foglalja a dátumait. Ha a vendég nem végez időben, az Overviu lemondja a foglalást, a dátumok újra szabadok lesznek, a csapata pedig **A fizetés nem fejeződött be** tárgyú e-mailt kap.
 
-For a **Direct** booking you add yourself with **Ask the guest to pay online**, you choose the time (24 hours to 7 days), and the guest pays from their [booking page](/hu/guests/guest-page). On the booking, **Extend** gives them more time.
+Az Ön által **Online fizetés kérése a vendégtől** beállítással felvett **Közvetlen** foglalásnál Ön választja ki az időt (24 órától 7 napig), a vendég pedig a [foglalási oldaláról](/hu/guests/guest-page) fizet. A foglaláson a **Meghosszabbítás** több időt ad neki.
 
-## Invoices
+## Számlák
 
-Some payments are sent as Stripe invoices: the guest gets an email from Stripe and pays it online.
+Egyes fizetések Stripe-számlaként mennek ki: a vendég e-mailt kap a Stripe-tól, és online fizeti ki.
 
-- A balance that couldn't be charged to the saved card.
-- A higher price after you [change a booking](/hu/bookings/change-a-booking).
-- Extras you charge, below.
+- A hátralék, amelyet nem sikerült a mentett kártyára terhelni.
+- A magasabb ár, miután [módosít egy foglalást](/hu/bookings/change-a-booking).
+- A kiegészítő szolgáltatások díja, lásd alább.
 
-When the guest pays an invoice, the booking's payment status follows. Invoices still open are voided if the booking is cancelled or paid in full another way.
+Amikor a vendég kifizet egy számlát, a foglalás fizetési állapota ezt követi. A még nyitott számlák érvénytelenítődnek, ha a foglalást lemondják, vagy más módon teljesen kifizetik.
 
-## Charge for extras
+## Kiegészítő szolgáltatások díja
 
-To charge a guest for something extra (a late checkout, airport pickup, breakage), an owner or admin opens the booking and clicks **Charge guest**. Enter the **Amount** and **What for**, and click **Send invoice**. Stripe emails the guest an invoice they can pay online within 7 days.
+Ha valamiért külön díjat számítana fel a vendégnek (késői távozás, reptéri transzfer, kár), egy tulajdonos vagy adminisztrátor megnyitja a foglalást, és a **Vendég megterhelése** gombra kattint. Adja meg az **Összeg** és a **Milyen célból?** értékét, majd kattintson a **Számla küldése** gombra. A Stripe e-mailben számlát küld a vendégnek, amelyet 7 napon belül online fizethet ki.
 
-Extras are kept apart from the stay: they don't change the stay's price, and a cancellation refund doesn't include them. See [Refunds](/hu/payments/refunds).
+A kiegészítő szolgáltatások a tartózkodástól külön kezelendők: nem változtatják meg a tartózkodás árát, és a lemondáskori visszatérítés sem tartalmazza őket. Lásd: [Visszatérítések](/hu/payments/refunds).
 
-## Where to follow payments
+## Hol követheti a fizetéseket?
 
-- The booking's **Payment** section shows every payment, refund and invoice, and what's still owed. **Open in Stripe** opens a payment in your Stripe Dashboard.
-- The **Dashboard** shows upcoming payments and cash flow, and **Reports** has the [money report](/hu/insights/reports).
+- A foglalás **Fizetés** része minden fizetést, visszatérítést és számlát mutat, valamint a még fennálló tartozást. A **Megnyitás a Stripe-ban** a Stripe irányítópultján nyitja meg a fizetést.
+- A **Műszerfal** a közelgő fizetéseket és a pénzforgalmat mutatja, a **Jelentések** között pedig megtalálja a [pénzügyi jelentést](/hu/insights/reports).
 
-## Related
+## Kapcsolódó útmutatók
 
-- [Connect Stripe](/hu/payments/connect-stripe)
-- [Security deposits](/hu/payments/security-deposits)
-- [Record a payment](/hu/bookings/record-a-payment)
+- [Stripe csatlakoztatása](/hu/payments/connect-stripe)
+- [Kauciók](/hu/payments/security-deposits)
+- [Fizetés rögzítése](/hu/bookings/record-a-payment)

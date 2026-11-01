@@ -1,62 +1,62 @@
 ---
-title: "Security deposits"
-description: "Charge a refundable deposit before check-in, keep part of it for damage, and return the rest automatically."
+title: "Kauciók"
+description: "Terheljen visszatéríthető kauciót érkezés előtt, tartson vissza belőle a károkra, a többit pedig adja vissza automatikusan."
 ---
 
-A security deposit covers damage or missing items. Overviu charges it to the guest's card a day before check-in and refunds it automatically a few days after check-out, unless you keep some of it.
+A kaució a károkat vagy a hiányzó tárgyakat fedezi. Az Overviu az érkezés előtti napon terheli a vendég kártyájára, és a távozás után néhány nappal automatikusan visszatéríti, hacsak Ön nem tart vissza belőle.
 
-<Note>Only owners and admins can keep, refund, hold or waive a deposit. Deposits need Stripe; see [Connect Stripe](/hu/payments/connect-stripe).</Note>
+<Note>Kauciót csak tulajdonosok és adminisztrátorok tarthatnak vissza, téríthetnek vissza, függeszthetnek fel vagy engedhetnek el. A kaucióhoz Stripe szükséges; lásd: [Stripe csatlakoztatása](/hu/payments/connect-stripe).</Note>
 
-## Set up a deposit
+## Kaució beállítása
 
 <Steps>
-  <Step title="Set the amount">
-    Open the listing → **Pricing** → **Charges & fees**, enter the **Security deposit** and click **Save fees**. For a unit type, set it on the unit type; for whole-building bookings, on the building.
+  <Step title="Adja meg az összeget">
+    Nyissa meg a szálláshirdetést → **Árazás** → **Díjak és költségek**, adja meg a **Kaució** összegét, és kattintson a **Díjak mentése** gombra. Egységtípusnál az egységtípuson, a teljes épületre szóló foglalásokhoz az épületen állítsa be.
   </Step>
-  <Step title="Choose when it comes back">
-    In **Settings** → **Booking site**, under **Security deposits**, set **Refund security deposits after (days after check-out)**. It's 7 days unless you change it. This setting is for owners and admins.
+  <Step title="Válassza ki, mikor jár vissza">
+    A **Beállítások** → **Foglalási weboldal** menüpontban, a **Kauciók** résznél adja meg a **Kaució visszatérítése (a távozás után ennyi nappal)** értékét. Ha nem módosítja, 7 nap. Ezt a beállítást tulajdonosok és adminisztrátorok kezelik.
   </Step>
 </Steps>
 
-<Note>**Security deposit (offline)**, on the same tab, is only kept with the listing: Overviu doesn't charge it, show it to guests or put it in the rental agreement.</Note>
+<Note>Az ugyanezen a fülön található **Kaució (offline)** csak a szálláshirdetésnél tárolt adat: az Overviu nem terheli, nem mutatja a vendégeknek, és nem kerül bele a bérleti szerződésbe.</Note>
 
-## How it works
+## Hogyan működik?
 
-1. The guest adds a card. A guest who paid online already has their card saved. Otherwise, their [booking page](/hu/guests/guest-page) asks them to add one; until they do, the booking shows **No card yet**.
-2. Overviu charges it 24 hours before check-in, at the property's local time. The deposit shows **Charged**, with the date and when it's due back. The rental agreement names the amount as `{security_deposit}`.
-3. Overviu refunds it on the refund date: the whole deposit, less anything you kept.
+1. A vendég megad egy kártyát. Az online fizető vendég kártyája már el van mentve. Egyébként a [foglalási oldala](/hu/guests/guest-page) kéri, hogy adjon meg egyet; amíg ezt nem teszi meg, a foglaláson ez látható: **Még nincs bankkártya**.
+2. Az Overviu 24 órával az érkezés előtt terheli, a szállás helyi ideje szerint. A kaucióknál ekkor ez látható: **Megterhelve**, a dátummal és azzal, hogy mikor jár vissza. A bérleti szerződés `{security_deposit}` helyőrzőként tartalmazza az összeget.
+3. Az Overviu a visszatérítés napján visszatéríti: a teljes kauciót, levonva belőle azt, amit Ön visszatartott.
 
-If the card is declined, the deposit shows **Card declined** and the guest is asked for another card on their booking page. Your team gets a **Security deposit declined** email. Click **Try again** to charge the card again straight away.
+Ha a kártyát elutasítják, a kauciónál ez látható: **Bankkártya elutasítva**, a vendéget pedig a foglalási oldalán egy másik kártya megadására kérik. A csapata **Kaució elutasítva** tárgyú e-mailt kap. A **Próbálja újra** gombbal azonnal újra megterhelheti a kártyát.
 
-## Keep part of it
+## Részösszeg visszatartása
 
-When something's damaged:
+Ha valami megrongálódott:
 
 <Steps>
-  <Step title="Open the booking">
-    Go to **Bookings**, open the booking and find the **Security deposit** section.
+  <Step title="Nyissa meg a foglalást">
+    Nyissa meg a **Foglalások** oldalt, majd a foglalást, és keresse meg a **Kaució** részt.
   </Step>
-  <Step title="Keep part">
-    Click **Keep part**. Enter the **Amount to keep** and the **Reason**, like "Broken lamp", and click **Keep and refund the rest**.
+  <Step title="Tartson vissza egy részt">
+    Kattintson a **Részösszeg megtartása** gombra. Adja meg a **Visszatartandó összeg** és az **Indok** értékét (például „Eltört lámpa”), majd kattintson a **Részösszeg visszatartása, a többi visszatérítése** gombra.
   </Step>
 </Steps>
 
-The rest goes back to the guest straight away. What you kept shows as **Kept** on the booking, and counts as money in on the [money report](/hu/insights/reports).
+A többi azonnal visszajár a vendégnek. A visszatartott összeg a foglaláson **Visszatartva** jelzéssel látható, és a [pénzügyi jelentésben](/hu/insights/reports) bevételként számít.
 
-## Other things you can do
+## További lehetőségek
 
-- **Hold refund**: pause the automatic refund while you check something, like a damage report. **Release hold** lets it go ahead again.
-- **Refund now**: give the whole deposit back before the refund date.
-- **Waive**: drop a deposit that hasn't been charged yet. The guest won't be charged.
+- **Visszatérítés visszatartása**: felfüggeszti az automatikus visszatérítést, amíg ellenőriz valamit, például egy kárbejelentést. A **Zárolás feloldása** után a visszatérítés újra folytatódhat.
+- **Visszatérítés most**: a teljes kauciót a visszatérítés napja előtt visszaadja.
+- **Elengedés**: elengedi a még nem terhelt kauciót. A vendéget nem terhelik meg.
 
-## What happens next
+## Mi történik ezután?
 
-- Cancelling a booking refunds a charged deposit in full, and drops one that hasn't been charged.
-- A deposit refunded in the Stripe Dashboard counts too: Overviu refunds only what's left.
-- **Reports** show the deposits you're holding under the money report.
+- A foglalás lemondása teljes egészében visszatéríti a már terhelt kauciót, a még nem terheltet pedig elengedi.
+- A Stripe irányítópultján visszatérített kaució is számít: az Overviu csak a fennmaradó részt téríti vissza.
+- A **Jelentések** a pénzügyi jelentésben mutatják az Ön által tartott kauciókat.
 
-## Related
+## Kapcsolódó útmutatók
 
-- [How guests pay](/hu/payments/how-guests-pay)
-- [Refunds](/hu/payments/refunds)
-- [The guest's booking page](/hu/guests/guest-page)
+- [Hogyan fizetnek a vendégek?](/hu/payments/how-guests-pay)
+- [Visszatérítések](/hu/payments/refunds)
+- [A vendég foglalási oldala](/hu/guests/guest-page)

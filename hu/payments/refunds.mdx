@@ -1,54 +1,54 @@
 ---
-title: "Refunds"
-description: "Give money back to a guest through Stripe: part of the stay, an extra, or by the cancellation policy."
+title: "Visszatérítések"
+description: "Adjon vissza pénzt egy vendégnek a Stripe-on keresztül: a tartózkodás egy részét, egy kiegészítő szolgáltatás díját, vagy a lemondási szabályzat szerinti összeget."
 ---
 
-Refund a guest from their booking: a goodwill gesture, a shorter stay, or an extra you shouldn't have charged. The money goes back to the card the guest paid with, through your Stripe account.
+Térítsen vissza a vendégnek a foglalásából: gesztusként, rövidebb tartózkodás miatt, vagy egy tévesen felszámított kiegészítő szolgáltatás díját. A pénz a Stripe-fiókján keresztül arra a kártyára jár vissza, amellyel a vendég fizetett.
 
-<Note>Only owners and admins can issue refunds. Refunds need Stripe; see [Connect Stripe](/hu/payments/connect-stripe).</Note>
+<Note>Visszatérítést csak tulajdonosok és adminisztrátorok indíthatnak. A visszatérítéshez Stripe szükséges; lásd: [Stripe csatlakoztatása](/hu/payments/connect-stripe).</Note>
 
-## Refund a guest
+## Visszatérítés a vendégnek
 
 <Steps>
-  <Step title="Open the booking">
-    Go to **Bookings**, open the booking and, in its **Payment** section, click **Issue refund**. The button shows when there's something left to refund.
+  <Step title="Nyissa meg a foglalást">
+    Nyissa meg a **Foglalások** oldalt, majd a foglalást, és a **Fizetés** részen kattintson a **Visszatérítés indítása** gombra. A gomb akkor jelenik meg, ha van még visszatéríthető összeg.
   </Step>
-  <Step title="Choose what to refund">
-    If the guest also paid for extras, pick under **Refund from**: **The stay**, or one of the extra charges.
+  <Step title="Válassza ki, mit térít vissza">
+    Ha a vendég kiegészítő szolgáltatásokért is fizetett, a **Visszatérítés innen:** résznél válasszon: **A tartózkodás**, vagy valamelyik kiegészítő terhelés.
   </Step>
-  <Step title="Enter the amount">
-    Enter the **Amount**: Overviu shows how much can be refunded. Add a **Reason (optional)**; it's kept in the booking's **Timeline**.
+  <Step title="Adja meg az összeget">
+    Adja meg az **Összeg** értékét: az Overviu mutatja, mennyi téríthető vissza. Adjon meg egy **Indok (nem kötelező)** értéket; ez a foglalás **Idővonal** részében marad meg.
   </Step>
-  <Step title="Refund">
-    Click **Refund**. If Stripe refuses, Overviu shows Stripe's reason and nothing is refunded.
+  <Step title="Térítse vissza">
+    Kattintson a **Visszatérítés** gombra. Ha a Stripe elutasítja, az Overviu megmutatja a Stripe indoklását, és semmi sem kerül visszatérítésre.
   </Step>
 </Steps>
 
-A stay refund comes off the newest payments first, and never touches extras. Stripe usually takes 5 to 10 days to put the money back on the guest's card.
+A tartózkodás visszatérítése a legutóbbi fizetésekből indul, és soha nem érinti a kiegészítő szolgáltatásokat. A Stripe-nak általában 5–10 napra van szüksége, hogy a pénz visszakerüljön a vendég kártyájára.
 
-Money you refund counts as owed again: a balance still waiting to be charged grows by it, and if the guest pays it another way you can [record that payment](/hu/bookings/record-a-payment).
+A visszatérített összeg újra tartozásnak számít: egy még terhelésre váró hátralék ennyivel nő, és ha a vendég más módon fizeti ki, [rögzítheti a fizetést](/hu/bookings/record-a-payment).
 
-## Refunds Overviu makes for you
+## Visszatérítések, amelyeket az Overviu végez Ön helyett
 
-- Cancelling a booking offers a refund that follows the listing's [cancellation policy](/hu/calendar/prices-and-rules#cancellation-policy); you can change the amount. See [Cancel a booking](/hu/bookings/cancel-and-refund).
-- Shortening a stay refunds the nights given up, by the same policy. See [Change a booking](/hu/bookings/change-a-booking).
-- Security deposits are refunded automatically after check-out. See [Security deposits](/hu/payments/security-deposits).
+- A foglalás lemondásakor az Overviu a szálláshirdetés [lemondási szabályzatát](/hu/calendar/prices-and-rules#cancellation-policy) követő visszatérítést javasol; az összeget módosíthatja. Lásd: [Foglalás lemondása](/hu/bookings/cancel-and-refund).
+- A tartózkodás rövidítésekor az Overviu ugyanezen szabályzat szerint visszatéríti az elmaradó éjszakákat. Lásd: [Foglalás módosítása](/hu/bookings/change-a-booking).
+- A kauciókat az Overviu a távozás után automatikusan visszatéríti. Lásd: [Kauciók](/hu/payments/security-deposits).
 
-## Refunds made in Stripe
+## A Stripe-ban végzett visszatérítések
 
-You can also refund a payment in your Stripe Dashboard. Stripe tells Overviu, and the booking's **Payment** section, payment status and reports follow, as if you'd refunded it in Overviu.
+Egy fizetést a Stripe irányítópultján is visszatéríthet. A Stripe értesíti az Overviut, és a foglalás **Fizetés** része, fizetési állapota és a jelentések ezt követik, mintha az Overviuban térítette volna vissza.
 
-## What can't be refunded through Stripe
+## Amit nem lehet a Stripe-on keresztül visszatéríteni
 
-- Money you [recorded](/hu/bookings/record-a-payment) as cash, bank transfer or card terminal: it never went through Stripe. Pay it back the way you received it.
-- More than the guest paid.
+- A készpénzes, banki átutalásos vagy kártyaterminálos fizetésként [rögzített](/hu/bookings/record-a-payment) pénzt: ez soha nem ment át a Stripe-on. Fizesse vissza ugyanúgy, ahogyan kapta.
+- A vendég által fizetettnél nagyobb összeget.
 
-## A payment that arrived too late
+## Túl későn érkezett fizetés
 
-If a guest pays after their booking stopped waiting for the payment (for example, it was cancelled for not paying in time), the booking shows **Refund needed**. Refund the payment with **Issue refund**, or talk to the guest about booking again.
+Ha egy vendég azután fizet, hogy a foglalása már nem vár a fizetésre (például mert időben nem fizetett, és lemondásra került), a foglaláson ez látható: **Visszatérítés szükséges**. Térítse vissza a fizetést a **Visszatérítés indítása** gombbal, vagy beszéljen a vendéggel az újrafoglalásról.
 
-## Related
+## Kapcsolódó útmutatók
 
-- [Cancel a booking](/hu/bookings/cancel-and-refund)
-- [How guests pay](/hu/payments/how-guests-pay)
-- [Reports](/hu/insights/reports)
+- [Foglalás lemondása](/hu/bookings/cancel-and-refund)
+- [Hogyan fizetnek a vendégek?](/hu/payments/how-guests-pay)
+- [Jelentések](/hu/insights/reports)
