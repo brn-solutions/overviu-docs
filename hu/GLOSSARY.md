@@ -46,6 +46,7 @@ no decimals.
 | English | Hungarian | Note |
 |---|---|---|
 | booking | foglalás | |
+| block (dates) | blokkol, blokkolt dátumok | As the app's **Blokkolva**; not "letilt". |
 | booking code | foglalási kód | |
 | guest | vendég | |
 | host | szállásadó | |

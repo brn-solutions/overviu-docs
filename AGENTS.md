@@ -19,7 +19,8 @@ Overviu's internal code belongs here.
   `python3 scripts/translation-prompt.py ~/Sites/overviu hu/<page>.mdx` prints a ready prompt for translating it
   (rules, glossary, the page's labels from `hu.json`).
 - Before publishing Hungarian: `python3 scripts/check-labels.py --lang hu ~/Sites/overviu hu/**/*.mdx` (every bold
-  phrase is a label in `hu.json`) and `python3 scripts/check-drift.py hu` (no `hu/` page behind its English one) must
-  both report 0.
+  phrase is a label in `hu.json`), `python3 scripts/check-drift.py hu` (no `hu/` page behind its English one) and
+  `python3 scripts/check-anchors.py hu/**/*.mdx` (every #anchor link lands on a heading) must all report 0. A
+  translated heading that other pages link to keeps the English anchor as a custom ID: `## Csatornák {#channels}`.
 - Don't edit `api-reference/openapi.json` by hand: the app's CI replaces it on every push to its `main`.
 - Before committing: `npx mint validate` and `npx mint broken-links`.

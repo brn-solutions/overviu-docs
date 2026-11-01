@@ -28,6 +28,28 @@ def label(phrase):
     return None
 
 
+
+
+def slug(heading):
+    return re.sub(r"\s+", "-", re.sub(r"[^\w\s-]", "", heading.lower())).strip("-")
+
+
+# Headings other guides (or this one) link to by #anchor keep that anchor as a custom ID: {#channels}.
+target = str(english.with_suffix(""))
+anchors = set()
+for other in docs.glob("**/*.mdx"):
+    if other.parts[len(docs.parts)] in ("hu", "api-reference"):
+        continue
+    for path, anchor in re.findall(r'(?:\]\(|href=")(/[^)#"]*)?#([^)"]+)', other.read_text()):
+        if (path[1:] if path else str(other.relative_to(docs).with_suffix(""))) == target:
+            anchors.add(anchor)
+headings = {slug(text): line for line, text in re.findall(r"^(#{2,6} (.+))$", (docs / english).read_text(), re.M)}
+linked = "\n".join(f'- "{headings[anchor]}" → "{headings[anchor].split(" ")[0]} <Hungarian heading> {{#{anchor}}}"' for anchor in sorted(anchors) if anchor in headings)
+linked_note = (
+    "\nOther pages link to these headings, so end each translated heading with its ID exactly as shown:\n" + linked + "\n"
+    if linked else ""
+)
+
 phrases = list(dict.fromkeys(re.findall(r"\*\*([^*]+)\*\*", (docs / english).read_text())))
 known = [(phrase, label(phrase)) for phrase in phrases if label(phrase) is not None]
 unknown = [phrase for phrase in phrases if label(phrase) is None]
@@ -56,11 +78,11 @@ Return the whole translated file in a single ```mdx code block and nothing else{
 3. Keep the MDX exactly as it is: the frontmatter keys, the components and their attribute names (<Steps>, <Step>,
    <Note>, <Warning>, <Tip>, <Card>, <CardGroup>, <Accordion>, <Frame>), every link URL and href (already pointing at
    /hu/...), code blocks, `inline code`, placeholders such as {{guest_first_name}} or {{listing}}, and the line and
-   paragraph structure. Translate the frontmatter title and description, the title="..." of steps, cards and
+   paragraph structure. Keep the #anchor part of every link unchanged (/hu/page#channels). Translate the frontmatter title and description, the title="..." of steps, cards and
    accordions, headings, link text and the body.
 4. Terms: use the glossary below and nothing else for its concepts, even where another word seems more natural: a
    listing is a "szálláshirdetés" (not "szálláshely"), the host a "szállásadó" (not "házigazda"), the dashboard
-   "Műszerfal" (not "irányítópult"), reports "Jelentések" (not "kimutatások"), the inbox "Beérkezett üzenetek". Keep brand and technical names (Airbnb,
+   "Műszerfal" (not "irányítópult"), reports "Jelentések" (not "kimutatások"), the inbox "Beérkezett üzenetek", blocked dates "blokkolt" (not "letiltott"). Keep brand and technical names (Airbnb,
    Booking.com, Stripe, Wi-Fi, API, CNAME, Webhook) as they are.
 5. Formats: dates as "2026. október 15.", short dates as "okt. 15.", money with a space between thousands, a decimal
    comma and the currency after the amount ("1 200,50 EUR", "12 000 Ft"). Convert the English examples
@@ -73,7 +95,7 @@ Return the whole translated file in a single ```mdx code block and nothing else{
 | English | Hungarian (use exactly) |
 |---|---|
 {labels}
-{unknown_note}
+{unknown_note}{linked_note}
 ## Glossary
 
 {(docs / "hu/GLOSSARY.md").read_text().strip()}

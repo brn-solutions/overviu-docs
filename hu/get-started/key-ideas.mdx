@@ -1,79 +1,79 @@
 ---
-title: "Key ideas"
-description: "Teams and roles, listings and buildings, booking statuses and sources, the booking site and calendar sync."
+title: "Alapfogalmak"
+description: "Csapatok és szerepkörök, szálláshirdetések és épületek, foglalási állapotok és források, a foglalási weboldal és a naptárszinkronizálás."
 ---
 
-A few ideas run through all of Overviu. Knowing them makes the rest of the guides quicker to follow.
+Néhány alapfogalom az Overviu egészében visszatér. Ha megismeri őket, könnyebben követheti a többi útmutatót.
 
-## Teams
+## Csapatok
 
-Everything in Overviu belongs to a team: listings, bookings, guests, messages and settings. Signing up creates your first team, and you can belong to several, for example your own rentals and a client's. Switch between them with the team switcher at the top of the sidebar; every page shows the team you've switched to.
+Az Overviuban minden egy csapathoz tartozik: a szálláshirdetések, a foglalások, a vendégek, az üzenetek és a beállítások. A regisztráció létrehozza az első csapatát, de több csapatnak is tagja lehet, például külön kezelheti a saját és egy ügyfele kiadó ingatlanjait. Az oldalsáv tetején található csapatválasztóval válthat közöttük; minden oldal az éppen kiválasztott csapat adatait mutatja.
 
-Each team has its own plan, its own Stripe account and its own booking site.
+Minden csapatnak saját előfizetése, saját Stripe-fiókja és saját foglalási weboldala van.
 
-### Roles
+### Szerepkörök
 
-Everyone in a team has one of three roles.
+A csapatban mindenki a három szerepkör egyikét tölti be.
 
-| Role | What they can do |
+| Szerepkör | Mire jogosult? |
 | --- | --- |
-| **Owner** | Everything, including the plan and billing, changing members' roles, removing members and deleting the team. Each team has one owner. |
-| **Admin** | Everything an owner can do with the team's work and settings, and invite people. They can't manage billing, change roles, remove members or delete the team. |
-| **Member** | Day-to-day work: listings, the calendar, bookings and the inbox. |
+| **Tulajdonos** | Mindenre, beleértve az előfizetés és a számlázás kezelését, a tagok szerepkörének módosítását, a tagok eltávolítását és a csapat törlését. Minden csapatnak egy tulajdonosa van. |
+| **Adminisztrátor** | A csapat munkájával és beállításaival kapcsolatban mindarra, amire a tulajdonos, továbbá másokat is meghívhat. Nem kezelheti a számlázást, nem módosíthat szerepköröket, nem távolíthat el tagokat, és nem törölheti a csapatot. |
+| **Tag** | A napi feladatokra: a szálláshirdetések, a naptár, a foglalások és a Beérkezett üzenetek kezelésére. |
 
-Members don't see:
+A tagok nem látják a következőket:
 
-- **Reports**;
-- the money on the **Dashboard**: revenue, cash flow, upcoming payments and the getting-started checklist;
-- the team's **Domains**, **Branding**, **Booking site**, **Coupons** and **Payments** settings.
+- a **Jelentések** oldalt;
+- a **Műszerfal** pénzügyi adatait: a bevételt, a pénzforgalmat, a közelgő fizetéseket és a kezdő teendőlistát;
+- a csapat **Domainek**, **Arculat**, **Foglalási weboldal**, **Kuponok** és **Fizetések** beállításait.
 
-They also can't charge or refund guests, handle security deposits, create API tokens, or move listings to the trash and restore them. They can record a payment a guest made in person. See [Team and roles](/hu/account/team-and-roles).
+Emellett nem terhelhetik meg a vendégek fizetési eszközét, nem indíthatnak visszatérítést, nem kezelhetik a kauciókat, nem hozhatnak létre API-tokeneket, és nem helyezhetnek szálláshirdetéseket a kukába, illetve nem állíthatják vissza őket. A vendég személyesen teljesített fizetését viszont rögzíthetik. Lásd: [Csapat és szerepkörök](/hu/account/team-and-roles).
 
-## Listings
+## Szálláshirdetések
 
-A listing is something guests can book. There are three kinds.
+A szálláshirdetés olyasmit hirdet, amit a vendégek lefoglalhatnak. Három fajtája van.
 
-- **Single property**: a house, villa or apartment let as a whole.
-- **Building**: a building whose apartments or rooms are let separately. It holds unit types, and can also be booked as a whole (**Rent the whole building**).
-- **Unit type**: a kind of unit inside a building, like "2-bedroom apartment", with the units of that type (2A, 2B…). Guests book a unit type, and Overviu assigns a free unit automatically.
+- **Önálló ingatlan**: egyben kiadott ház, villa vagy apartman.
+- **Épület**: olyan épület, amelynek apartmanjai vagy szobái külön kiadók. Egységtípusokat tartalmaz, és egészben is lefoglalható (**Teljes épület bérlése**).
+- **Egységtípus**: egy épületen belüli egységek típusa, például „2 hálószobás apartman”, a hozzá tartozó egységekkel (2A, 2B…). A vendégek egy egységtípust foglalnak le, az Overviu pedig automatikusan hozzárendel egy szabad egységet.
 
-Your plan is priced per unit: a single property is one unit, and a building counts only its units.
+Az előfizetés díja egységenként számítandó: egy önálló ingatlan egy egységnek számít, épület esetén pedig csak a benne lévő egységek számítanak.
 
-A listing's status decides whether guests can see it:
+A szálláshirdetés állapota határozza meg, hogy a vendégek láthatják-e:
 
-- **Draft**: new listings start here. Only your team sees them.
-- **Active**: on your booking site and bookable.
-- **Archived**: kept for your records, off the booking site.
+- **Piszkozat**: az új szálláshirdetések ebben az állapotban jönnek létre. Csak az Ön csapata látja őket.
+- **Aktív**: megjelenik az Ön foglalási weboldalán, és foglalható.
+- **Archiválva**: megmarad a nyilvántartásban, de nem jelenik meg a foglalási weboldalon.
 
-A listing you no longer need can be moved to the trash, which takes it off the booking site; you can restore it from **Listings**. See [Create a listing](/hu/listings/create-a-listing), [Buildings and units](/hu/listings/buildings-and-units) and [Trash and restore](/hu/listings/trash-and-restore).
+A már nem szükséges szálláshirdetést a kukába helyezheti, amivel eltávolítja a foglalási weboldalról; a **Szálláshirdetések** oldalon visszaállíthatja. Lásd: [Szálláshirdetés létrehozása](/hu/listings/create-a-listing), [Épületek és egységek](/hu/listings/buildings-and-units) és [Kukába helyezés és visszaállítás](/hu/listings/trash-and-restore).
 
-## Bookings
+## Foglalások
 
-Every booking has a status:
+Minden foglalásnak van állapota:
 
-| Status | What it means |
+| Állapot | Mit jelent? |
 | --- | --- |
-| **Pending** | The booking holds the dates and waits for you to confirm it. |
-| **Awaiting payment** | A guest is paying online. If the payment doesn't arrive by its deadline, the booking is cancelled and the dates are released. |
-| **Confirmed** | The stay is on. Online payments confirm a booking automatically. |
-| **Cancelled** | The booking no longer holds its dates. |
-| **Completed** | The stay is over: you marked it as completed after check-out. |
+| **Függőben** | A foglalás lefoglalja a dátumokat, és az Ön megerősítésére vár. |
+| **Fizetésre vár** | Egy vendég éppen online fizet. Ha a fizetés nem érkezik meg a határidőig, a foglalás törlődik, és a dátumok felszabadulnak. |
+| **Visszaigazolva** | A tartózkodás vissza van igazolva. Az online fizetés automatikusan megerősíti a foglalást. |
+| **Lemondva** | A foglalás már nem foglalja le a dátumokat. |
+| **Befejezve** | A tartózkodás véget ért: Ön a kijelentkezés után befejezettként jelölte meg. |
 
-And a source, where it came from: **Manual**, **Direct** (your booking site), **API**, **Airbnb**, **Booking.com**, **Vrbo** or **Expedia**. When you add a booking yourself, you pick its source, so a stay booked on Airbnb can be recorded as one. Bookings marked as from Airbnb, Booking.com, Vrbo or Expedia can't be changed in Overviu, only cancelled: those sites own them.
+Emellett minden foglalásnak van forrása, amely jelzi, honnan érkezett: **Kézi**, **Közvetlen** (az Ön foglalási weboldala), **API**, **Airbnb**, **Booking.com**, **Vrbo** vagy **Expedia**. Ha Ön ad hozzá egy foglalást, kiválaszthatja a forrását, így az Airbnb-n lefoglalt tartózkodást ennek megfelelően rögzítheti. Az Airbnb, a Booking.com, a Vrbo vagy az Expedia oldaláról származóként megjelölt foglalások az Overviuban nem módosíthatók, csak lemondhatók: ezeket az adott oldalak kezelik.
 
-Calendar sync doesn't create bookings. It blocks the nights that are booked on the other sites, without guest details; see [Channels](#channels).
+A naptárszinkronizálás nem hoz létre foglalásokat. A más oldalakon lefoglalt éjszakákat blokkolja, vendégadatok nélkül; lásd: [Csatornák](#channels).
 
-**Direct** bookings (from your booking site, or added by you with the source **Direct**) also have a payment status, because Overviu keeps track of their money: **Paid**, **Part paid**, **Awaiting payment** or **Pay at check-in**. See [Bookings and statuses](/hu/bookings/bookings-and-statuses).
+A **Közvetlen** forrású foglalásoknak (amelyek az Ön foglalási weboldaláról érkeztek, vagy amelyeket Ön **Közvetlen** forrással adott hozzá) fizetési állapotuk is van, mert az Overviu nyilvántartja a hozzájuk kapcsolódó pénzmozgásokat: **Fizetve**, **Részösszeg fizetve**, **Fizetésre vár** vagy **Fizetés érkezéskor**. Lásd: [Foglalások és állapotok](/hu/bookings/bookings-and-statuses).
 
-## The booking site
+## A foglalási weboldal
 
-Every team gets a direct booking site at `your-team.overviu.app`, and can use its own domain instead. It shows your active listings, takes bookings with your terms and rental agreement, and takes payments through your Stripe account. See [Set up your booking site](/hu/booking-site/set-up).
+Minden csapat kap egy közvetlen foglalási weboldalt a `your-team.overviu.app` címen, de helyette saját domaint is használhat. A weboldal megjeleníti az Ön aktív szálláshirdetéseit, az Ön feltételeivel és bérleti szerződésével fogad foglalásokat, a fizetéseket pedig az Ön Stripe-fiókján keresztül fogadja. Lásd: [A foglalási weboldal beállítása](/hu/booking-site/set-up).
 
-## Channels
+## Csatornák {#channels}
 
-Airbnb, Booking.com and Vrbo are channels: other sites your listings are on. Overviu keeps calendars in step with them both ways by calendar (iCal) links, so a booking on one site blocks the dates everywhere. See [Calendar sync](/hu/calendar/booking-site-calendars).
+Az Airbnb, a Booking.com és a Vrbo csatornák: olyan más weboldalak, amelyeken az Ön szálláshirdetései megjelennek. Az Overviu naptárhivatkozásokkal (iCal) mindkét irányban összehangolja velük a naptárakat, így az egyik oldalon létrejövő foglalás mindenhol blokkolja az adott dátumokat. Lásd: [Naptárszinkronizálás](/hu/calendar/booking-site-calendars).
 
-## Related
+## Kapcsolódó útmutatók
 
-- [Set up in 15 minutes](/hu/get-started/quickstart)
-- [Team and roles](/hu/account/team-and-roles)
+- [Beállítás 15 perc alatt](/hu/get-started/quickstart)
+- [Csapat és szerepkörök](/hu/account/team-and-roles)
