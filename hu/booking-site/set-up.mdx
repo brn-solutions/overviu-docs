@@ -1,0 +1,70 @@
+---
+title: "Your booking site"
+description: "Your own direct booking website: its address, which listings it shows, how guests book and pay, and what to set up."
+---
+
+Every team gets a booking site: a website of its own where guests find your listings, see live prices and availability, and book you directly, with no booking-site commission. Overviu builds it from your listings; you choose its look and the details around it.
+
+<Note>Only owners and admins can change the booking site's settings.</Note>
+
+## Its address
+
+Your booking site lives at `your-team.overviu.app`, where `your-team` comes from your team's name. Find the exact address in **Settings** → **Domains** under **Managed subdomain**. You can also [use your own domain](/hu/booking-site/custom-domain), like `book.your-domain.com`.
+
+<Warning>Renaming your team changes the `overviu.app` address, and links to the old one stop working. A custom domain doesn't change.</Warning>
+
+## What guests see
+
+- The home page lists your listings, with a search by town (**Where**), dates (**When**) and guests (**Who**), filters by type and bedrooms, and sorting. With dates chosen, only the places free for them show, each with the stay's total (and the price before a discount struck through); a building's card lists its free apartment types, with "1 left" when few remain. The guests price the stay and travel with the guest to the listing page; they never hide a place, since a host can often fit one more. On phones the search is a **Where to?** button that opens a full-screen sheet.
+- A site with a single listing opens straight on that listing; `/listings` still shows the grid.
+- Each listing has its own page: photos, description, amenities, the map, your host profile, and a price for the dates the guest picks. See [Photos and the listing page](/hu/listings/photos-and-listing-page).
+- A building has one page with a card for each unit type, and one for the whole building when it can be booked as a whole.
+
+A listing appears only when it's **Active**. For a building, the building must be active too, and a unit type needs at least one unit. See [Create a listing](/hu/listings/create-a-listing).
+
+## How guests book
+
+<Steps>
+  <Step title="Pick dates and guests">
+    On the listing page, the guest picks dates and who's coming under **Guests**: adults (13 and over), children (2 to 12) and infants (under 2). On a phone, they tap **Change** next to **Guests**. They see the price, or why the dates can't be booked (too short, already taken and so on). Infants don't count toward the listing's maximum guests; up to 5 can come. A listing with **Children allowed** off asks only for adults, and refuses children and infants. Listings that allow pets also ask **Bringing pets?** there, and the price adds the pet fee if they are.
+  </Step>
+  <Step title="Check the stay">
+    The booking page opens with the stay: **Dates**, **Guests**, **Total price** and how long it can be cancelled for free. The guest can **Change** the dates or the guests there.
+  </Step>
+  <Step title="Fill in their details">
+    They fill in **Your details** (**Full name**, **Email**, **Phone**) and any **Special requests**, and can add a coupon under **Have a coupon code?**. Returning guests can **Sign in** to use their saved details.
+  </Step>
+  <Step title="Accept the terms">
+    If you've published [booking terms](/hu/booking-site/terms-and-agreement), they tick that they agree to them and the cancellation policy.
+  </Step>
+  <Step title="Pay or request">
+    - When the listing takes payment online, they click **Continue to payment** and pay on Stripe's checkout page. Their dates are held for 60 minutes while they pay.
+    - When they pay at check-in, they click **Request to book**.
+  </Step>
+  <Step title="Done">
+    They see **Booking received**, and get an email with a link to their [booking page](/hu/guests/guest-page).
+  </Step>
+</Steps>
+
+Paid bookings are **Confirmed** straight away. Requests are **Pending** until you confirm them. See [How guests pay](/hu/payments/how-guests-pay).
+
+## Set it up
+
+In **Settings** → **Booking site** → **General**:
+
+- **Contact details**: the **Contact email** and **Contact phone** guests see on their booking page. The email is also where guests' replies go when your [inbox](/hu/guests/inbox) isn't set up. Leave it empty to use the team owner's email.
+- **Host profile**: your **Host name**, **Hosting since (year)**, **About the host** and a **Host photo**, shown on your listing pages.
+- **Security deposits**: when deposits are refunded; see [Security deposits](/hu/payments/security-deposits).
+- **Default language of your booking site**: the language visitors see first, English or magyar (Hungarian). Visitors can switch with the language button at the top of every page, and a signed-in guest who chose a language in their profile keeps theirs. Emails to your guests follow the same choice. A new team starts in the language you signed up in.
+
+Click **Save**. Then:
+
+- choose your colours, font and logo in [Branding](/hu/booking-site/branding);
+- publish your [booking terms and rental agreement](/hu/booking-site/terms-and-agreement);
+- [connect Stripe](/hu/payments/connect-stripe) to take payments online.
+
+## Related
+
+- [Branding](/hu/booking-site/branding)
+- [Use your own domain](/hu/booking-site/custom-domain)
+- [Set up in 15 minutes](/hu/get-started/quickstart)

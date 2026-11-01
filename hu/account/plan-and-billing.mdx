@@ -1,0 +1,90 @@
+---
+title: "Plan and billing"
+description: "Overviu's per-unit pricing, the free trial, what happens without a plan, and managing your subscription and invoices."
+---
+
+Each team has its own plan, paid by the team's owner. **Your team pays per unit**: the plan follows how many units you list, and every plan has every feature (the booking site, payments, reports, calendar sync and the API). Plans differ only in the per-unit price and in how many people can be in the team.
+
+<Note>Only the team's owner can choose a plan or manage billing, under the user menu → **Settings** → **Plan & billing**.</Note>
+
+## Plans
+
+Each unit is charged at the rate of the band it falls in, so your bill only ever changes by the units you add or remove. Prices are in pounds sterling.
+
+| Plan | For | Units | Team members | Per unit, monthly | Per unit, yearly |
+| --- | --- | --- | --- | --- | --- |
+| **Solo** | Your first home | 1 | 1 (just you) | £15 | £12 |
+| **Host** | A handful of homes | 2 to 10 | Up to 3 | £10 after the first | £8 after the first |
+| **Pro** | Growing portfolios | 11 to 50 | Up to 10 | £8 after the tenth | £6.50 after the tenth |
+| **Enterprise** | 51 units and more | — | — | Get in touch | Get in touch |
+
+Yearly is about 20% less than monthly. Some examples of what a team pays a month:
+
+| Units | Monthly | Yearly (per month) |
+| --- | --- | --- |
+| 1 | £15 | £12 |
+| 5 | £55 | £44 |
+| 10 | £105 | £84 |
+| 20 | £185 | £149 |
+
+**Plan & billing** shows these worked out for your team's own units, band by band.
+
+### What counts as a unit
+
+- A single property is one unit.
+- A building counts its units (the apartments or rooms), not itself.
+- Listings in the trash don't count.
+
+Overviu's self-serve plans go up to 50 units. Above that, Overviu stops you adding a listing or a unit, and restoring a listing from the trash, and asks you to get in touch for an Enterprise plan. See [Create a listing](/hu/listings/create-a-listing#your-plans-limit).
+
+### Team members
+
+Team members count everyone in the team, the owner included, plus invitations still waiting. When the plan is full, **Invite member** says so; an invitation sent earlier can't be accepted either until there's room. See [Team and roles](/hu/account/team-and-roles).
+
+## The free trial
+
+Every new team gets a 14-day free trial, with every feature, no member limit and no card needed. **Plan & billing** shows when the trial ends, and the **Dashboard** reminds you a week before. Starting a plan during the trial doesn't cut it short: you aren't charged before the trial ends.
+
+## Start a plan
+
+<Steps>
+  <Step title="Open Plan & billing">
+    Open the user menu → **Settings** → **Plan & billing**. The page shows your units, what they cost monthly and yearly, and how that breaks down by band.
+  </Step>
+  <Step title="Pick monthly or yearly">
+    Click **Start monthly** or **Start yearly**. You pay by card on Stripe's secure checkout page, and come back to Overviu when it's done.
+  </Step>
+</Steps>
+
+You can cancel at any time; the plan then runs to the end of what you've paid for.
+
+## When your units change
+
+Adding or removing a unit changes your subscription the same day. Stripe adjusts the next invoice for the part of the billing period that's left, so you only pay for the units you have, for the time you have them. There's nothing to do on the billing page.
+
+## Manage billing
+
+Under **Plan**, click **Manage billing** to open Stripe's billing portal, where you can:
+
+- update your card;
+- download your invoices;
+- switch between monthly and yearly;
+- cancel the subscription.
+
+## Without a plan
+
+When a team's trial ends without a plan, or its plan payment fails or the plan is cancelled, it gets a week to sort it out:
+
+1. A week of grace. The team works as usual. The owner gets an email saying when the week ends, and another the day before. **Needs attention** on the **Dashboard** shows the date too.
+2. Paused. After the week, the team's pages send everyone to a page saying the team is paused: the owner can start a plan there, others are asked to contact the owner. The booking site stays online but takes no new bookings, and the API answers `402`.
+3. Back on a plan. As soon as the owner starts a plan or updates the card, the team works again, exactly as it was left.
+
+Guests who have already booked are looked after as usual while the team is paused: their booking pages, scheduled payments, deposit refunds, automated messages and calendar sync carry on.
+
+<Note>Your plan pays Overviu. It's separate from the guest payments you take through [your own Stripe account](/hu/payments/connect-stripe).</Note>
+
+## Related
+
+- [Team and roles](/hu/account/team-and-roles)
+- [Create a listing](/hu/listings/create-a-listing)
+- [The dashboard](/hu/insights/dashboard)

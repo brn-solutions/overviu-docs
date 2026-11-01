@@ -1,0 +1,64 @@
+---
+title: "Change a booking"
+description: "Change a booking's dates, who's staying, guest details or notes, or move it to another unit."
+---
+
+Plans change: a guest wants an extra night, brings a friend, or has a new phone number. Change the booking in Overviu, and it re-checks the dates, re-prices the stay and settles the difference.
+
+## What you can change, and when
+
+| Booking | What you can change |
+| --- | --- |
+| **Pending** | Everything: dates, guests, guest details, notes. |
+| **Confirmed**, before check-in | Everything. |
+| **Confirmed**, guest staying now | Extend the check-out only; the check-in and shorter stays are locked. Guests, details and notes as usual. |
+| **Awaiting payment** | Guests, details and notes; not the dates. |
+| **Completed** or **Cancelled** | Nothing. |
+
+Bookings whose source is **Airbnb**, **Booking.com**, **Vrbo** or **Expedia** can't be changed in Overviu, only cancelled: change them on that site.
+
+## Change the stay or the guest
+
+<Steps>
+  <Step title="Open the booking">
+    Go to **Bookings**, open the booking and click **Edit**.
+  </Step>
+  <Step title="Make the changes">
+    - Pick new dates in **Check-in → Check-out**. For a guest staying now, use **Extend check-out to...** instead.
+    - Change who's staying in **Adults**, **Children** and **Infants**, or tick or untick **Bringing pets?** (the **Pet fee** follows).
+    - Under **Guest**, change the **Name**, **Email** or **Phone**.
+    - Change the **Special requests**, the **Notes** (a summary kept on the booking for your team) or the **Source** (**Manual** or **Direct**).
+
+    While you edit, **New price preview** shows the new total, and whether the new dates are free.
+  </Step>
+  <Step title="Save">
+    Click **Save**. If the new dates aren't available (booked, too short for the minimum stay and so on), Overviu says why and changes nothing.
+  </Step>
+</Steps>
+
+## The price difference
+
+New dates or different guests re-price the booking with the listing's current prices. When the guest paid online, Overviu settles the difference through Stripe:
+
+- The stay costs more: if a balance is still waiting for its date, it simply grows. Otherwise the guest gets an invoice by email for the difference.
+- The stay costs less: Overviu refunds the guest by the listing's [cancellation policy](/hu/calendar/prices-and-rules#cancellation-policy), as if the nights given up had been cancelled on that day. Unpaid invoices are replaced by one for what's still owed.
+
+When the guest paid you outside Overviu (cash, bank transfer), Overviu doesn't refund or invoice: the booking's **Timeline** notes what's due back, and you settle it with the guest yourself.
+
+When the guest hasn't paid yet (**Awaiting payment**), there's nothing to settle: what they pay on their booking page follows the new price, and a payment page they already had open is closed.
+
+If Stripe has a problem, the date change still stands and the **Timeline** says what went wrong.
+
+## Move a booking to another unit
+
+For a unit in a building, click **Move to another unit** on the booking and pick a unit. Only units of the same type that are free for the whole stay are listed. The guest, dates and price stay the same.
+
+## Notes
+
+The **Internal notes** section of a booking is for your team only: guests never see it. Add a note whenever something's worth remembering; each is kept in the **Timeline** with who wrote it and when.
+
+## Related
+
+- [Cancel a booking](/hu/bookings/cancel-and-refund)
+- [Record a payment](/hu/bookings/record-a-payment)
+- [Buildings and units](/hu/listings/buildings-and-units)
