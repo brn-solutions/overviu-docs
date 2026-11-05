@@ -1,0 +1,82 @@
+---
+title: "A naptár hozzáadása a saját weboldalához"
+description: "Jelenítse meg elérhetőségi naptárát vagy egy keresősávot bármelyik weboldalon egyetlen script címkével. A vendégek ott választanak dátumot, és a foglalási weboldalán fejezik be."
+---
+
+Ha van saját weboldala, megjelenítheti rajta az Overviu naptárát. A vendégek kiválasztják a dátumokat és a vendégek számát, látják, hogy szabad-e a szálláshely és mennyibe kerül a tartózkodás, majd a foglalási weboldalán folytatják, ahol már minden ki van töltve. Maga a foglalás, a fizetés és a feltételek a foglalási weboldalán maradnak.
+
+Bármelyik weboldalon működik, ahová HTML-t lehet beilleszteni: Wix, Squarespace, Webflow, vagy a fejlesztője által készített oldal. API-token nem kell hozzá. WordPress esetén használja inkább a [WordPress-bővítményt](/hu/website/wordpress).
+
+## Mielőtt elkezdi
+
+- A foglalási weboldalának neve: az `overviu.app` címének első része. A `villa-laut.overviu.app` esetén ez `villa-laut`. A címet a **Beállítások** → **Domainek** menüpontban, a **Kezelt aldomain** résznél találja. Ha a foglalási weboldala [saját domaint](/hu/booking-site/custom-domain) használ, itt akkor is az `overviu.app` alatti nevet kell megadni.
+- Naptárhoz a szálláshirdetés rövid neve: a hirdetés foglalási weboldalon lévő címének utolsó része. A `villa-laut.overviu.app/listings/sea-view` esetén ez `sea-view`.
+- Egy hely a weboldalán, ahová HTML-t illeszthet be. A weboldalkészítők ezt „beágyazás”, „egyéni kód” vagy „HTML” blokknak hívják.
+
+## Lépések
+
+<Steps>
+  <Step title="Adja hozzá a scriptet">
+    Illessze be ezt egyszer minden olyan oldalra, amely naptárat vagy keresősávot mutat:
+
+    ```html
+    <script src="https://cdn.jsdelivr.net/npm/@overviu/widgets@0.2/dist/widget.js" async></script>
+    ```
+  </Step>
+  <Step title="Adjon hozzá naptárat egy szálláshirdetéshez">
+    Illessze be ezt oda, ahol a naptárnak meg kell jelennie, a `villa-laut` és a `sea-view` helyére a saját neveit írva:
+
+    ```html
+    <overviu-calendar team="villa-laut" listing="sea-view"></overviu-calendar>
+    ```
+
+    Megjelenik a naptár, a vendégek, a kiválasztott dátumok ára és a foglalás gombja. Épület esetén a vendégek először egy egységtípust választanak.
+  </Step>
+  <Step title="Vagy adjon hozzá keresősávot az összes szálláshirdetéséhez">
+    ```html
+    <overviu-search team="villa-laut"></overviu-search>
+    ```
+
+    A vendégek megadják, hová, mikor és hányan utaznak, és a foglalási weboldala a szabad szálláshelyekkel nyílik meg. Ahol kevés a hely, például telefonon, a sáv helyett egy gomb jelenik meg, amely ugyanezeket a választásokat nyitja meg.
+  </Step>
+</Steps>
+
+## Mi történik ezután?
+
+- A naptár a valós elérhetőségét és árait mutatja, és követi az [árakat és a tartózkodási szabályokat](/hu/calendar/prices-and-rules): a minimális tartózkodást, az érkezésre lezárt napokat és azt, hogy mennyivel előre lehet foglalni.
+- Amikor a vendég a gombra kattint, a foglalási weboldala nyílik meg a dátumokkal és a vendégekkel kitöltve, ugyanazon a nyelven.
+- A weboldalán elkezdett foglalás ugyanolyan foglalás, mint bármelyik másik a foglalási weboldalán.
+- A naptár az [arculat](/hu/booking-site/branding) színeit és betűtípusát használja. Ha többet szeretne változtatni, lásd: [A naptár megjelenésének testreszabása](/hu/website/style-the-widget).
+
+<Warning>Ha átnevezi a csapatát, az `overviu.app` címe megváltozik. Utána írja át a `team` nevet a weboldala kódjában, különben a naptár nem töltődik be.</Warning>
+
+## Beállítási lehetőségek
+
+Ezek bármelyikét hozzáadhatja a címkéhez:
+
+| Beállítás | Értékek | Mit csinál |
+|---|---|---|
+| `lang` | `en`, `hu` | A nyelv. Enélkül a naptár az oldal nyelvét követi, utána a foglalási weboldal alapértelmezett nyelvét, végül az angolt. |
+| `months` | `1`, `2` | A megjelenített hónapok száma. Kettő egymás mellett áll, ahol van hely. |
+| `button-text` | szöveg | A gomb szövege helyett jelenik meg. |
+| `theme` | `light`, `dark` | A `dark` sötét hátterű oldalhoz való. |
+| `align` | `left`, `center`, `right` | Hol álljon egy nála szélesebb oszlopban. Enélkül a keresősáv középen áll, a naptár balra. |
+
+```html
+<overviu-calendar team="villa-laut" listing="sea-view" lang="hu" months="2" button-text="Foglalok" align="center"></overviu-calendar>
+```
+
+## Keretben
+
+Egyes weboldalkészítők az egyéni kódot keretbe teszik. A naptár ott is működik, és a gomb a foglalási weboldalát a teljes ablakban nyitja meg. Adjon a keretnek elég magasságot: naptárhoz körülbelül 650 képpontot, keresősávhoz körülbelül 480-at, mert annak választásai alatta nyílnak meg.
+
+## Fejlesztőknek
+
+Ugyanezek az elemek elérhetők az npm-en `@overviu/widgets` néven, típusos komponensekkel Reacthez (`@overviu/widgets-react`) és Vue-hoz (`@overviu/widgets-vue`). Mindkét elem `overviu-change` eseményt küld, amikor a vendég változtat valamit, és `overviu-continue` eseményt, amikor a gombra kattint; az utóbbi megszakításával a lépést saját maga kezelheti. A részletek a csomagok npm-oldalán találhatók.
+
+## Kapcsolódó útmutatók
+
+- [WordPress-bővítmény](/hu/website/wordpress)
+- [A naptár megjelenésének testreszabása](/hu/website/style-the-widget)
+- [Az Ön foglalási weboldala](/hu/booking-site/set-up)
+- [Árak és tartózkodási szabályok](/hu/calendar/prices-and-rules)

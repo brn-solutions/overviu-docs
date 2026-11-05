@@ -1,0 +1,89 @@
+---
+title: "Style the calendar"
+description: "Make the calendar and the search bar on your own website match it: colours, font, corners, and the parts you can restyle from your CSS."
+---
+
+The calendar and the search bar on your own website start with the colours and font from your [branding](/booking-site/branding). This guide is for whoever looks after your website's CSS: it lists what you can change so they match the rest of your site.
+
+They draw themselves inside a shadow root, so your site's CSS can't break them by accident, and they add no styles of their own to your page. You restyle them with variables and parts.
+
+On WordPress, the plugin's settings page sets the primary colour, the font and the corner radius without any CSS. See [WordPress plugin](/website/wordpress).
+
+## Variables
+
+Set these in your own CSS, on the element:
+
+```css
+overviu-calendar,
+overviu-search {
+  --overviu-color-primary: #0f766e;
+  --overviu-radius: 4px;
+}
+```
+
+| Variable | What it changes | Default |
+|---|---|---|
+| `--overviu-color-primary` | Buttons and selected dates | Your branding's primary colour |
+| `--overviu-color-primary-text` | Text on the primary colour | Chosen to be readable on it |
+| `--overviu-font-family` | The typeface, by name | Your branding's font |
+| `--overviu-color-text` | Main text | `#1f2937` |
+| `--overviu-color-muted` | Hints, weekday names, the note under the button | `#6b7280` |
+| `--overviu-color-background` | The box | `#ffffff` |
+| `--overviu-color-border` | Borders and dividers | `#e5e7eb` |
+| `--overviu-color-unavailable` | Dates that can't be picked | `#d1d5db` |
+| `--overviu-radius` | Corners of the calendar's box | `12px` |
+| `--overviu-radius-button` | Corners of buttons | `999px` |
+| `--overviu-radius-day` | Corners of a day; `50%` is a circle | `50%` |
+| `--overviu-radius-bar` | Corners of the search bar; `999px` is a pill | `999px` |
+| `--overviu-spacing` | Padding of the box and the gaps inside it | `16px` |
+| `--overviu-font-size` | Base text size | `15px` |
+| `--overviu-shadow` | Shadow of the box | A soft shadow |
+
+<Note>The font is named, not downloaded: your website must already load it. To use whatever font your page uses, write `overviu-calendar::part(box) { font-family: inherit; }`.</Note>
+
+## Parts
+
+For anything the variables don't cover, style a part:
+
+```css
+overviu-calendar::part(button) {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+```
+
+| Part | What it is |
+|---|---|
+| `box` | The calendar's box |
+| `header` | The check-in and check-out cells |
+| `month` | One month |
+| `day`, `day-selected`, `day-in-range`, `day-unavailable` | A day, and its states |
+| `guests` | The guests picker |
+| `price`, `total` | The price lines and the total |
+| `button` | The button to reserve, and the search button in the search bar's sheet |
+| `error` | A message when something can't be loaded |
+| `bar` | The search bar, wide or compact |
+| `cell` | One of the search bar's three cells |
+| `search-button` | The round button on the search bar |
+| `popover` | What opens under a cell |
+| `sheet` | What the compact search bar opens |
+
+A [template with every variable and an example for every part](https://cdn.jsdelivr.net/npm/@overviu/widgets@0.2/overviu-widget-theme.css) is ready to copy into your CSS.
+
+## Dark pages
+
+Add `theme="dark"` to the tag (or to the WordPress shortcode) for neutral colours that suit a dark background. Your variables still apply on top.
+
+## Where it sits
+
+The search bar sits in the middle of a column wider than itself, and the calendar on the left. Add `align="left"`, `align="center"` or `align="right"` to the tag to move either one. Your page's CSS can't do this, because the box is inside the shadow root.
+
+## What stays the same
+
+Variable and part names only change with a new major version of the script. The class names inside the calendar are not meant for styling and can change at any time.
+
+## Related
+
+- [Add your calendar to your website](/website/add-to-your-website)
+- [WordPress plugin](/website/wordpress)
+- [Branding](/booking-site/branding)

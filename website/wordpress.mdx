@@ -1,0 +1,82 @@
+---
+title: "WordPress plugin"
+description: "Show your availability calendar and search bar on a WordPress site with the Overviu plugin and a shortcode."
+---
+
+If your own website runs on WordPress, the Overviu plugin puts your calendar on it with a shortcode. Guests pick their dates and the number of guests, see whether the place is free and what the stay costs, and continue to your booking site with everything filled in. The booking itself, the payment and your terms stay on your booking site.
+
+The plugin needs no API token. For a website that isn't on WordPress, see [Add your calendar to your website](/website/add-to-your-website).
+
+## Before you start
+
+- A WordPress site (version 6.3 or newer) where you can install plugins.
+- The name of your booking site: the first part of its `overviu.app` address. For `villa-laut.overviu.app` it is `villa-laut`. Find the address in **Settings** → **Domains** under **Managed subdomain**.
+- At least one active listing.
+
+## Steps
+
+<Steps>
+  <Step title="Install the plugin">
+    In WordPress, go to "Plugins" → "Add New Plugin" → "Upload Plugin", choose the plugin's zip file and click "Install Now", then "Activate Plugin".
+  </Step>
+  <Step title="Enter your booking site">
+    Go to "Settings" → "Overviu". In "Booking site", type the name of your booking site, or paste its whole `overviu.app` address, and save. The page then says "Connected to" with your booking site's name.
+
+    If your booking site uses [your own domain](/booking-site/custom-domain), still enter its `overviu.app` name here.
+  </Step>
+  <Step title="Copy a shortcode">
+    Lower on the same page, "Shortcodes" lists one for each of your listings, and for each unit type of a building:
+
+    - `[overviu_calendar listing="sea-view"]` shows one listing's calendar, the guests, the price and a button to reserve.
+    - `[overviu_search]` shows a search bar across all your listings.
+  </Step>
+  <Step title="Paste it into a page">
+    Paste the shortcode into any page, post or text widget. In the block editor use the "Shortcode" block; in Elementor use the "Shortcode" widget.
+  </Step>
+</Steps>
+
+## What happens next
+
+- The calendar shows your real availability and prices. When a guest clicks the button, your booking site opens with their dates and guests filled in, and they finish the booking there.
+- A booking that started on your website is an ordinary booking on your booking site.
+- The calendar uses the colours and font from your [branding](/booking-site/branding) unless you change them in the plugin.
+
+<Warning>Renaming your team changes your `overviu.app` address. Enter the new name in the plugin afterwards, or the calendar stops loading.</Warning>
+
+## Defaults
+
+"Settings" → "Overviu" has defaults that apply wherever a shortcode doesn't say otherwise:
+
+| Setting | What it does |
+|---|---|
+| Default listing | The listing `[overviu_calendar]` shows when the shortcode names none. |
+| Language | English or Hungarian. "Same as this website" follows your WordPress site's language; a site in another language shows the calendar in English. |
+| Button text | Replaces the text on the button. |
+| Months shown | One month, or two side by side where there is room. |
+| Colour scheme | Light, or dark for a page with a dark background. |
+
+A shortcode can set the same things for one place:
+
+```text
+[overviu_calendar listing="sea-view" lang="hu" months="2" button_text="Book now" theme="dark"]
+```
+
+## Change the look
+
+Under "Look" you can set a primary colour, the colour of the text on it, a font and the corner radius. Leave them empty to use your Overviu branding.
+
+- The font is named, not downloaded: your WordPress theme must already load it.
+- Your theme's CSS can change more than these four. See [Style the calendar](/website/style-the-widget).
+
+## If the calendar doesn't show
+
+- Nothing appears where the shortcode is. Open the page while signed in to WordPress: a line starting with "Overviu:" says what is missing, either the booking site in the settings or a listing on the shortcode. Visitors never see that line.
+- The settings page says "Overviu has no booking site called …". Check the name against your address in **Settings** → **Domains**.
+- A listing is missing from the list of shortcodes. Only active listings are shown. See [Create a listing](/listings/create-a-listing).
+
+## Related
+
+- [Add your calendar to your website](/website/add-to-your-website)
+- [Style the calendar](/website/style-the-widget)
+- [Your booking site](/booking-site/set-up)
+- [Branding](/booking-site/branding)
