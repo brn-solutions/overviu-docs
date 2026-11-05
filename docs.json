@@ -90,6 +90,14 @@
                 ]
               },
               {
+                "group": "Your own website",
+                "pages": [
+                  "website/add-to-your-website",
+                  "website/wordpress",
+                  "website/style-the-widget"
+                ]
+              },
+              {
                 "group": "Insights",
                 "pages": [
                   "insights/dashboard",
@@ -198,6 +206,14 @@
                   "hu/booking-site/branding",
                   "hu/booking-site/custom-domain",
                   "hu/booking-site/terms-and-agreement"
+                ]
+              },
+              {
+                "group": "Saját weboldal",
+                "pages": [
+                  "hu/website/add-to-your-website",
+                  "hu/website/wordpress",
+                  "hu/website/style-the-widget"
                 ]
               },
               {

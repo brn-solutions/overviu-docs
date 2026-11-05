@@ -1,0 +1,89 @@
+---
+title: "A naptár megjelenésének testreszabása"
+description: "Igazítsa a saját weboldalán lévő naptárat és keresősávot az oldalához: színek, betűtípus, sarkok, és a CSS-ből formázható részek."
+---
+
+A saját weboldalán lévő naptár és keresősáv az [arculat](/hu/booking-site/branding) színeivel és betűtípusával indul. Ez az útmutató annak szól, aki a weboldala CSS-ét gondozza: felsorolja, mit lehet módosítani, hogy illeszkedjenek az oldal többi részéhez.
+
+A naptár és a keresősáv egy shadow rooton belül rajzolja ki magát, így az oldal CSS-e véletlenül sem ronthatja el őket, és saját stílust sem adnak az oldalához. Változókkal és részekkel formázhatók.
+
+WordPressen a bővítmény beállítási oldala CSS nélkül állítja be az elsődleges színt, a betűtípust és a sarkok lekerekítését. Lásd: [WordPress-bővítmény](/hu/website/wordpress).
+
+## Változók
+
+Ezeket a saját CSS-ében, az elemen adja meg:
+
+```css
+overviu-calendar,
+overviu-search {
+  --overviu-color-primary: #0f766e;
+  --overviu-radius: 4px;
+}
+```
+
+| Változó | Mit módosít | Alapértelmezés |
+|---|---|---|
+| `--overviu-color-primary` | Gombok és a kiválasztott dátumok | Az arculat elsődleges színe |
+| `--overviu-color-primary-text` | Szöveg az elsődleges színen | Úgy választva, hogy olvasható legyen rajta |
+| `--overviu-font-family` | A betűtípus, név szerint | Az arculat betűtípusa |
+| `--overviu-color-text` | Fő szöveg | `#1f2937` |
+| `--overviu-color-muted` | Segédszövegek, a hét napjainak neve, a gomb alatti megjegyzés | `#6b7280` |
+| `--overviu-color-background` | A doboz | `#ffffff` |
+| `--overviu-color-border` | Szegélyek és elválasztók | `#e5e7eb` |
+| `--overviu-color-unavailable` | A nem választható dátumok | `#d1d5db` |
+| `--overviu-radius` | A naptár dobozának sarkai | `12px` |
+| `--overviu-radius-button` | A gombok sarkai | `999px` |
+| `--overviu-radius-day` | Egy nap sarkai; az `50%` kör | `50%` |
+| `--overviu-radius-bar` | A keresősáv sarkai; a `999px` pirula alak | `999px` |
+| `--overviu-spacing` | A doboz belső margója és a benne lévő közök | `16px` |
+| `--overviu-font-size` | Alap betűméret | `15px` |
+| `--overviu-shadow` | A doboz árnyéka | Lágy árnyék |
+
+<Note>A betűtípust csak megnevezi, a naptár nem tölti le: a weboldalának kell betöltenie. Ha azt a betűtípust szeretné, amelyet az oldala használ, írja ezt: `overviu-calendar::part(box) { font-family: inherit; }`.</Note>
+
+## Részek
+
+Amit a változók nem fednek le, azt egy rész formázásával érheti el:
+
+```css
+overviu-calendar::part(button) {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+```
+
+| Rész | Mi ez |
+|---|---|
+| `box` | A naptár doboza |
+| `header` | A bejelentkezés és a kijelentkezés cellája |
+| `month` | Egy hónap |
+| `day`, `day-selected`, `day-in-range`, `day-unavailable` | Egy nap és az állapotai |
+| `guests` | A vendégek választója |
+| `price`, `total` | Az ár sorai és a végösszeg |
+| `button` | A foglalás gombja, és a keresés gombja a keresősáv lapján |
+| `error` | Üzenet, ha valami nem tölthető be |
+| `bar` | A keresősáv, széles vagy tömör formában |
+| `cell` | A keresősáv három cellájának egyike |
+| `search-button` | A keresősáv kerek gombja |
+| `popover` | Ami egy cella alatt megnyílik |
+| `sheet` | Amit a tömör keresősáv megnyit |
+
+Egy [sablon minden változóval és minden részhez egy példával](https://cdn.jsdelivr.net/npm/@overviu/widgets@0.2/overviu-widget-theme.css) készen áll arra, hogy a CSS-ébe másolja.
+
+## Sötét oldalak
+
+Adja a címkéhez (vagy a WordPress-rövidkódhoz) a `theme="dark"` beállítást: ez sötét háttérhez illő semleges színeket ad. A saját változói ezekre is érvényesek.
+
+## Hol áll az oszlopban
+
+A keresősáv a nála szélesebb oszlop közepén áll, a naptár balra. Az `align="left"`, `align="center"` vagy `align="right"` a címkén bármelyiket áthelyezi. Az oldal CSS-ével ez nem oldható meg, mert a doboz a shadow rooton belül van.
+
+## Ami nem változik
+
+A változók és a részek neve csak a script új főverziójával változik. A naptáron belüli osztálynevek nem formázásra valók, és bármikor megváltozhatnak.
+
+## Kapcsolódó útmutatók
+
+- [A naptár hozzáadása a saját weboldalához](/hu/website/add-to-your-website)
+- [WordPress-bővítmény](/hu/website/wordpress)
+- [Arculat](/hu/booking-site/branding)

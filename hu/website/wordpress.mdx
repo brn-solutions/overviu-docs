@@ -1,0 +1,84 @@
+---
+title: "WordPress-bővítmény"
+description: "Jelenítse meg elérhetőségi naptárát és keresősávját egy WordPress-oldalon az Overviu bővítménnyel és egy rövidkóddal."
+---
+
+Ha a saját weboldala WordPresst használ, az Overviu bővítmény egy rövidkóddal teszi rá a naptárát. A vendégek kiválasztják a dátumokat és a vendégek számát, látják, hogy szabad-e a szálláshely és mennyibe kerül a tartózkodás, majd a foglalási weboldalán folytatják, ahol már minden ki van töltve. Maga a foglalás, a fizetés és a feltételek a foglalási weboldalán maradnak.
+
+A bővítményhez nem kell API-token. Ha a weboldala nem WordPresst használ, lásd: [A naptár hozzáadása a saját weboldalához](/hu/website/add-to-your-website).
+
+## Mielőtt elkezdi
+
+- Egy WordPress-oldal (6.3-as vagy újabb verzió), ahová bővítményt telepíthet.
+- A foglalási weboldalának neve: az `overviu.app` címének első része. A `villa-laut.overviu.app` esetén ez `villa-laut`. A címet a **Beállítások** → **Domainek** menüpontban, a **Kezelt aldomain** résznél találja.
+- Legalább egy aktív szálláshirdetés.
+
+## Lépések
+
+<Steps>
+  <Step title="Telepítse a bővítményt">
+    A WordPressben nyissa meg a „Bővítmények” → „Új bővítmény hozzáadása” → „Bővítmény feltöltése” menüpontot, válassza ki a bővítmény zip-fájlját, kattintson a „Telepítés most”, majd a „Bővítmény bekapcsolása” gombra.
+  </Step>
+  <Step title="Adja meg a foglalási weboldalát">
+    Nyissa meg a „Beállítások” → „Overviu” oldalt. A „Foglalási weboldal” mezőbe írja be a foglalási weboldalának nevét, vagy illessze be a teljes `overviu.app` címét, és mentse. Az oldalon ezután a „Csatlakoztatva:” felirat és a foglalási weboldalának neve látható.
+
+    Ha a foglalási weboldala [saját domaint](/hu/booking-site/custom-domain) használ, itt akkor is az `overviu.app` alatti nevét adja meg.
+  </Step>
+  <Step title="Másoljon ki egy rövidkódot">
+    Ugyanezen az oldalon lejjebb a „Rövidkódok” rész minden szálláshirdetéséhez, és egy épület minden egységtípusához felsorol egyet:
+
+    - Az `[overviu_calendar listing="sea-view"]` egy szálláshirdetés naptárát, a vendégeket, az árat és a foglalás gombját mutatja.
+    - Az `[overviu_search]` keresősávot mutat az összes szálláshirdetéséhez.
+  </Step>
+  <Step title="Illessze be egy oldalba">
+    Illessze be a rövidkódot bármelyik oldalba, bejegyzésbe vagy szöveges widgetbe. A blokkszerkesztőben használja a „Rövidkód” blokkot, az Elementorban a „Rövidkód” widgetet.
+  </Step>
+</Steps>
+
+## Mi történik ezután?
+
+- A naptár a valós elérhetőségét és árait mutatja. Amikor a vendég a gombra kattint, a foglalási weboldala nyílik meg a dátumokkal és a vendégekkel kitöltve, és a vendég ott fejezi be a foglalást.
+- A weboldalán elkezdett foglalás ugyanolyan foglalás, mint bármelyik másik a foglalási weboldalán.
+- A naptár az [arculat](/hu/booking-site/branding) színeit és betűtípusát használja, hacsak a bővítményben nem változtat rajtuk.
+
+<Warning>Ha átnevezi a csapatát, az `overviu.app` címe megváltozik. Utána írja be az új nevet a bővítményben, különben a naptár nem töltődik be.</Warning>
+
+## Alapértelmezések
+
+A „Beállítások” → „Overviu” oldalon megadott alapértelmezések mindenhol érvényesek, ahol a rövidkód mást nem ad meg:
+
+| Beállítás | Mit csinál |
+|---|---|
+| Alapértelmezett szálláshirdetés | Ezt mutatja az `[overviu_calendar]`, ha a rövidkód nem nevez meg másikat. |
+| Nyelv | Angol vagy magyar. „A weboldal nyelve” a WordPress-oldal nyelvét követi; más nyelvű oldalon a naptár angolul jelenik meg. |
+| Gomb szövege | A gomb szövege helyett jelenik meg. |
+| Megjelenített hónapok | Egy hónap, vagy kettő egymás mellett, ahol van hely. |
+| Színséma | Világos, vagy sötét a sötét hátterű oldalhoz. |
+
+Egy rövidkód ugyanezeket egy adott helyre is megadhatja:
+
+```text
+[overviu_calendar listing="sea-view" lang="hu" months="2" button_text="Foglalok" theme="dark"]
+```
+
+A keresősáv magától középre áll az oszlopában, a naptár balra. Az `align="left"`, `align="center"` vagy `align="right"` bármelyiket áthelyezi.
+
+## A megjelenés módosítása
+
+A „Megjelenés” résznél megadhat elsődleges színt, a rajta lévő szöveg színét, betűtípust és a sarkok lekerekítését. Hagyja üresen őket, ha az Overviu arculatát szeretné használni.
+
+- A betűtípust csak megnevezi, a naptár nem tölti le: a WordPress-sablonjának kell betöltenie.
+- A sablon CSS-e ennél a négynél többet is módosíthat. Lásd: [A naptár megjelenésének testreszabása](/hu/website/style-the-widget).
+
+## Ha a naptár nem jelenik meg
+
+- A rövidkód helyén nem jelenik meg semmi. Nyissa meg az oldalt a WordPressbe bejelentkezve: egy „Overviu:” kezdetű sor megmondja, mi hiányzik, a foglalási weboldal a beállításokból vagy a szálláshirdetés a rövidkódból. A látogatók ezt a sort soha nem látják.
+- A beállítási oldalon ez áll: „Az Overviuban nincs … nevű foglalási weboldal”. Ellenőrizze a nevet a **Beállítások** → **Domainek** menüpontban látható címmel.
+- Egy szálláshirdetés hiányzik a rövidkódok listájáról. Csak az aktív szálláshirdetések jelennek meg. Lásd: [Szálláshirdetés létrehozása](/hu/listings/create-a-listing).
+
+## Kapcsolódó útmutatók
+
+- [A naptár hozzáadása a saját weboldalához](/hu/website/add-to-your-website)
+- [A naptár megjelenésének testreszabása](/hu/website/style-the-widget)
+- [Az Ön foglalási weboldala](/hu/booking-site/set-up)
+- [Arculat](/hu/booking-site/branding)

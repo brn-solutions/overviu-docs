@@ -9,6 +9,8 @@ The terms come from the app's translation; when a term changes, change it in `hu
 Formal "Ön" everywhere: the host app, the booking site, every email and the docs. Never "te" (no "fiókod",
 "Válaszd", "Kattints").
 
+Quoted names take Hungarian quotation marks („Mentés”), and a time takes its suffix with a hyphen ("10:00-ig").
+
 "Overviu" takes its suffixes without a hyphen, as the app writes it: Overviuban, Overviut, Overviura ("Kérdezze az
 Overviut").
 
@@ -47,7 +49,7 @@ no decimals.
 |---|---|---|
 | booking | foglalás | |
 | block (dates) | blokkol, blokkolt dátumok | As the app's **Blokkolva**; not "letilt". |
-| booking code | foglalási kód | |
+| booking code, booking reference, ref | foglalási kód, kód | Never "hivatkozás", which is a link (naptárhivatkozás). |
 | guest | vendég | |
 | host | szállásadó | |
 | stay | tartózkodás | |

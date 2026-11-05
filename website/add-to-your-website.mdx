@@ -1,0 +1,82 @@
+---
+title: "Add your calendar to your website"
+description: "Show your availability calendar or a search bar on any website with one script tag. Guests pick dates there and finish on your booking site."
+---
+
+If you have a website of your own, you can show your Overviu calendar on it. Guests pick their dates and the number of guests, see whether the place is free and what the stay costs, and continue to your booking site with everything filled in. The booking itself, the payment and your terms stay on your booking site.
+
+It works on any website where you can paste HTML: Wix, Squarespace, Webflow, or a site your developer built. No API token is needed. On WordPress, use the [WordPress plugin](/website/wordpress) instead.
+
+## Before you start
+
+- The name of your booking site: the first part of its `overviu.app` address. For `villa-laut.overviu.app` it is `villa-laut`. Find the address in **Settings** → **Domains** under **Managed subdomain**. If your booking site uses [your own domain](/booking-site/custom-domain), you still use the `overviu.app` name here.
+- For a calendar, the listing's short name: the last part of the listing's address on your booking site. For `villa-laut.overviu.app/listings/sea-view` it is `sea-view`.
+- A place on your website where you can paste HTML. Site builders call it an "embed", "custom code" or "HTML" block.
+
+## Steps
+
+<Steps>
+  <Step title="Add the script">
+    Paste this once on every page that shows a calendar or the search bar:
+
+    ```html
+    <script src="https://cdn.jsdelivr.net/npm/@overviu/widgets@0.2/dist/widget.js" async></script>
+    ```
+  </Step>
+  <Step title="Add a calendar for one listing">
+    Paste this where the calendar should appear, with your own names in place of `villa-laut` and `sea-view`:
+
+    ```html
+    <overviu-calendar team="villa-laut" listing="sea-view"></overviu-calendar>
+    ```
+
+    It shows the calendar, the guests, the price for the chosen dates and a button to reserve. For a building, guests first pick one of its unit types.
+  </Step>
+  <Step title="Or add a search bar for all your listings">
+    ```html
+    <overviu-search team="villa-laut"></overviu-search>
+    ```
+
+    Guests choose where, when and who, and your booking site opens with the places that are free. Where there is little room, such as on a phone, the bar becomes a button that opens the same choices.
+  </Step>
+</Steps>
+
+## What happens next
+
+- The calendar shows your real availability and prices, and follows your [prices and stay rules](/calendar/prices-and-rules): minimum stays, days closed for arrival, and how far ahead guests can book.
+- When a guest clicks the button, your booking site opens with their dates and guests filled in, in the same language.
+- A booking that started on your website is an ordinary booking on your booking site.
+- The calendar uses the colours and font from your [branding](/booking-site/branding). To change more, see [Style the calendar](/website/style-the-widget).
+
+<Warning>Renaming your team changes your `overviu.app` address. Change the `team` name in your website's code afterwards, or the calendar stops loading.</Warning>
+
+## Options
+
+Add any of these inside the tag:
+
+| Option | Values | What it does |
+|---|---|---|
+| `lang` | `en`, `hu` | The language. Without it the calendar follows the language of your page, then your booking site's default language, then English. |
+| `months` | `1`, `2` | Months shown. Two sit side by side where there is room. |
+| `button-text` | text | Replaces the text on the button. |
+| `theme` | `light`, `dark` | `dark` suits a page with a dark background. |
+| `align` | `left`, `center`, `right` | Where it sits in a column wider than itself. Without it the search bar sits in the middle and the calendar on the left. |
+
+```html
+<overviu-calendar team="villa-laut" listing="sea-view" lang="hu" months="2" button-text="Book now" align="center"></overviu-calendar>
+```
+
+## In a frame
+
+Some site builders put custom code inside a frame. The calendar works there, and the button opens your booking site in the whole window. Give the frame enough height: about 650 pixels for a calendar, about 480 for the search bar, whose choices open below it.
+
+## For developers
+
+The same elements are on npm as `@overviu/widgets`, with typed components for React (`@overviu/widgets-react`) and Vue (`@overviu/widgets-vue`). Each element sends an `overviu-change` event when the guest changes something and an `overviu-continue` event when they click the button; cancel the second to handle the step yourself. The packages' pages on npm have the details.
+
+## Related
+
+- [WordPress plugin](/website/wordpress)
+- [Style the calendar](/website/style-the-widget)
+- [Your booking site](/booking-site/set-up)
+- [Prices and stay rules](/calendar/prices-and-rules)
