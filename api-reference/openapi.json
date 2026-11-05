@@ -1045,6 +1045,47 @@
                 }
             }
         },
+        "/v1/public/{teamSlug}": {
+            "get": {
+                "operationId": "v1.public.site",
+                "description": "Returns where a team's booking site is, its default language and its colours and font: what a website widget\nneeds before it shows the team's listings. No token needed.",
+                "summary": "Get a booking site",
+                "tags": [
+                    "Public"
+                ],
+                "parameters": [
+                    {
+                        "name": "teamSlug",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "`PublicSiteResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/PublicSiteResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": []
+            }
+        },
         "/v1/public/{teamSlug}/listings": {
             "get": {
                 "operationId": "v1.public.listings.index",
@@ -1512,6 +1553,13 @@
                             "null"
                         ]
                     },
+                    "reason_count": {
+                        "type": [
+                            "integer",
+                            "null"
+                        ],
+                        "description": "The number the message names (nights, days or guests), when it names one."
+                    },
                     "price": {
                         "anyOf": [
                             {
@@ -1530,6 +1578,7 @@
                     "available",
                     "reason_code",
                     "reason_message",
+                    "reason_count",
                     "price",
                     "units_left"
                 ],
@@ -2113,6 +2162,13 @@
                     "max_guests": {
                         "type": "integer"
                     },
+                    "children_allowed": {
+                        "type": "boolean",
+                        "description": "What the booking site asks a guest about: children and infants unless the host switched them off, pets only when switched on."
+                    },
+                    "pets_allowed": {
+                        "type": "boolean"
+                    },
                     "bedrooms_count": {
                         "type": "integer"
                     },
@@ -2228,6 +2284,8 @@
                     "public_title",
                     "property_type",
                     "max_guests",
+                    "children_allowed",
+                    "pets_allowed",
                     "bedrooms_count",
                     "beds_count",
                     "bathrooms_count",
@@ -2241,6 +2299,55 @@
                     "description"
                 ],
                 "title": "PublicListingResource"
+            },
+            "PublicSiteResource": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "The booking site's address, with no trailing slash: the team's own domain when it has one, its overviu.app address otherwise."
+                    },
+                    "locale": {
+                        "type": "string",
+                        "description": "The site's default language, e.g. `en` or `hu`."
+                    },
+                    "branding": {
+                        "type": "object",
+                        "properties": {
+                            "primary_color": {
+                                "type": "string",
+                                "description": "Buttons and selected dates, as a hex colour."
+                            },
+                            "primary_text_color": {
+                                "type": "string",
+                                "description": "A readable text colour on the primary colour.",
+                                "enum": [
+                                    "#18181b",
+                                    "#ffffff"
+                                ]
+                            },
+                            "font": {
+                                "type": "string",
+                                "description": "The font family's name."
+                            }
+                        },
+                        "required": [
+                            "primary_color",
+                            "primary_text_color",
+                            "font"
+                        ]
+                    }
+                },
+                "required": [
+                    "name",
+                    "url",
+                    "locale",
+                    "branding"
+                ],
+                "title": "PublicSiteResource"
             },
             "StoreBookingRequest": {
                 "type": "object",
