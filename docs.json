@@ -66,6 +66,7 @@
                 "pages": [
                   "payments/connect-stripe",
                   "payments/how-guests-pay",
+                  "payments/szep-card",
                   "payments/security-deposits",
                   "payments/refunds",
                   "payments/coupons"
@@ -185,6 +186,7 @@
                 "pages": [
                   "hu/payments/connect-stripe",
                   "hu/payments/how-guests-pay",
+                  "hu/payments/szep-card",
                   "hu/payments/security-deposits",
                   "hu/payments/refunds",
                   "hu/payments/coupons"

@@ -1,0 +1,114 @@
+---
+title: "SZÉP-kártya elfogadása"
+description: "Tegye lehetővé, hogy a magyar vendégek SZÉP-kártyával fizessék a tartózkodás teljes árát vagy egy részét, és rögzítse a fizetést, amikor az összeg beérkezik."
+---
+
+Sok magyar vendég SZÉP-kártyával fizeti a nyaralását; a kártyát az OTP, a K&H és az MBH bocsátja ki. A SZÉP-kártya-elfogadás bővítménnyel a magyarországi szálláshirdetéseit foglaló vendégek a tartózkodás teljes árát vagy egy részét SZÉP-kártyával fizethetik.
+
+Az összeg nem az Overviun keresztül érkezik. A vendég a kártyakibocsátó weboldalán fizet, a közleménybe a foglalási kódot írja, Ön pedig akkor rögzíti a fizetést az Overviuban, amikor az összeg megérkezik a SZÉP-kártya-számlájára.
+
+<Note>Csak a tulajdonosok és adminisztrátorok kapcsolhatják be és ki a bővítményeket. A szálláshirdetés beállítását és a fizetés rögzítését a csapatban bárki elvégezheti.</Note>
+
+## Mielőtt elkezdi
+
+- A szálláshirdetés címe Magyarországon van, az árai pedig forintban (HUF) vannak megadva. A SZÉP-kártya csak belföldi szálláshelyre használható, ezért a többi szálláshirdetés nem kínálja.
+- Ön szerződött elfogadóhely azoknál a kártyakibocsátóknál, amelyek kártyáit el szeretné fogadni, és mindegyiknél megvan az elfogadóhely-azonosítója.
+
+## A SZÉP-kártya-elfogadás bekapcsolása
+
+Nyissa meg a felhasználói menüt → **Beállítások** → **Bővítmények**, és kapcsolja be a **SZÉP-kártya-elfogadás** melletti kapcsolót. A bővítmény **Ingyenes**.
+
+A bővítmény akkor jelenik meg a listában, ha legalább egy szálláshirdetése Magyarországon van.
+
+## A szálláshirdetés beállítása
+
+<Steps>
+  <Step title="Nyissa meg a szálláshirdetés fizetési beállításait">
+    Nyissa meg a szálláshirdetést → **Árazás** → **Fizetés**. A **SZÉP-kártya-elfogadás** rész a fizetési lehetőségek alatt található.
+  </Step>
+  <Step title="Jelölje be az elfogadott kártyákat">
+    Jelölje be az **OTP**, a **K&H** vagy az **MBH** lehetőséget; annyit, ahány kártyát elfogad.
+  </Step>
+  <Step title="Adja meg az elfogadóhely-azonosítókat">
+    Minden bejelölt kártyánál adja meg az azonosítóját az **OTP elfogadóhely-azonosító**, a **K&H elfogadóhely-azonosító** vagy az **MBH elfogadóhely-azonosító** mezőben. Bejelölt kártyához kötelező az azonosító.
+  </Step>
+  <Step title="Mentse">
+    Kattintson a **Fizetési beállítások mentése** gombra.
+  </Step>
+</Steps>
+
+Ha egy kártyát már nem fogad el ezen a szálláshirdetésen, törölje a jelölését, és mentse.
+
+## Amit a vendég foglaláskor lát
+
+A foglalási weboldalán a vendég akkor látja a **Fizetés SZÉP-kártyával** lehetőséget, ha az érkezésig legalább 3 nap van hátra. Bejelöli, a **SZÉP-kártya** mezőben kiválasztja a kártyáját a szálláshirdetés által elfogadottak közül, és egész forintban megadja a **SZÉP-kártyával fizetendő összeg** értékét. Az Overviu előre kitölti a most fizetendő összeggel, vagy ha most nincs mit fizetni, a SZÉP-kártyával fizethető legnagyobb összeggel.
+
+SZÉP-kártyával legfeljebb a tartózkodás teljes ára fizethető, az idegenforgalmi adó nélkül: az idegenforgalmi adó nem fizethető SZÉP-kártyával, és ezt az oldal is jelzi. Egy 110 000 Ft-os tartózkodásnál, amelyben 10 000 Ft idegenforgalmi adó van, ez 100 000 Ft.
+
+A folytatás attól függ, hogyan fizetnek a szálláshirdetésen (lásd: [Hogyan fizetnek a vendégek?](/hu/payments/how-guests-pay)):
+
+- Ha a SZÉP-kártya fedezi a teljes most fizetendő összeget, a vendég a **Foglalás és fizetés SZÉP-kártyával** gombra kattint. A foglalás **Fizetésre vár** állapotú, és 48 órán át foglalja a dátumokat, amíg a vendég a kártyakibocsátó oldalán fizet.
+- Ha a SZÉP-kártya a most fizetendő összegnek csak egy részét fedezi, a többit a vendég bankkártyával fizeti: a **Tovább a fizetéshez** gombra kattint, és a szokásos módon a Stripe fizetési oldalán fizet. A foglalás a bankkártyás fizetés sikerével **Visszaigazolva** lesz; a SZÉP-kártyás összeg ezután is várt fizetés marad.
+- Ha a szálláshirdetésen érkezéskor fizetnek, most nincs mit fizetni: a vendég a szokásos módon a **Foglalási kérés** gombra kattint, és a foglalás **Függőben** marad, amíg Ön meg nem erősíti. A SZÉP-kártyás összeget a vendég a tartózkodás előtt fizeti ki.
+
+Azt az összeget, amelyet a vendég SZÉP-kártyával vállalt kifizetni, az Overviu soha nem terheli a bankkártyájára. Sem az érkezés előtt terhelt hátralék, sem a fennmaradó összegről küldött számla nem tartalmazza.
+
+<Note>Stripe nélkül is foglalható SZÉP-kártyával az online fizetéses szálláshirdetés, ha a SZÉP-kártyás összeg fedezi a most fizetendő összeget, a SZÉP-kártyával fizethető legnagyobb összegig. Az idegenforgalmi adót ilyenkor a vendég érkezéskor fizeti.</Note>
+
+## Hogyan fizet a vendég?
+
+A vendég a foglalásról kapott e-mailben látja a SZÉP-kártyás összeget és a kártyát, és azt, hogy a [foglalási oldalán](/hu/guests/guest-page) találja a fizetés módját. Ott a **Fizetés SZÉP-kártyával** lépés mutatja:
+
+- a még fizetendő összeget, és ha a dátumok foglalva vannak, a határidőt;
+- a kártyát, az Ön hozzá tartozó elfogadóhely-azonosítóját és a közleménybe írandó foglalási kódot;
+- a kártyakibocsátó oldalán elvégzendő lépéseket, és egy gombot, amely megnyitja az oldalt.
+
+A lépések kártyakibocsátónként:
+
+- OTP: jelentkezzen be az OTP SZÉP-kártya portálon, nyissa meg az „Előlegfizetés” menüpontot, keresse meg a szálláshelyet a neve vagy az elfogadóhely-azonosítója alapján, adja meg az összeget, és a közleménybe írja be a foglalási kódot.
+- K&H: jelentkezzen be kártyabirtokosként a K&H SZÉP-kártya oldalán, nyissa meg az „Előlegfizetés” menüpontot, adja meg az elfogadóhely-azonosítót és az összeget, és a közleménybe írja be a foglalási kódot.
+- MBH: Ön fizetési azonosítót kér az MBH-tól, és elküldi a vendégnek a fizetéshez szükséges adatokat; a vendég ezekkel fizet az MBH SZÉP-kártya oldalán. Az Overviu jelzi a vendégnek, hogy Ön elküldi neki az adatokat.
+
+Ha kifizette, a vendég a **Kifizettem** gombra kattint. Az Overviu **Fizetmény beérkezett** értesítést küld a csapatának, a foglaláson pedig látszik, hogy a vendég jelezte a fizetést.
+
+<Warning>A **Kifizettem** csak a vendég jelzése, semmit nem igazol vissza. Ellenőrizze a SZÉP-kártya-számláját, majd rögzítse a fizetést.</Warning>
+
+## A SZÉP-kártyás fizetés rögzítése
+
+<Steps>
+  <Step title="Nyissa meg a foglalást">
+    Nyissa meg a **Foglalások** oldalt, majd a foglalást. A **Fizetés** rész mutatja a még várt SZÉP-kártyás összeget és a kártyát.
+  </Step>
+  <Step title="Kattintson a SZÉP-kártyás fizetés rögzítése gombra">
+    Kattintson a **SZÉP-kártyás fizetés rögzítése** gombra; ez addig látható, amíg SZÉP-kártyás fizetés várható. Megnyílik a **Fizetés rögzítése** űrlap: a **Fizetési mód** a vendég kártyája, az **Összeg** a még várt összeg. Ha más összeg érkezett, vagy máskor, módosítsa az összeget vagy a **Beérkezés dátuma** értékét.
+  </Step>
+  <Step title="Mentse">
+    Kattintson a **Fizetés rögzítése** gombra.
+  </Step>
+</Steps>
+
+## Mi történik ezután?
+
+- A fizetés úgy számít, mint bármely [rögzített fizetés](/hu/bookings/record-a-payment): ezt követi a fizetési állapot, a hátralék és az **Idővonal**.
+- A **Fizetésre vár** állapotú foglalás **Visszaigazolva** lesz.
+- Amikor a teljes SZÉP-kártyás összeget rögzítette, a vendég foglalási oldalán a lépés elkészül.
+- A [pénzügyi jelentésben](/hu/insights/reports) és a CSV-fájljában minden kártya külön fizetési mód: OTP SZÉP-kártya, K&H SZÉP-kártya és MBH SZÉP-kártya.
+
+Ha a 48 órás foglalás alatt nem rögzít fizetést, az Overviu lemondja a foglalást, és a dátumok újra szabadok lesznek, mint minden időben ki nem fizetett foglalásnál. A csapata **A fizetés nem fejeződött be** tárgyú e-mailt kap.
+
+## Visszatérítés
+
+Az Overviu nem tudja visszatéríteni a SZÉP-kártyás összeget, mert az nem a Stripe-on keresztül érkezett. A visszatérítést a kártyakibocsátó oldalán végezze el, ahogy a készpénzt vagy a banki átutalást is a fizetés módja szerint adná vissza. Ha a foglaláson is nyomát szeretné hagyni, használja a **Belső megjegyzések** rész **Megjegyzés hozzáadása** gombját. Lásd: [Visszatérítések](/hu/payments/refunds).
+
+## A bővítmény kikapcsolása
+
+Ha a **Beállítások** → **Bővítmények** oldalon kikapcsolja a **SZÉP-kártya-elfogadás** bővítményt, a foglalási weboldala többé nem kínálja a SZÉP-kártyás fizetést. A szálláshirdetései megtartják az elfogadóhely-azonosítóikat, így újbóli bekapcsoláskor visszaállnak.
+
+A már SZÉP-kártyás fizetést váró foglalások nem változnak: a vendég továbbra is látja a lépést a foglalási oldalán, Ön pedig továbbra is rögzítheti a fizetést a **SZÉP-kártyás fizetés rögzítése** gombbal.
+
+## Kapcsolódó útmutatók
+
+- [Hogyan fizetnek a vendégek?](/hu/payments/how-guests-pay)
+- [Fizetés rögzítése](/hu/bookings/record-a-payment)
+- [A vendég foglalási oldala](/hu/guests/guest-page)
+- [Visszatérítések](/hu/payments/refunds)

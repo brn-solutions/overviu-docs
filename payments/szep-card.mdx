@@ -1,0 +1,114 @@
+---
+title: "Take SZÉP-kártya"
+description: "Let Hungarian guests pay all or part of a stay with their SZÉP card, and record the money when it arrives."
+---
+
+Many Hungarian guests pay for holidays with their SZÉP-kártya, the benefit card issued by OTP, K&H and MBH. With the SZÉP-kártya add-on, guests booking a listing in Hungary can pay all or part of their stay with it.
+
+Overviu doesn't take the money itself. The guest pays on their card issuer's website, quoting the booking code, and you record the payment in Overviu when it reaches your SZÉP account.
+
+<Note>Only owners and admins can switch add-ons on and off. Anyone in the team can set up a listing and record the money.</Note>
+
+## Before you start
+
+- The listing's address is in Hungary and its prices are in forint (HUF). SZÉP is only for Hungarian stays, so other listings don't offer it.
+- You accept SZÉP with the issuers you want to take, and you have your merchant ID (elfogadóhely-azonosító) with each one.
+
+## Switch on SZÉP-kártya
+
+Open the user menu → **Settings** → **Add-ons**, and turn on the switch next to **SZÉP-kártya**. The add-on is **Free**.
+
+The add-on is listed once one of your listings is in Hungary.
+
+## Set up a listing
+
+<Steps>
+  <Step title="Open the listing's payment settings">
+    Open the listing → **Pricing** → **Payment**. The **SZÉP-kártya** block is below the payment options.
+  </Step>
+  <Step title="Tick the cards you accept">
+    Tick **OTP**, **K&H** or **MBH**, as many as you take.
+  </Step>
+  <Step title="Enter your merchant IDs">
+    For each card you ticked, enter your ID in **OTP merchant ID**, **K&H merchant ID** or **MBH merchant ID**. A ticked card needs its ID.
+  </Step>
+  <Step title="Save">
+    Click **Save payment settings**.
+  </Step>
+</Steps>
+
+To stop taking a card on this listing, untick it and save.
+
+## What the guest sees when booking
+
+On your booking site, the guest sees **Pay with SZÉP-kártya** when check-in is at least 3 days away. They tick it, choose their card under **SZÉP card** from the ones the listing takes, and enter the **Amount to pay by SZÉP-kártya** in whole forints. Overviu fills in what's due now, or the most SZÉP can pay when nothing is due now.
+
+The most they can pay by SZÉP is the stay's total less the tourist tax: SZÉP can't pay the tourist tax, and the page says so. For a stay of HUF 110,000 with HUF 10,000 of tourist tax, that's HUF 100,000.
+
+What happens next depends on how the listing is paid (see [How guests pay](/payments/how-guests-pay)):
+
+- If SZÉP covers everything due now, the guest clicks **Book and pay by SZÉP-kártya**. The booking is **Awaiting payment** and holds its dates for 48 hours while the guest pays on their issuer's site.
+- If SZÉP covers part of what's due now, the guest pays the rest by card: they click **Continue to payment** and pay on Stripe's checkout page as usual. The booking is **Confirmed** when the card payment succeeds; the SZÉP money is still expected.
+- If the listing is paid at check-in, nothing is due now: the guest clicks **Request to book** as usual, and the booking is **Pending** until you confirm it. The guest pays the SZÉP amount ahead of the stay.
+
+Money the guest promised to pay by SZÉP is never charged to their card. A balance charged before check-in, or an invoice for the rest, leaves it out.
+
+<Note>Without Stripe, a listing that's paid online can still be booked by SZÉP, as long as the SZÉP amount covers what's due now, up to the most SZÉP can pay. The guest then pays the tourist tax on arrival.</Note>
+
+## How the guest pays
+
+The guest's booking email gives the SZÉP amount and the card, and says their [booking page](/guests/guest-page) shows how to pay. There, the **Pay with SZÉP-kártya** step shows:
+
+- the amount still to pay, and, while the dates are held, until when;
+- the card, your merchant ID for it, and the booking code to put in the payment message;
+- the steps on the issuer's site, and a button that opens it.
+
+The steps for each issuer:
+
+- OTP: log in to the OTP SZÉP portal, open "Előlegfizetés", find your place by its name or merchant ID, enter the amount and put the booking code in the message.
+- K&H: log in to K&H SZÉP as a cardholder, open "Előlegfizetés", enter your merchant ID, enter the amount and put the booking code in the message.
+- MBH: you request a payment identifier from MBH and send the guest the payment details; the guest then pays on the MBH SZÉP site with them. Overviu tells the guest you'll send the details.
+
+When they've paid, the guest clicks **I've paid**. Overviu sends your team a **Payment received** notification, and the booking shows that the guest says they've paid.
+
+<Warning>**I've paid** is only the guest's word. It confirms nothing: check your SZÉP account, then record the money.</Warning>
+
+## Record the SZÉP money
+
+<Steps>
+  <Step title="Open the booking">
+    Go to **Bookings** and open the booking. Its **Payment** section shows the SZÉP amount still expected and the card.
+  </Step>
+  <Step title="Click Record SZÉP payment">
+    Click **Record SZÉP payment**; it shows while SZÉP money is still expected. The **Record a payment** form opens with the **Method** set to the guest's card and the **Amount** set to what's still expected. Change the amount or the **Date received** if the money that arrived is different.
+  </Step>
+  <Step title="Save">
+    Click **Record payment**.
+  </Step>
+</Steps>
+
+## What happens next
+
+- The payment counts like any [recorded payment](/bookings/record-a-payment): the payment status, the balance and the **Timeline** follow.
+- A booking **Awaiting payment** becomes **Confirmed**.
+- Once the whole SZÉP amount is recorded, the step on the guest's booking page is done.
+- In the [money report](/insights/reports) and its CSV, each card is its own method: SZÉP-kártya (OTP), SZÉP-kártya (K&H) and SZÉP-kártya (MBH).
+
+If nothing is recorded within the 48 hours of a hold, the booking is cancelled and its dates are free again, like any booking that isn't paid in time. Your team gets a **Payment not completed** email.
+
+## Refunds
+
+Overviu can't refund SZÉP money: it never went through Stripe. Refund the guest on the issuer's site, as you would cash or a bank transfer. To keep a record on the booking, use **Add note** under **Internal notes**. See [Refunds](/payments/refunds).
+
+## Switching the add-on off
+
+When you turn **SZÉP-kártya** off in **Settings** → **Add-ons**, your booking site stops offering SZÉP. Your listings keep their merchant IDs, so turning it back on restores them.
+
+Bookings already expecting SZÉP money are unchanged: the guest still sees the step on their booking page, and you can still record the money with **Record SZÉP payment**.
+
+## Related
+
+- [How guests pay](/payments/how-guests-pay)
+- [Record a payment](/bookings/record-a-payment)
+- [The guest's booking page](/guests/guest-page)
+- [Refunds](/payments/refunds)
